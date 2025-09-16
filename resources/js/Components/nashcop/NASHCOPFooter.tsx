@@ -76,7 +76,7 @@ const NASHCOPFooter: FC = () => {
             </div>
 
             {/* Emergency Banner */}
-            <div className="bg-gradient-to-r from-red-500 to-pink-600 py-4 shadow-lg relative z-10">
+            <div className="bg-gradient-to-r from-red-900 via-red-800 to-orange-900 py-4 shadow-lg relative z-10">
                 <div className="container mx-auto px-4">
                     <div className="flex flex-col sm:flex-row items-center justify-center space-y-2 sm:space-y-0 sm:space-x-8 text-center">
                         <div className="flex items-center space-x-2">
