@@ -64,9 +64,19 @@ const NASHCOPFooter: FC = () => {
     ];
 
     return (
-        <footer className="bg-gradient-to-br from-blue-900 via-gray-900 to-blue-800 text-white">
+        <footer className="bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 text-white relative overflow-hidden">
+            {/* Background Graphics */}
+            <div className="absolute inset-0">
+                <div className="absolute top-0 left-0 w-full h-full opacity-20">
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent"></div>
+                </div>
+                <div className="absolute top-20 right-20 w-64 h-64 bg-blue-400 rounded-full blur-3xl opacity-10"></div>
+                <div className="absolute bottom-20 left-20 w-48 h-48 bg-purple-400 rounded-full blur-3xl opacity-10"></div>
+                <div className="absolute top-1/2 left-1/3 w-32 h-32 bg-green-400 rounded-full blur-2xl opacity-10"></div>
+            </div>
+
             {/* Emergency Banner */}
-            <div className="bg-gradient-to-r from-red-600 to-red-700 py-4 shadow-lg">
+            <div className="bg-gradient-to-r from-red-500 to-pink-600 py-4 shadow-lg relative z-10">
                 <div className="container mx-auto px-4">
                     <div className="flex flex-col sm:flex-row items-center justify-center space-y-2 sm:space-y-0 sm:space-x-8 text-center">
                         <div className="flex items-center space-x-2">
@@ -86,19 +96,19 @@ const NASHCOPFooter: FC = () => {
             </div>
 
             {/* Main Footer Content */}
-            <div className="container mx-auto px-4 py-16">
+            <div className="container mx-auto px-4 py-16 relative z-10">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     {/* Organization Info */}
                     <div className="lg:col-span-1">
                         <div className="flex items-center space-x-3 mb-6">
                             <img
-                                src="/static/images/emblem.png"
+                                src="/images/logo.jpeg"
                                 alt="Tanzania Coat of Arms"
                                 className="h-12 w-12"
                             />
                             <div>
                                 <h3 className="text-xl font-bold text-yellow-400">
-                                    NACP Tanzania
+                                    NASHCOP Tanzania
                                 </h3>
                                 <p className="text-sm text-blue-200">
                                     National AIDS Control Programme

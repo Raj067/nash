@@ -14,6 +14,10 @@ import Herosection from "./Home/Herosection";
 import FeaturedServiceWidget from "./Home/FeaturedServiceWidget";
 import HomeStatisticsPage from "./Home/HomeStatisticsPage";
 import FaqsWidgets from "./Home/FaqsWidgets";
+import RecentNews from "./Home/RecentNews";
+import ImportantDocumentsWidgets from "./Home/ImportantDocumentsWidgets";
+import QuickActionWidget from "./Home/QuickActionWidget";
+import ContactInfoWidget from "./Home/ContactInfoWidget";
 
 interface HomeProps {
     hero: {
@@ -46,7 +50,10 @@ export default function Home({ hero, quickLinks }: HomeProps) {
             <FeaturedServiceWidget />
             <HomeStatisticsPage />
             <FaqsWidgets />
-
+            <RecentNews />
+            <ImportantDocumentsWidgets />
+            <QuickActionWidget />
+            <ContactInfoWidget />
             {/* <section className="bg-green-500 min-h-screen">Homepage1</section> */}
         </PublicLayout>
     );
