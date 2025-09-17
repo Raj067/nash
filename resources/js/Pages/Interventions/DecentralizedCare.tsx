@@ -10,6 +10,7 @@ import {
     Mail,
     MapPin,
     Target,
+    Stethoscope,
 } from "lucide-react";
 
 export default function DecentralizedCare() {
@@ -17,37 +18,51 @@ export default function DecentralizedCare() {
         {
             title: "Facility Based Care and Support",
             description:
-                "CTC clinics with block appointment systems, expert patients, and community volunteers providing comprehensive support",
+                "CTC clinics with block appointment systems, expert patients, lay counsellors, and community volunteers providing comprehensive support including home-based care patient tracking for LTFU and VL monitoring",
             icon: Heart,
             color: "from-pink-500 to-red-500",
         },
         {
             title: "ART Services for Adults",
             description:
-                '"Treat All" approach for universal ART coverage following UNAIDS 90-90-90 targets',
+                '"Treat All" approach (started as "Test and Treat" in October 2016) for universal ART coverage following UNAIDS 90-90-90 targets',
             icon: Users,
             color: "from-blue-500 to-purple-500",
         },
         {
             title: "Pediatric ART Services",
             description:
-                "Tanzania Initiative for Accelerating Children on Treatment (TI-CoT) to achieve 95% pediatric ART coverage",
+                "Tanzania Initiative for Accelerating Children on Treatment (TI-CoT) to achieve 95% pediatric ART coverage by 2020 with coordination structures from national to district level",
             icon: Baby,
             color: "from-green-500 to-teal-500",
         },
         {
             title: "ART for Pregnant and Lactating Women",
             description:
-                "Mother-Child Cohort Monitoring System for improved PMTCT outcomes",
+                "Mother-Child Cohort Monitoring System for improved PMTCT outcomes with enhanced community involvement and participation of community structures",
             icon: UserCheck,
             color: "from-purple-500 to-pink-500",
         },
         {
             title: "Community Based HIV/AIDS Care",
             description:
-                "Community based interventions with improved coordination through regional and district HBC coordinators",
+                "Community based interventions with more Councils including CBHS in their plans and improved coordination through regional and district HBC coordinators",
             icon: Activity,
             color: "from-orange-500 to-red-500",
+        },
+        {
+            title: "HIV Co-infections & Co-morbidities",
+            description:
+                "HIV infection lowers immunity leading to opportunistic infections like TB, Cryptococcosis, Toxoplasmosis and co-infections such as Hepatitis and HPV",
+            icon: Stethoscope,
+            color: "from-indigo-500 to-purple-500",
+        },
+        {
+            title: "Achieving Viral Suppression",
+            description:
+                "HIV Viral Load monitoring as gold standard for treatment failure detection. MOHCDGEC through NACP building country's HVL testing capacity",
+            icon: Target,
+            color: "from-teal-500 to-cyan-500",
         },
     ];
 
@@ -61,19 +76,21 @@ export default function DecentralizedCare() {
     ];
 
     const adultArtPriorities = [
-        "Strengthen implementation of SDMs to support identification and retention",
-        "Enhance early initiation into ART and adherence support services",
-        "Establish quality assurance and quality improvement activities",
-        "Strengthen adherence counselling and health education",
+        "Strengthen implementation of SDMs to support identification and retention of adults on care",
+        "Enhance early initiation into ART and adherence support services with special focus on adolescents and elderly",
+        "Establish quality assurance and quality improvement activities at all HIV care and treatment sites",
+        "Strengthen adherence counselling, health education and linking clients to community groups to reduce stigma",
     ];
 
     const pediatricPriorities = [
-        "Strengthen case identification strategies at all pediatric entry points",
-        "Strengthen adherence and retention including psychosocial support",
-        "Strengthen linkages between RCH and CTCs",
-        "Scale up focused PITC in all health facilities attending children",
-        "Strengthen linkage mechanisms for MVC/OVC services",
-        "Strengthen pediatric nutrition assessment and counselling",
+        "Strengthen case identification strategies at all pediatric entry points to enhance early ART initiation",
+        "Strengthen adherence and retention including psychosocial support to ensure viral suppression",
+        "Strengthen linkages between RCH and CTCs, or integration of pediatric ART within RCH clinics",
+        "Scale up focused PITC in all health facilities attending children (RCH clinics, OPD, hospital wards)",
+        "Strengthen linkage mechanisms for MVC/OVC services to enhance identification and retention",
+        "Strengthen pediatric nutrition assessment and treatment of SAM including RUTF, F75 & F100",
+        "Strengthen facility and community-based adherence support package to increase retention",
+        "Strengthen coordination and accountability structures from national to district level",
     ];
 
     const adolescentPriorities = [
@@ -84,37 +101,39 @@ export default function DecentralizedCare() {
     ];
 
     const pmtctPriorities = [
-        "Expand provision of appropriate treatment, care and support",
-        "Strengthen follow up of HIV infected mothers and infants",
-        "Implement community interventions service package for eMTCT",
-        "Improve community knowledge and awareness in eMTCT",
-        "Increase male involvement in eMTCT services",
+        "Expand provision of appropriate treatment, care and support to women living with HIV and their families",
+        "Strengthen follow up of HIV infected mothers and infants at facility and community",
+        "Implement community interventions service package for eMTCT, MNCH, Paediatric HIV care using CHWs",
+        "Improve community knowledge, awareness, attitudes, perceptions and behaviours in eMTCT",
+        "Increase male involvement through improved awareness, reduction in stigma, and community engagement",
         "Develop mHealth services for increased follow up and retention",
+        "Strengthen community involvement and enhanced participation of community structures",
     ];
 
     const coInfectionPriorities = [
-        "Strengthen integration of TB, HIV and other sectors",
-        "Improve TB case notification among PLHIV",
-        "Scale up provision of IPT and CTX to all eligible PLHIV",
-        "Consolidate TB infection control measures",
-        "Increase scope of CTC to manage HIV co-infections and NCDs",
+        "Strengthen integration of TB, HIV and Reproductive Child Health at all levels",
+        "Improve TB case notification among PLHIV by improving TB screening and GeneXpert MTB/RIF use",
+        "Scale up provision of IPT and CTX to all eligible PLHIV as per national guidelines",
+        "Consolidate TB infection control measures in congregate settings",
+        "Increase scope of CTC and specialized clinics to manage HIV co-infections, co-morbidities and NCDs",
     ];
 
     const communityPriorities = [
-        "Strengthen existing CBHS programs in council comprehensive health plans",
-        "Strengthen community level follow-up and treatment support mechanisms",
-        "Strengthen effective linkages between community and clinic-based services",
-        "Strengthen community systems and structures (CMAC, WMAC, VMAC)",
-        "Improve tracking system for PLHIV missed appointments",
-        "Ensure continuous monitoring and mitigation of stigma and discrimination",
+        "Strengthen existing CBHS programs in council comprehensive health plans with clear funding mechanism",
+        "Strengthen community level follow-up and treatment support mechanisms for PLHIV on ART",
+        "Strengthen effective linkages and referrals between community and clinic-based services",
+        "Strengthen community systems and structures (CMAC, WMAC, VMAC, PLHIV Clusters)",
+        "Improve tracking system for PLHIV missed appointments and Lost to Follow up",
+        "Ensure continuous monitoring and mitigation of stigma and discrimination to enhance ART adherence",
+        "Strengthen provision of psychosocial support to PLHIV and linkage to social welfare and legal services",
     ];
 
     const viralSuppressionPriorities = [
-        "Ensure quality assurance and validation of all ARVs",
-        "Identify and mitigate factors contributing to treatment failure",
-        "Expand and improve accessibility of HVL testing",
-        "Expand use of simplified single-tablet ARV regimen",
-        "Improve mechanism for routine viral load monitoring",
+        "Ensure quality assurance, validation and post market surveillance of all ARVs",
+        "Identify and mitigate all factors contributing to treatment failure and promptly switch to appropriate regimen",
+        "Expand and improve accessibility of HVL testing (Hubs and sample transportation) at all CTC",
+        "Expand use of simplified single-tablet ARV regimen to enhance adherence and viral suppression",
+        "Improve mechanism for routine monitoring of viral load for all patients after 6 months (cohort analysis)",
     ];
 
     return (
@@ -127,7 +146,7 @@ export default function DecentralizedCare() {
                     <div
                         className="h-full bg-cover bg-center bg-no-repeat"
                         style={{
-                            backgroundImage: `url(/images/arvsImages.jpeg)`,
+                            backgroundImage: `url(/images/hiv/hiv2.jpg)`,
                         }}
                     >
                         <div className="h-full bg-gradient-to-r from-black/80 to-black/60 flex items-center">

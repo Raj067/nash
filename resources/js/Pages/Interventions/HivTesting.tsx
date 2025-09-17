@@ -70,7 +70,7 @@ export default function HivTesting() {
                     <div
                         className="h-full bg-cover bg-center bg-no-repeat"
                         style={{
-                            backgroundImage: `url(/images/arvsImages.jpeg)`,
+                            backgroundImage: `url(/images/hiv/arvs.jpg)`,
                         }}
                     >
                         <div className="h-full bg-gradient-to-r from-black/80 to-black/60 flex items-center">
@@ -82,8 +82,9 @@ export default function HivTesting() {
                                     HIV Testing Services & Linkage
                                 </h1>
                                 <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
-                                    Comprehensive HIV testing services and linkage to
-                                    prevention, care, treatment and support
+                                    Comprehensive HIV testing services and
+                                    linkage to prevention, care, treatment and
+                                    support
                                 </p>
                             </div>
                         </div>
@@ -160,10 +161,13 @@ export default function HivTesting() {
                             </h2>
                             <p className="text-blue-100 max-w-3xl mx-auto text-lg">
                                 Strategic priorities to achieve the fast track
-                                target for HIV testing (first 90)
+                                target for HIV testing (first 90) as outlined in
+                                HSHSP IV (2017–2022)
                                 <br />
                                 <span className="text-sm text-blue-200 mt-2 block">
-                                    Ensuring comprehensive coverage and accessibility
+                                    Service delivery models will be intensified
+                                    to meet comprehensive coverage and
+                                    accessibility goals
                                 </span>
                             </p>
                         </div>
@@ -203,17 +207,19 @@ export default function HivTesting() {
                                     </h3>
                                 </div>
                                 <div className="space-y-4">
-                                    {linkagePriorities.map((priority, index) => (
-                                        <div
-                                            key={index}
-                                            className="flex items-start space-x-3"
-                                        >
-                                            <div className="w-3 h-3 bg-yellow-400 rounded-full mt-2 flex-shrink-0"></div>
-                                            <p className="text-blue-100 leading-relaxed">
-                                                {priority}
-                                            </p>
-                                        </div>
-                                    ))}
+                                    {linkagePriorities.map(
+                                        (priority, index) => (
+                                            <div
+                                                key={index}
+                                                className="flex items-start space-x-3"
+                                            >
+                                                <div className="w-3 h-3 bg-yellow-400 rounded-full mt-2 flex-shrink-0"></div>
+                                                <p className="text-blue-100 leading-relaxed">
+                                                    {priority}
+                                                </p>
+                                            </div>
+                                        )
+                                    )}
                                 </div>
                             </div>
                         </div>
@@ -235,13 +241,18 @@ export default function HivTesting() {
                                 <Heart className="h-10 w-10 text-white" />
                             </div>
                             <h2 className="text-4xl font-bold bg-gradient-to-r from-green-600 to-cyan-600 bg-clip-text text-transparent mb-6">
-                                Linkage to Prevention, Care, Treatment and Support
+                                Linkage to Prevention, Care, Treatment and
+                                Support
                             </h2>
                             <p className="text-gray-600 max-w-4xl mx-auto text-lg leading-relaxed">
                                 HIV testing presents an opportunity to identify
                                 client's HIV status and link them to appropriate
                                 services through comprehensive post-test
-                                counselling and effective referral systems
+                                counselling and effective referral systems. HTS
+                                providers link HIV positive clients to care and
+                                treatment through referral forms or by escorting
+                                them to the clinic, with feedback provided
+                                through referral feedback forms.
                             </p>
                         </div>
 
@@ -259,8 +270,8 @@ export default function HivTesting() {
                                             HIV Testing
                                         </h3>
                                         <p className="text-gray-600 leading-relaxed">
-                                            Comprehensive testing through multiple
-                                            modalities
+                                            Comprehensive testing through
+                                            multiple modalities
                                         </p>
                                     </div>
 
@@ -285,8 +296,10 @@ export default function HivTesting() {
                                             Linkage to Services
                                         </h3>
                                         <p className="text-gray-600 leading-relaxed">
-                                            Referral to prevention, care, treatment
-                                            and support services
+                                            Referral through forms or escort
+                                            services to prevention, care,
+                                            treatment and support with feedback
+                                            mechanisms
                                         </p>
                                     </div>
                                 </div>

@@ -79,46 +79,60 @@ export default function AboutUs() {
 
     const coreValues = [
         {
-            title: "Transparency & Accountability",
+            title: "Equity",
             description:
-                "We operate with complete transparency and are accountable to the people we serve",
-            icon: Eye,
+                "Ensuring fair and just access to HIV services for all populations regardless of background",
+            icon: Shield,
             gradient: "from-blue-400 to-blue-600",
         },
         {
-            title: "Excellence in Service",
+            title: "Universal Access",
             description:
-                "We strive to provide the highest quality HIV/AIDS prevention and treatment services",
-            icon: Award,
+                "Providing comprehensive HIV services accessible to all people in need",
+            icon: Users,
             gradient: "from-green-400 to-green-600",
         },
         {
-            title: "Compassionate Care",
+            title: "Gender and Rights-Based Approach",
             description:
-                "We treat every individual with dignity, respect, and compassion",
+                "Promoting gender equality and human rights in all HIV interventions",
             icon: Heart,
             gradient: "from-red-400 to-red-600",
         },
         {
-            title: "Evidence-Based Approach",
+            title: "Decentralization",
             description:
-                "Our programs are based on scientific evidence and best practices",
-            icon: BarChart3,
+                "Empowering regions and districts to lead local HIV responses",
+            icon: MapPin,
             gradient: "from-purple-400 to-purple-600",
         },
         {
-            title: "Community Partnership",
+            title: "Integration",
             description:
-                "We work closely with communities to ensure culturally appropriate interventions",
-            icon: Handshake,
+                "Integrating HIV services within the broader health system for efficiency",
+            icon: Activity,
             gradient: "from-orange-400 to-orange-600",
         },
         {
-            title: "Innovation & Adaptation",
+            title: "Community Participation",
             description:
-                "We continuously innovate and adapt our approaches to meet evolving challenges",
-            icon: TrendingUp,
+                "Engaging communities in planning, monitoring and evaluating the HIV response",
+            icon: Handshake,
             gradient: "from-teal-400 to-teal-600",
+        },
+        {
+            title: "Meaningful Involvement of PLHIV",
+            description:
+                "Ensuring people living with HIV are central to decision-making processes",
+            icon: Target,
+            gradient: "from-indigo-400 to-indigo-600",
+        },
+        {
+            title: "Accountability",
+            description:
+                "Being transparent and accountable to all stakeholders in our HIV response",
+            icon: Eye,
+            gradient: "from-pink-400 to-pink-600",
         },
     ];
 
@@ -132,7 +146,7 @@ export default function AboutUs() {
                     <div
                         className="h-full bg-cover bg-center bg-no-repeat"
                         style={{
-                            backgroundImage: `url(/images/arvsImages.jpeg)`,
+                            backgroundImage: `url(/images/about.png)`,
                         }}
                     >
                         <div className="h-full bg-gradient-to-r from-black/80 to-black/60 flex items-center">
@@ -144,13 +158,90 @@ export default function AboutUs() {
                                     About NASHCOP
                                 </h1>
                                 <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
-                                    Tanzania's leading institution in the fight
+                                    Tanzania's National AIDS Control Programme - leading the fight
                                     against HIV/AIDS, STIs and Hepatitis
                                 </p>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                {/* Historical Background Section */}
+                <section className="py-20 bg-white relative overflow-hidden">
+                    <div className="container mx-auto px-4">
+                        <div className="text-center mb-16">
+                            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-orange-600 to-red-600 rounded-full mb-6">
+                                <Calendar className="h-10 w-10 text-white" />
+                            </div>
+                            <h2 className="text-4xl font-bold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent mb-6">
+                                Our History
+                            </h2>
+                            <p className="text-gray-600 max-w-3xl mx-auto text-lg leading-relaxed">
+                                The evolution of Tanzania's institutional response to HIV/AIDS
+                            </p>
+                        </div>
+
+                        <div className="max-w-4xl mx-auto">
+                            <div className="relative">
+                                {/* Timeline line */}
+                                <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-orange-500 to-red-500"></div>
+                                
+                                {/* Timeline items */}
+                                <div className="space-y-12">
+                                    <div className="relative flex items-start">
+                                        <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg">
+                                            1985
+                                        </div>
+                                        <div className="ml-8 bg-white rounded-lg shadow-lg p-6 border-l-4 border-orange-500">
+                                            <h3 className="text-xl font-bold text-gray-800 mb-2">National Taskforce Established</h3>
+                                            <p className="text-gray-600">Institutional efforts to combat HIV/AIDS started with establishing a National Taskforce within the Ministry of Health, as HIV/AIDS was initially perceived as a health problem.</p>
+                                        </div>
+                                    </div>
+
+                                    <div className="relative flex items-start">
+                                        <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg">
+                                            1988
+                                        </div>
+                                        <div className="ml-8 bg-white rounded-lg shadow-lg p-6 border-l-4 border-red-500">
+                                            <h3 className="text-xl font-bold text-gray-800 mb-2">NACP Formation</h3>
+                                            <p className="text-gray-600">The task force was transformed into a fully-fledged National AIDS Control Programme (NACP), marking the beginning of structured HIV/AIDS response.</p>
+                                        </div>
+                                    </div>
+
+                                    <div className="relative flex items-start">
+                                        <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg">
+                                            1989
+                                        </div>
+                                        <div className="ml-8 bg-white rounded-lg shadow-lg p-6 border-l-4 border-orange-500">
+                                            <h3 className="text-xl font-bold text-gray-800 mb-2">Decentralization Begins</h3>
+                                            <p className="text-gray-600">AIDS Control efforts were decentralized to the regions and districts, bringing HIV/AIDS response closer to communities.</p>
+                                        </div>
+                                    </div>
+
+                                    <div className="relative flex items-start">
+                                        <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg">
+                                            1992
+                                        </div>
+                                        <div className="ml-8 bg-white rounded-lg shadow-lg p-6 border-l-4 border-red-500">
+                                            <h3 className="text-xl font-bold text-gray-800 mb-2">Multi-Sectoral Response</h3>
+                                            <p className="text-gray-600">Control efforts expanded beyond health sector as non-health sectors began initiating HIV/AIDS interventions.</p>
+                                        </div>
+                                    </div>
+
+                                    <div className="relative flex items-start">
+                                        <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg">
+                                            2000
+                                        </div>
+                                        <div className="ml-8 bg-white rounded-lg shadow-lg p-6 border-l-4 border-orange-500">
+                                            <h3 className="text-xl font-bold text-gray-800 mb-2">National Coordination</h3>
+                                            <p className="text-gray-600">23 sectors joined the National Response to HIV/AIDS with developed AIDS action plans, including all districts. NACP served as central coordinating unit and secretariat to the National AIDS Committee (NAC).</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
                 {/* Statistics Section */}
                 <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-purple-50 relative overflow-hidden">
@@ -240,12 +331,7 @@ export default function AboutUs() {
                                         Our Mission
                                     </h3>
                                     <p className="text-gray-600 leading-relaxed">
-                                        To lead Tanzania's response to HIV/AIDS
-                                        through evidence-based prevention,
-                                        treatment, and care programs that reduce
-                                        HIV transmission and improve the quality
-                                        of life for all people affected by
-                                        HIV/AIDS.
+                                        To provide a results-oriented framework to lead and guide the decentralized health sector HIV response in the intensification, optimisation and scaling up of quality evidence-based interventions for HIV prevention, care, treatment and support services for PLHIV to facilitate the attainment of the "triple 90" targets in Tanzania.
                                     </p>
                                 </div>
                             </div>
@@ -272,12 +358,7 @@ export default function AboutUs() {
                                         Our Vision
                                     </h3>
                                     <p className="text-gray-600 leading-relaxed">
-                                        A Tanzania free from HIV/AIDS where all
-                                        people have access to quality
-                                        prevention, treatment, and care
-                                        services, and where those affected by
-                                        HIV/AIDS live with dignity and without
-                                        discrimination.
+                                        An HIV-free society where new infections are halted and people living with HIV or affected by HIV and AIDS receive quality services and support.
                                     </p>
                                 </div>
                             </div>
@@ -315,6 +396,127 @@ export default function AboutUs() {
                                     >
                                         View All Values
                                     </Button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                {/* Goals Section */}
+                <section className="py-20 bg-gradient-to-br from-green-50 via-white to-blue-50 relative overflow-hidden">
+                    {/* Background Pattern */}
+                    <div className="absolute inset-0 opacity-5">
+                        <div className="absolute top-10 right-10 w-32 h-32 bg-green-500 rounded-full blur-3xl"></div>
+                        <div className="absolute bottom-20 left-20 w-40 h-40 bg-blue-500 rounded-full blur-3xl"></div>
+                        <div className="absolute top-1/2 left-1/3 w-24 h-24 bg-purple-500 rounded-full blur-2xl"></div>
+                    </div>
+
+                    <div className="container mx-auto px-4 relative z-10">
+                        <div className="text-center mb-16">
+                            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-green-600 to-blue-600 rounded-full mb-6">
+                                <Target className="h-10 w-10 text-white" />
+                            </div>
+                            <h2 className="text-4xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent mb-6">
+                                Our Goals
+                            </h2>
+                            <p className="text-gray-600 max-w-3xl mx-auto text-lg leading-relaxed">
+                                To increase coverage of HIV and AIDS services in the general population and sub-populations to ensure that by 2020
+                            </p>
+                        </div>
+
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                            {/* Goal 1 */}
+                            <div className="group hover:shadow-2xl transition-all duration-500 border-0 bg-white/80 backdrop-blur-sm hover:scale-105 hover:bg-white relative overflow-hidden rounded-2xl p-8 shadow-lg">
+                                <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                
+                                <div className="relative z-10">
+                                    <div className="flex items-start space-x-4 mb-6">
+                                        <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-green-500 to-blue-500 rounded-full flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                                            <Shield className="w-6 h-6 text-white" />
+                                        </div>
+                                        <h3 className="text-xl font-bold text-gray-800 group-hover:text-green-600 transition-colors duration-300">
+                                            Universal Access to Prevention Services
+                                        </h3>
+                                    </div>
+                                    <p className="text-gray-600 leading-relaxed">
+                                        There will be universal access to combination prevention services designed to reduce new HIV infections, HIV-related mortality, stigma and discrimination.
+                                    </p>
+                                </div>
+                            </div>
+
+                            {/* Goal 2 */}
+                            <div className="group hover:shadow-2xl transition-all duration-500 border-0 bg-white/80 backdrop-blur-sm hover:scale-105 hover:bg-white relative overflow-hidden rounded-2xl p-8 shadow-lg">
+                                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                
+                                <div className="relative z-10">
+                                    <div className="flex items-start space-x-4 mb-6">
+                                        <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                                            <Eye className="w-6 h-6 text-white" />
+                                        </div>
+                                        <h3 className="text-xl font-bold text-gray-800 group-hover:text-blue-600 transition-colors duration-300">
+                                            90% Know Their Status
+                                        </h3>
+                                    </div>
+                                    <p className="text-gray-600 leading-relaxed">
+                                        90% of people living with HIV will know their status through expanded testing services and innovative approaches.
+                                    </p>
+                                </div>
+                            </div>
+
+                            {/* Goal 3 */}
+                            <div className="group hover:shadow-2xl transition-all duration-500 border-0 bg-white/80 backdrop-blur-sm hover:scale-105 hover:bg-white relative overflow-hidden rounded-2xl p-8 shadow-lg">
+                                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                
+                                <div className="relative z-10">
+                                    <div className="flex items-start space-x-4 mb-6">
+                                        <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                                            <Stethoscope className="w-6 h-6 text-white" />
+                                        </div>
+                                        <h3 className="text-xl font-bold text-gray-800 group-hover:text-purple-600 transition-colors duration-300">
+                                            90% Receive Treatment
+                                        </h3>
+                                    </div>
+                                    <p className="text-gray-600 leading-relaxed">
+                                        90% of all people diagnosed with HIV are enrolled, followed up and receive timely and efficacious HAART.
+                                    </p>
+                                </div>
+                            </div>
+
+                            {/* Goal 4 */}
+                            <div className="group hover:shadow-2xl transition-all duration-500 border-0 bg-white/80 backdrop-blur-sm hover:scale-105 hover:bg-white relative overflow-hidden rounded-2xl p-8 shadow-lg">
+                                <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-red-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                
+                                <div className="relative z-10">
+                                    <div className="flex items-start space-x-4 mb-6">
+                                        <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                                            <TrendingUp className="w-6 h-6 text-white" />
+                                        </div>
+                                        <h3 className="text-xl font-bold text-gray-800 group-hover:text-orange-600 transition-colors duration-300">
+                                            90% Achieve Viral Suppression
+                                        </h3>
+                                    </div>
+                                    <p className="text-gray-600 leading-relaxed">
+                                        90% of all people receiving ART will attain sustainable viral suppression for improved health outcomes.
+                                    </p>
+                                </div>
+                            </div>
+
+                            {/* Goal 5 - Health System Strengthening */}
+                            <div className="group hover:shadow-2xl transition-all duration-500 border-0 bg-white/80 backdrop-blur-sm hover:scale-105 hover:bg-white relative overflow-hidden rounded-2xl p-8 shadow-lg lg:col-span-2">
+                                <div className="absolute inset-0 bg-gradient-to-br from-teal-500/5 to-green-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                
+                                <div className="relative z-10">
+                                    <div className="flex items-start space-x-4 mb-6">
+                                        <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-teal-500 to-green-500 rounded-full flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                                            <Building className="w-6 h-6 text-white" />
+                                        </div>
+                                        <h3 className="text-xl font-bold text-gray-800 group-hover:text-teal-600 transition-colors duration-300">
+                                            Strengthened Health System Capacity
+                                        </h3>
+                                    </div>
+                                    <p className="text-gray-600 leading-relaxed">
+                                        The capacity of the health system is strengthened to support quality HIV and AIDS interventions and foster integration within the health sector.
+                                    </p>
                                 </div>
                             </div>
                         </div>

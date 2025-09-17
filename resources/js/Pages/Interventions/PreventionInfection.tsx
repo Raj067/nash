@@ -23,28 +23,28 @@ export default function PreventionInfection() {
         {
             title: "Comprehensive Condom Programming",
             description:
-                "National Multi-sectoral Condom Strategy focusing on forecasting, promotion and distribution through total market approach",
+                "National Multi-sectoral Condom Strategy (2016) focusing on forecasting, promotion and distribution through total market approach for public and private sectors",
             icon: Shield,
             color: "from-blue-500 to-cyan-500",
         },
         {
             title: "Programming for Key and Vulnerable Populations",
             description:
-                "Comprehensive HIV prevention services for SW, MSM, PWUD, PWID, AGYW, and other vulnerable groups",
+                "Comprehensive HIV prevention services for SW, MSM, PWUD, PWID, AGYW, OVC, students in HLIs, mobile populations, long distance truck drivers, mining/construction workers, fisher folks, plantation workers, displaced people, prisoners, and people with disabilities",
             icon: Users,
             color: "from-purple-500 to-pink-500",
         },
         {
             title: "Voluntary Male Medical Circumcision",
             description:
-                "Scaling up male circumcision among 10-29 year-olds to achieve 80% coverage target",
+                "VMMC modeling exercise for 13 selected regions indicates scaling up male circumcision among 10-29 year-olds (optimal effectiveness through 15-29 years by 2050) to achieve 80% coverage target",
             icon: Scissors,
             color: "from-green-500 to-blue-500",
         },
         {
             title: "STI Management",
             description:
-                "Strengthening STI management services for PLHIV and KVP as part of HIV prevention package",
+                "Despite strong scientific evidence, STI coverage remains low. Addressing high prevalence of viral STIs (HSV-2, HPV, HCV, HBV) and strengthening STI management services for PLHIV and KVP",
             icon: Stethoscope,
             color: "from-red-500 to-orange-500",
         },
@@ -99,7 +99,7 @@ export default function PreventionInfection() {
                     <div
                         className="h-full bg-cover bg-center bg-no-repeat"
                         style={{
-                            backgroundImage: `url(/images/arvsImages.jpeg)`,
+                            backgroundImage: `url(/images/hiv/hiv4.jpg)`,
                         }}
                     >
                         <div className="h-full bg-gradient-to-r from-black/80 to-black/60 flex items-center">
@@ -111,9 +111,10 @@ export default function PreventionInfection() {
                                     Prevention of New HIV Infection
                                 </h1>
                                 <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
-                                    Comprehensive HIV prevention strategies focusing on
-                                    condom programming, male circumcision, and targeted
-                                    programs for key and vulnerable populations
+                                    Comprehensive HIV prevention strategies
+                                    focusing on condom programming, male
+                                    circumcision, and targeted programs for key
+                                    and vulnerable populations
                                 </p>
                             </div>
                         </div>
@@ -154,7 +155,9 @@ export default function PreventionInfection() {
                                     <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
                                     <div className="relative z-10">
-                                        <div className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r ${strategy.color} rounded-full mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                                        <div
+                                            className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r ${strategy.color} rounded-full mb-6 group-hover:scale-110 transition-transform duration-300`}
+                                        >
                                             <strategy.icon className="w-8 h-8 text-white" />
                                         </div>
                                         <h3 className="text-lg font-semibold text-gray-900 mb-4">
@@ -190,11 +193,14 @@ export default function PreventionInfection() {
                                 Implementation Priorities
                             </h2>
                             <p className="text-blue-100 max-w-3xl mx-auto text-lg">
-                                Key priority areas for implementing comprehensive
-                                HIV prevention strategies
+                                Key priority areas for implementing
+                                comprehensive HIV prevention strategies as
+                                outlined in HSHSP IV (2017–2022)
                                 <br />
                                 <span className="text-sm text-blue-200 mt-2 block">
-                                    Evidence-based approaches for maximum impact
+                                    Building on past prevention approaches while
+                                    enhancing HIV prevention alongside treatment
+                                    coverage expansion
                                 </span>
                             </p>
                         </div>
@@ -317,8 +323,8 @@ export default function PreventionInfection() {
                                 Get More Information
                             </h2>
                             <p className="text-gray-600 max-w-3xl mx-auto text-lg leading-relaxed">
-                                For more information about HIV prevention programs
-                                and services, contact NACP
+                                For more information about HIV prevention
+                                programs and services, contact NACP
                             </p>
                         </div>
 

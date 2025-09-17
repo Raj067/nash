@@ -18,6 +18,7 @@ import {
     MapPin,
     Settings,
     Target,
+    Wrench,
 } from "lucide-react";
 
 export default function HealthSystems() {
@@ -25,37 +26,44 @@ export default function HealthSystems() {
         {
             title: "Quality Improvement of HIV and AIDS Services",
             description:
-                "Patient-centered quality improvement as integral part of HIV service provision",
+                "Patient-centered quality improvement with MOHCDGEC instructions for RHMTs, CHMTs and HFs to incorporate QI activities in annual plans",
             icon: Settings,
             color: "from-blue-500 to-cyan-500",
         },
         {
             title: "Medicine and Technologies",
             description:
-                "Procurement and Supply Chain Management for HIV commodities and technologies",
+                "PSCM system coordinated by PLSU at NACP, LMU under PSS of MOHCDGEC, and partners for uninterrupted HIV commodities supply",
             icon: Pill,
             color: "from-green-500 to-blue-500",
         },
         {
             title: "Laboratory Services",
             description:
-                "Essential laboratory services for HIV prevention, care, treatment and support",
+                "Essential laboratory services providing HIV status, CD4 count, clinical chemistry, haematology and HVL for HIVDR detection",
             icon: Microscope,
             color: "from-purple-500 to-pink-500",
         },
         {
             title: "HIV Strategic Information",
             description:
-                "Data collection, processing, and quality improvement for evidence-based decisions",
+                "Data collection, processing, and quality improvement for target setting, prioritization of services, and evidence-based decisions",
             icon: Database,
             color: "from-orange-500 to-red-500",
         },
         {
             title: "Community Based Health System",
             description:
-                "Community participation and organization for sustainable health programs",
+                "Community participation as core principle with re-organization of local people for sustainable health programs",
             icon: Users,
             color: "from-teal-500 to-green-500",
+        },
+        {
+            title: "Healthcare Equipment Maintenance",
+            description:
+                "Planned Preventive Maintenance (PPM) for HIV laboratory equipment to ensure uninterrupted service provision",
+            icon: Wrench,
+            color: "from-indigo-500 to-purple-500",
         },
     ];
 
@@ -69,36 +77,54 @@ export default function HealthSystems() {
     const medicinePriorities = [
         "Strengthen coordination and management of HIV commodities supply chain",
         "Advocate for increased domestic funds allocation for AIDS Trust Fund",
+        "Increased allocation of ATF budget for procurement of HIV commodities",
+        "Strengthen resource mobilization mechanism for timely financial resources",
         "Improve national forecasting, quantification, procurement and delivery",
         "Strengthen integration of eLMIS and pharmacy module",
-        "Build capacity of health care workers on rational use of medicines",
+        "Strengthen capacity of HCWs to manage medicines and commodities",
+        "Strengthen collaboration between government and implementing partners",
         "Improve MSD capacity for timely delivery of commodities",
+        "Expand scope of Health facility therapeutic committees for HIV commodities",
+        "Build capacity of health care workers on rational use of medicines",
+        "Strengthen supportive supervision and mentoring for prescribers",
+        "Introduce prescription audit and feedback, peer review processes",
     ];
 
     const labPriorities = [
-        "Expand and improve laboratory infrastructure at district level",
-        "Expand SLMTA approach for HIV laboratory quality assurance",
+        "Expand and improve laboratory infrastructure at district and lower health facility level",
+        "Expand SLMTA approach for HIV laboratory quality assurance to district facilities",
         "Scale up HIV Viral Load testing through conventional and POC testing",
         "Strengthen Work Improvement Teams at CTC and Laboratory level",
-        "Strengthen laboratory supply chain management",
-        "Strengthen sample transportation system from facility to hub",
+        "Strengthen laboratory supply chain management for HIV commodities",
+        "Strengthen sample transportation system from facility to hub and to HVL laboratories",
+        "Strengthen laboratory information system to capture HIV related data",
     ];
 
     const siPriorities = [
-        "Harmonize parallel data recording and establish inter-database management",
-        "Improve coverage for data management platforms including mobile services",
-        "Strengthen HIV commodities reporting systems",
-        "Designate and capacitate human resources for data management",
-        "Develop standard operating procedures for data dissemination",
-        "Strengthen coordination of health sector HIV research and evaluation",
+        "Harmonize parallel data recording and establish inter-database management for HTS, Viral Load and care",
+        "Improve coverage for data management platforms including mobile services securely linked to central database",
+        "Strengthen HIV commodities reporting systems for timely and consistent data",
+        "Designate and capacitate human resources for data management systems",
+        "Develop and utilize standard operating procedures for data dissemination and use",
+        "Designate broad dissemination of Strategic Information based on routine data and research",
+        "Strengthen coordination and promote utilization of health sector HIV research and evaluation",
     ];
 
     const cbhsPriorities = [
-        "Strengthen institutional capacity to mobilize and manage resources",
-        "Finalize formalization of Community Health Worker cadre",
-        "Strengthen management and coordination mechanisms at all levels",
+        "Strengthen institutional capacity to mobilize and manage resources for CBHP",
+        "Finalize process of formalization of Community Health Worker cadre",
+        "Strengthen management and coordination mechanism of CBHP at all levels",
         "Strengthen advocacy, communication and social mobilization",
-        "Strengthen support systems for effective CBHP implementation",
+        "Strengthen support systems for effective implementation of CBHP",
+    ];
+
+    const equipmentPriorities = [
+        "Establish national system for monitoring functional status of laboratory equipment",
+        "Establish pre-qualified procurement system for HVL and EID machines using placement system",
+        "Strengthen health care equipment unit at MOHCDGEC and zonal maintenance workshops",
+        "Ensure regular and timely PPM to ensure uninterrupted services",
+        "Advocate for sufficient resources for laboratory PPM",
+        "Ensure timely procurement and supply of reagents including reagent rentals",
     ];
 
     return (
@@ -111,7 +137,7 @@ export default function HealthSystems() {
                     <div
                         className="h-full bg-cover bg-center bg-no-repeat"
                         style={{
-                            backgroundImage: `url(/images/arvsImages.jpeg)`,
+                            backgroundImage: `url(/images/hiv/hiv3.jpeg)`,
                         }}
                     >
                         <div className="h-full bg-gradient-to-r from-black/80 to-black/60 flex items-center">
@@ -123,9 +149,10 @@ export default function HealthSystems() {
                                     Building Resilient Health Systems
                                 </h1>
                                 <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
-                                    Strengthening health systems to deliver quality HIV
-                                    services through improved infrastructure,
-                                    technology, and human resources
+                                    Strengthening health systems to deliver
+                                    quality HIV services through improved
+                                    infrastructure, technology, and human
+                                    resources
                                 </p>
                             </div>
                         </div>
@@ -165,7 +192,9 @@ export default function HealthSystems() {
                                     <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
                                     <div className="relative z-10">
-                                        <div className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r ${component.color} rounded-full mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                                        <div
+                                            className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r ${component.color} rounded-full mb-6 group-hover:scale-110 transition-transform duration-300`}
+                                        >
                                             <component.icon className="w-8 h-8 text-white" />
                                         </div>
                                         <h3 className="text-lg font-semibold text-gray-900 mb-4">
@@ -201,11 +230,12 @@ export default function HealthSystems() {
                                 Implementation Priorities
                             </h2>
                             <p className="text-blue-100 max-w-3xl mx-auto text-lg">
-                                Key priority areas for strengthening health systems
-                                to support HIV and AIDS response
+                                Key priority areas for strengthening health
+                                systems to support HIV and AIDS response
                                 <br />
                                 <span className="text-sm text-blue-200 mt-2 block">
-                                    Building resilient and sustainable health infrastructure
+                                    Building resilient and sustainable health
+                                    infrastructure
                                 </span>
                             </p>
                         </div>
@@ -245,17 +275,19 @@ export default function HealthSystems() {
                                     </h3>
                                 </div>
                                 <div className="space-y-4">
-                                    {medicinePriorities.map((priority, index) => (
-                                        <div
-                                            key={index}
-                                            className="flex items-start space-x-3"
-                                        >
-                                            <div className="w-3 h-3 bg-yellow-400 rounded-full mt-2 flex-shrink-0"></div>
-                                            <p className="text-blue-100 leading-relaxed">
-                                                {priority}
-                                            </p>
-                                        </div>
-                                    ))}
+                                    {medicinePriorities.map(
+                                        (priority, index) => (
+                                            <div
+                                                key={index}
+                                                className="flex items-start space-x-3"
+                                            >
+                                                <div className="w-3 h-3 bg-yellow-400 rounded-full mt-2 flex-shrink-0"></div>
+                                                <p className="text-blue-100 leading-relaxed">
+                                                    {priority}
+                                                </p>
+                                            </div>
+                                        )
+                                    )}
                                 </div>
                             </div>
 
@@ -328,6 +360,32 @@ export default function HealthSystems() {
                                             </p>
                                         </div>
                                     ))}
+                                </div>
+                            </div>
+
+                            <div className="group bg-white/10 backdrop-blur-md rounded-2xl p-8 hover:bg-white/20 transition-all duration-500 hover:scale-105 border border-white/20">
+                                <div className="flex items-center mb-6">
+                                    <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full mr-4 group-hover:scale-110 transition-transform duration-300">
+                                        <Wrench className="h-8 w-8 text-white" />
+                                    </div>
+                                    <h3 className="text-xl font-bold text-white group-hover:text-yellow-300 transition-colors duration-300">
+                                        Equipment Maintenance
+                                    </h3>
+                                </div>
+                                <div className="space-y-4">
+                                    {equipmentPriorities.map(
+                                        (priority, index) => (
+                                            <div
+                                                key={index}
+                                                className="flex items-start space-x-3"
+                                            >
+                                                <div className="w-3 h-3 bg-yellow-400 rounded-full mt-2 flex-shrink-0"></div>
+                                                <p className="text-blue-100 leading-relaxed">
+                                                    {priority}
+                                                </p>
+                                            </div>
+                                        )
+                                    )}
                                 </div>
                             </div>
                         </div>

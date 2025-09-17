@@ -21,8 +21,8 @@ import {
 export default function HivAidsTanzania() {
     const keyStatistics = [
         {
-            label: "People Living with HIV",
-            value: "1.7M",
+            label: "People Living with HIV (2017)",
+            value: "1.4M",
             trend: "stable",
             icon: Users,
             color: "text-red-600",
@@ -35,126 +35,111 @@ export default function HivAidsTanzania() {
             color: "text-orange-600",
         },
         {
-            label: "New HIV Infections (2020)",
-            value: "72,000",
-            trend: "down",
-            icon: TrendingDown,
-            color: "text-blue-600",
+            label: "Women HIV Prevalence",
+            value: "6.3%",
+            trend: "stable",
+            icon: UserCheck,
+            color: "text-pink-600",
         },
         {
-            label: "AIDS-Related Deaths (2020)",
-            value: "32,000",
-            trend: "down",
-            icon: Heart,
-            color: "text-purple-600",
+            label: "Men HIV Prevalence",
+            value: "3.9%",
+            trend: "stable",
+            icon: Users,
+            color: "text-blue-600",
         },
     ];
 
-    const regionalData = [
+    const transmissionData = [
         {
-            region: "Iringa",
-            prevalence: "9.1%",
-            population: "45,000",
-            status: "High",
+            route: "Heterosexual Sex",
+            percentage: "80%",
+            description: "Commonest route for HIV transmission in Tanzania Mainland",
+            icon: Heart,
+            color: "from-red-400 to-red-600",
         },
         {
-            region: "Njombe",
-            prevalence: "8.3%",
-            population: "38,000",
-            status: "High",
+            route: "Other Routes",
+            percentage: "20%",
+            description: "Including mother-to-child transmission and other modes",
+            icon: Activity,
+            color: "from-blue-400 to-blue-600",
+        },
+    ];
+
+    const ageGroupData = [
+        {
+            group: "Young People (15-19 years)",
+            prevalence: "1.0%",
+            details: "Girls: 1.3%, Boys: 0.8%",
+            icon: Baby,
+            color: "from-green-400 to-green-600",
         },
         {
-            region: "Tabora",
-            prevalence: "7.5%",
-            population: "52,000",
-            status: "High",
-        },
-        {
-            region: "Mbeya",
-            prevalence: "7.2%",
-            population: "78,000",
-            status: "High",
-        },
-        {
-            region: "Dar es Salaam",
-            prevalence: "4.6%",
-            population: "285,000",
-            status: "Medium",
-        },
-        {
-            region: "Dodoma",
-            prevalence: "4.1%",
-            population: "48,000",
-            status: "Medium",
+            group: "Young Adults (20-24 years)",
+            prevalence: "Higher in women",
+            details: "Women: 4.4%, Men: 1.7%",
+            icon: Users,
+            color: "from-purple-400 to-purple-600",
         },
     ];
 
     const keyPopulations = [
         {
-            title: "Female Sex Workers",
-            prevalence: "15.5%",
-            population: "150,000",
+            title: "People who Inject Drugs (PWID)",
+            prevalence: "16-51%",
+            population: "High-risk group",
             description:
-                "Higher risk due to multiple sexual partnerships and limited access to prevention services",
-            icon: Users,
+                "Significantly higher prevalence due to sharing of injection equipment",
+            icon: Syringe,
             color: "from-red-400 to-red-600",
         },
         {
-            title: "Men who have Sex with Men",
-            prevalence: "12.4%",
-            population: "45,000",
+            title: "Men who have Sex with Men (MSM)",
+            prevalence: "22-42%",
+            population: "High-risk group",
             description:
-                "Stigma and discrimination limit access to HIV testing and treatment services",
+                "Higher prevalence with limited access to services due to stigma",
             icon: UserCheck,
             color: "from-blue-400 to-blue-600",
         },
         {
-            title: "People who Inject Drugs",
-            prevalence: "18.3%",
-            population: "35,000",
+            title: "Mobile Populations and Sex Workers",
+            prevalence: "14-35%",
+            population: "High-risk group",
             description:
-                "Sharing of injection equipment increases HIV transmission risk",
-            icon: Syringe,
+                "Higher risk due to mobility and occupational factors",
+            icon: Users,
             color: "from-purple-400 to-purple-600",
-        },
-        {
-            title: "Adolescent Girls & Young Women",
-            prevalence: "3.8%",
-            population: "2.1M",
-            description:
-                "Age 15-24 years, vulnerable due to gender inequality and limited economic opportunities",
-            icon: Baby,
-            color: "from-pink-400 to-pink-600",
         },
     ];
 
     const trends = [
         {
-            title: "Declining New Infections",
-            description: "New HIV infections have decreased by 35% since 2010",
-            value: "35%",
+            title: "Declining HIV Incidence",
+            description: "HIV incidence dropped from 1.34% in 1992 to 0.07% among 15-24 year-olds in 2017",
+            value: "0.07%",
             icon: TrendingDown,
             color: "text-green-600",
         },
         {
-            title: "Improved Treatment Coverage",
-            description: "88% of people living with HIV know their status",
-            value: "88%",
-            icon: Eye,
+            title: "Adult Incidence Reduction",
+            description: "HIV incidence among adults (15-64) reduced to 0.25% in 2017",
+            value: "0.25%",
+            icon: TrendingDown,
             color: "text-blue-600",
         },
         {
-            title: "Reduced AIDS Deaths",
-            description: "50% reduction in AIDS-related deaths since 2010",
-            value: "50%",
-            icon: Shield,
+            title: "90-90-90 Target Progress",
+            description: "Attainment will lead to 90% reduction in new HIV infections by 2030",
+            value: "90%",
+            icon: Target,
             color: "text-purple-600",
         },
         {
-            title: "Viral Suppression",
-            description:
-                "95% of those on treatment have suppressed viral loads",
-            value: "95%",
+            title: "Test and Treat Strategy",
+            description: "Recent adoption of Treat All strategy to scale up services",
+            value: "100%",
             icon: Stethoscope,
             color: "text-indigo-600",
         },
@@ -169,7 +154,7 @@ export default function HivAidsTanzania() {
                     <div
                         className="h-full bg-cover bg-center bg-no-repeat"
                         style={{
-                            backgroundImage: `url(/images/arvsImages.jpeg)`,
+                            backgroundImage: `url(/images/hiv/arvs.jpg)`,
                         }}
                     >
                         <div className="h-full bg-gradient-to-r from-black/80 to-black/60 flex items-center">
@@ -181,8 +166,7 @@ export default function HivAidsTanzania() {
                                     HIV/AIDS in Tanzania
                                 </h1>
                                 <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
-                                    Understanding the HIV/AIDS epidemic through
-                                    comprehensive data and insights
+                                    Tanzania mainland experiences a generalised HIV epidemic with significant heterogeneity across demographics and geography
                                 </p>
                             </div>
                         </div>
@@ -207,7 +191,7 @@ export default function HivAidsTanzania() {
                                 Key Statistics (2020)
                             </h2>
                             <p className="text-gray-600 max-w-3xl mx-auto text-lg leading-relaxed">
-                                Current state of HIV/AIDS in Tanzania based on latest available data
+                                Key statistics showing HIV prevalence and demographic patterns (THMIS 2011-12)
                             </p>
                         </div>
 
@@ -261,7 +245,8 @@ export default function HivAidsTanzania() {
                                 Positive Trends
                             </h2>
                             <p className="text-gray-600 max-w-3xl mx-auto text-lg leading-relaxed">
-                                Progress in Tanzania's fight against HIV/AIDS showing encouraging improvements
+                                Progress in Tanzania's fight against HIV/AIDS
+                                showing encouraging improvements
                             </p>
                         </div>
 
@@ -294,7 +279,7 @@ export default function HivAidsTanzania() {
                     </div>
                 </section>
 
-                {/* Regional Distribution */}
+                {/* HIV Transmission Routes */}
                 <section className="py-20 bg-gradient-to-br from-red-50 via-white to-orange-50 relative overflow-hidden">
                     {/* Background Pattern */}
                     <div className="absolute inset-0 opacity-5">
@@ -306,71 +291,87 @@ export default function HivAidsTanzania() {
                     <div className="container mx-auto px-4 relative z-10">
                         <div className="text-center mb-16">
                             <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-red-600 to-orange-600 rounded-full mb-6">
-                                <MapPin className="h-10 w-10 text-white" />
+                                <Heart className="h-10 w-10 text-white" />
                             </div>
                             <h2 className="text-4xl font-bold bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent mb-6">
-                                Regional Distribution
+                                HIV Transmission Routes
                             </h2>
                             <p className="text-gray-600 max-w-3xl mx-auto text-lg leading-relaxed">
-                                HIV prevalence varies significantly across Tanzania's regions, requiring targeted interventions
+                                Understanding how HIV is transmitted in Tanzania mainland
                             </p>
                         </div>
 
-                        <div className="group hover:shadow-2xl transition-all duration-500 border-0 bg-white/80 backdrop-blur-sm hover:bg-white relative overflow-hidden rounded-2xl shadow-lg">
-                            {/* Card Background Gradient */}
-                            <div className="absolute inset-0 bg-gradient-to-br from-red-500/5 to-orange-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                            
-                            <div className="p-8 relative z-10">
-                                <div className="overflow-x-auto">
-                                    <table className="w-full">
-                                        <thead>
-                                            <tr className="border-b-2 border-gradient-to-r from-red-200 to-orange-200">
-                                                <th className="text-left py-4 px-6 font-bold text-gray-800 text-lg">
-                                                    Region
-                                                </th>
-                                                <th className="text-left py-4 px-6 font-bold text-gray-800 text-lg">
-                                                    HIV Prevalence
-                                                </th>
-                                                <th className="text-left py-4 px-6 font-bold text-gray-800 text-lg">
-                                                    PLHIV Population
-                                                </th>
-                                                <th className="text-left py-4 px-6 font-bold text-gray-800 text-lg">
-                                                    Priority Level
-                                                </th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            {regionalData.map((region, index) => (
-                                                <tr
-                                                    key={index}
-                                                    className="border-b border-gray-100 hover:bg-gradient-to-r hover:from-red-50/50 hover:to-orange-50/50 transition-all duration-300"
-                                                >
-                                                    <td className="py-4 px-6 font-semibold text-gray-800">
-                                                        {region.region}
-                                                    </td>
-                                                    <td className="py-4 px-6 text-gray-700 font-medium">
-                                                        {region.prevalence}
-                                                    </td>
-                                                    <td className="py-4 px-6 text-gray-700 font-medium">
-                                                        {region.population}
-                                                    </td>
-                                                    <td className="py-4 px-6">
-                                                        <span
-                                                            className={`px-4 py-2 rounded-full text-sm font-semibold shadow-md ${
-                                                                region.status === "High"
-                                                                    ? "bg-gradient-to-r from-red-100 to-red-200 text-red-800 border border-red-300"
-                                                                    : "bg-gradient-to-r from-orange-100 to-orange-200 text-orange-800 border border-orange-300"
-                                                            }`}
-                                                        >
-                                                            {region.status} Priority
-                                                        </span>
-                                                    </td>
-                                                </tr>
-                                            ))}
-                                        </tbody>
-                                    </table>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                            {transmissionData.map((item, index) => (
+                                <div
+                                    key={index}
+                                    className="group hover:shadow-2xl transition-all duration-500 border-0 bg-white/80 backdrop-blur-sm hover:scale-105 hover:bg-white relative overflow-hidden rounded-2xl p-8 shadow-lg text-center"
+                                >
+                                    <div className="absolute inset-0 bg-gradient-to-br from-red-500/5 to-orange-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                    
+                                    <div className="relative z-10">
+                                        <div className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r ${item.color} rounded-full mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                                            <item.icon className="w-8 h-8 text-white" />
+                                        </div>
+                                        <h3 className="text-xl font-bold text-gray-800 mb-2">
+                                            {item.route}
+                                        </h3>
+                                        <div className="text-3xl font-bold text-red-600 mb-4">
+                                            {item.percentage}
+                                        </div>
+                                        <p className="text-gray-600 leading-relaxed">
+                                            {item.description}
+                                        </p>
+                                    </div>
                                 </div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+
+                {/* Age Group Analysis */}
+                <section className="py-20 bg-white relative overflow-hidden">
+                    <div className="container mx-auto px-4">
+                        <div className="text-center mb-16">
+                            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full mb-6">
+                                <Baby className="h-10 w-10 text-white" />
                             </div>
+                            <h2 className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-6">
+                                Age Group Analysis
+                            </h2>
+                            <p className="text-gray-600 max-w-3xl mx-auto text-lg leading-relaxed">
+                                HIV prevalence patterns across different age groups showing gender disparities
+                            </p>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                            {ageGroupData.map((item, index) => (
+                                <div
+                                    key={index}
+                                    className="group hover:shadow-2xl transition-all duration-500 border-0 bg-white/80 backdrop-blur-sm hover:scale-105 hover:bg-white relative overflow-hidden rounded-2xl p-8 shadow-lg"
+                                >
+                                    <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                    
+                                    <div className="relative z-10">
+                                        <div className="flex items-start space-x-4 mb-6">
+                                            <div className={`inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r ${item.color} rounded-full flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}>
+                                                <item.icon className="w-6 h-6 text-white" />
+                                            </div>
+                                            <div>
+                                                <h3 className="text-lg font-bold text-gray-800 mb-2">
+                                                    {item.group}
+                                                </h3>
+                                                <div className="text-2xl font-bold text-purple-600 mb-2">
+                                                    {item.prevalence}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <p className="text-gray-600 leading-relaxed">
+                                            {item.details}
+                                        </p>
+                                    </div>
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </section>
@@ -396,7 +397,8 @@ export default function HivAidsTanzania() {
                                 Key Populations at Risk
                             </h2>
                             <p className="text-red-100 max-w-3xl mx-auto text-lg">
-                                Populations at higher risk of HIV infection requiring targeted interventions and support
+                                Populations at higher risk of HIV infection
+                                requiring targeted interventions and support
                                 <br />
                                 <span className="text-sm text-red-200 mt-2 block">
                                     Source: Tanzania HIV Impact Survey 2020
@@ -423,7 +425,8 @@ export default function HivAidsTanzania() {
                                                     {population.prevalence}
                                                 </div>
                                                 <div className="text-sm text-red-200 font-medium">
-                                                    ({population.population} people)
+                                                    ({population.population}{" "}
+                                                    people)
                                                 </div>
                                             </div>
                                             <p className="text-red-100 leading-relaxed mb-4">
@@ -435,7 +438,9 @@ export default function HivAidsTanzania() {
                                                 <div className="w-full bg-white/20 rounded-full h-2">
                                                     <div
                                                         className="bg-gradient-to-r from-yellow-400 to-orange-500 h-2 rounded-full transition-all duration-1000 ease-out"
-                                                        style={{ width: population.prevalence }}
+                                                        style={{
+                                                            width: population.prevalence,
+                                                        }}
                                                     ></div>
                                                 </div>
                                             </div>
@@ -443,6 +448,99 @@ export default function HivAidsTanzania() {
                                     </div>
                                 </div>
                             ))}
+                        </div>
+                    </div>
+                </section>
+
+                {/* Key Context Summary */}
+                <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-purple-50 relative overflow-hidden">
+                    <div className="container mx-auto px-4">
+                        <div className="text-center mb-16">
+                            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full mb-6">
+                                <Globe className="h-10 w-10 text-white" />
+                            </div>
+                            <h2 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-6">
+                                HIV Epidemic Context
+                            </h2>
+                            <p className="text-gray-600 max-w-3xl mx-auto text-lg leading-relaxed">
+                                Understanding Tanzania's HIV epidemic characteristics and progress towards ending AIDS by 2030
+                            </p>
+                        </div>
+
+                        <div className="max-w-4xl mx-auto">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                <div className="group hover:shadow-2xl transition-all duration-500 border-0 bg-white/80 backdrop-blur-sm hover:scale-105 hover:bg-white relative overflow-hidden rounded-2xl p-8 shadow-lg">
+                                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                    
+                                    <div className="relative z-10">
+                                        <div className="flex items-start space-x-4 mb-6">
+                                            <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                                                <MapPin className="w-6 h-6 text-white" />
+                                            </div>
+                                            <h3 className="text-xl font-bold text-gray-800 group-hover:text-blue-600 transition-colors duration-300">
+                                                Generalised Epidemic
+                                            </h3>
+                                        </div>
+                                        <p className="text-gray-600 leading-relaxed">
+                                            Tanzania mainland experiences a generalised HIV epidemic with significant heterogeneity across age, gender, socioeconomic status, and geographic location, implying differentials in the risk of transmission.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div className="group hover:shadow-2xl transition-all duration-500 border-0 bg-white/80 backdrop-blur-sm hover:scale-105 hover:bg-white relative overflow-hidden rounded-2xl p-8 shadow-lg">
+                                    <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                    
+                                    <div className="relative z-10">
+                                        <div className="flex items-start space-x-4 mb-6">
+                                            <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-green-500 to-blue-500 rounded-full flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                                                <Target className="w-6 h-6 text-white" />
+                                            </div>
+                                            <h3 className="text-xl font-bold text-gray-800 group-hover:text-green-600 transition-colors duration-300">
+                                                90-90-90 Target Impact
+                                            </h3>
+                                        </div>
+                                        <p className="text-gray-600 leading-relaxed">
+                                            Attainment of global 90-90-90 targets will lead to reduction of new HIV infections by 90%, providing an opportunity for ending the AIDS epidemic by 2030.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div className="group hover:shadow-2xl transition-all duration-500 border-0 bg-white/80 backdrop-blur-sm hover:scale-105 hover:bg-white relative overflow-hidden rounded-2xl p-8 shadow-lg">
+                                    <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                    
+                                    <div className="relative z-10">
+                                        <div className="flex items-start space-x-4 mb-6">
+                                            <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                                                <TrendingDown className="w-6 h-6 text-white" />
+                                            </div>
+                                            <h3 className="text-xl font-bold text-gray-800 group-hover:text-purple-600 transition-colors duration-300">
+                                                Incidence Goal Achievement
+                                            </h3>
+                                        </div>
+                                        <p className="text-gray-600 leading-relaxed">
+                                            The country's goal was to reduce HIV incidence in the general population to less than 0.16% by 2017, with significant progress made through scaled-up prevention and treatment services.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div className="group hover:shadow-2xl transition-all duration-500 border-0 bg-white/80 backdrop-blur-sm hover:scale-105 hover:bg-white relative overflow-hidden rounded-2xl p-8 shadow-lg">
+                                    <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-red-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                    
+                                    <div className="relative z-10">
+                                        <div className="flex items-start space-x-4 mb-6">
+                                            <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                                                <Users className="w-6 h-6 text-white" />
+                                            </div>
+                                            <h3 className="text-xl font-bold text-gray-800 group-hover:text-orange-600 transition-colors duration-300">
+                                                Gender Disparities
+                                            </h3>
+                                        </div>
+                                        <p className="text-gray-600 leading-relaxed">
+                                            Women are disproportionally more affected, with HIV prevalence of 6.3% versus 3.9% among men, with particularly high rates among young women aged 20-24 (4.4% vs 1.7% for men).
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -460,7 +558,7 @@ export default function HivAidsTanzania() {
                         <div className="group hover:shadow-2xl transition-all duration-500 border-0 bg-white/80 backdrop-blur-sm hover:scale-105 hover:bg-white relative overflow-hidden rounded-2xl p-12 shadow-lg text-center max-w-4xl mx-auto">
                             {/* Card Background Gradient */}
                             <div className="absolute inset-0 bg-gradient-to-br from-red-500/5 to-orange-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                            
+
                             <div className="relative z-10">
                                 <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-red-500 to-orange-600 rounded-full mb-6">
                                     <Heart className="h-10 w-10 text-white" />
@@ -469,7 +567,9 @@ export default function HivAidsTanzania() {
                                     Together We Can End HIV/AIDS
                                 </h2>
                                 <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
-                                    Learn more about our interventions and how you can contribute to Tanzania's HIV/AIDS response
+                                    Learn more about our interventions and how
+                                    you can contribute to Tanzania's HIV/AIDS
+                                    response
                                 </p>
                                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                                     <Button

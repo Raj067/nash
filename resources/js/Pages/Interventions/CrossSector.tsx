@@ -26,46 +26,46 @@ export default function CrossSector() {
         {
             title: "Stigma, Discrimination and Gender Based Violence",
             description:
-                "Addressing stigma and discrimination as core elements in the National HIV response",
+                "Addressing stigma and discrimination as core elements in the National HIV response. Scale up of care and treatment services has enabled individuals to return to normal life, partly addressing stigma associated with chronic illness",
             icon: Shield,
             color: "from-red-500 to-pink-500",
         },
         {
             title: "Targeted Social and Behavior Change Communication",
             description:
-                "Multiple communication channels including mass media, school-based education, and ICT platforms",
+                "Multiple communication channels including mass media, school-based education, and ICT platforms. HIV/AIDS and RH programs have successfully used text messaging to influence behaviour change",
             icon: MessageCircle,
             color: "from-blue-500 to-purple-500",
         },
         {
             title: "Health Sector Workplace Interventions",
             description:
-                "Workplace health programs focusing on occupational health and safety across sectors",
+                "MOHCDGEC advises on safety measures, performs workplace inspections, and prioritizes high-risk sectors like mining. Prevention and control of workplace HIV, TB and Hepatitis B Virus",
             icon: Briefcase,
             color: "from-green-500 to-teal-500",
         },
         {
             title: "Adolescents and Young People",
             description:
-                "Targeted interventions for AGYW who face higher HIV risk due to cultural, economic and biological factors",
+                "Targeted interventions for AGYW who face higher HIV risk due to cultural, economic and biological factors. AGYW have limited access and low uptake of HIV and reproductive health services (TDHS 2015-16)",
             icon: Users,
             color: "from-purple-500 to-pink-500",
         },
         {
             title: "Male Involvement",
             description:
-                "Engaging men as critical partners in reproductive health and HIV prevention decisions",
+                "Engaging men as critical partners following evidence of stronger impact on outcomes where men have been involved. Men are often uninformed about women's reproductive health needs as well as their own needs",
             icon: Heart,
             color: "from-orange-500 to-red-500",
         },
     ];
 
     const stigmaPriorities = [
-        "Promote enabling policy environment for HIV prevention, care and treatment",
-        "Enhance institutional capacities to reduce stigma and discrimination",
-        "Address stigma among community leaders, health care providers and PLHIV",
+        "Promote enabling policy environment for HIV prevention, care and treatment for all PLHIV",
+        "Enhance institutional capacities to promote interventions aimed at reducing stigma and discrimination",
+        "Address stigma and discrimination among community leaders, health care providers and among PLHIV themselves",
         "Enhance implementation of MER to track different forms of stigma",
-        "Scale up interventions addressing gender inequality and GBV",
+        "Continue to scale up and integrate interventions that address gender inequality and GBV to facilitate safe disclosure",
     ];
 
     const sbccApproaches = [
@@ -78,30 +78,33 @@ export default function CrossSector() {
     ];
 
     const workplacePriorities = [
-        "Expand HIV workplace interventions to include NCDs and occupational health",
-        "Establish routine combined HTS HIV prevention campaigns in workplaces",
-        "Strengthen access to HIV prevention interventions including ART and test kits",
-        "Increase sensitization for HIV social protection programs",
-        "Strengthen infection prevention, PEP services, and vaccination programs",
-        "Improve monitoring of HIV interventions at workplace",
+        "Expand HIV workplace intervention to incorporate NCDs, occupational health and safety services among health workforce, emergency responders, and economic empowerment interventions",
+        "Establish routine combined HTS HIV prevention campaign in workplaces including informal sector and hard-to-reach communities such as mining areas, fishing camps, and plantation workers",
+        "Strengthen access to and increase awareness of HIV prevention interventions including ART, HIV test kits, Syphilis tests and workplace condom programming",
+        "Increase sensitization and advocacy for HIV social protection programmes (TASAF PSSN, NHIF, CHF, WCF etc.)",
+        "Strengthen Infection Prevention screening, PEP services, vaccination programmes for viral Hepatitis and treatment for infected health workers",
+        "Improve monitoring of HIV interventions at workplace and support health workers living with HIV and other work-related diseases",
     ];
 
     const youthPriorities = [
-        "Ensure enabling environment for adolescent and youth friendly services",
+        "Ensure enabling environment for provision of adolescent and youth friendly HIV and SRH services",
         "Scale up provision of adolescent friendly health services",
-        "Strengthen coordination of adolescent-youth friendly services",
-        "Strengthen comprehensive sexuality education at community and school levels",
-        "Support adolescent girls with essential packages to keep them in school",
-        "Improve coordination among stakeholders working on adolescent services",
-        "Expand girl-centered combination HIV prevention approaches",
+        "Strengthen coordination of adolescent-youth friendly services at all levels",
+        "Strengthen provision of comprehensive sexuality education at community and school levels",
+        "Support adolescent girls with essential package and ensure safe environment (boarding/hostels, uniforms, pads, etc.) to keep them in school",
+        "Strengthen linkage mechanisms for facility and community based services to increase retention in care and treatment services for adolescents and youth",
+        "Improve coordination among stakeholders working on adolescent and youth HIV and SRH services",
+        "Improve provision of quality prevention, care and treatment services for adolescents and youth living with HIV",
+        "Expand coverage of girl-centred combination HIV prevention approaches such as cash transfer/socioeconomic strengthening, SRH education, safe spaces, etc.",
+        "Strengthen operational research and M&E systems for adolescent and youth HIV and AIDS Services",
     ];
 
     const maleInvolvementPriorities = [
-        "Consolidate lessons and best practices on male involvement",
-        "Expand workplace programs sensitizing men to participate in health services",
-        "Introduce services for men in reproductive and child health services",
-        "Engage male community leaders as peer motivators and influencers",
-        "Increase services encouraging male participation like joint clinics",
+        "Consolidate lessons and best practices on male involvement to support design of national SOP on male involvement in sexual, reproductive, maternal and child health",
+        "Expand workplace programmes that sensitize men to participate in sexual, reproductive, maternal and child health for better health outcomes of their families",
+        "Introduce services for men, such as screening for prostatic cancer or NCDs in reproductive and child health services, especially for spouses of PMTCT clients",
+        "Engage male community leaders to address needs and role of men in sexual, reproductive, maternal and child health services as peer motivators and influencers",
+        "Increase number of services that encourage male participation such as joint clinics that cater for both men's and women's needs. Partners/spouses of PMTCT clients to receive ARVs at PMTCT site until partner graduates then continue at CTC together",
     ];
 
     const vulnerableGroups = [
@@ -133,7 +136,7 @@ export default function CrossSector() {
                     <div
                         className="h-full bg-cover bg-center bg-no-repeat"
                         style={{
-                            backgroundImage: `url(/images/arvsImages.jpeg)`,
+                            backgroundImage: `url(/images/hiv/hiv1.jpg)`,
                         }}
                     >
                         <div className="h-full bg-gradient-to-r from-black/80 to-black/60 flex items-center">
