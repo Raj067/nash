@@ -434,7 +434,7 @@ const NASHCOPHeader: FC = () => {
                                         </Button>
                                     </a>
                                     {item.dropdown && (
-                                        <div className="absolute left-0 mt-2 w-64 bg-white border rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all text-sm">
+                                        <div className="absolute left-0 mt-2 w-64 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all text-sm">
                                             {item.dropdown.map((sub) => (
                                                 <a
                                                     key={sub.title}

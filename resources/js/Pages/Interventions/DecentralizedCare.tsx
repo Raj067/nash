@@ -1,17 +1,515 @@
-import { Head } from '@inertiajs/react';
-import PublicLayout from '@/Layouts/PublicLayout';
+import { Head } from "@inertiajs/react";
+import PublicLayout from "@/Layouts/PublicLayout";
+import {
+    Heart,
+    Users,
+    Baby,
+    UserCheck,
+    Activity,
+    Phone,
+    Mail,
+    MapPin,
+    Target,
+} from "lucide-react";
 
 export default function DecentralizedCare() {
+    const careComponents = [
+        {
+            title: "Facility Based Care and Support",
+            description:
+                "CTC clinics with block appointment systems, expert patients, and community volunteers providing comprehensive support",
+            icon: Heart,
+            color: "from-pink-500 to-red-500",
+        },
+        {
+            title: "ART Services for Adults",
+            description:
+                '"Treat All" approach for universal ART coverage following UNAIDS 90-90-90 targets',
+            icon: Users,
+            color: "from-blue-500 to-purple-500",
+        },
+        {
+            title: "Pediatric ART Services",
+            description:
+                "Tanzania Initiative for Accelerating Children on Treatment (TI-CoT) to achieve 95% pediatric ART coverage",
+            icon: Baby,
+            color: "from-green-500 to-teal-500",
+        },
+        {
+            title: "ART for Pregnant and Lactating Women",
+            description:
+                "Mother-Child Cohort Monitoring System for improved PMTCT outcomes",
+            icon: UserCheck,
+            color: "from-purple-500 to-pink-500",
+        },
+        {
+            title: "Community Based HIV/AIDS Care",
+            description:
+                "Community based interventions with improved coordination through regional and district HBC coordinators",
+            icon: Activity,
+            color: "from-orange-500 to-red-500",
+        },
+    ];
+
+    const facilityPriorities = [
+        "Strengthen mechanisms for linkage from HIV testing services to care",
+        "Strengthen HIV care entry points for HIV exposed infants, pregnant women, children, adolescents and men",
+        "Strengthen community level follow-up and treatment support mechanisms",
+        "Provide uniform package of care to implementing partners",
+        "Strengthen integration of nutrition assessment, counselling and support",
+        "Initiate/expand ARV refill sites in health facilities",
+    ];
+
+    const adultArtPriorities = [
+        "Strengthen implementation of SDMs to support identification and retention",
+        "Enhance early initiation into ART and adherence support services",
+        "Establish quality assurance and quality improvement activities",
+        "Strengthen adherence counselling and health education",
+    ];
+
+    const pediatricPriorities = [
+        "Strengthen case identification strategies at all pediatric entry points",
+        "Strengthen adherence and retention including psychosocial support",
+        "Strengthen linkages between RCH and CTCs",
+        "Scale up focused PITC in all health facilities attending children",
+        "Strengthen linkage mechanisms for MVC/OVC services",
+        "Strengthen pediatric nutrition assessment and counselling",
+    ];
+
+    const adolescentPriorities = [
+        "Increase capacity of health facilities for adolescent services",
+        "Expand access to integrated quality HIV services for adolescents",
+        "Strengthen linkage mechanisms for facility and community services",
+        "Establish programs like special clinic days, teen clubs and camps",
+    ];
+
+    const pmtctPriorities = [
+        "Expand provision of appropriate treatment, care and support",
+        "Strengthen follow up of HIV infected mothers and infants",
+        "Implement community interventions service package for eMTCT",
+        "Improve community knowledge and awareness in eMTCT",
+        "Increase male involvement in eMTCT services",
+        "Develop mHealth services for increased follow up and retention",
+    ];
+
+    const coInfectionPriorities = [
+        "Strengthen integration of TB, HIV and other sectors",
+        "Improve TB case notification among PLHIV",
+        "Scale up provision of IPT and CTX to all eligible PLHIV",
+        "Consolidate TB infection control measures",
+        "Increase scope of CTC to manage HIV co-infections and NCDs",
+    ];
+
+    const communityPriorities = [
+        "Strengthen existing CBHS programs in council comprehensive health plans",
+        "Strengthen community level follow-up and treatment support mechanisms",
+        "Strengthen effective linkages between community and clinic-based services",
+        "Strengthen community systems and structures (CMAC, WMAC, VMAC)",
+        "Improve tracking system for PLHIV missed appointments",
+        "Ensure continuous monitoring and mitigation of stigma and discrimination",
+    ];
+
+    const viralSuppressionPriorities = [
+        "Ensure quality assurance and validation of all ARVs",
+        "Identify and mitigate factors contributing to treatment failure",
+        "Expand and improve accessibility of HVL testing",
+        "Expand use of simplified single-tablet ARV regimen",
+        "Improve mechanism for routine viral load monitoring",
+    ];
+
     return (
         <PublicLayout title="Decentralized HIV Care & Treatment">
             <Head title="Decentralized HIV Care & Treatment" />
-            
-            <section className="py-16">
-                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                    <h1 className="text-3xl font-bold text-gray-900 mb-8">Decentralized HIV Care & Treatment</h1>
-                    <p className="text-lg text-gray-600">Coming soon...</p>
+
+            <div className="min-h-screen">
+                {/* Hero Section with Background Image */}
+                <div className="relative h-[500px] overflow-hidden">
+                    <div
+                        className="h-full bg-cover bg-center bg-no-repeat"
+                        style={{
+                            backgroundImage: `url(/images/arvsImages.jpeg)`,
+                        }}
+                    >
+                        <div className="h-full bg-gradient-to-r from-black/80 to-black/60 flex items-center">
+                            <div className="container mx-auto px-4 text-center">
+                                <div className="inline-flex items-center justify-center w-20 h-20 bg-white/10 backdrop-blur-sm rounded-full mb-6">
+                                    <Heart className="w-10 h-10 text-white" />
+                                </div>
+                                <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white">
+                                    Decentralized HIV Care & Treatment
+                                </h1>
+                                <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
+                                    Comprehensive HIV care and treatment
+                                    services delivered through decentralized
+                                    approaches to improve access and outcomes
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </section>
+
+                {/* Care Components Overview */}
+                <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-purple-50 relative overflow-hidden">
+                    {/* Background Pattern */}
+                    <div className="absolute inset-0 opacity-5">
+                        <div className="absolute top-10 left-10 w-32 h-32 bg-blue-500 rounded-full blur-3xl"></div>
+                        <div className="absolute bottom-20 right-20 w-40 h-40 bg-purple-500 rounded-full blur-3xl"></div>
+                        <div className="absolute top-1/2 left-1/3 w-24 h-24 bg-pink-500 rounded-full blur-2xl"></div>
+                    </div>
+
+                    <div className="container mx-auto px-4 relative z-10">
+                        <div className="text-center mb-16">
+                            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full mb-6">
+                                <Target className="h-10 w-10 text-white" />
+                            </div>
+                            <h2 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-6">
+                                Care and Treatment Components
+                            </h2>
+                            <p className="text-gray-600 max-w-3xl mx-auto text-lg leading-relaxed">
+                                Comprehensive care and treatment services
+                                delivered through multiple approaches and
+                                settings
+                            </p>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            {careComponents.map((component, index) => (
+                                <div
+                                    key={index}
+                                    className="group hover:shadow-2xl transition-all duration-500 border-0 bg-white/80 backdrop-blur-sm hover:scale-105 hover:bg-white relative overflow-hidden rounded-2xl p-8 shadow-lg text-center"
+                                >
+                                    {/* Card Background Gradient */}
+                                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                                    <div className="relative z-10">
+                                        <div
+                                            className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r ${component.color} rounded-full mb-6 group-hover:scale-110 transition-transform duration-300`}
+                                        >
+                                            <component.icon className="w-8 h-8 text-white" />
+                                        </div>
+                                        <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                                            {component.title}
+                                        </h3>
+                                        <p className="text-gray-600 leading-relaxed">
+                                            {component.description}
+                                        </p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+
+                {/* Implementation Priorities */}
+                <section className="py-20 bg-gradient-to-r from-blue-900 via-blue-800 to-purple-900 relative overflow-hidden">
+                    {/* Background Graphics */}
+                    <div className="absolute inset-0">
+                        <div className="absolute top-0 left-0 w-full h-full opacity-20">
+                            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent"></div>
+                        </div>
+                        <div className="absolute top-20 right-20 w-64 h-64 bg-blue-400 rounded-full blur-3xl opacity-10"></div>
+                        <div className="absolute bottom-20 left-20 w-48 h-48 bg-purple-400 rounded-full blur-3xl opacity-10"></div>
+                    </div>
+
+                    <div className="container mx-auto px-4 relative z-10">
+                        <div className="text-center mb-16">
+                            <div className="inline-flex items-center justify-center w-24 h-24 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full mb-6">
+                                <Heart className="h-12 w-12 text-white" />
+                            </div>
+                            <h2 className="text-4xl font-bold text-white mb-6">
+                                Implementation Priorities
+                            </h2>
+                            <p className="text-blue-100 max-w-3xl mx-auto text-lg">
+                                Comprehensive care and treatment priorities
+                                across all populations
+                                <br />
+                                <span className="text-sm text-blue-200 mt-2 block">
+                                    Ensuring quality care through decentralized
+                                    approaches
+                                </span>
+                            </p>
+                        </div>
+
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            <div className="group bg-white/10 backdrop-blur-md rounded-2xl p-8 hover:bg-white/20 transition-all duration-500 hover:scale-105 border border-white/20">
+                                <div className="flex items-center mb-6">
+                                    <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full mr-4 group-hover:scale-110 transition-transform duration-300">
+                                        <Heart className="h-8 w-8 text-white" />
+                                    </div>
+                                    <h3 className="text-xl font-bold text-white group-hover:text-yellow-300 transition-colors duration-300">
+                                        Facility Care
+                                    </h3>
+                                </div>
+                                <div className="space-y-4">
+                                    {facilityPriorities.map(
+                                        (priority, index) => (
+                                            <div
+                                                key={index}
+                                                className="flex items-start space-x-3"
+                                            >
+                                                <div className="w-3 h-3 bg-yellow-400 rounded-full mt-2 flex-shrink-0"></div>
+                                                <p className="text-blue-100 leading-relaxed">
+                                                    {priority}
+                                                </p>
+                                            </div>
+                                        )
+                                    )}
+                                </div>
+                            </div>
+
+                            <div className="group bg-white/10 backdrop-blur-md rounded-2xl p-8 hover:bg-white/20 transition-all duration-500 hover:scale-105 border border-white/20">
+                                <div className="flex items-center mb-6">
+                                    <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full mr-4 group-hover:scale-110 transition-transform duration-300">
+                                        <Users className="h-8 w-8 text-white" />
+                                    </div>
+                                    <h3 className="text-xl font-bold text-white group-hover:text-yellow-300 transition-colors duration-300">
+                                        Adult ART
+                                    </h3>
+                                </div>
+                                <div className="space-y-4">
+                                    {adultArtPriorities.map(
+                                        (priority, index) => (
+                                            <div
+                                                key={index}
+                                                className="flex items-start space-x-3"
+                                            >
+                                                <div className="w-3 h-3 bg-yellow-400 rounded-full mt-2 flex-shrink-0"></div>
+                                                <p className="text-blue-100 leading-relaxed">
+                                                    {priority}
+                                                </p>
+                                            </div>
+                                        )
+                                    )}
+                                </div>
+                            </div>
+
+                            <div className="group bg-white/10 backdrop-blur-md rounded-2xl p-8 hover:bg-white/20 transition-all duration-500 hover:scale-105 border border-white/20">
+                                <div className="flex items-center mb-6">
+                                    <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full mr-4 group-hover:scale-110 transition-transform duration-300">
+                                        <Baby className="h-8 w-8 text-white" />
+                                    </div>
+                                    <h3 className="text-xl font-bold text-white group-hover:text-yellow-300 transition-colors duration-300">
+                                        Pediatric ART
+                                    </h3>
+                                </div>
+                                <div className="space-y-4">
+                                    {pediatricPriorities.map(
+                                        (priority, index) => (
+                                            <div
+                                                key={index}
+                                                className="flex items-start space-x-3"
+                                            >
+                                                <div className="w-3 h-3 bg-yellow-400 rounded-full mt-2 flex-shrink-0"></div>
+                                                <p className="text-blue-100 leading-relaxed">
+                                                    {priority}
+                                                </p>
+                                            </div>
+                                        )
+                                    )}
+                                </div>
+                            </div>
+
+                            <div className="group bg-white/10 backdrop-blur-md rounded-2xl p-8 hover:bg-white/20 transition-all duration-500 hover:scale-105 border border-white/20">
+                                <div className="flex items-center mb-6">
+                                    <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full mr-4 group-hover:scale-110 transition-transform duration-300">
+                                        <UserCheck className="h-8 w-8 text-white" />
+                                    </div>
+                                    <h3 className="text-xl font-bold text-white group-hover:text-yellow-300 transition-colors duration-300">
+                                        PMTCT Services
+                                    </h3>
+                                </div>
+                                <div className="space-y-4">
+                                    {pmtctPriorities.map((priority, index) => (
+                                        <div
+                                            key={index}
+                                            className="flex items-start space-x-3"
+                                        >
+                                            <div className="w-3 h-3 bg-yellow-400 rounded-full mt-2 flex-shrink-0"></div>
+                                            <p className="text-blue-100 leading-relaxed">
+                                                {priority}
+                                            </p>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+
+                            <div className="group bg-white/10 backdrop-blur-md rounded-2xl p-8 hover:bg-white/20 transition-all duration-500 hover:scale-105 border border-white/20">
+                                <div className="flex items-center mb-6">
+                                    <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full mr-4 group-hover:scale-110 transition-transform duration-300">
+                                        <Activity className="h-8 w-8 text-white" />
+                                    </div>
+                                    <h3 className="text-xl font-bold text-white group-hover:text-yellow-300 transition-colors duration-300">
+                                        Community Care
+                                    </h3>
+                                </div>
+                                <div className="space-y-4">
+                                    {communityPriorities.map(
+                                        (priority, index) => (
+                                            <div
+                                                key={index}
+                                                className="flex items-start space-x-3"
+                                            >
+                                                <div className="w-3 h-3 bg-yellow-400 rounded-full mt-2 flex-shrink-0"></div>
+                                                <p className="text-blue-100 leading-relaxed">
+                                                    {priority}
+                                                </p>
+                                            </div>
+                                        )
+                                    )}
+                                </div>
+                            </div>
+
+                            <div className="group bg-white/10 backdrop-blur-md rounded-2xl p-8 hover:bg-white/20 transition-all duration-500 hover:scale-105 border border-white/20">
+                                <div className="flex items-center mb-6">
+                                    <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full mr-4 group-hover:scale-110 transition-transform duration-300">
+                                        <Users className="h-8 w-8 text-white" />
+                                    </div>
+                                    <h3 className="text-xl font-bold text-white group-hover:text-yellow-300 transition-colors duration-300">
+                                        Adolescent Care
+                                    </h3>
+                                </div>
+                                <div className="space-y-4">
+                                    {adolescentPriorities.map(
+                                        (priority, index) => (
+                                            <div
+                                                key={index}
+                                                className="flex items-start space-x-3"
+                                            >
+                                                <div className="w-3 h-3 bg-yellow-400 rounded-full mt-2 flex-shrink-0"></div>
+                                                <p className="text-blue-100 leading-relaxed">
+                                                    {priority}
+                                                </p>
+                                            </div>
+                                        )
+                                    )}
+                                </div>
+                            </div>
+
+                            <div className="group bg-white/10 backdrop-blur-md rounded-2xl p-8 hover:bg-white/20 transition-all duration-500 hover:scale-105 border border-white/20">
+                                <div className="flex items-center mb-6">
+                                    <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full mr-4 group-hover:scale-110 transition-transform duration-300">
+                                        <Heart className="h-8 w-8 text-white" />
+                                    </div>
+                                    <h3 className="text-xl font-bold text-white group-hover:text-yellow-300 transition-colors duration-300">
+                                        Co-infections & Co-morbidities
+                                    </h3>
+                                </div>
+                                <div className="space-y-4">
+                                    {coInfectionPriorities.map(
+                                        (priority, index) => (
+                                            <div
+                                                key={index}
+                                                className="flex items-start space-x-3"
+                                            >
+                                                <div className="w-3 h-3 bg-yellow-400 rounded-full mt-2 flex-shrink-0"></div>
+                                                <p className="text-blue-100 leading-relaxed">
+                                                    {priority}
+                                                </p>
+                                            </div>
+                                        )
+                                    )}
+                                </div>
+                            </div>
+
+                            <div className="group bg-white/10 backdrop-blur-md rounded-2xl p-8 hover:bg-white/20 transition-all duration-500 hover:scale-105 border border-white/20">
+                                <div className="flex items-center mb-6">
+                                    <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full mr-4 group-hover:scale-110 transition-transform duration-300">
+                                        <Target className="h-8 w-8 text-white" />
+                                    </div>
+                                    <h3 className="text-xl font-bold text-white group-hover:text-yellow-300 transition-colors duration-300">
+                                        Viral Suppression
+                                    </h3>
+                                </div>
+                                <div className="space-y-4">
+                                    {viralSuppressionPriorities.map(
+                                        (priority, index) => (
+                                            <div
+                                                key={index}
+                                                className="flex items-start space-x-3"
+                                            >
+                                                <div className="w-3 h-3 bg-yellow-400 rounded-full mt-2 flex-shrink-0"></div>
+                                                <p className="text-blue-100 leading-relaxed">
+                                                    {priority}
+                                                </p>
+                                            </div>
+                                        )
+                                    )}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                {/* Contact Information */}
+                <section className="py-20 bg-gradient-to-br from-green-50 via-white to-cyan-50 relative overflow-hidden">
+                    {/* Background Pattern */}
+                    <div className="absolute inset-0 opacity-5">
+                        <div className="absolute top-10 right-10 w-32 h-32 bg-green-500 rounded-full blur-3xl"></div>
+                        <div className="absolute bottom-20 left-20 w-40 h-40 bg-cyan-500 rounded-full blur-3xl"></div>
+                        <div className="absolute top-1/2 left-1/3 w-24 h-24 bg-blue-500 rounded-full blur-2xl"></div>
+                    </div>
+
+                    <div className="container mx-auto px-4 relative z-10">
+                        <div className="text-center mb-16">
+                            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-green-600 to-cyan-600 rounded-full mb-6">
+                                <Mail className="h-10 w-10 text-white" />
+                            </div>
+                            <h2 className="text-4xl font-bold bg-gradient-to-r from-green-600 to-cyan-600 bg-clip-text text-transparent mb-6">
+                                Get More Information
+                            </h2>
+                            <p className="text-gray-600 max-w-3xl mx-auto text-lg leading-relaxed">
+                                For more information about HIV care and
+                                treatment services, contact NACP
+                            </p>
+                        </div>
+
+                        <div className="group hover:shadow-2xl transition-all duration-500 border-0 bg-white/80 backdrop-blur-sm hover:scale-105 hover:bg-white relative overflow-hidden rounded-2xl p-8 shadow-lg max-w-4xl mx-auto">
+                            {/* Card Background Gradient */}
+                            <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                            <div className="relative z-10">
+                                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                                    <div className="text-center">
+                                        <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-green-500 to-blue-500 rounded-full mb-6 group-hover:scale-110 transition-transform duration-300">
+                                            <Phone className="w-8 h-8 text-white" />
+                                        </div>
+                                        <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                                            Phone
+                                        </h3>
+                                        <p className="text-gray-600 leading-relaxed">
+                                            +255 22 2120261
+                                        </p>
+                                    </div>
+
+                                    <div className="text-center">
+                                        <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mb-6 group-hover:scale-110 transition-transform duration-300">
+                                            <Mail className="w-8 h-8 text-white" />
+                                        </div>
+                                        <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                                            Email
+                                        </h3>
+                                        <p className="text-gray-600 leading-relaxed">
+                                            info@nacp.go.tz
+                                        </p>
+                                    </div>
+
+                                    <div className="text-center">
+                                        <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mb-6 group-hover:scale-110 transition-transform duration-300">
+                                            <MapPin className="w-8 h-8 text-white" />
+                                        </div>
+                                        <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                                            Location
+                                        </h3>
+                                        <p className="text-gray-600 leading-relaxed">
+                                            Dar es Salaam, Tanzania
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
         </PublicLayout>
     );
 }
