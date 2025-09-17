@@ -21,6 +21,15 @@ import {
 } from "@/Components/ui/card";
 
 export default function DivisionPrevention() {
+    const objectives = [
+        {
+            icon: Target,
+            title: "Overall Leadership & Advocacy",
+            description:
+                "To provide overall leadership and advocacy to HIV prevention services including Bio-medical and Behavioral interventions.",
+        },
+    ];
+
     const coreFunctions = [
         {
             icon: Calendar,
@@ -32,7 +41,7 @@ export default function DivisionPrevention() {
             icon: Target,
             title: "Advocacy Strategies",
             description:
-                "To develop advocacy strategies for HIV Prevention and carry out HIV combination prevention campaigns.",
+                "To develop advocacy strategies for HIV Prevention.",
         },
         {
             icon: FileText,
@@ -44,7 +53,13 @@ export default function DivisionPrevention() {
             icon: Users,
             title: "Partner Coordination",
             description:
-                "To coordinate all Implementing Partners under each HIV Prevention intervention in line with Regional and Council Comprehensive Health Plans (R/CCHP).",
+                "To coordinate all Implementing Partners under each HIV Prevention intervention in line with Regional and Council Comprehensive Health Plans in the areas that they work (R/CCHP).",
+        },
+        {
+            icon: CheckCircle,
+            title: "Gender Integration",
+            description:
+                "To collaborate with other Sectors in the implementation of Gender related HIV interventions.",
         },
         {
             icon: Settings,
@@ -53,10 +68,10 @@ export default function DivisionPrevention() {
                 "To provide technical support on HIV Prevention services in Regions and Councils.",
         },
         {
-            icon: CheckCircle,
-            title: "Gender Integration",
+            icon: Activity,
+            title: "Prevention Campaigns",
             description:
-                "To collaborate with other Sectors in the implementation of Gender related HIV interventions.",
+                "To carry out HIV combination prevention campaigns.",
         },
     ];
 
@@ -68,12 +83,78 @@ export default function DivisionPrevention() {
         "Key and Vulnerable Populations interventions",
     ];
 
+    const biomedicalFunctions = [
+        {
+            title: "Assessment & Management",
+            description: "To assess and manage HIV Interventions that includes HIV Testing, Voluntary Medical Male Circumcision (VMMC), Early Infancy Male Circumcision, STI /RT, Key and Vulnerable Populations.",
+        },
+        {
+            title: "Implementation Coordination",
+            description: "To coordinate the implementation of HIV Interventions that includes HIV Testing, Voluntary Medical Male Circumcision (VMMC), Early Infancy Male Circumcision, STI /RT, Key and Vulnerable Populations.",
+        },
+        {
+            title: "Supervision & Monitoring",
+            description: "To supervise, monitor and evaluate the implementation of HIV Interventions that includes HIV Testing, Voluntary Medical Male Circumcision (VMMC), Early Infancy Male Circumcision, STI /RT, Key and Vulnerable Populations.",
+        },
+        {
+            title: "Policy Guidelines Development",
+            description: "To develop HIV/AIDS Policy guidelines and SOPs for HIV biomedical Interventions.",
+        },
+        {
+            title: "Partner Coordination",
+            description: "To coordinate all Implementing Partners under HIV Biomedical intervention in line with Regional and Council Comprehensive Health Plans (R/CCHP).",
+        },
+        {
+            title: "Technical Support",
+            description: "To provide technical support on Biomedical services in Regions and Councils.",
+        },
+    ];
+
     const behavioralServices = [
         "IEC/SBCC (Information, Education, Communication/Social and Behavior Change Communication)",
         "Condom Programming",
         "Gender-based interventions",
         "Adolescents Reproductive Health (ARH)",
         "HIV advocacy and behavior change campaigns",
+    ];
+
+    const behavioralFunctions = [
+        {
+            title: "Assessment & Management",
+            description: "To assess and manage HIV behavioral Interventions that includes IEC/SBCC, condom programming, gender, Adolescents Reproductive Health (ARH).",
+        },
+        {
+            title: "Implementation Coordination",
+            description: "To coordinate the implementation of HIV Interventions that includes IEC/SBCC, condom programming, gender, Adolescents Reproductive Health (ARH).",
+        },
+        {
+            title: "Supervision & Monitoring",
+            description: "To supervise, monitor and evaluate the implementation of HIV Interventions that IEC/SBCC, condom programming, gender, Adolescents Reproductive Health (ARH).",
+        },
+        {
+            title: "Policy Dissemination",
+            description: "To coordinate dissemination of policy guidelines and tools on IEC/SBCC, condom programming, gender, Adolescents Reproductive Health (ARH) for HIV National Response.",
+        },
+        {
+            title: "Advocacy & Campaigns",
+            description: "To carry out HIV advocacy and behavior change campaigns.",
+        },
+        {
+            title: "Guidelines Development",
+            description: "To develop HIV/AIDS Policy guidelines, SOPs and advocacy strategies for HIV behavioral Interventions.",
+        },
+        {
+            title: "Partner Coordination",
+            description: "To coordinate all Implementing Partners under HIV behavioral intervention in line with Regional and Council Comprehensive Health Plans (R/CCHP).",
+        },
+        {
+            title: "Technical Support & Advocacy",
+            description: "To provide technical support on behavioral services including advocacy to HIV stakeholders.",
+        },
+        {
+            title: "Information Management",
+            description: "To develop HIV messages data bank and manage HIV information and documentation.",
+        },
     ];
     return (
         <PublicLayout title="Division of Prevention">
@@ -275,6 +356,97 @@ export default function DivisionPrevention() {
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </section>
+
+                {/* Biomedical Section Functions */}
+                <section className="py-20 bg-white relative overflow-hidden">
+                    <div className="container mx-auto px-4">
+                        <div className="text-center mb-16">
+                            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-green-600 to-teal-600 rounded-full mb-6">
+                                <Activity className="h-10 w-10 text-white" />
+                            </div>
+                            <h2 className="text-4xl font-bold bg-gradient-to-r from-green-600 to-teal-600 bg-clip-text text-transparent mb-6">
+                                Biomedical Section Functions
+                            </h2>
+                            <p className="text-gray-600 max-w-3xl mx-auto text-lg leading-relaxed">
+                                Detailed functions and responsibilities of the Biomedical Section
+                            </p>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            {biomedicalFunctions.map((func, index) => (
+                                <div
+                                    key={index}
+                                    className="group hover:shadow-2xl transition-all duration-500 border-0 bg-white/80 backdrop-blur-sm hover:scale-105 hover:bg-white relative overflow-hidden rounded-2xl p-6 shadow-lg"
+                                >
+                                    <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 to-teal-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                    
+                                    <div className="relative z-10">
+                                        <div className="flex items-start space-x-4 mb-4">
+                                            <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-green-500 to-teal-600 rounded-full flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                                                <CheckCircle className="w-6 h-6 text-white" />
+                                            </div>
+                                            <h3 className="text-lg font-bold text-gray-800 group-hover:text-green-600 transition-colors duration-300">
+                                                {func.title}
+                                            </h3>
+                                        </div>
+                                        <p className="text-gray-600 leading-relaxed">
+                                            {func.description}
+                                        </p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+
+                {/* Behavioral Section Functions */}
+                <section className="py-20 bg-gradient-to-br from-purple-50 via-white to-pink-50 relative overflow-hidden">
+                    {/* Background Pattern */}
+                    <div className="absolute inset-0 opacity-5">
+                        <div className="absolute top-10 right-10 w-32 h-32 bg-purple-500 rounded-full blur-3xl"></div>
+                        <div className="absolute bottom-20 left-20 w-40 h-40 bg-pink-500 rounded-full blur-3xl"></div>
+                        <div className="absolute top-1/2 left-1/3 w-24 h-24 bg-indigo-500 rounded-full blur-2xl"></div>
+                    </div>
+
+                    <div className="container mx-auto px-4 relative z-10">
+                        <div className="text-center mb-16">
+                            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full mb-6">
+                                <Users className="h-10 w-10 text-white" />
+                            </div>
+                            <h2 className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-6">
+                                Behavioral Section Functions
+                            </h2>
+                            <p className="text-gray-600 max-w-3xl mx-auto text-lg leading-relaxed">
+                                Comprehensive functions and responsibilities of the Behavioral Section
+                            </p>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            {behavioralFunctions.map((func, index) => (
+                                <div
+                                    key={index}
+                                    className="group hover:shadow-2xl transition-all duration-500 border-0 bg-white/80 backdrop-blur-sm hover:scale-105 hover:bg-white relative overflow-hidden rounded-2xl p-6 shadow-lg"
+                                >
+                                    <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                    
+                                    <div className="relative z-10">
+                                        <div className="flex items-start space-x-4 mb-4">
+                                            <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                                                <Target className="w-6 h-6 text-white" />
+                                            </div>
+                                            <h3 className="text-lg font-bold text-gray-800 group-hover:text-purple-600 transition-colors duration-300">
+                                                {func.title}
+                                            </h3>
+                                        </div>
+                                        <p className="text-gray-600 leading-relaxed">
+                                            {func.description}
+                                        </p>
+                                    </div>
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </section>

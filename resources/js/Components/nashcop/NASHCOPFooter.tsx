@@ -18,30 +18,38 @@ import {
 
 const NASHCOPFooter: FC = () => {
     const quickLinks = [
-        { title: "HIV Testing", href: "/services/testing", icon: Heart },
-        { title: "ART Treatment", href: "/services/treatment", icon: Shield },
+        { 
+            title: "HIV Testing Services", 
+            href: "/interventions/hiv-testing-services-linkage", 
+            icon: Heart 
+        },
+        { 
+            title: "Care & Treatment", 
+            href: "/services/care-treatment-and-support-unit", 
+            icon: Shield 
+        },
         {
             title: "Prevention Programs",
-            href: "/programs/prevention",
+            href: "/interventions/prevention-new-hiv-infection",
             icon: Users,
         },
         {
-            title: "Latest Statistics",
-            href: "/publications/statistics",
+            title: "Strategic Information",
+            href: "/services/strategic-information-unit",
             icon: FileText,
         },
     ];
 
     const importantLinks = [
-        { title: "Emergency HIV Hotline", href: "tel:199", phone: "199" },
-        { title: "Find Testing Center", href: "/services/testing-centers" },
+        { title: "Emergency HIV Hotline", href: "tel:+255-800-123-456", phone: "+255-800-123-456" },
+        { title: "Division of Prevention", href: "/services/division-of-prevention" },
         {
-            title: "Treatment Guidelines",
-            href: "/publications/treatment-guidelines",
+            title: "Strategic Framework",
+            href: "/resources/strategic-framework",
         },
-        { title: "Prevention Resources", href: "/programs/prevention" },
-        { title: "Support Groups", href: "/services/support-groups" },
-        { title: "Report Discrimination", href: "/contact/discrimination" },
+        { title: "Building Health Systems", href: "/interventions/building-resilient-health-systems" },
+        { title: "NACP Roles", href: "/services/nacp-roles-and-responsibilities" },
+        { title: "Contact Information", href: "/contact/info" },
     ];
 
     const governmentLinks = [

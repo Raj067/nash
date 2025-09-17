@@ -1,4 +1,21 @@
 import { FC, useState, useEffect } from "react";
+
+// Type declarations for Google Translate
+declare global {
+    interface Window {
+        google?: {
+            translate: {
+                TranslateElement: {
+                    new (options: any, elementId: string): any;
+                    InlineLayout: {
+                        SIMPLE: any;
+                    };
+                };
+            };
+        };
+        googleTranslateElementInit?: () => void;
+    }
+}
 import { Button } from "@/Components/ui/button";
 import {
     DropdownMenu,
@@ -21,6 +38,7 @@ import {
     Newspaper,
     MessageCircle,
     HandHeart,
+    Globe,
 } from "lucide-react";
 
 const NASHCOPHeader: FC = () => {
@@ -28,6 +46,14 @@ const NASHCOPHeader: FC = () => {
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
     const [isScrolled, setIsScrolled] = useState(false);
     const [isSearchOpen, setIsSearchOpen] = useState(false);
+    const [currentLanguage, setCurrentLanguage] = useState<'en' | 'sw'>(() => {
+        // Get saved language preference or default to 'en'
+        if (typeof window !== 'undefined') {
+            return (localStorage.getItem('nacp_language') as 'en' | 'sw') || 'en';
+        }
+        return 'en';
+    });
+    const [searchQuery, setSearchQuery] = useState('');
 
     useEffect(() => {
         const handleScroll = () => {
@@ -37,6 +63,255 @@ const NASHCOPHeader: FC = () => {
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
+
+    // Initialize Google Translate
+    useEffect(() => {
+        const addGoogleTranslateScript = () => {
+            // Remove existing script if any
+            const existingScript = document.querySelector('script[src*="translate.google.com"]');
+            if (existingScript) {
+                existingScript.remove();
+            }
+
+            // Add CSS to hide Google Translate elements
+            const style = document.createElement('style');
+            style.textContent = `
+                .goog-te-banner-frame.skiptranslate { display: none !important; }
+                body { top: 0px !important; }
+                .goog-te-balloon-frame { display: none !important; }
+                .goog-te-ftab { display: none !important; }
+                #google_translate_element { display: none !important; }
+                .goog-te-combo { display: none !important; }
+            `;
+            document.head.appendChild(style);
+
+            // Add Google Translate script
+            const script = document.createElement('script');
+            script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+            script.async = true;
+            document.head.appendChild(script);
+
+            // Initialize Google Translate
+            window.googleTranslateElementInit = () => {
+                if (window.google?.translate) {
+                    new window.google.translate.TranslateElement({
+                        pageLanguage: 'en',
+                        includedLanguages: 'en,sw',
+                        layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
+                        autoDisplay: false,
+                        multilanguagePage: true
+                    }, 'google_translate_element');
+                }
+            };
+        };
+
+        // Delay to ensure DOM is ready
+        setTimeout(addGoogleTranslateScript, 1000);
+    }, []);
+
+    // Apply saved language on page load
+    useEffect(() => {
+        if (currentLanguage === 'sw') {
+            // Delay to ensure page is fully loaded
+            setTimeout(() => {
+                handleLanguageChange('sw');
+            }, 2000);
+        }
+    }, []);
+
+    // Detect current language from Google Translate
+    useEffect(() => {
+        const detectLanguage = () => {
+            const iframe = document.querySelector('iframe.goog-te-banner-frame');
+            if (iframe) {
+                try {
+                    const currentLang = document.documentElement.lang || 'en';
+                    if (currentLang === 'sw' && currentLanguage !== 'sw') {
+                        setCurrentLanguage('sw');
+                    } else if (currentLang === 'en' && currentLanguage !== 'en') {
+                        setCurrentLanguage('en');
+                    }
+                } catch (e) {
+                    // Ignore cross-origin errors
+                }
+            }
+        };
+
+        const interval = setInterval(detectLanguage, 1000);
+        return () => clearInterval(interval);
+    }, [currentLanguage]);
+
+    const languages = [
+        {
+            code: 'en',
+            name: 'English',
+            flag: '🇺🇸'
+        },
+        {
+            code: 'sw',
+            name: 'Kiswahili',
+            flag: '🇹🇿'
+        }
+    ];
+
+    const handleLanguageChange = (langCode: 'en' | 'sw') => {
+        setCurrentLanguage(langCode);
+        
+        // Store language preference
+        localStorage.setItem('nacp_language', langCode);
+        
+        // Method 1: Try to trigger Google Translate dropdown
+        setTimeout(() => {
+            const googleTranslateCombo = document.querySelector('.goog-te-combo') as HTMLSelectElement;
+            if (googleTranslateCombo) {
+                googleTranslateCombo.value = langCode;
+                googleTranslateCombo.dispatchEvent(new Event('change', { bubbles: true }));
+                return;
+            }
+
+            // Method 2: Try to find and click Google Translate menu items
+            const checkForTranslateMenu = () => {
+                const menuItems = document.querySelectorAll('.goog-te-menu2-item');
+                for (let item of menuItems) {
+                    const span = item.querySelector('span.text');
+                    if (span) {
+                        const text = span.textContent?.toLowerCase();
+                        if (langCode === 'sw' && (text?.includes('swahili') || text?.includes('kiswahili'))) {
+                            (item as HTMLElement).click();
+                            return true;
+                        } else if (langCode === 'en' && text?.includes('english')) {
+                            (item as HTMLElement).click();
+                            return true;
+                        }
+                    }
+                }
+                return false;
+            };
+
+            // Try multiple times to find the menu
+            let attempts = 0;
+            const tryTranslate = () => {
+                if (checkForTranslateMenu() || attempts > 10) {
+                    return;
+                }
+                attempts++;
+                setTimeout(tryTranslate, 200);
+            };
+
+            tryTranslate();
+        }, 500);
+
+        // Fallback: Manual translation
+        setTimeout(() => {
+            if (langCode === 'sw') {
+                translatePageToSwahili();
+            } else {
+                revertToEnglish();
+            }
+        }, 2000);
+    };
+
+    // Simple translation fallback
+    const translatePageToSwahili = () => {
+        const translations: { [key: string]: string } = {
+            // Navigation
+            'Home': 'Nyumbani',
+            'Who We Are': 'Sisi ni Nani',
+            'Services': 'Huduma',
+            'Interventions': 'Mipango',
+            'Publications': 'Machapisho',
+            'Contact': 'Mawasiliano',
+            'Search': 'Tafuta',
+            'Support': 'Msaada',
+            'Language': 'Lugha',
+            
+            // Languages
+            'English': 'Kiingereza',
+            'Kiswahili': 'Kiswahili',
+            
+            // Header links
+            'HIV Testing Centers': 'Vituo vya Upimaji wa VVU',
+            'Prevention Programs': 'Mipango ya Kuzuia',
+            'Emergency Hotline': 'Simu ya Dharura',
+            
+            // Common terms
+            'About': 'Kuhusu',
+            'About Us': 'Kuhusu Sisi',
+            'Our Mission': 'Dhamira Yetu',
+            'Our Vision': 'Maono Yetu',
+            'HIV/AIDS': 'VVU/UKIMWI',
+            'National AIDS Control Programme': 'Mpango wa Kitaifa wa Kudhibiti UKIMWI',
+            'NACP': 'NACP',
+            'Tanzania': 'Tanzania',
+            
+            // Page titles
+            'Organization Structure': 'Muundo wa Shirika',
+            'HIV/AIDS in Tanzania': 'VVU/UKIMWI Tanzania',
+            'Care, Treatment & Support': 'Huduma, Matibabu na Msaada',
+            'Division of Prevention': 'Idara ya Kuzuia',
+            'NACP Roles & Responsibilities': 'Majukumu na Wajibu wa NACP',
+            
+            // Buttons and actions
+            'Read More': 'Soma Zaidi',
+            'Learn More': 'Jifunze Zaidi',
+            'Get Started': 'Anza',
+            'Contact Us': 'Wasiliana Nasi',
+            'Download': 'Pakua',
+            'View All': 'Ona Zote',
+            
+            // Common phrases
+            'Welcome to': 'Karibu',
+            'Latest News': 'Habari za Hivi Karibuni',
+            'Our Programs': 'Mipango Yetu',
+            'Key Statistics': 'Takwimu Muhimu',
+            'Quick Links': 'Viungo vya Haraka'
+        };
+
+        // Store original content
+        if (!document.body.dataset.originalLang) {
+            document.body.dataset.originalLang = 'en';
+            document.body.dataset.originalContent = document.body.innerHTML;
+        }
+
+        // More targeted text replacement to avoid breaking React components
+        const translateTextNodes = (node: Node) => {
+            if (node.nodeType === Node.TEXT_NODE) {
+                let text = node.textContent || '';
+                Object.entries(translations).forEach(([en, sw]) => {
+                    const regex = new RegExp(`\\b${en}\\b`, 'g');
+                    text = text.replace(regex, sw);
+                });
+                if (node.textContent !== text) {
+                    node.textContent = text;
+                }
+            } else if (node.nodeType === Node.ELEMENT_NODE) {
+                const element = node as Element;
+                // Skip script tags, style tags, and React-specific elements
+                if (!['SCRIPT', 'STYLE', 'NOSCRIPT'].includes(element.tagName) && 
+                    !element.hasAttribute('data-reactroot')) {
+                    Array.from(node.childNodes).forEach(translateTextNodes);
+                }
+            }
+        };
+
+        translateTextNodes(document.body);
+        document.documentElement.lang = 'sw';
+    };
+
+    const revertToEnglish = () => {
+        if (document.body.dataset.originalContent) {
+            document.body.innerHTML = document.body.dataset.originalContent;
+            document.documentElement.lang = 'en';
+        }
+    };
+
+    const handleSearch = (e: React.FormEvent) => {
+        e.preventDefault();
+        if (searchQuery.trim()) {
+            // Redirect to search results page
+            window.location.href = `/search?q=${encodeURIComponent(searchQuery.trim())}`;
+        }
+    };
 
     const navigationItems = [
         {
@@ -161,9 +436,9 @@ const NASHCOPHeader: FC = () => {
     };
 
     const utilityLinks = [
-        { label: "HIV Testing Centers", href: "/services/testing" },
-        { label: "Treatment Guidelines", href: "/publications/treatment" },
-        { label: "Emergency Support", href: "/contact/emergency" },
+        { label: "HIV Testing Centers", href: "/services/hiv-testing" },
+        { label: "Prevention Programs", href: "/interventions/prevention-infection" },
+        { label: "Emergency Hotline: +255-800-123-456", href: "tel:+255800123456" },
     ];
 
     return (
@@ -177,79 +452,100 @@ const NASHCOPHeader: FC = () => {
                                     <a
                                         key={index}
                                         href={link.href}
-                                        className="hover:underline transition-colors"
+                                        className="hover:underline transition-colors text-xs flex items-center space-x-1"
+                                        {...(link.href.startsWith('tel:') ? { 'aria-label': 'Emergency Hotline' } : {})}
                                     >
-                                        {link.label}
+                                        {link.href.startsWith('tel:') && <Phone className="h-3 w-3" />}
+                                        <span>{link.label}</span>
                                     </a>
                                 ))}
                             </div>
 
                             <div className="flex items-center space-x-3">
+                                {/* Search */}
                                 <div className="relative">
                                     {isSearchOpen ? (
-                                        <div className="flex items-center bg-white/10 rounded-md px-2 py-1">
+                                        <form onSubmit={handleSearch} className="flex items-center bg-white/10 rounded-md px-2 py-1">
                                             <input
                                                 type="text"
-                                                placeholder="Search..."
+                                                placeholder="Search NACP..."
+                                                value={searchQuery}
+                                                onChange={(e) => setSearchQuery(e.target.value)}
                                                 className="bg-transparent text-white placeholder-white/70 text-xs w-32 focus:outline-none focus:w-40 transition-all duration-200"
                                                 autoFocus
-                                                onBlur={() =>
-                                                    setIsSearchOpen(false)
-                                                }
+                                                onBlur={(e) => {
+                                                    // Only close if not clicking submit
+                                                    setTimeout(() => setIsSearchOpen(false), 150);
+                                                }}
                                             />
-                                            <Search className="h-3 w-3 text-white/70 ml-1" />
-                                        </div>
+                                            <button type="submit" className="ml-1">
+                                                <Search className="h-3 w-3 text-white/70 hover:text-white" />
+                                            </button>
+                                        </form>
                                     ) : (
                                         <Button
                                             variant="ghost"
                                             size="sm"
                                             className="text-white hover:text-yellow-300 hover:bg-blue-700 h-auto p-1"
-                                            onClick={() =>
-                                                setIsSearchOpen(true)
-                                            }
+                                            onClick={() => setIsSearchOpen(true)}
+                                            aria-label="Open search"
                                         >
                                             <Search className="h-3 w-3" />
                                         </Button>
                                     )}
                                 </div>
 
-                                <a href="/donate/">
+                                {/* Donate Button */}
+                                <a href="/support-nacp" aria-label="Support NACP">
                                     <Button
                                         variant="default"
                                         size="sm"
                                         className="bg-yellow-500 hover:bg-yellow-400 text-blue-900 font-semibold h-auto px-3 py-1.5 flex items-center space-x-1 shadow-md hover:shadow-lg transition-all duration-200"
                                     >
                                         <HandHeart className="h-3 w-3" />
-                                        <span className="text-xs">Donate</span>
+                                        <span className="text-xs">Support</span>
                                     </Button>
                                 </a>
 
+                                {/* Language Selector */}
                                 <DropdownMenu>
                                     <DropdownMenuTrigger asChild>
                                         <Button
                                             variant="ghost"
                                             size="sm"
-                                            className="text-white hover:text-yellow-300 hover:bg-blue-700 h-auto p-1"
+                                            className="text-white hover:text-yellow-300 hover:bg-blue-700 h-auto px-2 py-1 flex items-center space-x-1"
+                                            aria-label="Select language"
                                         >
-                                            <span className="text-xs">
-                                                Language
+                                            <span className="text-sm">
+                                                {languages.find(lang => lang.code === currentLanguage)?.flag}
                                             </span>
-                                            <ChevronDown className="ml-1 h-3 w-3" />
+                                            <span className="text-xs hidden sm:inline">
+                                                {languages.find(lang => lang.code === currentLanguage)?.code.toUpperCase()}
+                                            </span>
+                                            <ChevronDown className="h-3 w-3" />
                                         </Button>
                                     </DropdownMenuTrigger>
-                                    <DropdownMenuContent align="end">
-                                        <DropdownMenuItem>
-                                            <a href="#" className="w-full">
-                                                English
-                                            </a>
-                                        </DropdownMenuItem>
-                                        <DropdownMenuItem>
-                                            <a href="#" className="w-full">
-                                                Kiswahili
-                                            </a>
-                                        </DropdownMenuItem>
+                                    <DropdownMenuContent align="end" className="min-w-[140px]">
+                                        {languages.map((language) => (
+                                            <DropdownMenuItem
+                                                key={language.code}
+                                                onClick={() => handleLanguageChange(language.code as 'en' | 'sw')}
+                                                className={`flex items-center space-x-2 cursor-pointer ${
+                                                    currentLanguage === language.code ? 'bg-blue-50 font-medium' : ''
+                                                }`}
+                                            >
+                                                <span className="text-lg">{language.flag}</span>
+                                                <span className="text-sm">{language.name}</span>
+                                                {currentLanguage === language.code && (
+                                                    <div className="w-2 h-2 bg-blue-600 rounded-full ml-auto"></div>
+                                                )}
+                                            </DropdownMenuItem>
+                                        ))}
                                     </DropdownMenuContent>
                                 </DropdownMenu>
+
+                                {/* Hidden Google Translate Element */}
+                                <div id="google_translate_element" className="hidden"></div>
                             </div>
                         </div>
                     </div>

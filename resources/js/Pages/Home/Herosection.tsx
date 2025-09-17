@@ -39,7 +39,7 @@ function Herosection() {
         },
         {
             id: 2,
-            image: "/images/arvsImages.jpeg",
+            image: "/images/home/home1.jpg",
             title: "Mafanikio ya 95-95-95",
             subtitle: "Tanzania: 88% - 98% - 96%",
             description:
@@ -47,7 +47,7 @@ function Herosection() {
         },
         {
             id: 3,
-            image: "/images/arvsImages.jpeg",
+            image: "/images/home/home3.jpg",
             title: "Huduma Kamili za Afya",
             subtitle: "VVU, Magonjwa ya Zinaa na Hepatitis",
             description:

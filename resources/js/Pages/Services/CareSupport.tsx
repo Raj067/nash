@@ -27,6 +27,182 @@ export default function CareSupport() {
         "To coordinate revision or development of Policy guidelines, training materials, Standards Operating Procedures and Protocols for HIV Care, Treatment and Support interventions.",
     ];
 
+    const overallUnitFunctions = [
+        {
+            title: "Quality Improvement Monitoring",
+            description: "In collaboration with Strategic Information Directorate, monitor the implementation; facilitate the execution of the quality improvement activities for HIV care, treatment and Support Interventions.",
+        },
+        {
+            title: "Partner Coordination & Supervision",
+            description: "To coordinate and supervise all care, treatment and Support Implementing Partners and ensure updated MoU exists and in line with Regional and Council Comprehensive Health Plans in the areas that they work (R/CCHP).",
+        },
+        {
+            title: "Stakeholder Forums Coordination",
+            description: "To plan and coordinate HIV care, treatment and Support forums with HIV/AIDS stakeholders including TWGs, Clinical Subcommittees, Information sharing fora; and ensure meaningful participation of unit staffs in forum organized by other stakeholders.",
+        },
+        {
+            title: "Leadership & Technical Support",
+            description: "To provide Leadership and technical support to the RACCs, DACCs and all Technical staffs under the unit.",
+        },
+        {
+            title: "Activity Execution",
+            description: "To ensure timely execution of Planned activities under the care, treatment.",
+        },
+        {
+            title: "Funding Support",
+            description: "To support the directorate under all available source of funds (CDC, GF, WHO, UNICEF, PEPFAR).",
+        },
+        {
+            title: "Program Reporting",
+            description: "In collaboration with Strategic Information directorate develop program reports relevant for use with other people/stakeholders for HIV services (Care and treatment, Surveillance reports etc.).",
+        },
+        {
+            title: "Advisory Role",
+            description: "Overall advisor on HIV Care, treatment and support matters to the institution and the Ministry.",
+        },
+    ];
+
+    const clinicalCareFunctions = [
+        {
+            title: "Vision & Leadership",
+            description: "To provide vision and leadership on HIV Care and Treatment matters towards the control of HIV epidemic in ending HIV by 2030, reach UNAIDS targets of 90, 90, 90 and elimination of new infection in children.",
+        },
+        {
+            title: "Program Management",
+            description: "To assess, plan, budget, manage, coordinate the implementation, supervise, monitor and evaluate HIV Interventions that include children, adolescent and adult HIV care and treatment interventions.",
+        },
+        {
+            title: "Policy Development",
+            description: "To coordinate revision or development of policy guidelines, training materials, Standards Operating Procedures and Protocols for HIV Care and Treatment interventions.",
+        },
+        {
+            title: "Quality Improvement",
+            description: "In collaboration with Strategic Information Directorate, monitor the implementation; facilitate the execution of the quality improvement activities for HIV care and treatment Interventions.",
+        },
+        {
+            title: "Partner Coordination",
+            description: "To coordinate and supervise all care and treatment Implementing Partners and ensure updated MoU exists and in line with Regional and Council Comprehensive Health Plans in the areas that they work (R/CCHP).",
+        },
+        {
+            title: "Forum Coordination",
+            description: "To plan and coordinate HIV care and treatment forums with HIV/AIDS stakeholders including TWGs, Clinical Subcommittees, Information sharing fora; and ensure meaningful participation of section staffs in forum organized by other stakeholders.",
+        },
+        {
+            title: "Technical Support",
+            description: "To provide leadership and technical support to the RACCs, DACCs and all Technical staffs under the section.",
+        },
+        {
+            title: "Activity Execution",
+            description: "To ensure timely execution of planned activities under the care and treatment programme.",
+        },
+        {
+            title: "Funding Support",
+            description: "To support section under all available sources of funds (CDC, GF, WHO, UNICEF, PEPFAR).",
+        },
+        {
+            title: "Program Reporting",
+            description: "In collaboration with Strategic Information Directorate develop program reports relevant for use with other people/stakeholders for HIV services (Care and treatment, Surveillance reports etc.).",
+        },
+        {
+            title: "Advisory Role",
+            description: "Overall advisor on HIV Care and treatment matters to the institution and the Ministry.",
+        },
+    ];
+
+    const communityCareFunctions = [
+        {
+            title: "Vision & Leadership",
+            description: "To provide vision and leadership on HIV community support matters towards the control of HIV epidemic in ending HIV by 2030, reach UNAIDS targets of 90, 90, 90.",
+        },
+        {
+            title: "Program Management",
+            description: "To assess, plan, budget, manage, coordinate the implementation, supervise, monitor and evaluate HIV Interventions that include children, adolescent and adult HIV community support interventions.",
+        },
+        {
+            title: "Policy Development",
+            description: "To coordinate revision or development of policy guidelines, training materials, Standards Operating Procedures and Protocols for HIV Community Support interventions.",
+        },
+        {
+            title: "Quality Improvement",
+            description: "In collaboration with Strategic Information Directorate, monitor the implementation; facilitate the execution of the quality improvement activities for HIV community support Interventions.",
+        },
+        {
+            title: "Partner Coordination",
+            description: "To coordinate and supervise all community support Implementing Partners and ensure updated MoU exists and in line with Regional and Council Comprehensive Health Plans in the areas that they work (R/CCHP).",
+        },
+        {
+            title: "Forum Coordination",
+            description: "To plan and coordinate HIV care, treatment and Support forums with HIV/AIDS stakeholders including TWGs, Clinical Subcommittees, Information sharing fora; and ensure meaningful participation of section staffs in forum organized by other stakeholders.",
+        },
+        {
+            title: "Technical Support",
+            description: "To provide leadership and technical support to the RACCs, DACCs and all Technical staffs under the Community Care section.",
+        },
+        {
+            title: "Activity Execution",
+            description: "To ensure timely execution of planned activities under the HIV community care section.",
+        },
+        {
+            title: "Funding Support",
+            description: "To support section under all available source of funds (CDC, GF, WHO, UNICEF, PEPFAR).",
+        },
+        {
+            title: "Program Reporting",
+            description: "In collaboration with Strategic Information directorate develop program reports relevant for use with other people/stakeholders for Community care.",
+        },
+        {
+            title: "Advisory Role",
+            description: "Overall advisor on HIV community support support matters to the institution and the Ministry.",
+        },
+    ];
+
+    const tbCoMorbidityFunctions = [
+        {
+            title: "Vision & Leadership",
+            description: "To provide of vision and leadership on TB/HIV Care and Treatment matters towards the control of HIV epidemic in ending HIV by 2030, reach UNAIDS targets of 90, 90, 90.",
+        },
+        {
+            title: "Program Management",
+            description: "To assess, plan, budget, manage, coordinate the implementation, supervise, monitor and evaluate TB/HIV collaborative Interventions that include children, adolescent and adult HIV care and treatment.",
+        },
+        {
+            title: "Policy Development",
+            description: "To coordinate revision or development of policy guidelines, training materials, Standards Operating Procedures and Protocols for TB/HIV Care and Treatment interventions.",
+        },
+        {
+            title: "Quality Improvement",
+            description: "In collaboration with Strategic Information Directorate, monitor the implementation; facilitate the execution of the quality improvement activities for TB/HIV care and treatment Interventions.",
+        },
+        {
+            title: "Partner Coordination",
+            description: "To coordinate and supervise all TB/HIV care and treatment Implementing Partners and ensure updated MoU exists and in line with Regional and Council Comprehensive Health Plans in the areas that they work (R/CCHP).",
+        },
+        {
+            title: "Forum Coordination",
+            description: "To plan and coordinate HIV care and treatment forums with TB/HIV stakeholders including TWGs, TB/HIV Clinical Subcommittees, Information sharing fora; and ensure meaningful participation of section staffs in forum organized by other stakeholders.",
+        },
+        {
+            title: "Technical Support",
+            description: "To provide leadership and technical support to the RACCs, DACCs and all Technical staffs under the TB and Co- Morbidity Section.",
+        },
+        {
+            title: "Activity Execution",
+            description: "To ensure timely execution of planned activities under the TB and Co- Morbidity Section.",
+        },
+        {
+            title: "Funding Support",
+            description: "To support section under all available sources of funds (CDC, GF, WHO, UNICEF, PEPFAR).",
+        },
+        {
+            title: "Program Reporting",
+            description: "In collaboration with Strategic Information Directorate develop program reports relevant for use with other people/stakeholders for TB/HIV services (Care and treatment, Surveillance reports etc.).",
+        },
+        {
+            title: "Advisory Role",
+            description: "Overall advisor on TB/HIV Care and treatment matters to the institution and the Ministry.",
+        },
+    ];
+
     const sections = [
         {
             title: "Clinical Care Section",
@@ -34,13 +210,7 @@ export default function CareSupport() {
             color: "from-blue-600 to-cyan-600",
             description:
                 "Providing comprehensive HIV care and treatment services to achieve 90-90-90 targets for all populations.",
-            functions: [
-                "HIV Care and Treatment for children, adolescents and adults",
-                "Policy guidelines and training materials development",
-                "Quality improvement activities implementation",
-                "Implementing Partners coordination and supervision",
-                "Technical support to RACCs and DACCs",
-            ],
+            functions: clinicalCareFunctions,
         },
         {
             title: "Community Care",
@@ -48,13 +218,7 @@ export default function CareSupport() {
             color: "from-green-600 to-emerald-600",
             description:
                 "Leading community-based HIV support interventions to reach 90-90-90 targets.",
-            functions: [
-                "Community support interventions for all age groups",
-                "Community Care policy guidelines development",
-                "Quality improvement for community interventions",
-                "Community support Implementing Partners coordination",
-                "Technical support for Community Care sections",
-            ],
+            functions: communityCareFunctions,
         },
         {
             title: "TB and Co-Morbidity",
@@ -62,13 +226,7 @@ export default function CareSupport() {
             color: "from-purple-600 to-violet-600",
             description:
                 "Coordinating TB/HIV collaborative interventions and co-morbidity management.",
-            functions: [
-                "TB/HIV collaborative interventions coordination",
-                "TB/HIV policy guidelines and protocols development",
-                "Quality improvement for TB/HIV services",
-                "TB/HIV Implementing Partners supervision",
-                "Technical support for TB and Co-Morbidity sections",
-            ],
+            functions: tbCoMorbidityFunctions,
         },
     ];
 
@@ -191,6 +349,48 @@ export default function CareSupport() {
                     </div>
                 </section>
 
+                {/* Overall Unit Functions */}
+                <section className="py-20 bg-white relative overflow-hidden">
+                    <div className="container mx-auto px-4">
+                        <div className="text-center mb-16">
+                            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-orange-600 to-red-600 rounded-full mb-6">
+                                <Building className="h-10 w-10 text-white" />
+                            </div>
+                            <h2 className="text-4xl font-bold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent mb-6">
+                                Overall Unit Functions
+                            </h2>
+                            <p className="text-gray-600 max-w-3xl mx-auto text-lg leading-relaxed">
+                                Comprehensive functions and responsibilities of the Care, Treatment & Support Unit
+                            </p>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            {overallUnitFunctions.map((func, index) => (
+                                <div
+                                    key={index}
+                                    className="group hover:shadow-2xl transition-all duration-500 border-0 bg-white/80 backdrop-blur-sm hover:scale-105 hover:bg-white relative overflow-hidden rounded-2xl p-6 shadow-lg"
+                                >
+                                    <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-red-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                    
+                                    <div className="relative z-10">
+                                        <div className="flex items-start space-x-4 mb-4">
+                                            <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-orange-500 to-red-600 rounded-full flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                                                <Target className="w-6 h-6 text-white" />
+                                            </div>
+                                            <h3 className="text-lg font-bold text-gray-800 group-hover:text-orange-600 transition-colors duration-300">
+                                                {func.title}
+                                            </h3>
+                                        </div>
+                                        <p className="text-gray-600 leading-relaxed">
+                                            {func.description}
+                                        </p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+
                 {/* Key Functions */}
                 <section className="py-20 bg-gradient-to-r from-blue-900 via-blue-800 to-purple-900 relative overflow-hidden">
                     {/* Background Graphics */}
@@ -295,16 +495,18 @@ export default function CareSupport() {
                                         <h4 className="font-semibold text-gray-800 mb-6 text-lg">
                                             Key Functions:
                                         </h4>
-                                        <div className="grid md:grid-cols-2 gap-4">
+                                        <div className="grid md:grid-cols-1 gap-6">
                                             {section.functions.map(
                                                 (func, funcIndex) => (
                                                     <div
                                                         key={funcIndex}
-                                                        className="flex items-start space-x-3"
+                                                        className="bg-gray-50 rounded-xl p-4 hover:bg-gray-100 transition-colors duration-300"
                                                     >
-                                                        <div className="w-3 h-3 bg-blue-600 rounded-full mt-2 flex-shrink-0 group-hover:bg-blue-700 transition-colors duration-300"></div>
-                                                        <p className="text-gray-700 leading-relaxed">
-                                                            {func}
+                                                        <h5 className="font-semibold text-gray-800 mb-2">
+                                                            {func.title}
+                                                        </h5>
+                                                        <p className="text-gray-600 leading-relaxed text-sm">
+                                                            {func.description}
                                                         </p>
                                                     </div>
                                                 )
