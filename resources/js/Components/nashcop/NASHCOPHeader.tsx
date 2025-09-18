@@ -577,7 +577,7 @@ const NASHCOPHeader: FC = () => {
                                         className="bg-yellow-500 hover:bg-yellow-400 text-blue-900 font-semibold h-auto px-3 py-1.5 flex items-center space-x-1 shadow-md hover:shadow-lg transition-all duration-200"
                                     >
                                         <HandHeart className="h-3 w-3" />
-                                        <span className="text-xs">Support</span>
+                                        <span className="text-xs">Donate</span>
                                     </Button>
                                 </a>
 

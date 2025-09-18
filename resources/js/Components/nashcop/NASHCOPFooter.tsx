@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import {
     Phone,
     Mail,
@@ -14,9 +14,52 @@ import {
     FileText,
     Clock,
     AlertCircle,
+    CheckCircle,
+    Loader2,
 } from "lucide-react";
 
 const NASHCOPFooter: FC = () => {
+    const [email, setEmail] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
+    const [message, setMessage] = useState<{ type: 'success' | 'error', text: string } | null>(null);
+
+    const handleNewsletterSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        
+        if (!email.trim()) {
+            setMessage({ type: 'error', text: 'Please enter your email address.' });
+            return;
+        }
+
+        setIsLoading(true);
+        setMessage(null);
+
+        try {
+            const response = await fetch('/api/newsletter/subscribe', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') || '',
+                },
+                body: JSON.stringify({ email: email.trim() }),
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                setMessage({ type: 'success', text: data.message });
+                setEmail('');
+            } else {
+                setMessage({ type: 'error', text: data.message });
+            }
+        } catch (error) {
+            setMessage({ type: 'error', text: 'Network error. Please try again later.' });
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
     const quickLinks = [
         { 
             title: "HIV Testing Services", 
@@ -301,16 +344,45 @@ const NASHCOPFooter: FC = () => {
                             <h5 className="text-sm font-semibold mb-3 text-blue-200">
                                 Stay Updated
                             </h5>
-                            <div className="flex">
-                                <input
-                                    type="email"
-                                    placeholder="Your email"
-                                    className="flex-1 px-3 py-2 text-sm bg-blue-800 border border-blue-600 rounded-l-md focus:outline-none focus:border-yellow-400 text-white placeholder-blue-300"
-                                />
-                                <button className="px-4 py-2 bg-yellow-500 text-blue-900 text-sm font-semibold rounded-r-md hover:bg-yellow-400 transition-colors">
-                                    Subscribe
-                                </button>
-                            </div>
+                            <form onSubmit={handleNewsletterSubmit}>
+                                <div className="flex">
+                                    <input
+                                        type="email"
+                                        value={email}
+                                        onChange={(e) => setEmail(e.target.value)}
+                                        placeholder="Your email"
+                                        disabled={isLoading}
+                                        className="flex-1 px-3 py-2 text-sm bg-blue-800 border border-blue-600 rounded-l-md focus:outline-none focus:border-yellow-400 text-white placeholder-blue-300 disabled:opacity-50"
+                                    />
+                                    <button 
+                                        type="submit"
+                                        disabled={isLoading}
+                                        className="px-4 py-2 bg-yellow-500 text-blue-900 text-sm font-semibold rounded-r-md hover:bg-yellow-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center"
+                                    >
+                                        {isLoading ? (
+                                            <Loader2 className="w-4 h-4 animate-spin" />
+                                        ) : (
+                                            'Subscribe'
+                                        )}
+                                    </button>
+                                </div>
+                            </form>
+                            
+                            {/* Success/Error Messages */}
+                            {message && (
+                                <div className={`mt-2 p-2 rounded-md text-xs flex items-center space-x-2 ${
+                                    message.type === 'success' 
+                                        ? 'bg-green-900/50 text-green-200 border border-green-700' 
+                                        : 'bg-red-900/50 text-red-200 border border-red-700'
+                                }`}>
+                                    {message.type === 'success' ? (
+                                        <CheckCircle className="w-4 h-4 flex-shrink-0" />
+                                    ) : (
+                                        <AlertCircle className="w-4 h-4 flex-shrink-0" />
+                                    )}
+                                    <span>{message.text}</span>
+                                </div>
+                            )}
                         </div>
                     </div>
                 </div>
