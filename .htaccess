@@ -6,10 +6,6 @@
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^(.*)$ /public/$1 [L]
-    
-    # Handle requests that are already in public folder
-    RewriteCond %{REQUEST_URI} ^/public/
-    RewriteRule ^public/(.*)$ /public/$1 [L]
 </IfModule>
 
 # Security: Hide sensitive files and directories
@@ -18,8 +14,10 @@
     Deny from all
 </FilesMatch>
 
-# Hide Laravel directories
-RedirectMatch 404 /^/(app|bootstrap|config|database|resources|routes|storage|tests|vendor)/
+# Hide Laravel directories from direct access
+<IfModule mod_alias.c>
+    RedirectMatch 404 /^/(app|bootstrap|config|database|resources|routes|storage|tests|vendor)(/.*)?$
+</IfModule>
 
 # Disable Directory Listing
 Options -Indexes
