@@ -655,7 +655,7 @@ const NASHCOPHeader: FC = () => {
             {/* Main Header with Background - Sticky */}
             <div className="sticky top-0 z-50">
                 <div
-                    className="bg-cover bg-center bg-no-repeat h-28 sm:h-28"
+                    className="bg-cover bg-center bg-no-repeat h-36 sm:h-28"
                     style={{ backgroundImage: `url(/images/banner.jpg)` }}
                 >
                     <div className="bg-black/70 backdrop-blur-sm h-full">
