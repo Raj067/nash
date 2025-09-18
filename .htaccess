@@ -1,25 +1,24 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
-    
-    # Redirect /public/ URLs to clean URLs (remove /public/ from visible URLs)
-    RewriteCond %{THE_REQUEST} \s/+public/([^\s?]*) [NC]
-    RewriteRule ^ /%1 [R=301,L]
-    
-    # Internal rewrite: send all requests to public folder
-    RewriteCond %{REQUEST_FILENAME} !-f
+
+    # Redirect if someone tries to access /public explicitly
+    RewriteCond %{THE_REQUEST} \s/public/ [NC]
+    RewriteRule ^public/?(.*)$ /$1 [R=301,L]
+
+    # Send all requests to public/index.php internally
     RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ^(.*)$ public/$1 [L]
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^(.*)$ public/index.php [L]
 </IfModule>
 
-# Security: Hide sensitive files and directories
+# Security: Hide sensitive files
 <FilesMatch "^(\.env|\.git|composer\.(json|lock)|artisan)">
-    Order allow,deny
-    Deny from all
+    Require all denied
 </FilesMatch>
 
-# Hide Laravel directories from direct access
+# Hide Laravel internal directories from direct access
 <IfModule mod_alias.c>
-    RedirectMatch 404 /^/(app|bootstrap|config|database|resources|routes|storage|tests|vendor)(/.*)?$
+    RedirectMatch 404 ^/(app|bootstrap|config|database|resources|routes|storage|tests|vendor)(/.*)?$
 </IfModule>
 
 # Disable Directory Listing
@@ -31,4 +30,3 @@ Options -Indexes
         Header set Cache-Control "max-age=31536000, public"
     </FilesMatch>
 </IfModule>
-
