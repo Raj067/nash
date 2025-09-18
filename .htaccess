@@ -1,17 +1,11 @@
-<IfModule mod_rewrite.c>
-    RewriteEngine On
-    
-    # Redirect /public/ URLs to clean URLs (remove /public/ from visible URLs)
-    RewriteCond %{THE_REQUEST} \s/+public/([^\s?]*) [NC]
-    RewriteRule ^ /%1 [R=301,L]
-    
-    # Internal rewrite: send all requests to public folder
-    # This allows the public/.htaccess to handle the Laravel routing properly
-    RewriteCond %{REQUEST_URI} !^/public/
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ^(.*)$ public/$1 [L]
-</IfModule>
+RewriteEngine On
+
+# Remove /public/ from URLs if accessed directly
+RewriteCond %{THE_REQUEST} /public/([^\s?]*) [NC]
+RewriteRule ^ /%1 [R=301,L]
+
+# Rewrite everything to public folder
+RewriteRule ^(.*)$ public/$1 [L]
 
 # Security: Hide sensitive files and directories
 <FilesMatch "^(\.env|\.git|composer\.(json|lock)|artisan)">
