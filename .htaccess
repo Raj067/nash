@@ -1,0 +1,33 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Redirect all requests to public folder
+    RewriteCond %{REQUEST_URI} !^/public/
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ /public/$1 [L]
+    
+    # Handle requests that are already in public folder
+    RewriteCond %{REQUEST_URI} ^/public/
+    RewriteRule ^public/(.*)$ /public/$1 [L]
+</IfModule>
+
+# Security: Hide sensitive files and directories
+<FilesMatch "^(\.env|\.git|composer\.(json|lock)|artisan)">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Hide Laravel directories
+RedirectMatch 404 /^/(app|bootstrap|config|database|resources|routes|storage|tests|vendor)/
+
+# Disable Directory Listing
+Options -Indexes
+
+# Cache static assets
+<IfModule mod_headers.c>
+    <FilesMatch "\.(html|htm|js|css|json|xml|txt|png|jpe?g|gif|svg|ico|woff2?|ttf|eot)$">
+        Header set Cache-Control "max-age=31536000, public"
+    </FilesMatch>
+</IfModule>
+
