@@ -655,66 +655,34 @@ const NASHCOPHeader: FC = () => {
             {/* Main Header with Background - Sticky */}
             <div className="sticky top-0 z-50">
                 <div
-                    className={`bg-cover bg-center bg-no-repeat transition-all duration-300 ${
-                        isScrolled ? "!h-20" : "!h-38 sm:h-32"
-                    }`}
+                    className="bg-cover bg-center bg-no-repeat h-28 sm:h-28"
                     style={{ backgroundImage: `url(/images/banner.jpg)` }}
                 >
                     <div className="bg-black/70 backdrop-blur-sm h-full">
-                        <div className="container mx-auto px-4 py-4 sm:py-6">
+                        <div className="container mx-auto px-4 py-2 sm:py-4">
                             {/* Logo and title section */}
-                            <div
-                                className={`flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0 transition-all duration-300 ${
-                                    isScrolled ? "mb-0" : "mb-4 sm:mb-6"
-                                }`}
-                            >
+                            <div className="flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0 mb-4 sm:mb-6">
                                 {/* Left logo - hidden on mobile */}
                                 <div className="hidden lg:block">
                                     <img
                                         src="/images/emblem.png"
                                         alt="Tanzania Coat of Arms"
-                                        className={`w-auto transition-all duration-300 ${
-                                            isScrolled ? "h-10" : "h-12 sm:h-16"
-                                        }`}
+                                        className="w-auto h-12 sm:h-16"
                                     />
                                 </div>
 
                                 {/* Center content */}
-                                <div
-                                    className={`flex flex-col items-center text-center space-y-2 transition-all duration-300 ${
-                                        isScrolled ? "space-y-1" : ""
-                                    }`}
-                                >
-                                    <h1
-                                        className={`font-bold text-white leading-tight transition-all duration-300 ${
-                                            isScrolled
-                                                ? "text-sm sm:text-base"
-                                                : "text-lg sm:text-xl lg:text-2xl"
-                                        }`}
-                                    >
+                                <div className="flex flex-col items-center text-center space-y-0">
+                                    <h1 className="font-bold text-white leading-tight text-lg sm:text-lg">
                                         THE UNITED REPUBLIC OF TANZANIA
                                     </h1>
-                                    <p
-                                        className={`text-white/95 leading-tight max-w-md lg:max-w-none transition-all duration-300 ${
-                                            isScrolled
-                                                ? "text-xs sm:text-sm"
-                                                : "text-sm sm:text-base lg:text-lg"
-                                        }`}
-                                    >
+                                    <p className="text-white/95 leading-tight max-w-md lg:max-w-none text-sm sm:text-base">
                                         MINISTRY OF HEALTH
                                     </p>
-                                    {!isScrolled && (
-                                        <p
-                                            className={`text-white/95 leading-tight max-w-md lg:max-w-none transition-all duration-300 ${
-                                                isScrolled
-                                                    ? "text-xs sm:text-sm"
-                                                    : "text-sm sm:text-base lg:text-lg"
-                                            }`}
-                                        >
-                                            NATIONAL AIDS, STIs AND HEPATITIS
-                                            CONTROL PROGRAMME
-                                        </p>
-                                    )}
+                                    <p className="text-white/95 leading-tight max-w-md lg:max-w-none text-sm sm:text-base">
+                                        NATIONAL AIDS, STIs AND HEPATITIS
+                                        CONTROL PROGRAMME
+                                    </p>
                                 </div>
 
                                 {/* Right logo - hidden on mobile */}
@@ -722,9 +690,7 @@ const NASHCOPHeader: FC = () => {
                                     <img
                                         src="/images/logo.jpeg"
                                         alt="NASHCOP Logo"
-                                        className={`w-auto transition-all duration-300 ${
-                                            isScrolled ? "h-10" : "h-12 sm:h-16"
-                                        }`}
+                                        className="w-auto h-12 sm:h-16"
                                     />
                                 </div>
 
