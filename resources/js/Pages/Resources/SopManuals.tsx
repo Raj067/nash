@@ -38,13 +38,13 @@ export default function SopManuals() {
                     <div className="container mx-auto px-4 text-center">
                         <div className="max-w-3xl mx-auto">
                             <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                                Content Coming Soon
+                                No SOP & Manuals Available
                             </h2>
                             <p className="text-lg text-gray-600 leading-relaxed">
-                                We are developing comprehensive Standard Operating Procedures 
-                                and operational manuals to support effective community policing 
-                                practices. This section will include detailed procedural guides, 
-                                training materials, and operational handbooks.
+                                This section is currently empty. Standard Operating Procedures, 
+                                operational manuals, detailed procedural guides, training materials, 
+                                and operational handbooks supporting community policing practices 
+                                need to be uploaded to display here.
                             </p>
                         </div>
                     </div>

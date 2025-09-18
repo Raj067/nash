@@ -660,7 +660,7 @@ const NASHCOPHeader: FC = () => {
                     }`}
                     style={{ backgroundImage: `url(/images/banner.jpg)` }}
                 >
-                    <div className="bg-blue-700/70 backdrop-blur-sm h-full">
+                    <div className="bg-black/70 backdrop-blur-sm h-full">
                         <div className="container mx-auto px-4 py-4 sm:py-6">
                             {/* Logo and title section */}
                             <div

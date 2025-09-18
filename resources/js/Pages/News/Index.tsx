@@ -38,13 +38,12 @@ export default function News() {
                     <div className="container mx-auto px-4 text-center">
                         <div className="max-w-3xl mx-auto">
                             <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                                Content Coming Soon
+                                No Content Available
                             </h2>
                             <p className="text-lg text-gray-600 leading-relaxed">
-                                We are preparing a comprehensive news and media section 
-                                featuring the latest updates, press releases, speeches, 
-                                photo galleries, and video content related to our 
-                                community policing initiatives and achievements.
+                                This section is currently empty. News and media content 
+                                including updates, press releases, speeches, photo galleries, 
+                                and video content needs to be uploaded to display here.
                             </p>
                         </div>
                     </div>

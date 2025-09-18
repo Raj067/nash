@@ -38,13 +38,13 @@ export default function Guidelines() {
                     <div className="container mx-auto px-4 text-center">
                         <div className="max-w-3xl mx-auto">
                             <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                                Content Coming Soon
+                                No Guidelines Available
                             </h2>
                             <p className="text-lg text-gray-600 leading-relaxed">
-                                We are developing comprehensive guidelines that will provide 
+                                This section is currently empty. Guidelines providing 
                                 clear direction and best practices for community policing 
-                                implementation. This section will include operational guidelines, 
-                                best practice recommendations, and implementation frameworks.
+                                implementation, operational guidelines, and implementation 
+                                frameworks need to be uploaded to display here.
                             </p>
                         </div>
                     </div>

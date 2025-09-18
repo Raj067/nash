@@ -38,13 +38,13 @@ export default function Resources() {
                     <div className="container mx-auto px-4 text-center">
                         <div className="max-w-3xl mx-auto">
                             <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                                Content Coming Soon
+                                No Resources Available
                             </h2>
                             <p className="text-lg text-gray-600 leading-relaxed">
-                                We are compiling a comprehensive library of resources including 
-                                strategic frameworks, guidelines, databases, and operational manuals. 
-                                This central hub will provide easy access to all essential materials 
-                                for community policing professionals and stakeholders.
+                                This resource library is currently empty. Strategic frameworks, 
+                                guidelines, databases, and operational manuals for community 
+                                policing professionals and stakeholders need to be uploaded 
+                                to display here.
                             </p>
                         </div>
                     </div>

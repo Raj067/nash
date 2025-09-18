@@ -38,13 +38,13 @@ export default function PhotoGallery() {
                     <div className="container mx-auto px-4 text-center">
                         <div className="max-w-3xl mx-auto">
                             <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                                Content Coming Soon
+                                No Photos Available
                             </h2>
                             <p className="text-lg text-gray-600 leading-relaxed">
-                                We are curating a comprehensive photo gallery showcasing 
-                                our community policing activities, community engagement 
-                                events, training sessions, and collaborative initiatives 
-                                with community members and stakeholders.
+                                This photo gallery is currently empty. Photos from 
+                                community policing activities, engagement events, 
+                                training sessions, and collaborative initiatives 
+                                need to be uploaded to display here.
                             </p>
                         </div>
                     </div>

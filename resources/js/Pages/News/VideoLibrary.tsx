@@ -38,13 +38,13 @@ export default function VideoLibrary() {
                     <div className="container mx-auto px-4 text-center">
                         <div className="max-w-3xl mx-auto">
                             <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                                Content Coming Soon
+                                No Videos Available
                             </h2>
                             <p className="text-lg text-gray-600 leading-relaxed">
-                                We are building a comprehensive video library featuring 
-                                training materials, community engagement activities, 
-                                educational content, and documentary footage of our 
-                                community policing initiatives and success stories.
+                                This video library is currently empty. Training materials, 
+                                community engagement activities, educational content, 
+                                and documentary footage of community policing initiatives 
+                                need to be uploaded to display here.
                             </p>
                         </div>
                     </div>

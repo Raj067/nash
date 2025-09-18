@@ -38,13 +38,13 @@ export default function StrategicFramework() {
                     <div className="container mx-auto px-4 text-center">
                         <div className="max-w-3xl mx-auto">
                             <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                                Content Coming Soon
+                                No Strategic Framework Available
                             </h2>
                             <p className="text-lg text-gray-600 leading-relaxed">
-                                We are currently working on compiling comprehensive strategic frameworks 
-                                and policies that will guide our community-oriented policing initiatives. 
-                                This section will include detailed documentation, guidelines, and strategic 
-                                planning resources.
+                                This section is currently empty. Strategic frameworks and policies 
+                                that guide community-oriented policing initiatives, detailed 
+                                documentation, guidelines, and strategic planning resources 
+                                need to be uploaded to display here.
                             </p>
                         </div>
                     </div>

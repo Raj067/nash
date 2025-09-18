@@ -38,13 +38,13 @@ export default function PressReleases() {
                     <div className="container mx-auto px-4 text-center">
                         <div className="max-w-3xl mx-auto">
                             <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                                Content Coming Soon
+                                No Press Releases Available
                             </h2>
                             <p className="text-lg text-gray-600 leading-relaxed">
-                                We will be publishing official press releases and public 
-                                announcements regarding our community policing initiatives, 
-                                policy updates, program launches, and significant achievements 
-                                in community safety and engagement.
+                                This section is currently empty. Official press releases 
+                                and public announcements regarding community policing 
+                                initiatives, policy updates, and program launches 
+                                need to be uploaded to display here.
                             </p>
                         </div>
                     </div>

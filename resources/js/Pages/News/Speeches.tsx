@@ -38,13 +38,13 @@ export default function Speeches() {
                     <div className="container mx-auto px-4 text-center">
                         <div className="max-w-3xl mx-auto">
                             <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                                Content Coming Soon
+                                No Speeches Available
                             </h2>
                             <p className="text-lg text-gray-600 leading-relaxed">
-                                This section will feature important speeches and addresses 
-                                by our leadership team, highlighting our vision for community 
-                                policing, strategic initiatives, and commitment to building 
-                                stronger community partnerships.
+                                This section is currently empty. Speeches and addresses 
+                                by leadership team highlighting community policing vision, 
+                                strategic initiatives, and community partnerships 
+                                need to be uploaded to display here.
                             </p>
                         </div>
                     </div>
