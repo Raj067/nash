@@ -6,6 +6,8 @@
     RewriteRule ^ /%1 [R=301,L]
     
     # Internal rewrite: send all requests to public folder
+    # This allows the public/.htaccess to handle the Laravel routing properly
+    RewriteCond %{REQUEST_URI} !^/public/
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^(.*)$ public/$1 [L]
