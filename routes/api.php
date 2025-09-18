@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\NewsletterController;
+use App\Http\Controllers\Api\FeedbackController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,4 +24,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::prefix('newsletter')->group(function () {
     Route::post('/subscribe', [NewsletterController::class, 'subscribe']);
     Route::post('/unsubscribe', [NewsletterController::class, 'unsubscribe']);
+});
+
+// Feedback routes
+Route::prefix('feedback')->group(function () {
+    Route::post('/submit', [FeedbackController::class, 'submit']);
+    Route::get('/statistics', [FeedbackController::class, 'statistics']);
+    Route::get('/', [FeedbackController::class, 'index']);
+    Route::patch('/{id}/status', [FeedbackController::class, 'updateStatus']);
 });

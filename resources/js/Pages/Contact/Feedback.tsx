@@ -17,6 +17,8 @@ import {
     Phone,
     Star,
     Send,
+    CheckCircle,
+    Loader2,
 } from "lucide-react";
 import { useState } from "react";
 import { Input } from "@/Components/ui/input";
@@ -27,6 +29,99 @@ export default function Feedback() {
     const [feedbackType, setFeedbackType] = useState("general");
     const [rating, setRating] = useState(0);
     const [submitted, setSubmitted] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+    const [message, setMessage] = useState<{
+        type: "success" | "error";
+        text: string;
+    } | null>(null);
+
+    // Form data state
+    const [formData, setFormData] = useState({
+        name: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: "",
+    });
+
+    const handleInputChange = (
+        e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    ) => {
+        const { name, value } = e.target;
+        setFormData((prev) => ({
+            ...prev,
+            [name]: value,
+        }));
+    };
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+
+        // Basic validation
+        if (
+            !formData.name.trim() ||
+            !formData.email.trim() ||
+            !formData.subject.trim() ||
+            !formData.message.trim()
+        ) {
+            setMessage({
+                type: "error",
+                text: "Please fill in all required fields.",
+            });
+            return;
+        }
+
+        setIsLoading(true);
+        setMessage(null);
+
+        try {
+            const response = await fetch("/api/feedback/submit", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json",
+                    "X-CSRF-TOKEN":
+                        document
+                            .querySelector('meta[name="csrf-token"]')
+                            ?.getAttribute("content") || "",
+                },
+                body: JSON.stringify({
+                    type: feedbackType,
+                    name: formData.name.trim(),
+                    email: formData.email.trim(),
+                    phone: formData.phone.trim(),
+                    subject: formData.subject.trim(),
+                    message: formData.message.trim(),
+                    rating: rating > 0 ? rating : null,
+                }),
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                setMessage({ type: "success", text: data.message });
+                setSubmitted(true);
+                // Reset form
+                setFormData({
+                    name: "",
+                    email: "",
+                    phone: "",
+                    subject: "",
+                    message: "",
+                });
+                setRating(0);
+            } else {
+                setMessage({ type: "error", text: data.message });
+            }
+        } catch (error) {
+            setMessage({
+                type: "error",
+                text: "Network error. Please try again later.",
+            });
+        } finally {
+            setIsLoading(false);
+        }
+    };
 
     const feedbackTypes = [
         {
@@ -55,11 +150,6 @@ export default function Feedback() {
         },
     ];
 
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        setSubmitted(true);
-        // Here you would typically send the data to your backend
-    };
     return (
         <PublicLayout title="Feedback & Complaints">
             <Head title="Feedback & Complaints" />
@@ -207,9 +297,13 @@ export default function Feedback() {
                                                     Full Name *
                                                 </label>
                                                 <Input
+                                                    name="name"
+                                                    value={formData.name}
+                                                    onChange={handleInputChange}
                                                     required
+                                                    disabled={isLoading}
                                                     placeholder="Enter your full name"
-                                                    className="bg-white/50 border-gray-300"
+                                                    className="bg-white/50 border-gray-300 disabled:opacity-50"
                                                 />
                                             </div>
                                             <div>
@@ -218,10 +312,14 @@ export default function Feedback() {
                                                     Email Address *
                                                 </label>
                                                 <Input
+                                                    name="email"
                                                     type="email"
+                                                    value={formData.email}
+                                                    onChange={handleInputChange}
                                                     required
+                                                    disabled={isLoading}
                                                     placeholder="Enter your email"
-                                                    className="bg-white/50 border-gray-300"
+                                                    className="bg-white/50 border-gray-300 disabled:opacity-50"
                                                 />
                                             </div>
                                         </div>
@@ -232,9 +330,13 @@ export default function Feedback() {
                                                 Phone Number (Optional)
                                             </label>
                                             <Input
+                                                name="phone"
                                                 type="tel"
+                                                value={formData.phone}
+                                                onChange={handleInputChange}
+                                                disabled={isLoading}
                                                 placeholder="Enter your phone number"
-                                                className="bg-white/50 border-gray-300"
+                                                className="bg-white/50 border-gray-300 disabled:opacity-50"
                                             />
                                         </div>
 
@@ -276,41 +378,17 @@ export default function Feedback() {
                                         {/* Service Category */}
                                         <div>
                                             <label className="block text-sm font-medium text-gray-700 mb-2">
-                                                Which service does this relate
-                                                to?
+                                                Subject *
                                             </label>
-                                            <select className="w-full p-3 bg-white/50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                                                <option value="">
-                                                    Select a service
-                                                </option>
-                                                <option value="testing">
-                                                    HIV Testing Services
-                                                </option>
-                                                <option value="treatment">
-                                                    Treatment & Care
-                                                </option>
-                                                <option value="prevention">
-                                                    Prevention Programs
-                                                </option>
-                                                <option value="support">
-                                                    Support Services
-                                                </option>
-                                                <option value="information">
-                                                    Information & Education
-                                                </option>
-                                                <option value="website">
-                                                    Website & Online Services
-                                                </option>
-                                                <option value="staff">
-                                                    Staff Interaction
-                                                </option>
-                                                <option value="facilities">
-                                                    Facilities & Infrastructure
-                                                </option>
-                                                <option value="other">
-                                                    Other
-                                                </option>
-                                            </select>
+                                            <Input
+                                                name="subject"
+                                                value={formData.subject}
+                                                onChange={handleInputChange}
+                                                required
+                                                disabled={isLoading}
+                                                placeholder="Brief subject of your feedback"
+                                                className="bg-white/50 border-gray-300 disabled:opacity-50"
+                                            />
                                         </div>
 
                                         {/* Feedback Details */}
@@ -319,7 +397,11 @@ export default function Feedback() {
                                                 Please provide details *
                                             </label>
                                             <Textarea
+                                                name="message"
+                                                value={formData.message}
+                                                onChange={handleInputChange}
                                                 required
+                                                disabled={isLoading}
                                                 rows={6}
                                                 placeholder={
                                                     feedbackType === "complaint"
@@ -329,7 +411,7 @@ export default function Feedback() {
                                                         ? "What improvements or new services would you like to see? How would this benefit you and others?"
                                                         : "Share your experience, thoughts, or feedback..."
                                                 }
-                                                className="bg-white/50 border-gray-300"
+                                                className="bg-white/50 border-gray-300 disabled:opacity-50"
                                             />
                                         </div>
 
@@ -408,14 +490,35 @@ export default function Feedback() {
                                             </p>
                                         </div>
 
+                                        {/* Success/Error Messages */}
+                                        {message && (
+                                            <div className={`p-4 rounded-lg flex items-center space-x-3 ${
+                                                message.type === 'success' 
+                                                    ? 'bg-green-50 text-green-800 border border-green-200' 
+                                                    : 'bg-red-50 text-red-800 border border-red-200'
+                                            }`}>
+                                                {message.type === 'success' ? (
+                                                    <CheckCircle className="w-5 h-5 flex-shrink-0" />
+                                                ) : (
+                                                    <AlertCircle className="w-5 h-5 flex-shrink-0" />
+                                                )}
+                                                <span className="text-sm">{message.text}</span>
+                                            </div>
+                                        )}
+
                                         {/* Submit Button */}
                                         <div className="text-center">
                                             <Button
                                                 type="submit"
-                                                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 px-8 py-3"
+                                                disabled={isLoading}
+                                                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 px-8 py-3 disabled:opacity-50 disabled:cursor-not-allowed"
                                             >
-                                                <Send className="w-4 h-4 mr-2" />
-                                                Submit Feedback
+                                                {isLoading ? (
+                                                    <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                                                ) : (
+                                                    <Send className="w-4 h-4 mr-2" />
+                                                )}
+                                                {isLoading ? 'Submitting...' : 'Submit Feedback'}
                                             </Button>
                                         </div>
                                     </form>
