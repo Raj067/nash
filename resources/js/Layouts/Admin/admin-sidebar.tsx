@@ -2,16 +2,21 @@
 
 import * as React from "react";
 import {
-    AudioWaveform,
-    BookOpen,
-    Bot,
-    Command,
-    Frame,
-    GalleryVerticalEnd,
-    Map,
-    PieChart,
+    LayoutDashboard,
+    Users,
     Settings2,
-    SquareTerminal,
+    BookOpen,
+    FileText,
+    Database,
+    Shield,
+    Newspaper,
+    MessageSquare,
+    Camera,
+    Video,
+    Mic,
+    FolderOpen,
+    Heart,
+    Activity,
 } from "lucide-react";
 
 import {
@@ -23,93 +28,137 @@ import {
 } from "@/Components/ui/sidebar";
 import { TeamSwitcher } from "./team-switcher";
 import { NavMain } from "./nav-main";
-// import { NavProjects } from "./nav-projects";
 import { NavUser } from "./nav-users";
 
-// This is sample data.
+// NACP Admin Navigation Data
 const data = {
     user: {
-        name: "shadcn",
-        email: "m@example.com",
-        avatar: "/avatars/shadcn.jpg",
+        name: "NACP Admin",
+        email: "admin@nacp.go.tz",
+        avatar: "/images/nacp-logo.png",
     },
     teams: [
         {
-            name: "Acme Inc",
-            logo: GalleryVerticalEnd,
-            plan: "Enterprise",
+            name: "NACP Tanzania",
+            logo: Heart,
+            plan: "Admin Panel",
         },
         {
-            name: "Acme Corp.",
-            logo: AudioWaveform,
-            plan: "Startup",
+            name: "HIV/AIDS Control",
+            logo: Shield,
+            plan: "Management",
         },
         {
-            name: "Evil Corp.",
-            logo: Command,
-            plan: "Free",
+            name: "Public Health",
+            logo: Activity,
+            plan: "System",
         },
     ],
     navMain: [
         {
-            title: "Playground",
-            url: "#",
-            icon: SquareTerminal,
+            title: "Dashboard",
+            url: "/dashboard",
+            icon: LayoutDashboard,
             isActive: true,
-            items: [
-                {
-                    title: "History",
-                    url: "#",
-                },
-                {
-                    title: "Starred",
-                    url: "#",
-                },
-                {
-                    title: "Settings",
-                    url: "#",
-                },
-            ],
         },
         {
-            title: "Models",
-            url: "#",
-            icon: Bot,
-            items: [
-                {
-                    title: "Genesis",
-                    url: "#",
-                },
-                {
-                    title: "Explorer",
-                    url: "#",
-                },
-                {
-                    title: "Quantum",
-                    url: "#",
-                },
-            ],
+            title: "Users",
+            url: "/admin/users",
+            icon: Users,
         },
         {
-            title: "Documentation",
+            title: "Resources",
             url: "#",
             icon: BookOpen,
             items: [
                 {
-                    title: "Introduction",
-                    url: "#",
+                    title: "Strategic Framework & Policies",
+                    url: "/admin/resources/strategic-framework",
                 },
                 {
-                    title: "Get Started",
-                    url: "#",
+                    title: "Guidelines",
+                    url: "/admin/resources/guidelines",
                 },
                 {
-                    title: "Tutorials",
-                    url: "#",
+                    title: "Databases",
+                    url: "/admin/resources/databases",
                 },
                 {
-                    title: "Changelog",
-                    url: "#",
+                    title: "SOP & Manuals",
+                    url: "/admin/resources/sop-manuals",
+                },
+            ],
+        },
+        {
+            title: "News & Media",
+            url: "#",
+            icon: Newspaper,
+            items: [
+                {
+                    title: "Blogs",
+                    url: "/admin/news/blogs",
+                },
+                {
+                    title: "Press Releases",
+                    url: "/admin/news/press-releases",
+                },
+                {
+                    title: "Speeches",
+                    url: "/admin/news/speeches",
+                },
+                {
+                    title: "Photo Gallery",
+                    url: "/admin/media/photos",
+                },
+                {
+                    title: "Video Library",
+                    url: "/admin/media/videos",
+                },
+            ],
+        },
+        {
+            title: "Content Management",
+            url: "#",
+            icon: FileText,
+            items: [
+                {
+                    title: "Pages",
+                    url: "/admin/pages",
+                },
+                {
+                    title: "Services",
+                    url: "/admin/services",
+                },
+                {
+                    title: "Interventions",
+                    url: "/admin/interventions",
+                },
+                {
+                    title: "About Sections",
+                    url: "/admin/about",
+                },
+            ],
+        },
+        {
+            title: "Statistics & Reports",
+            url: "#",
+            icon: Database,
+            items: [
+                {
+                    title: "HIV Statistics",
+                    url: "/admin/statistics/hiv",
+                },
+                {
+                    title: "Program Reports",
+                    url: "/admin/reports",
+                },
+                {
+                    title: "Data Analytics",
+                    url: "/admin/analytics",
+                },
+                {
+                    title: "Export Data",
+                    url: "/admin/export",
                 },
             ],
         },
@@ -119,39 +168,22 @@ const data = {
             icon: Settings2,
             items: [
                 {
-                    title: "General",
-                    url: "#",
+                    title: "General Settings",
+                    url: "/admin/settings/general",
                 },
                 {
-                    title: "Team",
-                    url: "#",
+                    title: "User Management",
+                    url: "/admin/settings/users",
                 },
                 {
-                    title: "Billing",
-                    url: "#",
+                    title: "System Configuration",
+                    url: "/admin/settings/system",
                 },
                 {
-                    title: "Limits",
-                    url: "#",
+                    title: "Backup & Security",
+                    url: "/admin/settings/backup",
                 },
             ],
-        },
-    ],
-    projects: [
-        {
-            name: "Design Engineering",
-            url: "#",
-            icon: Frame,
-        },
-        {
-            name: "Sales & Marketing",
-            url: "#",
-            icon: PieChart,
-        },
-        {
-            name: "Travel",
-            url: "#",
-            icon: Map,
         },
     ],
 };
