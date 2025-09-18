@@ -177,4 +177,10 @@ class PageController extends Controller
     {
         return Inertia::render('Contact/Help');
     }
+
+    // Support pages
+    public function supportNacp()
+    {
+        return Inertia::render('SupportNacp');
+    }
 }

@@ -53,6 +53,9 @@ Route::get('/contact/info', [PageController::class, 'contactInfo'])->name('conta
 Route::get('/contact/feedback', [PageController::class, 'feedback'])->name('contact.feedback');
 Route::get('/contact/help', [PageController::class, 'help'])->name('contact.help');
 
+// Support
+Route::get('/support-nacp', [PageController::class, 'supportNacp'])->name('support-nacp');
+
 // Admin/Auth Routes
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');

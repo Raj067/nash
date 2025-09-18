@@ -470,14 +470,13 @@ const NASHCOPHeader: FC = () => {
     };
 
     const utilityLinks = [
-        { label: "HIV Testing Centers", href: "/services/hiv-testing" },
         {
-            label: "Prevention Programs",
-            href: "/interventions/prevention-infection",
+            label: "Emergency HIV Hotline: 199",
+            href: "tel:199",
         },
         {
-            label: "Emergency Hotline: +255-800-123-456",
-            href: "tel:+255800123456",
+            label: "info@nacp.go.tz",
+            href: "mailto:info@nacp.go.tz",
         },
     ];
 
@@ -498,10 +497,17 @@ const NASHCOPHeader: FC = () => {
                                                   "aria-label":
                                                       "Emergency Hotline",
                                               }
+                                            : link.href.startsWith("mailto:")
+                                            ? {
+                                                  "aria-label": "Email Contact",
+                                              }
                                             : {})}
                                     >
                                         {link.href.startsWith("tel:") && (
                                             <Phone className="h-3 w-3" />
+                                        )}
+                                        {link.href.startsWith("mailto:") && (
+                                            <Mail className="h-3 w-3" />
                                         )}
                                         <span>{link.label}</span>
                                     </a>
@@ -664,11 +670,13 @@ const NASHCOPHeader: FC = () => {
                             <div className="flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0 mb-4 sm:mb-6">
                                 {/* Left logo - hidden on mobile */}
                                 <div className="hidden lg:block">
-                                    <img
-                                        src="/images/emblem.png"
-                                        alt="Tanzania Coat of Arms"
-                                        className="w-auto h-12 sm:h-16"
-                                    />
+                                    <a href="/" className="">
+                                        <img
+                                            src="/images/emblem.png"
+                                            alt="Tanzania Coat of Arms"
+                                            className="w-auto h-12 sm:h-16"
+                                        />
+                                    </a>
                                 </div>
 
                                 {/* Center content */}
@@ -687,11 +695,13 @@ const NASHCOPHeader: FC = () => {
 
                                 {/* Right logo - hidden on mobile */}
                                 <div className="hidden lg:block">
-                                    <img
-                                        src="/images/logo.jpeg"
-                                        alt="NASHCOP Logo"
-                                        className="w-auto h-12 sm:h-16"
-                                    />
+                                    <a href="/" className="">
+                                        <img
+                                            src="/images/logo.jpeg"
+                                            alt="NASHCOP Logo"
+                                            className="w-auto h-12 sm:h-16"
+                                        />
+                                    </a>
                                 </div>
 
                                 {/* Mobile menu button */}
