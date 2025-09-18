@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Button } from "@/Components/ui/button";
 import { Input } from "@/Components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/Components/ui/card";
@@ -27,6 +27,8 @@ import {
 function Herosection() {
     const [currentSlide, setCurrentSlide] = useState(0);
     const [language, setLanguage] = useState<"sw" | "en">("sw");
+    const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+    const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
     const slides = [
         {
@@ -55,14 +57,6 @@ function Herosection() {
         },
     ];
 
-    const nextSlide = () => {
-        setCurrentSlide((prev) => (prev + 1) % slides.length);
-    };
-
-    const prevSlide = () => {
-        setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-    };
-
     const welcomeMessage = {
         sw: {
             title: "Karibu Tovuti Rasmi ya NASHCOP Tanzania",
@@ -76,6 +70,57 @@ function Herosection() {
                 "Welcome all, to the Tanzanian National AIDS, STIs and Hepatitis Control Programme (NASHCOP) official website. The website is a platform for enhancing everyone's access to information on HIV, AIDS, STIs and Hepatitis, generated in Tanzania. This website aims on sharing HIV, AIDS, STI and Hepatitis information and materials to the general public within and outside the country.",
             author: "Prime Minister of Tanzania",
         },
+    };
+
+    // Auto-scroll functionality
+    const startAutoPlay = () => {
+        if (intervalRef.current) clearInterval(intervalRef.current);
+        intervalRef.current = setInterval(() => {
+            setCurrentSlide((prev) => (prev + 1) % slides.length);
+        }, 5000); // Change slide every 5 seconds
+    };
+
+    const stopAutoPlay = () => {
+        if (intervalRef.current) {
+            clearInterval(intervalRef.current);
+            intervalRef.current = null;
+        }
+    };
+
+    // Start auto-play on component mount
+    useEffect(() => {
+        if (isAutoPlaying) {
+            startAutoPlay();
+        } else {
+            stopAutoPlay();
+        }
+
+        return () => stopAutoPlay(); // Cleanup on unmount
+    }, [isAutoPlaying, slides.length]);
+
+    // Navigation functions
+    const nextSlide = () => {
+        setCurrentSlide((prev) => (prev + 1) % slides.length);
+        // Restart auto-play timer when manually navigating
+        if (isAutoPlaying) {
+            startAutoPlay();
+        }
+    };
+
+    const prevSlide = () => {
+        setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+        // Restart auto-play timer when manually navigating
+        if (isAutoPlaying) {
+            startAutoPlay();
+        }
+    };
+
+    const goToSlide = (index: number) => {
+        setCurrentSlide(index);
+        // Restart auto-play timer when manually navigating
+        if (isAutoPlaying) {
+            startAutoPlay();
+        }
     };
 
     return (
