@@ -1,11 +1,14 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
     
-    # Redirect all requests to public folder
-    RewriteCond %{REQUEST_URI} !^/public/
+    # Handle requests that are already in public folder
+    RewriteCond %{THE_REQUEST} /public/([^\s?]*) [NC]
+    RewriteRule ^ /%1 [R=301,L]
+    
+    # Internal rewrite to public folder (no visible redirect)
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ^(.*)$ /public/$1 [L]
+    RewriteRule ^(.*)$ public/$1 [L]
 </IfModule>
 
 # Security: Hide sensitive files and directories
