@@ -1,22 +1,22 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
-    # Remove /public from the URL if someone tries to access it directly
+    # Redirect if someone tries to access /public explicitly
     RewriteCond %{THE_REQUEST} \s/public/ [NC]
     RewriteRule ^public/?(.*)$ /$1 [R=301,L]
 
-    # Route everything to public/index.php
+    # Send all requests to public/index.php internally
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^ index.php [L]
+    RewriteRule ^(.*)$ public/index.php [L]
 </IfModule>
 
-# Security: Block sensitive files
-<FilesMatch "^(\.env|\.git|composer\.(json|lock)|artisan|server\.php)">
+# Security: Hide sensitive files
+<FilesMatch "^(\.env|\.git|composer\.(json|lock)|artisan)">
     Require all denied
 </FilesMatch>
 
-# Hide Laravel core directories
+# Hide Laravel internal directories from direct access
 <IfModule mod_alias.c>
     RedirectMatch 404 ^/(app|bootstrap|config|database|resources|routes|storage|tests|vendor)(/.*)?$
 </IfModule>
