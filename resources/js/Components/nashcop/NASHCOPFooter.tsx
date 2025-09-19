@@ -19,15 +19,21 @@ import {
 } from "lucide-react";
 
 const NASHCOPFooter: FC = () => {
-    const [email, setEmail] = useState('');
+    const [email, setEmail] = useState("");
     const [isLoading, setIsLoading] = useState(false);
-    const [message, setMessage] = useState<{ type: 'success' | 'error', text: string } | null>(null);
+    const [message, setMessage] = useState<{
+        type: "success" | "error";
+        text: string;
+    } | null>(null);
 
     const handleNewsletterSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        
+
         if (!email.trim()) {
-            setMessage({ type: 'error', text: 'Please enter your email address.' });
+            setMessage({
+                type: "error",
+                text: "Please enter your email address.",
+            });
             return;
         }
 
@@ -35,12 +41,15 @@ const NASHCOPFooter: FC = () => {
         setMessage(null);
 
         try {
-            const response = await fetch('/api/newsletter/subscribe', {
-                method: 'POST',
+            const response = await fetch("/api/newsletter/subscribe", {
+                method: "POST",
                 headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json',
-                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') || '',
+                    "Content-Type": "application/json",
+                    Accept: "application/json",
+                    "X-CSRF-TOKEN":
+                        document
+                            .querySelector('meta[name="csrf-token"]')
+                            ?.getAttribute("content") || "",
                 },
                 body: JSON.stringify({ email: email.trim() }),
             });
@@ -48,28 +57,31 @@ const NASHCOPFooter: FC = () => {
             const data = await response.json();
 
             if (data.success) {
-                setMessage({ type: 'success', text: data.message });
-                setEmail('');
+                setMessage({ type: "success", text: data.message });
+                setEmail("");
             } else {
-                setMessage({ type: 'error', text: data.message });
+                setMessage({ type: "error", text: data.message });
             }
         } catch (error) {
-            setMessage({ type: 'error', text: 'Network error. Please try again later.' });
+            setMessage({
+                type: "error",
+                text: "Network error. Please try again later.",
+            });
         } finally {
             setIsLoading(false);
         }
     };
 
     const quickLinks = [
-        { 
-            title: "HIV Testing Services", 
-            href: "/interventions/hiv-testing-services-linkage", 
-            icon: Heart 
+        {
+            title: "HIV Testing Services",
+            href: "/interventions/hiv-testing-services-linkage",
+            icon: Heart,
         },
-        { 
-            title: "Care & Treatment", 
-            href: "/services/care-treatment-and-support-unit", 
-            icon: Shield 
+        {
+            title: "Care & Treatment",
+            href: "/services/care-treatment-and-support-unit",
+            icon: Shield,
         },
         {
             title: "Prevention Programs",
@@ -84,14 +96,27 @@ const NASHCOPFooter: FC = () => {
     ];
 
     const importantLinks = [
-        { title: "Emergency HIV Hotline", href: "tel:+255-800-123-456", phone: "+255-800-123-456" },
-        { title: "Division of Prevention", href: "/services/division-of-prevention" },
+        {
+            title: "Emergency HIV Hotline",
+            href: "tel:+177",
+            phone: "+177",
+        },
+        {
+            title: "Division of Prevention",
+            href: "/services/division-of-prevention",
+        },
         {
             title: "Strategic Framework",
             href: "/resources/strategic-framework",
         },
-        { title: "Building Health Systems", href: "/interventions/building-resilient-health-systems" },
-        { title: "NACP Roles", href: "/services/nacp-roles-and-responsibilities" },
+        {
+            title: "Building Health Systems",
+            href: "/interventions/building-resilient-health-systems",
+        },
+        {
+            title: "NACP Roles",
+            href: "/services/nacp-roles-and-responsibilities",
+        },
         { title: "Contact Information", href: "/contact/info" },
     ];
 
@@ -153,7 +178,7 @@ const NASHCOPFooter: FC = () => {
                     <div className="lg:col-span-1">
                         <div className="flex items-center space-x-3 mb-6">
                             <img
-                                src="/images/logo.jpeg"
+                                src="/images/nashcop.jpeg"
                                 alt="Tanzania Coat of Arms"
                                 className="h-12 w-12"
                             />
@@ -178,19 +203,14 @@ const NASHCOPFooter: FC = () => {
                             <div className="flex items-center space-x-3">
                                 <MapPin className="h-4 w-4 text-yellow-400 flex-shrink-0" />
                                 <div className="text-sm">
-                                    <p>
-                                        Ministry of Health, Community
-                                        Development,
-                                    </p>
-                                    <p>Gender, Elderly and Children</p>
-                                    <p>Samora Avenue, Dar es Salaam</p>
+                                    <p>Kilimani, Dodoma, Tanzania</p>
                                 </div>
                             </div>
 
                             <div className="flex items-center space-x-3">
                                 <Phone className="h-4 w-4 text-yellow-400 flex-shrink-0" />
                                 <div className="text-sm">
-                                    <p>+255 22 211 0000</p>
+                                    <p>+255-26-2960148</p>
                                     <p className="text-gray-400">
                                         Mon-Fri: 8:00 AM - 4:30 PM
                                     </p>
@@ -200,7 +220,7 @@ const NASHCOPFooter: FC = () => {
                             <div className="flex items-center space-x-3">
                                 <Mail className="h-4 w-4 text-yellow-400 flex-shrink-0" />
                                 <div className="text-sm">
-                                    <p>info@nacp.go.tz</p>
+                                    <p>nacp@afya.go.tz </p>
                                     <p className="text-gray-400">
                                         Official inquiries
                                     </p>
@@ -349,12 +369,14 @@ const NASHCOPFooter: FC = () => {
                                     <input
                                         type="email"
                                         value={email}
-                                        onChange={(e) => setEmail(e.target.value)}
+                                        onChange={(e) =>
+                                            setEmail(e.target.value)
+                                        }
                                         placeholder="Your email"
                                         disabled={isLoading}
                                         className="flex-1 px-3 py-2 text-sm bg-blue-800 border border-blue-600 rounded-l-md focus:outline-none focus:border-yellow-400 text-white placeholder-blue-300 disabled:opacity-50"
                                     />
-                                    <button 
+                                    <button
                                         type="submit"
                                         disabled={isLoading}
                                         className="px-4 py-2 bg-yellow-500 text-blue-900 text-sm font-semibold rounded-r-md hover:bg-yellow-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center"
@@ -362,20 +384,22 @@ const NASHCOPFooter: FC = () => {
                                         {isLoading ? (
                                             <Loader2 className="w-4 h-4 animate-spin" />
                                         ) : (
-                                            'Subscribe'
+                                            "Subscribe"
                                         )}
                                     </button>
                                 </div>
                             </form>
-                            
+
                             {/* Success/Error Messages */}
                             {message && (
-                                <div className={`mt-2 p-2 rounded-md text-xs flex items-center space-x-2 ${
-                                    message.type === 'success' 
-                                        ? 'bg-green-900/50 text-green-200 border border-green-700' 
-                                        : 'bg-red-900/50 text-red-200 border border-red-700'
-                                }`}>
-                                    {message.type === 'success' ? (
+                                <div
+                                    className={`mt-2 p-2 rounded-md text-xs flex items-center space-x-2 ${
+                                        message.type === "success"
+                                            ? "bg-green-900/50 text-green-200 border border-green-700"
+                                            : "bg-red-900/50 text-red-200 border border-red-700"
+                                    }`}
+                                >
+                                    {message.type === "success" ? (
                                         <CheckCircle className="w-4 h-4 flex-shrink-0" />
                                     ) : (
                                         <AlertCircle className="w-4 h-4 flex-shrink-0" />

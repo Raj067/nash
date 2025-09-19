@@ -41,7 +41,7 @@ function Herosection() {
         },
         {
             id: 2,
-            image: "/images/home/home1.jpg",
+            image: "/images/hiv/arvs.jpg",
             title: "Mafanikio ya 95-95-95",
             subtitle: "Tanzania: 88% - 98% - 96%",
             description:
@@ -145,9 +145,9 @@ function Herosection() {
                             <div className="h-full bg-gradient-to-r from-black/80 to-black/60 flex items-center">
                                 <div className="container mx-auto px-4">
                                     <div className="max-w-3xl text-white">
-                                        <Badge className="mb-4 bg-yellow-500 text-blue-900 hover:bg-yellow-400">
+                                        {/* <Badge className="mb-4 bg-yellow-500 text-blue-900 hover:bg-yellow-400">
                                             NASHCOP Tanzania
-                                        </Badge>
+                                        </Badge> */}
                                         <h1 className="text-5xl md:text-6xl font-bold mb-4 leading-tight">
                                             {slide.title}
                                         </h1>
@@ -240,13 +240,10 @@ function Herosection() {
                                         {/* Title and Author */}
                                         <div className="text-white">
                                             <h3 className="text-xl lg:text-2xl font-bold mb-2">
-                                                {
-                                                    welcomeMessage[language]
-                                                        .author
-                                                }
+                                                Dr. Prosper Faustine Njau
                                             </h3>
                                             <p className="text-blue-100 text-sm lg:text-base font-medium">
-                                                NASHCOP Tanzania
+                                                Programme Manager - NASHCOP
                                             </p>
                                         </div>
                                     </div>

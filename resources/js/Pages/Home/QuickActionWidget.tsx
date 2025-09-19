@@ -22,12 +22,11 @@ function QuickActionWidget() {
                             <p className="mb-4">
                                 Pata upimaji wa VVU kwa njia ya siri na ya bure
                             </p>
-                            <Button
-                                // variant="outline"
+                            {/* <Button
                                 className="bg-custom-red hover:bg-custom-red/80 text-white"
                             >
                                 Pima Sasa
-                            </Button>
+                            </Button> */}
                         </CardContent>
                     </Card>
 
@@ -40,12 +39,11 @@ function QuickActionWidget() {
                             <p className="mb-4">
                                 Piga simu 199 kwa msaada wa haraka wa VVU
                             </p>
-                            <Button
-                                // variant="outline"
+                            {/* <Button
                                 className="bg-custom-red hover:bg-custom-red/80 text-white"
                             >
                                 Piga Simu 199
-                            </Button>
+                            </Button> */}
                         </CardContent>
                     </Card>
 
@@ -59,12 +57,11 @@ function QuickActionWidget() {
                                 Pata ushauri wa kisaikolojia na msaada wa
                                 kijamii
                             </p>
-                            <Button
-                                // variant="outline"
+                            {/* <Button
                                 className="bg-custom-red hover:bg-custom-red/80 text-white"
                             >
                                 Pata Ushauri
-                            </Button>
+                            </Button> */}
                         </CardContent>
                     </Card>
                 </div>

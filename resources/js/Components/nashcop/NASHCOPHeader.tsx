@@ -159,7 +159,7 @@ const NASHCOPHeader: FC = () => {
         {
             code: "en",
             name: "English",
-            flag: "🇺🇸",
+            flag: "🇬🇧",
         },
         {
             code: "sw",
@@ -428,7 +428,7 @@ const NASHCOPHeader: FC = () => {
             ],
         },
         {
-            title: "Resources",
+            title: "Resources Center",
             href: "/resources",
             icon: FileText,
             dropdown: [
@@ -442,7 +442,7 @@ const NASHCOPHeader: FC = () => {
             ],
         },
         {
-            title: "News & Media",
+            title: "Media Center",
             href: "/news",
             icon: Newspaper,
             dropdown: [
@@ -471,12 +471,12 @@ const NASHCOPHeader: FC = () => {
 
     const utilityLinks = [
         {
-            label: "Emergency HIV Hotline: 199",
-            href: "tel:199",
+            label: "Emergency HIV Hotline: 117",
+            href: "tel:117",
         },
         {
-            label: "info@nacp.go.tz",
-            href: "mailto:info@nacp.go.tz",
+            label: "nacp@afya.go.tz",
+            href: "mailto:nacp@afya.go.tz",
         },
     ];
 
@@ -697,7 +697,7 @@ const NASHCOPHeader: FC = () => {
                                 <div className="hidden lg:block">
                                     <a href="/" className="">
                                         <img
-                                            src="/images/logo.jpeg"
+                                            src="/images/nashcop.jpeg"
                                             alt="NASHCOP Logo"
                                             className="w-auto h-12 sm:h-16"
                                         />
@@ -729,7 +729,7 @@ const NASHCOPHeader: FC = () => {
                   </div>
                   <div className="flex items-center space-x-2">
                     <Mail className="h-4 w-4" />
-                    <span>info@nacp.go.tz</span>
+                    <span>nacp@afya.go.tz </span>
                   </div>
                   <div className="flex items-center space-x-2">
                     <MapPin className="h-4 w-4" />

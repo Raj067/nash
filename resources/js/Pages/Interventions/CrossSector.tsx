@@ -541,7 +541,7 @@ export default function CrossSector() {
                                             Email
                                         </h3>
                                         <p className="text-gray-600 leading-relaxed">
-                                            info@nacp.go.tz
+                                            nacp@afya.go.tz
                                         </p>
                                     </div>
 

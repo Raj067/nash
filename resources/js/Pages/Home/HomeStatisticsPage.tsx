@@ -70,7 +70,7 @@ function HomeStatisticsPage() {
                 </div>
 
                 {/* Visual Progress Chart */}
-                <div className="bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20">
+                {/* <div className="bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20">
                     <h3 className="text-2xl font-bold text-white text-center mb-8">
                         Mfumo wa 95-95-95: Maendeleo ya Tanzania
                     </h3>
@@ -97,7 +97,6 @@ function HomeStatisticsPage() {
                         ].map((item, index) => (
                             <div key={index} className="text-center">
                                 <div className="relative w-32 h-32 mx-auto mb-4">
-                                    {/* Background Circle */}
                                     <svg
                                         className="w-32 h-32 transform -rotate-90"
                                         viewBox="0 0 120 120"
@@ -110,7 +109,6 @@ function HomeStatisticsPage() {
                                             strokeWidth="8"
                                             fill="none"
                                         />
-                                        {/* Progress Circle */}
                                         <circle
                                             cx="60"
                                             cy="60"
@@ -143,7 +141,6 @@ function HomeStatisticsPage() {
                                             </linearGradient>
                                         </defs>
                                     </svg>
-                                    {/* Center Text */}
                                     <div className="absolute inset-0 flex items-center justify-center">
                                         <span className="text-2xl font-bold text-white">
                                             {item.value}%
@@ -164,7 +161,7 @@ function HomeStatisticsPage() {
                             </div>
                         ))}
                     </div>
-                </div>
+                </div> */}
             </div>
         </section>
     );
