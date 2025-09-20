@@ -13,6 +13,9 @@ class VideoSeeder extends Seeder
      */
     public function run(): void
     {
+        // Clear existing videos to avoid duplicates
+        Video::truncate();
+        
         $videos = [
             [
                 'title' => 'HIV Prevention and Testing - Kuzuia na Kupima VVU',

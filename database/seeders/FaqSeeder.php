@@ -13,6 +13,9 @@ class FaqSeeder extends Seeder
      */
     public function run(): void
     {
+        // Clear existing FAQs to avoid duplicates
+        Faq::truncate();
+        
         $faqs = [
             [
                 'question' => 'VVU ni nini na ni jinsi gani inasambaa?',
