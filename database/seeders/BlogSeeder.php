@@ -37,7 +37,7 @@ class BlogSeeder extends Seeder
 
 <p>"This initiative represents a paradigm shift in how we approach community safety and public health," said Dr. Sarah Mwalimu, NASHCOP Director. "By integrating HIV prevention with community policing, we\'re addressing the root causes of both crime and disease transmission."</p>',
                 'category' => 'news',
-                'featured_image' => '/images/blog/community-policing-launch.jpg',
+                'featured_image' => '/images/arvsImages.jpeg',
                 'author' => 'NASHCOP Communications Team',
                 'published_date' => Carbon::now()->subDays(2),
                 'tags' => ['community policing', 'Dar es Salaam', 'HIV prevention', 'public safety'],
@@ -67,7 +67,7 @@ class BlogSeeder extends Seeder
 
 <p>This recognition positions Tanzania as a leader in community-based health interventions and serves as a model for other African nations.</p>',
                 'category' => 'press_releases',
-                'featured_image' => '/images/blog/who-recognition.jpg',
+                'featured_image' => '/images/arvsImages.jpeg',
                 'author' => 'NASHCOP Press Office',
                 'published_date' => Carbon::now()->subDays(5),
                 'tags' => ['WHO recognition', 'HIV prevention', 'international award'],
@@ -104,7 +104,7 @@ class BlogSeeder extends Seeder
 
 <p>Thank you.</p>',
                 'category' => 'speeches',
-                'featured_image' => '/images/blog/director-speech.jpg',
+                'featured_image' => '/images/arvsImages.jpeg',
                 'author' => 'Dr. Sarah Mwalimu, NASHCOP Director',
                 'published_date' => Carbon::now()->subDays(10),
                 'tags' => ['director speech', 'community health', 'partnership'],
@@ -190,7 +190,7 @@ class BlogSeeder extends Seeder
 <li>Participate in community health activities</li>
 </ul>',
                 'category' => 'newsletter',
-                'featured_image' => '/images/blog/newsletter-march-2024.jpg',
+                'featured_image' => '/images/arvsImages.jpeg',
                 'author' => 'NASHCOP Editorial Team',
                 'published_date' => Carbon::now()->subDays(15),
                 'tags' => ['newsletter', 'monthly update', 'program activities'],
