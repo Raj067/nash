@@ -17,9 +17,9 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->text('excerpt')->nullable();
             $table->longText('content'); // Rich text content
-            $table->string('category'); // news, press_releases, speeches, events, newsletter, photo_gallery
+            $table->string('category', 50); // news, press_releases, speeches, events, newsletter, photo_gallery
             $table->string('featured_image')->nullable();
-            $table->string('author')->nullable();
+            $table->string('author', 100)->nullable();
             $table->date('published_date')->nullable();
             $table->json('tags')->nullable();
             $table->boolean('is_featured')->default(false);

@@ -272,9 +272,28 @@ const RecentNews: React.FC<RecentNewsProps> = ({ featuredBlogs }) => {
                             vita dhidi ya VVU
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                            <Button className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white border-0 shadow-lg">
-                                Tufuate Mitandao ya Kijamii
-                            </Button>
+                            <div className="flex flex-wrap gap-3 justify-center">
+                                <Button asChild className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white border-0 shadow-lg">
+                                    <a href="https://www.facebook.com/share/p/16uuGAn8UL/" target="_blank" rel="noopener noreferrer">
+                                        Facebook
+                                    </a>
+                                </Button>
+                                <Button asChild className="bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white border-0 shadow-lg">
+                                    <a href="https://www.instagram.com/nashcoptanzania?igsh=MTN6OXg4NHRrcG95cA==" target="_blank" rel="noopener noreferrer">
+                                        Instagram
+                                    </a>
+                                </Button>
+                                <Button asChild className="bg-gradient-to-r from-gray-800 to-gray-900 hover:from-gray-900 hover:to-black text-white border-0 shadow-lg">
+                                    <a href="https://x.com/nashcoptanzania" target="_blank" rel="noopener noreferrer">
+                                        X (Twitter)
+                                    </a>
+                                </Button>
+                                <Button asChild className="bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white border-0 shadow-lg">
+                                    <a href="https://youtube.com/@nacptanzania2010?si=1Uv-p3UBBhjBow0a" target="_blank" rel="noopener noreferrer">
+                                        YouTube
+                                    </a>
+                                </Button>
+                            </div>
                         </div>
                     </div>
                 </div>

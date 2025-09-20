@@ -121,7 +121,13 @@ const NASHCOPFooter: FC = () => {
     ];
 
     const governmentLinks = [
-        { title: "Ministry of Health", href: "https://moh.go.tz" },
+        { title: "Ministry of Health", href: "https://www.moh.go.tz/" },
+        { title: "Health Mail System", href: "https://mail.afya.go.tz" },
+        { title: "DHIS2 Tanzania", href: "https://dhis.moh.go.tz/" },
+        { title: "eOffice Government", href: "https://eoffice.gov.go.tz/" },
+        { title: "TACAIDS", href: "https://www.tacaids.go.tz/" },
+        { title: "ATF Tanzania", href: "https://www.atf.go.tz/" },
+        { title: "TAMISEMI", href: "https://www.tamisemi.go.tz/" },
         { title: "Tanzania Government Portal", href: "https://tanzania.go.tz" },
         { title: "President's Office", href: "https://po.go.tz" },
         { title: "Prime Minister's Office", href: "https://pmo.go.tz" },
@@ -326,34 +332,38 @@ const NASHCOPFooter: FC = () => {
                         </h5>
                         <div className="flex space-x-4">
                             <a
-                                href="https://facebook.com/nacptanzania"
+                                href="https://www.facebook.com/share/p/16uuGAn8UL/"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="p-2 bg-blue-800 rounded-full hover:bg-yellow-500 hover:text-blue-900 transition-colors shadow-lg"
+                                title="Follow us on Facebook"
                             >
                                 <Facebook className="h-4 w-4" />
                             </a>
                             <a
-                                href="https://twitter.com/nacptanzania"
+                                href="https://x.com/nashcoptanzania"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="p-2 bg-blue-800 rounded-full hover:bg-yellow-500 hover:text-blue-900 transition-colors shadow-lg"
+                                title="Follow us on X (Twitter)"
                             >
                                 <Twitter className="h-4 w-4" />
                             </a>
                             <a
-                                href="https://instagram.com/nacptanzania"
+                                href="https://www.instagram.com/nashcoptanzania?igsh=MTN6OXg4NHRrcG95cA=="
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="p-2 bg-blue-800 rounded-full hover:bg-yellow-500 hover:text-blue-900 transition-colors shadow-lg"
+                                title="Follow us on Instagram"
                             >
                                 <Instagram className="h-4 w-4" />
                             </a>
                             <a
-                                href="https://youtube.com/nacptanzania"
+                                href="https://youtube.com/@nacptanzania2010?si=1Uv-p3UBBhjBow0a"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="p-2 bg-blue-800 rounded-full hover:bg-yellow-500 hover:text-blue-900 transition-colors shadow-lg"
+                                title="Subscribe to our YouTube channel"
                             >
                                 <Youtube className="h-4 w-4" />
                             </a>
