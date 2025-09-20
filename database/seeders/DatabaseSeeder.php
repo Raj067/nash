@@ -21,9 +21,10 @@ class DatabaseSeeder extends Seeder
             ]);
         }
 
-        // Run the blog seeder
+        // Run all seeders
         $this->call([
             BlogSeeder::class,
+            DocumentSeeder::class,
         ]);
     }
 }

@@ -14,6 +14,9 @@ class BlogSeeder extends Seeder
      */
     public function run(): void
     {
+        // Clear existing blogs to avoid duplicates
+        Blog::truncate();
+        
         $blogs = [
             // News
             [

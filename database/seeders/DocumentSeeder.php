@@ -18,12 +18,21 @@ class DocumentSeeder extends Seeder
         // Clear existing documents
         Document::truncate();
         
+        echo "Starting document seeding...\n";
         $this->seedActualDocuments();
+        echo "Document seeding completed.\n";
     }
     
     private function seedActualDocuments()
     {
         $basePath = storage_path('app/public/documents/seeds');
+        echo "Looking for documents in: {$basePath}\n";
+        
+        if (!File::exists($basePath)) {
+            echo "❌ Documents directory not found: {$basePath}\n";
+            return;
+        }
+        
         $categories = [
             'databases' => 'Databases',
             'guidelines' => 'Guidelines', 
@@ -32,12 +41,15 @@ class DocumentSeeder extends Seeder
         ];
         
         $sortOrder = 1;
+        $totalDocuments = 0;
         
         foreach ($categories as $categoryKey => $categoryName) {
             $categoryPath = $basePath . '/' . $categoryKey;
+            echo "Checking category: {$categoryKey} at {$categoryPath}\n";
             
             if (File::exists($categoryPath)) {
                 $files = File::files($categoryPath);
+                echo "Found " . count($files) . " files in {$categoryKey}\n";
                 
                 foreach ($files as $file) {
                     $fileName = $file->getFilename();
@@ -52,7 +64,7 @@ class DocumentSeeder extends Seeder
                         'description' => $metadata['description'],
                         'category' => $this->mapCategory($categoryKey),
                         'file_type' => $extension,
-                        'file_path' => '/documents/seeds/' . $categoryKey . '/' . $fileName,
+                        'file_path' => 'documents/seeds/' . $categoryKey . '/' . $fileName,
                         'file_size' => $fileSize,
                         'published_date' => $metadata['published_date'],
                         'author' => $metadata['author'],
@@ -62,9 +74,16 @@ class DocumentSeeder extends Seeder
                         'is_active' => true,
                         'sort_order' => $sortOrder++,
                     ]);
+                    
+                    $totalDocuments++;
+                    echo "✅ Seeded: {$fileName}\n";
                 }
+            } else {
+                echo "❌ Category directory not found: {$categoryPath}\n";
             }
         }
+        
+        echo "📊 Total documents seeded: {$totalDocuments}\n";
     }
     
     private function generateMetadataFromFilename($filename, $category)
