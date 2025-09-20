@@ -25,12 +25,21 @@ class DocumentSeeder extends Seeder
     
     private function seedActualDocuments()
     {
-        $basePath = storage_path('app/public/documents/seeds');
+        // Try public directory first (where you moved them! 😄)
+        $basePath = public_path('documents/seeds');
         echo "Looking for documents in: {$basePath}\n";
         
         if (!File::exists($basePath)) {
-            echo "❌ Documents directory not found: {$basePath}\n";
-            return;
+            // Fallback to storage path
+            $basePath = storage_path('app/public/documents/seeds');
+            echo "Not found in public, trying storage: {$basePath}\n";
+            
+            if (!File::exists($basePath)) {
+                echo "❌ Documents directory not found in either location!\n";
+                echo "   Tried: " . public_path('documents/seeds') . "\n";
+                echo "   Tried: " . storage_path('app/public/documents/seeds') . "\n";
+                return;
+            }
         }
         
         $categories = [
@@ -59,12 +68,17 @@ class DocumentSeeder extends Seeder
                     // Generate metadata from filename
                     $metadata = $this->generateMetadataFromFilename($fileName, $categoryKey);
                     
+                    // Determine the correct file path based on where files are located
+                    $filePath = str_contains($basePath, 'public_html/public') || str_contains($basePath, '/public/') 
+                        ? '/documents/seeds/' . $categoryKey . '/' . $fileName  // Public directory
+                        : 'documents/seeds/' . $categoryKey . '/' . $fileName;   // Storage directory
+                    
                     Document::create([
                         'title' => $metadata['title'],
                         'description' => $metadata['description'],
                         'category' => $this->mapCategory($categoryKey),
                         'file_type' => $extension,
-                        'file_path' => 'documents/seeds/' . $categoryKey . '/' . $fileName,
+                        'file_path' => $filePath,
                         'file_size' => $fileSize,
                         'published_date' => $metadata['published_date'],
                         'author' => $metadata['author'],
