@@ -38,6 +38,23 @@ interface Document {
     download_count: number;
 }
 
+interface Blog {
+    id: number;
+    title: string;
+    slug: string;
+    excerpt: string;
+    category: string;
+    category_display: string;
+    category_icon: string;
+    featured_image: string | null;
+    author: string;
+    published_date: string;
+    reading_time: string;
+    tags: string[];
+    is_featured: boolean;
+    views_count: number;
+}
+
 interface HomeProps {
     hero: {
         title: string;
@@ -53,6 +70,7 @@ interface HomeProps {
         icon: string;
     }>;
     featuredDocuments: Document[];
+    featuredBlogs: Blog[];
 }
 
 const iconMap = {
@@ -62,7 +80,13 @@ const iconMap = {
     Shield,
 };
 
-export default function Home({ hero, quickLinks, featuredDocuments }: HomeProps) {
+export default function Home({
+    hero,
+    quickLinks,
+    featuredDocuments,
+    featuredBlogs,
+}: HomeProps) {
+    console.log(featuredBlogs.length);
     return (
         <PublicLayout title="Nash COP - Community Oriented Policing">
             <Head title="Home" />
@@ -70,7 +94,7 @@ export default function Home({ hero, quickLinks, featuredDocuments }: HomeProps)
             <FeaturedServiceWidget />
             <HomeStatisticsPage />
             <FaqsWidgets />
-            <RecentNews />
+            <RecentNews featuredBlogs={featuredBlogs} />
             <ImportantDocumentsWidgets featuredDocuments={featuredDocuments} />
             <QuickActionWidget />
             <ContactInfoWidget />

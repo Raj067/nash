@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Models\Document;
+use App\Models\Blog;
 
 class PageController extends Controller
 {
@@ -37,8 +38,34 @@ class PageController extends Controller
                 ];
             });
 
+        // Fetch featured blogs for the home page
+        $featuredBlogs = Blog::published()
+            // ->featured()
+            ->ordered()
+            ->limit(6)
+            ->get()
+            ->map(function ($blog) {
+                return [
+                    'id' => $blog->id,
+                    'title' => $blog->title,
+                    'slug' => $blog->slug,
+                    'excerpt' => $blog->excerpt,
+                    'category' => $blog->category,
+                    'category_display' => Blog::getCategoryDisplayName($blog->category),
+                    'category_icon' => Blog::getCategoryIcon($blog->category),
+                    'featured_image' => $blog->featured_image,
+                    'author' => $blog->author,
+                    'published_date' => $blog->formatted_published_date,
+                    'reading_time' => $blog->reading_time,
+                    'tags' => $blog->tags ?? [],
+                    'is_featured' => $blog->is_featured,
+                    'views_count' => $blog->views_count,
+                ];
+            });
+
         return Inertia::render('Home', [
             'featuredDocuments' => $featuredDocuments,
+            'featuredBlogs' => $featuredBlogs,
         ]);
     }
 

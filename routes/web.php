@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\VideoController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\DocumentController;
+use App\Http\Controllers\BlogController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -46,11 +47,15 @@ Route::get('/resources/reports', [DocumentController::class, 'reports'])->name('
 Route::get('/resources/iec-materials', [DocumentController::class, 'iecMaterials'])->name('resources.iec-materials');
 
 // News & Media
-Route::get('/news', [PageController::class, 'news'])->name('news');
-Route::get('/news/press-releases', [PageController::class, 'pressReleases'])->name('news.press-releases');
-Route::get('/news/speeches', [PageController::class, 'speeches'])->name('news.speeches');
-Route::get('/news/photo-gallery', [PageController::class, 'photoGallery'])->name('news.photo-gallery');
+Route::get('/news', [BlogController::class, 'index'])->name('news');
+Route::get('/news/news', [BlogController::class, 'news'])->name('news.news');
+Route::get('/news/press-releases', [BlogController::class, 'pressReleases'])->name('news.press-releases');
+Route::get('/news/speeches', [BlogController::class, 'speeches'])->name('news.speeches');
+Route::get('/news/events', [BlogController::class, 'events'])->name('news.events');
+Route::get('/news/newsletter', [BlogController::class, 'newsletter'])->name('news.newsletter');
+Route::get('/news/photo-gallery', [BlogController::class, 'photoGallery'])->name('news.photo-gallery');
 Route::get('/news/video-library', [VideoController::class, 'index'])->name('news.video-library');
+Route::get('/news/{slug}', [BlogController::class, 'show'])->name('news.show');
 
 // Contact & Support
 Route::get('/contact', [PageController::class, 'contact'])->name('contact');
@@ -75,6 +80,11 @@ Route::get('/api/documents', [DocumentController::class, 'index'])->name('api.do
 Route::get('/api/documents/featured', [DocumentController::class, 'getFeatured'])->name('api.documents.featured');
 Route::get('/api/documents/category/{category}', [DocumentController::class, 'getByCategory'])->name('api.documents.category');
 Route::get('/documents/download/{id}', [DocumentController::class, 'download'])->name('documents.download');
+
+// API Routes for Blogs
+Route::get('/api/blogs', [BlogController::class, 'index'])->name('api.blogs.index');
+Route::get('/api/blogs/featured', [BlogController::class, 'getFeatured'])->name('api.blogs.featured');
+Route::get('/api/blogs/category/{category}', [BlogController::class, 'getByCategory'])->name('api.blogs.category');
 
 // Admin/Auth Routes
 Route::get('/dashboard', function () {

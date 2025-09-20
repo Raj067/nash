@@ -349,12 +349,12 @@ const NASHCOPHeader: FC = () => {
 
     const navigationItems = [
         {
-            title: "Home",
+            title: "HOME",
             href: "/",
             icon: null,
         },
         {
-            title: "Who We Are",
+            title: "ABOUT NASHCOP",
             href: "/about",
             icon: Users,
             dropdown: [
@@ -370,7 +370,7 @@ const NASHCOPHeader: FC = () => {
             ],
         },
         {
-            title: "What We Do",
+            title: "WHAT WE DO",
             href: "/services",
             icon: Heart,
             dropdown: [
@@ -401,7 +401,7 @@ const NASHCOPHeader: FC = () => {
             ],
         },
         {
-            title: "Interventions",
+            title: "INTERVENTIONS",
             href: "/interventions",
             icon: Shield,
             dropdown: [
@@ -428,7 +428,7 @@ const NASHCOPHeader: FC = () => {
             ],
         },
         {
-            title: "Resources Center",
+            title: "RESOURCES CENTER",
             href: "/resources",
             icon: FileText,
             dropdown: [
@@ -437,26 +437,35 @@ const NASHCOPHeader: FC = () => {
                     href: "/resources/strategic-framework",
                 },
                 { title: "Guidelines", href: "/resources/guidelines" },
-                { title: "Policy Documents", href: "/resources/policy-documents" },
+                {
+                    title: "Policy Documents",
+                    href: "/resources/policy-documents",
+                },
                 { title: "Reports", href: "/resources/reports" },
                 { title: "SOP & Manuals", href: "/resources/sop-manuals" },
-                { title: "IEC/SBC Materials", href: "/resources/iec-materials" },
+                {
+                    title: "IEC/SBC Materials",
+                    href: "/resources/iec-materials",
+                },
                 { title: "Databases", href: "/resources/databases" },
             ],
         },
         {
-            title: "Media Center",
+            title: "MEDIA CENTER",
             href: "/news",
             icon: Newspaper,
             dropdown: [
+                { title: "News", href: "/news" },
                 { title: "Press Releases", href: "/news/press-releases" },
                 { title: "Speeches", href: "/news/speeches" },
+                { title: "NASHCOP Events", href: "/news/events" },
+                { title: "Newsletter", href: "/news/newsletter" },
                 { title: "Photo Gallery", href: "/news/photo-gallery" },
                 { title: "Video Library", href: "/news/video-library" },
             ],
         },
         {
-            title: "Contact & Support",
+            title: "CONTACT & SUPPORT",
             href: "/contact",
             icon: MessageCircle,
             dropdown: [

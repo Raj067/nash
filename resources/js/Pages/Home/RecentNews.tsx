@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { Card, CardContent } from "@/Components/ui/card";
 import { Button } from "@/Components/ui/button";
+import { Link } from "@inertiajs/react";
 
 interface NewsItem {
     id: number;
@@ -21,55 +22,49 @@ interface NewsItem {
     featured: boolean;
     readTime: string;
     author: string;
+    slug: string;
 }
 
-const RecentNews: React.FC = () => {
-    const newsData: NewsItem[] = [
-        {
-            id: 1,
-            title: "Mafanikio ya Lengo la 95-95-95 ya UNAIDS Tanzania",
-            summary: "Tanzania imefanikiwa kufikia 88% ya watu wenye VVU kujua hali yao, 97% wanapata matibabu, na 95% wamepunguza virusi mwilini. Hii ni hatua kubwa katika kupambana na VVU nchini.",
-            date: "2024-01-15",
-            category: "Mafanikio",
-            image: "/images/arvsImages.jpeg",
-            featured: true,
-            readTime: "5 min",
-            author: "NACP Tanzania",
-        },
-        {
-            id: 2,
-            title: "Kupungua kwa Vifo vya VVU kwa Asilimia 50",
-            summary: "Vifo vya VVU vimepungua kutoka 64,000 mnamo 2010 hadi 32,000 mnamo 2023, ikiwa ni kupungua kwa asilimia 50. Mafanikio haya yanatolewa na uboreshaji wa huduma za matibabu.",
-            date: "2024-01-12",
-            category: "Takwimu",
-            image: "/images/arvsImages.jpeg",
-            featured: false,
-            readTime: "4 min",
-            author: "Idara ya Takwimu",
-        },
-        {
-            id: 3,
-            title: "Programu Mpya za Kuzuia VVU kwa Vijana",
-            summary: "Kuanzishwa kwa programu maalum za kuzuia VVU kwa vijana wa umri wa miaka 10-24, hasa wasichana. Programu hizi zinalenga kupunguza maambukizi mapya kwa kundi hili muhimu.",
-            date: "2024-01-10",
-            category: "Programu",
-            image: "/images/arvsImages.jpeg",
-            featured: false,
-            readTime: "3 min",
-            author: "Idara ya Vijana",
-        },
-        {
-            id: 4,
-            title: "Uongezaji wa Vituo vya Upimaji vya VVU",
-            summary: "Kuongezwa kwa vituo 150 vya upimaji vya VVU nchini kote ili kufikia watu zaidi. Vituo hivi vitapatikana katika maeneo ya vijijini na mijini.",
-            date: "2024-01-08",
-            category: "Huduma",
-            image: "/images/arvsImages.jpeg",
-            featured: false,
-            readTime: "4 min",
-            author: "Idara ya Huduma",
-        },
-    ];
+interface Blog {
+    id: number;
+    title: string;
+    slug: string;
+    excerpt: string;
+    category: string;
+    category_display: string;
+    category_icon: string;
+    featured_image: string | null;
+    author: string;
+    published_date: string;
+    reading_time: string;
+    tags: string[];
+    is_featured: boolean;
+    views_count: number;
+}
+
+interface RecentNewsProps {
+    featuredBlogs: Blog[];
+}
+
+const RecentNews: React.FC<RecentNewsProps> = ({ featuredBlogs }) => {
+    // Return early if no featured blogs
+    if (!featuredBlogs || featuredBlogs.length === 0) {
+        return null;
+    }
+
+    // Use only featured blogs from database
+    const newsData = featuredBlogs.slice(0, 4).map((blog) => ({
+        id: blog.id,
+        title: blog.title,
+        summary: blog.excerpt,
+        date: blog.published_date,
+        category: blog.category_display,
+        image: blog.featured_image || "/images/arvsImages.jpeg",
+        featured: blog.is_featured,
+        readTime: blog.reading_time,
+        author: blog.author,
+        slug: blog.slug,
+    }));
 
     const getCategoryIcon = (category: string) => {
         switch (category.toLowerCase()) {
@@ -98,7 +93,7 @@ const RecentNews: React.FC = () => {
     };
 
     const featuredNews = newsData.find((news) => news.featured);
-    const regularNews = newsData.filter((news) => !news.featured);
+    const regularNews = newsData.filter((news) => news.id !== featuredNews?.id);
 
     return (
         <section className="py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 relative overflow-hidden">
@@ -122,10 +117,16 @@ const RecentNews: React.FC = () => {
                         Habari za Hivi Karibuni
                     </h2>
                     <p className="text-blue-100 max-w-3xl mx-auto text-lg mb-8">
-                        Mafanikio na maendeleo ya programu za VVU nchini Tanzania
+                        Mafanikio na maendeleo ya programu za VVU nchini
+                        Tanzania
                     </p>
-                    <Button className="bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 transition-all duration-300">
-                        Habari Zote <ArrowRight className="h-4 w-4 ml-2" />
+                    <Button
+                        className="bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 transition-all duration-300"
+                        asChild
+                    >
+                        <Link href="/news">
+                            Habari Zote <ArrowRight className="h-4 w-4 ml-2" />
+                        </Link>
                     </Button>
                 </div>
 
@@ -143,9 +144,15 @@ const RecentNews: React.FC = () => {
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                                     <div className="absolute top-4 left-4">
-                                        <span className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gradient-to-r ${getCategoryColor(featuredNews.category)} text-white shadow-lg`}>
+                                        <span
+                                            className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gradient-to-r ${getCategoryColor(
+                                                featuredNews.category
+                                            )} text-white shadow-lg`}
+                                        >
                                             {React.createElement(
-                                                getCategoryIcon(featuredNews.category),
+                                                getCategoryIcon(
+                                                    featuredNews.category
+                                                ),
                                                 { className: "h-4 w-4 mr-1" }
                                             )}
                                             {featuredNews.category}
@@ -159,20 +166,34 @@ const RecentNews: React.FC = () => {
                                     <div className="flex items-center text-sm text-blue-200 mb-3">
                                         <Calendar className="h-4 w-4 mr-1" />
                                         <span className="mr-4">
-                                            {new Date(featuredNews.date).toLocaleDateString("sw-TZ")}
+                                            {new Date(
+                                                featuredNews.date
+                                            ).toLocaleDateString("sw-TZ")}
                                         </span>
                                         <Clock className="h-4 w-4 mr-1" />
-                                        <span className="mr-4">{featuredNews.readTime}</span>
+                                        <span className="mr-4">
+                                            {featuredNews.readTime}
+                                        </span>
                                         <span>Na {featuredNews.author}</span>
                                     </div>
-                                    <h3 className="text-xl md:text-2xl font-bold text-white mb-3 group-hover:text-yellow-300 cursor-pointer transition-colors">
-                                        {featuredNews.title}
-                                    </h3>
+                                    <Link href={`/news/${featuredNews.slug}`}>
+                                        <h3 className="text-xl md:text-2xl font-bold text-white mb-3 group-hover:text-yellow-300 cursor-pointer transition-colors">
+                                            {featuredNews.title}
+                                        </h3>
+                                    </Link>
                                     <p className="text-blue-100 mb-4 leading-relaxed">
                                         {featuredNews.summary}
                                     </p>
-                                    <Button className="bg-gradient-to-r from-orange-400 to-red-500 hover:from-orange-500 hover:to-red-600 text-white border-0 shadow-lg">
-                                        Soma Zaidi <ArrowRight className="h-4 w-4 ml-2" />
+                                    <Button
+                                        asChild
+                                        className="bg-gradient-to-r from-orange-400 to-red-500 hover:from-orange-500 hover:to-red-600 text-white border-0 shadow-lg"
+                                    >
+                                        <Link
+                                            href={`/news/${featuredNews.slug}`}
+                                        >
+                                            Soma Zaidi{" "}
+                                            <ArrowRight className="h-4 w-4 ml-2" />
+                                        </Link>
                                     </Button>
                                 </CardContent>
                             </Card>
@@ -197,24 +218,37 @@ const RecentNews: React.FC = () => {
                                     </div>
                                     <CardContent className="flex-1 p-4 text-white">
                                         <div className="flex items-center mb-2">
-                                            <span className={`inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-gradient-to-r ${getCategoryColor(news.category)} text-white shadow-md`}>
+                                            <span
+                                                className={`inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-gradient-to-r ${getCategoryColor(
+                                                    news.category
+                                                )} text-white shadow-md`}
+                                            >
                                                 {React.createElement(
-                                                    getCategoryIcon(news.category),
-                                                    { className: "h-3 w-3 mr-1" }
+                                                    getCategoryIcon(
+                                                        news.category
+                                                    ),
+                                                    {
+                                                        className:
+                                                            "h-3 w-3 mr-1",
+                                                    }
                                                 )}
                                                 {news.category}
                                             </span>
                                         </div>
-                                        <h4 className="font-semibold text-white mb-2 group-hover:text-yellow-300 cursor-pointer transition-colors line-clamp-2">
-                                            {news.title}
-                                        </h4>
+                                        <Link href={`/news/${news.slug}`}>
+                                            <h4 className="font-semibold text-white mb-2 group-hover:text-yellow-300 cursor-pointer transition-colors line-clamp-2">
+                                                {news.title}
+                                            </h4>
+                                        </Link>
                                         <p className="text-sm text-blue-100 mb-2 line-clamp-2">
                                             {news.summary}
                                         </p>
                                         <div className="flex items-center text-xs text-blue-200">
                                             <Calendar className="h-3 w-3 mr-1" />
                                             <span className="mr-3">
-                                                {new Date(news.date).toLocaleDateString("sw-TZ")}
+                                                {new Date(
+                                                    news.date
+                                                ).toLocaleDateString("sw-TZ")}
                                             </span>
                                             <Clock className="h-3 w-3 mr-1" />
                                             <span>{news.readTime}</span>
@@ -229,9 +263,13 @@ const RecentNews: React.FC = () => {
                 {/* Bottom CTA */}
                 <div className="text-center mt-16">
                     <div className="bg-white/10 backdrop-blur-md border border-white/20 text-white p-8 rounded-2xl">
-                        <h3 className="text-2xl font-bold mb-4">Fuata Maendeleo Yetu</h3>
+                        <h3 className="text-2xl font-bold mb-4">
+                            Fuata Maendeleo Yetu
+                        </h3>
                         <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-                            Pata habari za hivi karibuni kuhusu mafanikio ya programu za VVU na jinsi unavyoweza kushiriki katika vita dhidi ya VVU
+                            Pata habari za hivi karibuni kuhusu mafanikio ya
+                            programu za VVU na jinsi unavyoweza kushiriki katika
+                            vita dhidi ya VVU
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Button className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white border-0 shadow-lg">

@@ -1,9 +1,9 @@
 import { Head, Link } from '@inertiajs/react';
 import PublicLayout from '@/Layouts/PublicLayout';
-import { Newspaper, Search, Filter, Calendar, User, Eye, Clock } from 'lucide-react';
+import { Calendar, User, Eye, Clock, Search, MapPin } from 'lucide-react';
 import { Button } from '@/Components/ui/button';
 import { Card, CardContent } from '@/Components/ui/card';
-import { useState, useMemo } from 'react';
+import { useState } from 'react';
 
 interface Blog {
     id: number;
@@ -22,30 +22,34 @@ interface Blog {
     views_count: number;
 }
 
-interface NewsProps {
+interface EventsProps {
     blogs?: {
         data: Blog[];
         links: any[];
         meta: any;
     };
-    categories?: Record<string, string>;
-    currentCategory?: string;
-    searchTerm?: string;
+    category?: string;
+    categoryName?: string;
 }
 
-export default function News({ blogs, categories, currentCategory, searchTerm }: NewsProps) {
-    const [localSearchTerm, setLocalSearchTerm] = useState(searchTerm || '');
-    const [selectedCategory, setSelectedCategory] = useState(currentCategory || 'all');
+export default function Events({ blogs, category, categoryName }: EventsProps) {
+    const [searchTerm, setSearchTerm] = useState('');
 
-    // Provide default values if props are undefined
+    // Provide default values if blogs is undefined
     const blogData = blogs?.data || [];
     const blogLinks = blogs?.links || [];
     const blogMeta = blogs?.meta || { total: 0 };
-    const categoriesData = categories || {};
+
+    const filteredBlogs = blogData.filter(blog =>
+        searchTerm === '' || 
+        blog.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        blog.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        blog.tags?.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()))
+    );
 
     return (
-        <PublicLayout title="News & Media">
-            <Head title="News & Media" />
+        <PublicLayout title="NASHCOP Events">
+            <Head title="NASHCOP Events" />
 
             <div className="min-h-screen">
                 {/* Hero Section */}
@@ -59,13 +63,13 @@ export default function News({ blogs, categories, currentCategory, searchTerm }:
                         <div className="h-full bg-gradient-to-r from-black/80 to-black/60 flex items-center">
                             <div className="container mx-auto px-4 text-center">
                                 <div className="inline-flex items-center justify-center w-20 h-20 bg-white/10 backdrop-blur-sm rounded-full mb-6">
-                                    <Newspaper className="w-10 h-10 text-white" />
+                                    <Calendar className="w-10 h-10 text-white" />
                                 </div>
                                 <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white">
-                                    News & Media
+                                    NASHCOP Events
                                 </h1>
                                 <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
-                                    Latest news, updates, and media coverage of community policing initiatives and activities
+                                    Community events, workshops, and activities organized by NASHCOP
                                 </p>
                             </div>
                         </div>
@@ -75,66 +79,27 @@ export default function News({ blogs, categories, currentCategory, searchTerm }:
                 {/* Content Section */}
                 <section className="py-12 bg-gradient-to-br from-blue-50 via-white to-purple-50">
                     <div className="container mx-auto px-4">
-                        {/* Search and Filter Controls */}
+                        {/* Search Bar */}
                         <div className="mb-8 bg-white rounded-lg shadow-sm p-6">
-                            <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
-                                {/* Search */}
-                                <div className="relative flex-1 max-w-md mx-auto">
-                                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
-                                    <input
-                                        type="text"
-                                        placeholder="Search news and articles..."
-                                        value={localSearchTerm}
-                                        onChange={(e) => setLocalSearchTerm(e.target.value)}
-                                        className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                                    />
-                                </div>
-
-                                {/* Category Filter */}
-                                <div className="flex items-center space-x-2">
-                                    <Filter className="w-4 h-4 text-gray-500" />
-                                    <select
-                                        value={selectedCategory}
-                                        onChange={(e) => setSelectedCategory(e.target.value)}
-                                        className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                                    >
-                                        <option value="all">All Categories</option>
-                                        {Object.entries(categoriesData).map(([key, name]) => (
-                                            <option key={key} value={key}>
-                                                {name}
-                                            </option>
-                                        ))}
-                                    </select>
-                                </div>
-
-                                {/* Search Button */}
-                                <Button
-                                    asChild
-                                    className="bg-blue-600 hover:bg-blue-700 text-white"
-                                >
-                                    <Link
-                                        href="/news"
-                                        data={{
-                                            search: localSearchTerm,
-                                            category: selectedCategory
-                                        }}
-                                    >
-                                        Search
-                                    </Link>
-                                </Button>
+                            <div className="relative max-w-md mx-auto">
+                                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+                                <input
+                                    type="text"
+                                    placeholder="Search events..."
+                                    value={searchTerm}
+                                    onChange={(e) => setSearchTerm(e.target.value)}
+                                    className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                />
                             </div>
-
-                            {/* Results Count */}
                             <div className="mt-4 text-center text-sm text-gray-600">
-                                {blogMeta.total} article{blogMeta.total !== 1 ? 's' : ''} found
-                                {selectedCategory !== 'all' && ` in ${categoriesData[selectedCategory]}`}
+                                {filteredBlogs.length} event{filteredBlogs.length !== 1 ? 's' : ''} found
                             </div>
                         </div>
 
                         {/* Blog Grid */}
-                        {blogData.length > 0 ? (
+                        {filteredBlogs.length > 0 ? (
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                                {blogData.map((blog) => (
+                                {filteredBlogs.map((blog) => (
                                     <Card key={blog.id} className="bg-white shadow-lg hover:shadow-xl transition-all duration-300 group overflow-hidden">
                                         {/* Featured Image */}
                                         {blog.featured_image && (
@@ -150,8 +115,8 @@ export default function News({ blogs, categories, currentCategory, searchTerm }:
                                                     </div>
                                                 )}
                                                 <div className="absolute top-4 right-4 bg-black/70 text-white px-2 py-1 rounded-full text-xs">
-                                                    <span className="mr-1">{blog.category_icon}</span>
-                                                    {blog.category_display}
+                                                    <span className="mr-1">📅</span>
+                                                    Event
                                                 </div>
                                             </div>
                                         )}
@@ -209,7 +174,7 @@ export default function News({ blogs, categories, currentCategory, searchTerm }:
                                                 className="w-full bg-blue-600 hover:bg-blue-700 text-white"
                                             >
                                                 <Link href={`/news/${blog.slug}`}>
-                                                    Read More
+                                                    View Event Details
                                                 </Link>
                                             </Button>
                                         </CardContent>
@@ -218,15 +183,15 @@ export default function News({ blogs, categories, currentCategory, searchTerm }:
                             </div>
                         ) : (
                             <div className="text-center py-16">
-                                <Newspaper className="w-16 h-16 text-gray-400 mx-auto mb-4" />
+                                <Calendar className="w-16 h-16 text-gray-400 mx-auto mb-4" />
                                 <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                                    No Articles Found
+                                    No Events Found
                                 </h3>
                                 <p className="text-lg text-gray-600 mb-2">
-                                    No articles found matching your search criteria
+                                    {searchTerm ? 'No events found matching your search criteria' : 'No events scheduled at this time'}
                                 </p>
                                 <p className="text-gray-500">
-                                    Try adjusting your search terms or category filter
+                                    {searchTerm ? 'Try adjusting your search terms' : 'Check back later for upcoming community events and workshops'}
                                 </p>
                             </div>
                         )}
