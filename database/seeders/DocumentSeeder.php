@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Document;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\File;
 
 class DocumentSeeder extends Seeder
 {
@@ -14,221 +15,232 @@ class DocumentSeeder extends Seeder
      */
     public function run(): void
     {
-        $documents = [
-            // Plans & Strategic Documents
-            [
-                'title' => 'National HIV/AIDS Strategic Plan (2023-2028)',
-                'description' => 'Comprehensive strategic plan outlining Tanzania\'s approach to HIV/AIDS prevention, treatment, and care for the period 2023-2028.',
-                'category' => 'plans_strategic',
-                'file_type' => 'pdf',
-                'file_path' => '/documents/seeds/plans_strategic/national-hiv-strategic-plan-2023-2028.pdf',
-                'file_size' => 2048000, // 2MB
-                'published_date' => Carbon::parse('2023-01-15'),
-                'author' => 'Ministry of Health, Community Development, Gender, Elderly and Children',
-                'version' => '1.0',
-                'tags' => ['strategic plan', 'HIV/AIDS', 'national policy'],
-                'is_featured' => true,
-                'is_active' => true,
-                'sort_order' => 1,
-            ],
-            [
-                'title' => 'NASHCOP Implementation Framework 2024',
-                'description' => 'Implementation framework for the National AIDS Control Programme activities and interventions.',
-                'category' => 'plans_strategic',
-                'file_type' => 'pdf',
-                'file_path' => '/documents/seeds/plans_strategic/nashcop-implementation-framework-2024.pdf',
-                'file_size' => 1536000, // 1.5MB
-                'published_date' => Carbon::parse('2024-03-01'),
-                'author' => 'NASHCOP Tanzania',
-                'version' => '2.0',
-                'tags' => ['implementation', 'framework', 'NASHCOP'],
-                'is_featured' => true,
-                'is_active' => true,
-                'sort_order' => 2,
-            ],
-
-            // Policy Documents
-            [
-                'title' => 'National HIV Testing Services Policy',
-                'description' => 'Policy guidelines for HIV testing services implementation across Tanzania.',
-                'category' => 'policy',
-                'file_type' => 'pdf',
-                'file_path' => '/documents/seeds/policy/hiv-testing-services-policy.pdf',
-                'file_size' => 1024000, // 1MB
-                'published_date' => Carbon::parse('2023-06-15'),
-                'author' => 'Ministry of Health',
-                'version' => '3.1',
-                'tags' => ['policy', 'HIV testing', 'healthcare'],
-                'is_featured' => false,
-                'is_active' => true,
-                'sort_order' => 1,
-            ],
-            [
-                'title' => 'PrEP Implementation Policy Guidelines',
-                'description' => 'Policy framework for Pre-Exposure Prophylaxis (PrEP) implementation in Tanzania.',
-                'category' => 'policy',
-                'file_type' => 'pdf',
-                'file_path' => '/documents/seeds/policy/prep-implementation-policy.pdf',
-                'file_size' => 768000, // 768KB
-                'published_date' => Carbon::parse('2023-09-20'),
-                'author' => 'NASHCOP Tanzania',
-                'version' => '1.2',
-                'tags' => ['PrEP', 'prevention', 'policy'],
-                'is_featured' => true,
-                'is_active' => true,
-                'sort_order' => 2,
-            ],
-
-            // Guidelines
-            [
-                'title' => 'HIV Counseling and Testing Guidelines',
-                'description' => 'Comprehensive guidelines for HIV counseling and testing procedures.',
-                'category' => 'guidelines',
-                'file_type' => 'pdf',
-                'file_path' => '/documents/seeds/guidelines/hiv-counseling-testing-guidelines.pdf',
-                'file_size' => 2560000, // 2.5MB
-                'published_date' => Carbon::parse('2024-01-10'),
-                'author' => 'Ministry of Health',
-                'version' => '4.0',
-                'tags' => ['guidelines', 'counseling', 'testing'],
-                'is_featured' => true,
-                'is_active' => true,
-                'sort_order' => 1,
-            ],
-            [
-                'title' => 'ARV Treatment Guidelines for Adults',
-                'description' => 'Clinical guidelines for antiretroviral treatment in adult patients.',
-                'category' => 'guidelines',
-                'file_type' => 'pdf',
-                'file_path' => '/documents/seeds/guidelines/arv-treatment-guidelines-adults.pdf',
-                'file_size' => 3072000, // 3MB
-                'published_date' => Carbon::parse('2023-11-05'),
-                'author' => 'National AIDS Control Programme',
-                'version' => '5.2',
-                'tags' => ['ARV', 'treatment', 'adults', 'clinical'],
-                'is_featured' => true,
-                'is_active' => true,
-                'sort_order' => 2,
-            ],
-
-            // Reports
-            [
-                'title' => 'Tanzania HIV/AIDS Annual Report 2023',
-                'description' => 'Comprehensive annual report on HIV/AIDS situation and response in Tanzania for 2023.',
-                'category' => 'reports',
-                'file_type' => 'pdf',
-                'file_path' => '/documents/seeds/reports/tanzania-hiv-annual-report-2023.pdf',
-                'file_size' => 4096000, // 4MB
-                'published_date' => Carbon::parse('2024-02-28'),
-                'author' => 'NASHCOP Tanzania',
-                'version' => '1.0',
-                'tags' => ['annual report', 'statistics', '2023'],
-                'is_featured' => true,
-                'is_active' => true,
-                'sort_order' => 1,
-            ],
-            [
-                'title' => 'Semi-Annual HIV Program Review - Q1-Q2 2024',
-                'description' => 'Mid-year review of HIV program implementation and achievements.',
-                'category' => 'reports',
-                'file_type' => 'pdf',
-                'file_path' => '/documents/seeds/reports/semi-annual-review-q1-q2-2024.pdf',
-                'file_size' => 2048000, // 2MB
-                'published_date' => Carbon::parse('2024-07-15'),
-                'author' => 'NASHCOP Tanzania',
-                'version' => '1.0',
-                'tags' => ['semi-annual', 'review', '2024'],
-                'is_featured' => false,
-                'is_active' => true,
-                'sort_order' => 2,
-            ],
-
-            // Manuals, Forms, Tools and SOPs
-            [
-                'title' => 'HIV Testing Services Standard Operating Procedures',
-                'description' => 'Standard operating procedures for HIV testing services implementation.',
-                'category' => 'manuals_sops',
-                'file_type' => 'pdf',
-                'file_path' => '/documents/sops/hiv-testing-services-sop.pdf',
-                'file_size' => 1536000, // 1.5MB
-                'published_date' => Carbon::parse('2023-08-12'),
-                'author' => 'Ministry of Health',
-                'version' => '2.1',
-                'tags' => ['SOP', 'testing', 'procedures'],
-                'is_featured' => true,
-                'is_active' => true,
-                'sort_order' => 1,
-            ],
-            [
-                'title' => 'Patient Registration Forms and Tools',
-                'description' => 'Collection of patient registration forms and data collection tools.',
-                'category' => 'manuals_sops',
-                'file_type' => 'zip',
-                'file_path' => '/documents/seeds/manuals_sops/patient-registration-forms.zip',
-                'file_size' => 512000, // 512KB
-                'published_date' => Carbon::parse('2024-01-20'),
-                'author' => 'NASHCOP Tanzania',
-                'version' => '3.0',
-                'tags' => ['forms', 'registration', 'tools'],
-                'is_featured' => false,
-                'is_active' => true,
-                'sort_order' => 2,
-            ],
-
-            // Frameworks
-            [
-                'title' => 'HIV Prevention Framework for Key Populations',
-                'description' => 'Framework for HIV prevention interventions targeting key populations.',
-                'category' => 'frameworks',
-                'file_type' => 'pdf',
-                'file_path' => '/documents/seeds/frameworks/hiv-prevention-key-populations.pdf',
-                'file_size' => 1792000, // 1.75MB
-                'published_date' => Carbon::parse('2023-10-30'),
-                'author' => 'NASHCOP Tanzania',
-                'version' => '1.5',
-                'tags' => ['framework', 'prevention', 'key populations'],
-                'is_featured' => true,
-                'is_active' => true,
-                'sort_order' => 1,
-            ],
-
-            // IEC/SBC Materials
-            [
-                'title' => 'HIV Prevention Communication Materials Package',
-                'description' => 'Information, Education and Communication materials for HIV prevention.',
-                'category' => 'iec_sbc',
-                'file_type' => 'zip',
-                'file_path' => '/documents/seeds/iec_sbc/hiv-prevention-communication-package.zip',
-                'file_size' => 10240000, // 10MB
-                'published_date' => Carbon::parse('2024-04-05'),
-                'author' => 'NASHCOP Communication Unit',
-                'version' => '2.0',
-                'tags' => ['IEC', 'communication', 'prevention'],
-                'is_featured' => true,
-                'is_active' => true,
-                'sort_order' => 1,
-            ],
-
-            // Databases
-            [
-                'title' => 'HIV/AIDS Database Access Portal',
-                'description' => 'Access portal to HIV/AIDS surveillance and monitoring databases.',
-                'category' => 'databases',
-                'file_type' => 'url',
-                'file_url' => 'https://hiv-database.nashcop.go.tz',
-                'file_size' => 0,
-                'published_date' => Carbon::parse('2024-05-01'),
-                'author' => 'NASHCOP IT Department',
-                'version' => '1.0',
-                'tags' => ['database', 'surveillance', 'monitoring'],
-                'is_featured' => false,
-                'is_active' => true,
-                'sort_order' => 1,
-            ],
+        // Clear existing documents
+        Document::truncate();
+        
+        $this->seedActualDocuments();
+    }
+    
+    private function seedActualDocuments()
+    {
+        $basePath = storage_path('app/public/documents/seeds');
+        $categories = [
+            'databases' => 'Databases',
+            'guidelines' => 'Guidelines', 
+            'manuals_sops' => 'Manuals, Forms, Tools and SOPs',
+            'news' => 'Reports'
         ];
-
-        foreach ($documents as $document) {
-            Document::create($document);
+        
+        $sortOrder = 1;
+        
+        foreach ($categories as $categoryKey => $categoryName) {
+            $categoryPath = $basePath . '/' . $categoryKey;
+            
+            if (File::exists($categoryPath)) {
+                $files = File::files($categoryPath);
+                
+                foreach ($files as $file) {
+                    $fileName = $file->getFilename();
+                    $fileSize = $file->getSize();
+                    $extension = strtolower($file->getExtension());
+                    
+                    // Generate metadata from filename
+                    $metadata = $this->generateMetadataFromFilename($fileName, $categoryKey);
+                    
+                    Document::create([
+                        'title' => $metadata['title'],
+                        'description' => $metadata['description'],
+                        'category' => $this->mapCategory($categoryKey),
+                        'file_type' => $extension,
+                        'file_path' => '/documents/seeds/' . $categoryKey . '/' . $fileName,
+                        'file_size' => $fileSize,
+                        'published_date' => $metadata['published_date'],
+                        'author' => $metadata['author'],
+                        'version' => $metadata['version'],
+                        'tags' => $metadata['tags'],
+                        'is_featured' => $metadata['is_featured'],
+                        'is_active' => true,
+                        'sort_order' => $sortOrder++,
+                    ]);
+                }
+            }
         }
+    }
+    
+    private function generateMetadataFromFilename($filename, $category)
+    {
+        // Remove file extension and clean filename
+        $cleanName = pathinfo($filename, PATHINFO_FILENAME);
+        $cleanName = preg_replace('/\s*\(2023_08_07 17_10_23 UTC\)/', '', $cleanName);
+        $cleanName = trim($cleanName);
+        
+        // Extract year if present
+        $year = 2023; // default
+        if (preg_match('/(\d{4})/', $cleanName, $matches)) {
+            $year = (int)$matches[1];
+        }
+        
+        // Generate title and description based on filename
+        $title = $this->generateTitle($cleanName);
+        $description = $this->generateDescription($cleanName, $category);
+        $tags = $this->generateTags($cleanName, $category);
+        $author = $this->generateAuthor($cleanName);
+        $isFeatured = $this->shouldBeFeatured($cleanName);
+        
+        return [
+            'title' => $title,
+            'description' => $description,
+            'published_date' => Carbon::create($year, rand(1, 12), rand(1, 28)),
+            'author' => $author,
+            'version' => '1.0',
+            'tags' => $tags,
+            'is_featured' => $isFeatured,
+        ];
+    }
+    
+    private function generateTitle($cleanName)
+    {
+        // Convert common abbreviations and clean up
+        $title = str_replace([
+            'HSHSP', 'NACP', 'CTC2', 'VMMC', 'EIMC', 'PMD', 'DHIS2', 'TB', 'HIV'
+        ], [
+            'Health Sector Strategic Plan', 'National AIDS Control Programme', 'Care and Treatment Center 2', 
+            'Voluntary Medical Male Circumcision', 'Early Infant Male Circumcision', 'Program Management Database',
+            'District Health Information System 2', 'Tuberculosis', 'HIV'
+        ], $cleanName);
+        
+        // Capitalize properly
+        $title = ucwords(strtolower($title));
+        
+        // Fix specific cases
+        $title = str_replace(['Hiv', 'Aids', 'Tb'], ['HIV', 'AIDS', 'TB'], $title);
+        
+        return $title;
+    }
+    
+    private function generateDescription($cleanName, $category)
+    {
+        $descriptions = [
+            'databases' => [
+                'CTC2' => 'Care and Treatment Center database installation and management guide for HIV patient data management.',
+                'default' => 'Database system for HIV/AIDS program data management and reporting.'
+            ],
+            'guidelines' => [
+                'THIS' => 'Tanzania HIV Impact Survey comprehensive report providing national HIV surveillance data and epidemiological analysis.',
+                'HSHSP' => 'Health Sector Strategic Plan providing framework for health sector development and HIV program implementation.',
+                'Health Sector HIV' => 'Strategic plan for HIV, Viral Hepatitis and STI prevention, treatment and care in the health sector.',
+                'Tanzania-HIV-QI' => 'Quality improvement guidelines for HIV care and treatment services in Tanzania.',
+                'tbhiv policy' => 'National policy guidelines for TB/HIV collaborative activities and integrated service delivery.',
+                'default' => 'Clinical and operational guidelines for HIV/AIDS program implementation.'
+            ],
+            'manuals_sops' => [
+                'Brochure' => 'Educational brochure providing information on HIV prevention and awareness.',
+                'Poster' => 'Educational poster for HIV prevention and health promotion campaigns.',
+                'default' => 'Manual, standard operating procedure, or educational material for HIV program implementation.'
+            ],
+            'news' => [
+                'APP' => 'Mobile application user guide for HIV program management.',
+                'Guidelines VMMC' => 'Guidelines for Voluntary Medical Male Circumcision and Early Infant Male Circumcision programs.',
+                'Habari za UKIMWI' => 'NACP quarterly newsletter providing updates on HIV program activities and achievements.',
+                'NACP News Letter' => 'NACP quarterly newsletter with program updates, achievements, and key information.',
+                'REGIONAL MONTHLY' => 'Regional monthly summary reporting form for HIV program data collection.',
+                'User manual PMD' => 'User manual for Program Management Database system.',
+                'VMMC SURGICAL' => 'Voluntary Medical Male Circumcision surgical summary reporting form.',
+                'dhis2_user_manual' => 'User manual for District Health Information System 2 (DHIS2) platform.',
+                'hshsp3final' => 'Third Health Sector Strategic Plan final document.',
+                'default' => 'Report, newsletter, or documentation related to HIV program activities and outcomes.'
+            ]
+        ];
+        
+        $categoryDescriptions = $descriptions[$category] ?? ['default' => 'Document related to HIV/AIDS program implementation.'];
+        
+        foreach ($categoryDescriptions as $key => $desc) {
+            if ($key !== 'default' && stripos($cleanName, $key) !== false) {
+                return $desc;
+            }
+        }
+        
+        return $categoryDescriptions['default'];
+    }
+    
+    private function generateTags($cleanName, $category)
+    {
+        $baseTags = ['HIV', 'AIDS', 'NASHCOP'];
+        
+        $tagMap = [
+            'databases' => ['database', 'CTC', 'data management'],
+            'guidelines' => ['guidelines', 'clinical', 'policy'],
+            'manuals_sops' => ['manual', 'SOP', 'training'],
+            'news' => ['report', 'newsletter', 'communication']
+        ];
+        
+        $categoryTags = $tagMap[$category] ?? [];
+        
+        // Add specific tags based on filename content
+        $specificTags = [];
+        if (stripos($cleanName, 'strategic') !== false) $specificTags[] = 'strategic plan';
+        if (stripos($cleanName, 'quality') !== false) $specificTags[] = 'quality improvement';
+        if (stripos($cleanName, 'survey') !== false) $specificTags[] = 'survey';
+        if (stripos($cleanName, 'brochure') !== false) $specificTags[] = 'education';
+        if (stripos($cleanName, 'poster') !== false) $specificTags[] = 'awareness';
+        if (stripos($cleanName, 'newsletter') !== false) $specificTags[] = 'communication';
+        if (stripos($cleanName, 'manual') !== false) $specificTags[] = 'training';
+        if (stripos($cleanName, 'vmmc') !== false) $specificTags[] = 'male circumcision';
+        if (stripos($cleanName, 'tb') !== false) $specificTags[] = 'tuberculosis';
+        if (stripos($cleanName, 'hepatitis') !== false) $specificTags[] = 'viral hepatitis';
+        if (stripos($cleanName, 'sti') !== false) $specificTags[] = 'sexually transmitted infections';
+        
+        return array_merge($baseTags, $categoryTags, $specificTags);
+    }
+    
+    private function generateAuthor($cleanName)
+    {
+        // Determine author based on content
+        if (stripos($cleanName, 'nacp') !== false || stripos($cleanName, 'habari') !== false) {
+            return 'National AIDS Control Programme (NACP)';
+        }
+        if (stripos($cleanName, 'hshsp') !== false || stripos($cleanName, 'health sector') !== false) {
+            return 'Ministry of Health, Community Development, Gender, Elderly and Children';
+        }
+        if (stripos($cleanName, 'this') !== false && stripos($cleanName, 'survey') !== false) {
+            return 'Tanzania Commission for AIDS (TACAIDS)';
+        }
+        if (stripos($cleanName, 'dhis2') !== false) {
+            return 'Ministry of Health - Health Information Systems';
+        }
+        if (stripos($cleanName, 'ctc') !== false) {
+            return 'Care and Treatment Center Program';
+        }
+        
+        return 'NASHCOP Tanzania';
+    }
+    
+    private function shouldBeFeatured($cleanName)
+    {
+        // Make strategic documents and major reports featured
+        $featuredKeywords = [
+            'strategic', 'hshsp', 'this', 'final report', 'health sector', 
+            'national', 'policy', 'guideline', 'framework'
+        ];
+        
+        foreach ($featuredKeywords as $keyword) {
+            if (stripos($cleanName, $keyword) !== false) {
+                return rand(1, 3) === 1; // 33% chance for featured documents
+            }
+        }
+        
+        return rand(1, 10) === 1; // 10% chance for other documents
+    }
+    
+    private function mapCategory($categoryKey)
+    {
+        $categoryMap = [
+            'databases' => 'databases',
+            'guidelines' => 'guidelines', 
+            'manuals_sops' => 'manuals_sops',
+            'news' => 'reports' // Map news folder to reports category
+        ];
+        
+        return $categoryMap[$categoryKey] ?? 'guidelines';
     }
 }
