@@ -25,7 +25,8 @@ return new class extends Migration
                 // Index might not exist, ignore
             }
             
-            // Modify category column to have a shorter length
+            // Modify columns to have shorter lengths for MySQL key compatibility
+            $table->string('slug', 191)->change(); // 191 chars for utf8mb4 compatibility
             $table->string('category', 50)->change();
             $table->string('author', 100)->nullable()->change();
             
@@ -46,6 +47,7 @@ return new class extends Migration
             $table->dropIndex('blogs_featured_published_idx');
             
             // Revert column changes
+            $table->string('slug', 255)->change();
             $table->string('category', 255)->change();
             $table->string('author', 255)->nullable()->change();
         });

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('blogs', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('slug')->unique();
+            $table->string('slug', 191)->unique(); // 191 chars for utf8mb4 compatibility
             $table->text('excerpt')->nullable();
             $table->longText('content'); // Rich text content
             $table->string('category', 50); // news, press_releases, speeches, events, newsletter, photo_gallery
