@@ -209,4 +209,45 @@ class BlogController extends Controller
     {
         return $this->getByCategory('photo_gallery');
     }
+    
+    // Search blogs
+    public function search(Request $request)
+    {
+        $query = $request->get('q', '');
+        
+        $blogs = Blog::published()
+            ->when($query, function ($q) use ($query) {
+                $q->where(function ($subQuery) use ($query) {
+                    $subQuery->where('title', 'like', '%' . $query . '%')
+                             ->orWhere('excerpt', 'like', '%' . $query . '%')
+                             ->orWhere('content', 'like', '%' . $query . '%')
+                             ->orWhereJsonContains('tags', $query);
+                });
+            })
+            ->ordered()
+            ->paginate(12)
+            ->through(function ($blog) {
+                return [
+                    'id' => $blog->id,
+                    'title' => $blog->title,
+                    'slug' => $blog->slug,
+                    'excerpt' => $blog->excerpt,
+                    'category' => $blog->category,
+                    'category_display' => Blog::getCategoryDisplayName($blog->category),
+                    'category_icon' => Blog::getCategoryIcon($blog->category),
+                    'featured_image' => $blog->featured_image,
+                    'author' => $blog->author,
+                    'published_date' => $blog->formatted_published_date,
+                    'reading_time' => $blog->reading_time,
+                    'tags' => $blog->tags ?? [],
+                    'is_featured' => $blog->is_featured,
+                    'views_count' => $blog->views_count,
+                ];
+            });
+        
+        return Inertia::render('Search/Index', [
+            'blogs' => $blogs,
+            'query' => $query,
+        ]);
+    }
 }

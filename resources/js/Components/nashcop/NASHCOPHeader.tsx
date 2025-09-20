@@ -355,7 +355,7 @@ const NASHCOPHeader: FC = () => {
         },
         {
             title: "ABOUT NASHCOP",
-            href: "/about",
+            href: "/about/about-us",
             icon: Users,
             dropdown: [
                 { title: "About Us", href: "/about/about-us" },
@@ -371,7 +371,7 @@ const NASHCOPHeader: FC = () => {
         },
         {
             title: "WHAT WE DO",
-            href: "/services",
+            href: "/services/nacp-roles-and-responsibilities",
             icon: Heart,
             dropdown: [
                 {
@@ -402,7 +402,7 @@ const NASHCOPHeader: FC = () => {
         },
         {
             title: "INTERVENTIONS",
-            href: "/interventions",
+            href: "/interventions/hiv-testing-services-linkage/",
             icon: Shield,
             dropdown: [
                 {

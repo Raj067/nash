@@ -57,6 +57,9 @@ Route::get('/news/photo-gallery', [BlogController::class, 'photoGallery'])->name
 Route::get('/news/video-library', [VideoController::class, 'index'])->name('news.video-library');
 Route::get('/news/{slug}', [BlogController::class, 'show'])->name('news.show');
 
+// Search
+Route::get('/search', [BlogController::class, 'search'])->name('search');
+
 // Contact & Support
 Route::get('/contact', [PageController::class, 'contact'])->name('contact');
 Route::get('/contact/locations', [PageController::class, 'locations'])->name('contact.locations');
