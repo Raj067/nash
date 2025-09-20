@@ -1,27 +1,33 @@
-import { Button } from '@/Components/ui/button';
-import { Input } from '@/Components/ui/input';
-import { Label } from '@/Components/ui/label';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/Components/ui/card';
-import { Alert, AlertDescription } from '@/Components/ui/alert';
-import { Head, Link, useForm } from '@inertiajs/react';
-import { FormEventHandler } from 'react';
-import { Mail, ArrowLeft, Shield } from 'lucide-react';
+import { Button } from "@/Components/ui/button";
+import { Input } from "@/Components/ui/input";
+import { Label } from "@/Components/ui/label";
+import {
+    Card,
+    CardContent,
+    CardDescription,
+    CardHeader,
+    CardTitle,
+} from "@/Components/ui/card";
+import { Alert, AlertDescription } from "@/Components/ui/alert";
+import { Head, Link, useForm } from "@inertiajs/react";
+import { FormEventHandler } from "react";
+import { Mail, ArrowLeft, Shield } from "lucide-react";
 
 export default function ForgotPassword({ status }: { status?: string }) {
     const { data, setData, post, processing, errors } = useForm({
-        email: '',
+        email: "",
     });
 
     const submit: FormEventHandler = (e) => {
         e.preventDefault();
 
-        post(route('password.email'));
+        post(route("password.email"));
     };
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-purple-50 p-4">
             <Head title="Reset Password - NACP" />
-            
+
             {/* Background Pattern */}
             <div className="absolute inset-0 opacity-5">
                 <div className="absolute top-10 left-10 w-32 h-32 bg-blue-500 rounded-full blur-3xl"></div>
@@ -49,10 +55,11 @@ export default function ForgotPassword({ status }: { status?: string }) {
                             Forgot Password?
                         </CardTitle>
                         <CardDescription className="text-center text-gray-600">
-                            No problem! Enter your email address and we'll send you a password reset link.
+                            No problem! Enter your email address and we'll send
+                            you a password reset link.
                         </CardDescription>
                     </CardHeader>
-                    
+
                     <CardContent className="space-y-6">
                         {status && (
                             <Alert className="border-green-200 bg-green-50">
@@ -66,7 +73,10 @@ export default function ForgotPassword({ status }: { status?: string }) {
                         <form onSubmit={submit} className="space-y-6">
                             {/* Email Field */}
                             <div className="space-y-2">
-                                <Label htmlFor="email" className="text-sm font-medium text-gray-700">
+                                <Label
+                                    htmlFor="email"
+                                    className="text-sm font-medium text-gray-700"
+                                >
                                     Email Address
                                 </Label>
                                 <div className="relative">
@@ -76,7 +86,9 @@ export default function ForgotPassword({ status }: { status?: string }) {
                                         type="email"
                                         name="email"
                                         value={data.email}
-                                        onChange={(e) => setData('email', e.target.value)}
+                                        onChange={(e) =>
+                                            setData("email", e.target.value)
+                                        }
                                         className="pl-10 h-12 border-gray-200 focus:border-blue-500 focus:ring-blue-500"
                                         placeholder="admin@nacp.go.tz"
                                         autoFocus
@@ -84,7 +96,9 @@ export default function ForgotPassword({ status }: { status?: string }) {
                                     />
                                 </div>
                                 {errors.email && (
-                                    <p className="text-sm text-red-600 mt-1">{errors.email}</p>
+                                    <p className="text-sm text-red-600 mt-1">
+                                        {errors.email}
+                                    </p>
                                 )}
                             </div>
 
@@ -110,7 +124,7 @@ export default function ForgotPassword({ status }: { status?: string }) {
                             {/* Back to Login */}
                             <div className="text-center">
                                 <Link
-                                    href={route('login')}
+                                    href={route("login")}
                                     className="inline-flex items-center text-sm text-blue-600 hover:text-blue-800 font-medium"
                                 >
                                     <ArrowLeft className="w-4 h-4 mr-1" />
@@ -123,7 +137,7 @@ export default function ForgotPassword({ status }: { status?: string }) {
 
                 {/* Footer */}
                 <div className="text-center mt-6 text-sm text-gray-600">
-                    <p>© 2024 National AIDS Control Programme, Tanzania</p>
+                    <p>© 2025 National AIDS Control Programme, Tanzania</p>
                 </div>
             </div>
         </div>

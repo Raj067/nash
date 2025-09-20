@@ -9,7 +9,7 @@ function ContactInfoWidget() {
                     <div className="flex flex-col items-center">
                         <Phone className="h-8 w-8 text-blue-600 mb-2" />
                         <h3 className="font-semibold mb-1">Msaada wa Haraka</h3>
-                        <p className="text-gray-600">199 (Bure)</p>
+                        <p className="text-gray-600">117 (Bure)</p>
                         <p className="text-xs text-gray-500">
                             Huduma za siku 24
                         </p>

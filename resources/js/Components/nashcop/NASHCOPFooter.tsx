@@ -164,7 +164,7 @@ const NASHCOPFooter: FC = () => {
                         <div className="flex items-center space-x-2">
                             <AlertCircle className="h-5 w-5 animate-pulse" />
                             <span className="font-bold text-lg">
-                                HIV Emergency Hotline: 199
+                                HIV Emergency Hotline: 117
                             </span>
                         </div>
                         <div className="flex items-center space-x-2">
@@ -295,7 +295,7 @@ const NASHCOPFooter: FC = () => {
                             ))}
                         </div>
 
-                        <h5 className="text-md font-semibold mt-8 mb-4 text-blue-200">
+                        {/* <h5 className="text-md font-semibold mt-8 mb-4 text-blue-200">
                             Regional Offices
                         </h5>
                         <div className="space-y-2 text-sm text-blue-100">
@@ -303,8 +303,8 @@ const NASHCOPFooter: FC = () => {
                             <p>Mwanza - Lake Zone</p>
                             <p>Arusha - Northern Zone</p>
                             <p>Mbeya - Southern Highlands</p>
-                            <p>Dodoma - Central Zone</p>
-                        </div>
+                            <p>Kilimani, Dodoma, Tanzania</p>
+                        </div> */}
                     </div>
 
                     {/* Partners & Social */}
@@ -428,10 +428,10 @@ const NASHCOPFooter: FC = () => {
                     <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
                         <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-6 text-sm text-blue-300">
                             <p>
-                                &copy; 2024 National AIDS Control Programme,
+                                &copy; 2025 National AIDS Control Programme,
                                 Tanzania. All rights reserved.
                             </p>
-                            <div className="flex items-center space-x-4">
+                            {/* <div className="flex items-center space-x-4">
                                 <a
                                     href="/legal/privacy"
                                     className="hover:text-yellow-400 transition-colors"
@@ -445,21 +445,7 @@ const NASHCOPFooter: FC = () => {
                                 >
                                     Terms of Use
                                 </a>
-                                <span>|</span>
-                                <a
-                                    href="/legal/accessibility"
-                                    className="hover:text-yellow-400 transition-colors"
-                                >
-                                    Accessibility
-                                </a>
-                                <span>|</span>
-                                <a
-                                    href="/contact/feedback"
-                                    className="hover:text-yellow-400 transition-colors"
-                                >
-                                    Feedback
-                                </a>
-                            </div>
+                            </div> */}
                         </div>
 
                         <div className="flex items-center space-x-4 text-sm text-blue-300">
