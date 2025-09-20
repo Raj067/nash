@@ -4,12 +4,42 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+use App\Models\Document;
 
 class PageController extends Controller
 {
     public function index()
     {
-        return Inertia::render('Home');
+        // Fetch featured documents for the home page
+        $featuredDocuments = Document::active()
+            ->featured()
+            ->ordered()
+            ->limit(4)
+            ->get()
+            ->map(function ($document) {
+                return [
+                    'id' => $document->id,
+                    'title' => $document->title,
+                    'description' => $document->description,
+                    'category' => $document->category,
+                    'category_display' => Document::getCategoryDisplayName($document->category),
+                    'file_type' => $document->file_type,
+                    'file_path' => $document->file_path,
+                    'file_url' => $document->file_url,
+                    'formatted_file_size' => $document->formatted_file_size,
+                    'file_icon' => $document->file_icon,
+                    'published_date' => $document->published_date ? $document->published_date->format('M d, Y') : null,
+                    'author' => $document->author,
+                    'version' => $document->version,
+                    'tags' => $document->tags ?? [],
+                    'is_featured' => $document->is_featured,
+                    'download_count' => $document->download_count ?? 0,
+                ];
+            });
+
+        return Inertia::render('Home', [
+            'featuredDocuments' => $featuredDocuments,
+        ]);
     }
 
     // Who We Are pages

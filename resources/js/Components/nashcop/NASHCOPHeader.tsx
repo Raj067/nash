@@ -437,8 +437,11 @@ const NASHCOPHeader: FC = () => {
                     href: "/resources/strategic-framework",
                 },
                 { title: "Guidelines", href: "/resources/guidelines" },
-                { title: "Databases", href: "/resources/databases" },
+                { title: "Policy Documents", href: "/resources/policy-documents" },
+                { title: "Reports", href: "/resources/reports" },
                 { title: "SOP & Manuals", href: "/resources/sop-manuals" },
+                { title: "IEC/SBC Materials", href: "/resources/iec-materials" },
+                { title: "Databases", href: "/resources/databases" },
             ],
         },
         {

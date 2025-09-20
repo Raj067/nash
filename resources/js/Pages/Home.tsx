@@ -19,6 +19,25 @@ import ImportantDocumentsWidgets from "./Home/ImportantDocumentsWidgets";
 import QuickActionWidget from "./Home/QuickActionWidget";
 import ContactInfoWidget from "./Home/ContactInfoWidget";
 
+interface Document {
+    id: number;
+    title: string;
+    description: string;
+    category: string;
+    category_display: string;
+    file_type: string;
+    file_path: string;
+    file_url: string | null;
+    formatted_file_size: string;
+    file_icon: string;
+    published_date: string;
+    author: string;
+    version: string;
+    tags: string[];
+    is_featured: boolean;
+    download_count: number;
+}
+
 interface HomeProps {
     hero: {
         title: string;
@@ -33,6 +52,7 @@ interface HomeProps {
         href: string;
         icon: string;
     }>;
+    featuredDocuments: Document[];
 }
 
 const iconMap = {
@@ -42,7 +62,7 @@ const iconMap = {
     Shield,
 };
 
-export default function Home({ hero, quickLinks }: HomeProps) {
+export default function Home({ hero, quickLinks, featuredDocuments }: HomeProps) {
     return (
         <PublicLayout title="Nash COP - Community Oriented Policing">
             <Head title="Home" />
@@ -51,7 +71,7 @@ export default function Home({ hero, quickLinks }: HomeProps) {
             <HomeStatisticsPage />
             <FaqsWidgets />
             <RecentNews />
-            <ImportantDocumentsWidgets />
+            <ImportantDocumentsWidgets featuredDocuments={featuredDocuments} />
             <QuickActionWidget />
             <ContactInfoWidget />
             {/* <section className="bg-green-500 min-h-screen">Homepage1</section> */}

@@ -3,33 +3,30 @@ import { Card, CardContent } from "@/Components/ui/card";
 import { Calendar, Download, FileText } from "lucide-react";
 import React from "react";
 
-function ImportantDocumentsWidgets() {
-    const importantDocuments = [
-        {
-            title: "Mwongozo wa Matibabu ya VVU na STI 2024",
-            type: "PDF",
-            size: "3.2 MB",
-            date: "2024-01-01",
-        },
-        {
-            title: "Sera ya Kuzuia VVU, STI na Hepatitis Tanzania",
-            type: "PDF",
-            size: "2.8 MB",
-            date: "2023-12-15",
-        },
-        {
-            title: "Ripoti ya Mwaka 2023 - NASHCOP",
-            type: "PDF",
-            size: "5.1 MB",
-            date: "2023-12-01",
-        },
-        {
-            title: "Mwongozo wa Upimaji wa Hepatitis B na C",
-            type: "PDF",
-            size: "1.9 MB",
-            date: "2023-11-20",
-        },
-    ];
+interface Document {
+    id: number;
+    title: string;
+    description: string;
+    category: string;
+    category_display: string;
+    file_type: string;
+    file_path: string;
+    file_url: string | null;
+    formatted_file_size: string;
+    file_icon: string;
+    published_date: string;
+    author: string;
+    version: string;
+    tags: string[];
+    is_featured: boolean;
+    download_count: number;
+}
+
+interface ImportantDocumentsWidgetsProps {
+    featuredDocuments: Document[];
+}
+
+function ImportantDocumentsWidgets({ featuredDocuments }: ImportantDocumentsWidgetsProps) {
 
     return (
         <section className="py-20 bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50 relative overflow-hidden">
@@ -52,12 +49,17 @@ function ImportantDocumentsWidgets() {
                             Pakua nyaraka za kiufundi na sera za programu za
                             VVU, STI na Hepatitis
                         </p>
+                        {featuredDocuments.length === 0 && (
+                            <p className="text-sm text-gray-500 mt-4">
+                                Hakuna nyaraka za msingi zilizopo kwa sasa
+                            </p>
+                        )}
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                        {importantDocuments.map((doc, index) => (
+                        {featuredDocuments.slice(0, 4).map((doc) => (
                             <Card
-                                key={index}
+                                key={doc.id}
                                 className="group hover:shadow-2xl transition-all duration-500 cursor-pointer border-0 bg-white/80 backdrop-blur-sm hover:scale-105 hover:bg-white relative overflow-hidden"
                             >
                                 {/* Card Background Gradient */}
@@ -67,11 +69,11 @@ function ImportantDocumentsWidgets() {
                                     {/* Document Icon with Animation */}
                                     <div className="relative mb-6">
                                         <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-red-500 to-pink-600 rounded-2xl shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110">
-                                            <FileText className="h-8 w-8 text-white" />
+                                            <span className="text-2xl">{doc.file_icon}</span>
                                         </div>
-                                        {/* PDF Badge */}
+                                        {/* File Type Badge */}
                                         <div className="absolute -top-2 -right-2 bg-gradient-to-r from-orange-400 to-red-500 text-white text-xs font-bold px-2 py-1 rounded-full shadow-md">
-                                            {doc.type}
+                                            {doc.file_type.toUpperCase()}
                                         </div>
                                     </div>
 
@@ -84,30 +86,40 @@ function ImportantDocumentsWidgets() {
                                         <div className="flex items-center justify-center text-xs text-gray-500">
                                             <div className="flex items-center">
                                                 <div className="w-2 h-2 bg-blue-400 rounded-full mr-2"></div>
-                                                {doc.size}
+                                                {doc.formatted_file_size}
                                             </div>
                                         </div>
                                         <div className="flex items-center justify-center text-xs text-gray-500">
                                             <Calendar className="h-3 w-3 mr-1" />
-                                            {new Date(
-                                                doc.date
-                                            ).toLocaleDateString("sw-TZ")}
+                                            {doc.published_date}
                                         </div>
+                                        {doc.author && (
+                                            <div className="text-xs text-gray-500">
+                                                {doc.author}
+                                            </div>
+                                        )}
                                     </div>
 
                                     {/* Download Button */}
-                                    <Button className="w-full bg-gradient-to-r from-red-500 to-pink-600 hover:from-red-600 hover:to-pink-700 text-white border-0 shadow-md hover:shadow-lg transition-all duration-300 group-hover:scale-105">
-                                        <Download className="h-4 w-4 mr-2 group-hover:animate-bounce" />
-                                        Pakua
+                                    <Button 
+                                        asChild
+                                        className="w-full bg-gradient-to-r from-red-500 to-pink-600 hover:from-red-600 hover:to-pink-700 text-white border-0 shadow-md hover:shadow-lg transition-all duration-300 group-hover:scale-105"
+                                    >
+                                        <a
+                                            href={`/documents/download/${doc.id}`}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            <Download className="h-4 w-4 mr-2 group-hover:animate-bounce" />
+                                            Pakua
+                                        </a>
                                     </Button>
 
                                     {/* Download Stats */}
                                     <div className="mt-3 text-xs text-gray-400">
                                         <span className="inline-flex items-center">
                                             <div className="w-1 h-1 bg-green-400 rounded-full mr-1"></div>
-                                            {Math.floor(Math.random() * 1000) +
-                                                100}{" "}
-                                            downloads
+                                            {doc.download_count} downloads
                                         </span>
                                     </div>
                                 </CardContent>

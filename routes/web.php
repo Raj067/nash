@@ -2,6 +2,9 @@
 
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\VideoController;
+use App\Http\Controllers\FaqController;
+use App\Http\Controllers\DocumentController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -33,18 +36,21 @@ Route::get('/interventions/decentralized-hiv-care-treatment', [PageController::c
 Route::get('/interventions/cross-sector-hiv-interventions', [PageController::class, 'crossSector'])->name('interventions.cross-sector');
 
 // Resources
-Route::get('/resources', [PageController::class, 'resources'])->name('resources');
-Route::get('/resources/strategic-framework', [PageController::class, 'strategicFramework'])->name('resources.strategic-framework');
-Route::get('/resources/guidelines', [PageController::class, 'guidelines'])->name('resources.guidelines');
-Route::get('/resources/databases', [PageController::class, 'databases'])->name('resources.databases');
-Route::get('/resources/sop-manuals', [PageController::class, 'sopManuals'])->name('resources.sop-manuals');
+Route::get('/resources', [DocumentController::class, 'resources'])->name('resources');
+Route::get('/resources/strategic-framework', [DocumentController::class, 'strategicFramework'])->name('resources.strategic-framework');
+Route::get('/resources/guidelines', [DocumentController::class, 'guidelines'])->name('resources.guidelines');
+Route::get('/resources/databases', [DocumentController::class, 'databases'])->name('resources.databases');
+Route::get('/resources/sop-manuals', [DocumentController::class, 'sopManuals'])->name('resources.sop-manuals');
+Route::get('/resources/policy-documents', [DocumentController::class, 'policyDocuments'])->name('resources.policy-documents');
+Route::get('/resources/reports', [DocumentController::class, 'reports'])->name('resources.reports');
+Route::get('/resources/iec-materials', [DocumentController::class, 'iecMaterials'])->name('resources.iec-materials');
 
 // News & Media
 Route::get('/news', [PageController::class, 'news'])->name('news');
 Route::get('/news/press-releases', [PageController::class, 'pressReleases'])->name('news.press-releases');
 Route::get('/news/speeches', [PageController::class, 'speeches'])->name('news.speeches');
 Route::get('/news/photo-gallery', [PageController::class, 'photoGallery'])->name('news.photo-gallery');
-Route::get('/news/video-library', [PageController::class, 'videoLibrary'])->name('news.video-library');
+Route::get('/news/video-library', [VideoController::class, 'index'])->name('news.video-library');
 
 // Contact & Support
 Route::get('/contact', [PageController::class, 'contact'])->name('contact');
@@ -55,6 +61,20 @@ Route::get('/contact/help', [PageController::class, 'help'])->name('contact.help
 
 // Support
 Route::get('/support-nacp', [PageController::class, 'supportNacp'])->name('support-nacp');
+
+// API Routes for Videos
+Route::get('/api/videos/featured', [VideoController::class, 'getFeaturedVideos'])->name('api.videos.featured');
+Route::get('/api/videos/category/{category}', [VideoController::class, 'getByCategory'])->name('api.videos.category');
+
+// API Routes for FAQs
+Route::get('/api/faqs', [FaqController::class, 'index'])->name('api.faqs.index');
+Route::get('/api/faqs/category/{category}', [FaqController::class, 'getByCategory'])->name('api.faqs.category');
+
+// API Routes for Documents
+Route::get('/api/documents', [DocumentController::class, 'index'])->name('api.documents.index');
+Route::get('/api/documents/featured', [DocumentController::class, 'getFeatured'])->name('api.documents.featured');
+Route::get('/api/documents/category/{category}', [DocumentController::class, 'getByCategory'])->name('api.documents.category');
+Route::get('/documents/download/{id}', [DocumentController::class, 'download'])->name('documents.download');
 
 // Admin/Auth Routes
 Route::get('/dashboard', function () {

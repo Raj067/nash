@@ -1,14 +1,6 @@
 import { Head } from "@inertiajs/react";
 import PublicLayout from "@/Layouts/PublicLayout";
-import {
-    FolderOpen,
-    Download,
-    Calendar,
-    User,
-    Tag,
-    Search,
-    Filter,
-} from "lucide-react";
+import { BarChart3, Download, Calendar, User, Tag, Search } from "lucide-react";
 import { Button } from "@/Components/ui/button";
 import { Card, CardContent } from "@/Components/ui/card";
 import { useState, useMemo } from "react";
@@ -31,23 +23,14 @@ interface Document {
     is_featured: boolean;
 }
 
-interface ResourcesProps {
+interface ReportsProps {
     documents: Document[];
 }
 
-export default function Resources({ documents }: ResourcesProps) {
+export default function Reports({ documents }: ReportsProps) {
     const [searchTerm, setSearchTerm] = useState<string>("");
-    const [selectedCategory, setSelectedCategory] = useState<string>("all");
 
-    // Get unique categories from documents
-    const categories = useMemo(() => {
-        const uniqueCategories = Array.from(
-            new Set(documents.map((doc) => doc.category))
-        );
-        return ["all", ...uniqueCategories];
-    }, [documents]);
-
-    // Filter documents based on search and category
+    // Filter documents based on search
     const filteredDocuments = useMemo(() => {
         return documents.filter((doc) => {
             const matchesSearch =
@@ -55,40 +38,13 @@ export default function Resources({ documents }: ResourcesProps) {
                 doc.description
                     .toLowerCase()
                     .includes(searchTerm.toLowerCase());
-            const matchesCategory =
-                selectedCategory === "all" || doc.category === selectedCategory;
-            return matchesSearch && matchesCategory;
+            return matchesSearch;
         });
-    }, [documents, searchTerm, selectedCategory]);
-
-    const getCategoryDisplayName = (category: string) => {
-        switch (category) {
-            case "all":
-                return "Zote - All Categories";
-            case "plans_strategic":
-                return "Mipango na Mkakati - Plans & Strategic";
-            case "policy":
-                return "Sera - Policy Documents";
-            case "guidelines":
-                return "Miongozo - Guidelines";
-            case "reports":
-                return "Ripoti - Reports";
-            case "manuals_sops":
-                return "Taratibu - Manuals & SOPs";
-            case "frameworks":
-                return "Miundo - Frameworks";
-            case "iec_sbc":
-                return "Nyenzo za Elimu - IEC/SBC Materials";
-            case "databases":
-                return "Hifadhidata - Databases";
-            default:
-                return category.charAt(0).toUpperCase() + category.slice(1);
-        }
-    };
+    }, [documents, searchTerm]);
 
     return (
-        <PublicLayout title="Resources">
-            <Head title="Resources - Rasilimali" />
+        <PublicLayout title="Reports">
+            <Head title="Reports - Ripoti" />
 
             <div className="min-h-screen">
                 {/* Hero Section */}
@@ -102,15 +58,14 @@ export default function Resources({ documents }: ResourcesProps) {
                         <div className="h-full bg-gradient-to-r from-black/80 to-black/60 flex items-center">
                             <div className="container mx-auto px-4 text-center">
                                 <div className="inline-flex items-center justify-center w-20 h-20 bg-white/10 backdrop-blur-sm rounded-full mb-6">
-                                    <FolderOpen className="w-10 h-10 text-white" />
+                                    <BarChart3 className="w-10 h-10 text-white" />
                                 </div>
                                 <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white">
-                                    Resources
+                                    Reports
                                 </h1>
                                 <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
-                                    Comprehensive collection of resources,
-                                    tools, and materials supporting HIV/AIDS
-                                    control initiatives
+                                    Annual and semi-annual reports on HIV/AIDS
+                                    program implementation and achievements
                                 </p>
                             </div>
                         </div>
@@ -120,7 +75,7 @@ export default function Resources({ documents }: ResourcesProps) {
                 {/* Content Section */}
                 <section className="py-12 bg-gradient-to-br from-blue-50 via-white to-purple-50">
                     <div className="container mx-auto px-4">
-                        {/* Search and Filter Controls */}
+                        {/* Search Controls */}
                         <div className="mb-8 bg-white rounded-lg shadow-sm p-6">
                             <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
                                 {/* Search */}
@@ -128,7 +83,7 @@ export default function Resources({ documents }: ResourcesProps) {
                                     <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
                                     <input
                                         type="text"
-                                        placeholder="Tafuta rasilimali... / Search resources..."
+                                        placeholder="Tafuta ripoti... / Search reports..."
                                         value={searchTerm}
                                         onChange={(e) =>
                                             setSearchTerm(e.target.value)
@@ -136,40 +91,13 @@ export default function Resources({ documents }: ResourcesProps) {
                                         className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                                     />
                                 </div>
-
-                                {/* Category Filter */}
-                                <div className="flex items-center space-x-2">
-                                    <Filter className="w-4 h-4 text-gray-500" />
-                                    <select
-                                        value={selectedCategory}
-                                        onChange={(e) =>
-                                            setSelectedCategory(e.target.value)
-                                        }
-                                        className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                                    >
-                                        {categories.map((category) => (
-                                            <option
-                                                key={category}
-                                                value={category}
-                                            >
-                                                {getCategoryDisplayName(
-                                                    category
-                                                )}
-                                            </option>
-                                        ))}
-                                    </select>
-                                </div>
                             </div>
 
                             {/* Results Count */}
                             <div className="mt-4 text-sm text-gray-600">
-                                {filteredDocuments.length} resource
+                                {filteredDocuments.length} report
                                 {filteredDocuments.length !== 1 ? "s" : ""}{" "}
                                 found
-                                {selectedCategory !== "all" &&
-                                    ` in ${getCategoryDisplayName(
-                                        selectedCategory
-                                    )}`}
                             </div>
                         </div>
 
@@ -203,13 +131,6 @@ export default function Resources({ documents }: ResourcesProps) {
                                                     {
                                                         document.formatted_file_size
                                                     }
-                                                </span>
-                                            </div>
-
-                                            {/* Category Badge */}
-                                            <div className="mb-3">
-                                                <span className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full">
-                                                    {document.category_display}
                                                 </span>
                                             </div>
 
@@ -256,7 +177,7 @@ export default function Resources({ documents }: ResourcesProps) {
                                                 document.tags.length > 0 && (
                                                     <div className="flex flex-wrap gap-1 mb-4">
                                                         {document.tags
-                                                            .slice(0, 2)
+                                                            .slice(0, 3)
                                                             .map(
                                                                 (
                                                                     tag,
@@ -274,12 +195,12 @@ export default function Resources({ documents }: ResourcesProps) {
                                                                 )
                                                             )}
                                                         {document.tags.length >
-                                                            2 && (
+                                                            3 && (
                                                             <span className="text-xs text-gray-500">
                                                                 +
                                                                 {document.tags
                                                                     .length -
-                                                                    2}{" "}
+                                                                    3}{" "}
                                                                 more
                                                             </span>
                                                         )}
@@ -309,17 +230,16 @@ export default function Resources({ documents }: ResourcesProps) {
                             </div>
                         ) : (
                             <div className="text-center py-16">
-                                <FolderOpen className="w-16 h-16 text-gray-400 mx-auto mb-4" />
+                                <BarChart3 className="w-16 h-16 text-gray-400 mx-auto mb-4" />
                                 <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                                    Hakuna Rasilimali Zilizopatikana
+                                    Hakuna Ripoti Zilizopatikana
                                 </h3>
                                 <p className="text-lg text-gray-600 mb-2">
-                                    No resources found matching your search
+                                    No reports found matching your search
                                     criteria
                                 </p>
                                 <p className="text-gray-500">
-                                    Jaribu kutafuta kwa maneno mengine au chagua
-                                    category nyingine
+                                    Jaribu kutafuta kwa maneno mengine
                                 </p>
                             </div>
                         )}
