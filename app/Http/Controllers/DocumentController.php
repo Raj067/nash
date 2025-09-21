@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Document;
 use Inertia\Inertia;
+use App\Services\SeoService;
 
 class DocumentController extends Controller
 {

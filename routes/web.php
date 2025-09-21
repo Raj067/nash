@@ -7,6 +7,7 @@ use App\Http\Controllers\VideoController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\SeoController;
 use App\Http\Controllers\Admin\FaqController as AdminFaqController;
 use App\Http\Controllers\Admin\VideoController as AdminVideoController;
 use App\Http\Controllers\Admin\NewsletterSubscriberController as AdminNewsletterSubscriberController;
@@ -77,6 +78,14 @@ Route::get('/contact/help', [PageController::class, 'help'])->name('contact.help
 
 // Support
 Route::get('/support-nacp', [PageController::class, 'supportNacp'])->name('support-nacp');
+
+// SEO Routes
+Route::get('/sitemap.xml', [SeoController::class, 'sitemapIndex'])->name('sitemap.index');
+Route::get('/sitemap-pages.xml', [SeoController::class, 'sitemapPages'])->name('sitemap.pages');
+Route::get('/sitemap-blogs.xml', [SeoController::class, 'sitemapBlogs'])->name('sitemap.blogs');
+Route::get('/sitemap-documents.xml', [SeoController::class, 'sitemapDocuments'])->name('sitemap.documents');
+Route::get('/sitemap-faqs.xml', [SeoController::class, 'sitemapFaqs'])->name('sitemap.faqs');
+Route::get('/robots.txt', [SeoController::class, 'robots'])->name('robots');
 
 // API Routes for Videos
 Route::get('/api/videos/featured', [VideoController::class, 'getFeaturedVideos'])->name('api.videos.featured');

@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
-import { usePage, Link, router } from "@inertiajs/react";
+import { usePage, Link, router, Head } from "@inertiajs/react";
+import GoogleAnalytics from "@/Components/SEO/GoogleAnalytics";
 import {
     SidebarInset,
     SidebarProvider,
@@ -36,12 +37,14 @@ interface AdminLayoutProps {
     children: ReactNode;
     header?: ReactNode;
     breadcrumbs?: BreadcrumbItem[];
+    title?: string;
 }
 
 export default function AdminLayout({
     children,
     header,
     breadcrumbs,
+    title = "Admin Dashboard",
 }: AdminLayoutProps) {
     const { url, props } = usePage();
     const auth = props.auth as any;
@@ -122,9 +125,13 @@ export default function AdminLayout({
     };
 
     return (
-        <SidebarProvider>
-            <AppSidebar />
-            <SidebarInset>
+        <>
+            <GoogleAnalytics trackingId="G-YGTFBTY44B" />
+            <Head title={title} />
+            
+            <SidebarProvider>
+                <AppSidebar />
+                <SidebarInset>
                 {/* Sticky Header */}
                 <header className="sticky top-0 z-40 flex h-16 shrink-0 items-center gap-2 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12">
                     <div className="flex items-center gap-2 px-4 w-full">
@@ -254,5 +261,6 @@ export default function AdminLayout({
                 </div>
             </SidebarInset>
         </SidebarProvider>
+        </>
     );
 }

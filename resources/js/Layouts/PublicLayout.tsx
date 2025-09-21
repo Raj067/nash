@@ -1,8 +1,10 @@
 import { Navigation } from "@/Components/Navigation";
 import NASHCOPFooter from "@/Components/nashcop/NASHCOPFooter";
 import NASHCOPHeader from "@/Components/nashcop/NASHCOPHeader";
-import { Head, Link } from "@inertiajs/react";
+import { Head, Link, usePage } from "@inertiajs/react";
 import { PropsWithChildren, ReactNode } from "react";
+import GoogleAnalytics from "@/Components/SEO/GoogleAnalytics";
+import SeoHead from "@/Components/SEO/SeoHead";
 
 interface PublicLayoutProps {
     title?: string;
@@ -14,9 +16,23 @@ export default function PublicLayout({
     header,
     children,
 }: PropsWithChildren<PublicLayoutProps>) {
+    const { props } = usePage();
+    const seoData = (props as any).seo;
+
     return (
         <div className="bg-background">
-            <Head title={title} />
+            {/* Google Analytics - Load first for better tracking */}
+            <GoogleAnalytics trackingId="G-YGTFBTY44B" />
+            
+            {/* SEO Meta Tags and Structured Data */}
+            {seoData ? (
+                <SeoHead
+                    meta={seoData.meta}
+                    structuredData={seoData.structuredData}
+                />
+            ) : (
+                <Head title={title} />
+            )}
 
             <NASHCOPHeader />
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Blog;
 use Inertia\Inertia;
+use App\Services\SeoService;
 
 class BlogController extends Controller
 {
@@ -157,6 +158,25 @@ class BlogController extends Controller
                 ];
             });
         
+        // Generate SEO data for this blog post
+        $seoMeta = SeoService::generateMetaTags([
+            'title' => $blog->meta_data['seo_title'] ?? $blog->title . ' - NASHCOP Tanzania',
+            'description' => $blog->meta_data['seo_description'] ?? ($blog->excerpt ?: strip_tags(substr($blog->content, 0, 160))),
+            'keywords' => $blog->meta_data['seo_keywords'] ?? (is_array($blog->tags) ? implode(', ', $blog->tags) : $blog->tags),
+            'image' => $blog->featured_image ? asset($blog->featured_image) : asset('images/nashcop-og.jpg'),
+            'url' => route('news.show', $blog->slug),
+            'type' => 'article',
+        ]);
+
+        $structuredData = [
+            'article' => SeoService::generateArticleStructuredData($blog),
+            'breadcrumb' => SeoService::generateBreadcrumbStructuredData([
+                ['name' => 'Home', 'url' => route('home')],
+                ['name' => 'News & Updates', 'url' => route('news.index')],
+                ['name' => $blog->title, 'url' => route('news.show', $blog->slug)],
+            ]),
+        ];
+
         return Inertia::render('News/BlogDetail', [
             'blog' => [
                 'id' => $blog->id,
@@ -176,6 +196,10 @@ class BlogController extends Controller
                 'meta_data' => $blog->meta_data ?? [],
             ],
             'relatedBlogs' => $relatedBlogs,
+            'seo' => [
+                'meta' => $seoMeta,
+                'structuredData' => $structuredData,
+            ],
         ]);
     }
     
