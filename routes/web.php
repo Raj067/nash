@@ -7,6 +7,8 @@ use App\Http\Controllers\FaqController;
 use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\Admin\FaqController as AdminFaqController;
+use App\Http\Controllers\Admin\VideoController as AdminVideoController;
+use App\Http\Controllers\Admin\NewsletterSubscriberController as AdminNewsletterSubscriberController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -100,11 +102,24 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     
-    // Admin FAQ Management Routes
+    // Admin Management Routes
     Route::prefix('admin')->name('admin.')->group(function () {
+        // FAQ Management
         Route::resource('faqs', AdminFaqController::class);
         Route::patch('faqs/{faq}/toggle-status', [AdminFaqController::class, 'toggleStatus'])->name('faqs.toggle-status');
         Route::post('faqs/bulk-action', [AdminFaqController::class, 'bulkAction'])->name('faqs.bulk-action');
+        
+        // Video Management
+        Route::resource('videos', AdminVideoController::class);
+        Route::patch('videos/{video}/toggle-status', [AdminVideoController::class, 'toggleStatus'])->name('videos.toggle-status');
+        Route::patch('videos/{video}/toggle-featured', [AdminVideoController::class, 'toggleFeatured'])->name('videos.toggle-featured');
+        Route::post('videos/bulk-action', [AdminVideoController::class, 'bulkAction'])->name('videos.bulk-action');
+        
+        // Newsletter Subscriber Management
+        Route::resource('newsletter-subscribers', AdminNewsletterSubscriberController::class);
+        Route::patch('newsletter-subscribers/{newsletter_subscriber}/toggle-status', [AdminNewsletterSubscriberController::class, 'toggleStatus'])->name('newsletter-subscribers.toggle-status');
+        Route::post('newsletter-subscribers/bulk-action', [AdminNewsletterSubscriberController::class, 'bulkAction'])->name('newsletter-subscribers.bulk-action');
+        Route::get('newsletter-subscribers-export', [AdminNewsletterSubscriberController::class, 'export'])->name('newsletter-subscribers.export');
     });
 });
 

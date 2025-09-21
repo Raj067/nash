@@ -18,6 +18,7 @@ import {
     Heart,
     Activity,
     HelpCircle,
+    Mail,
 } from "lucide-react";
 
 import {
@@ -71,6 +72,16 @@ const data = {
             title: "FAQs",
             url: "/admin/faqs",
             icon: HelpCircle,
+        },
+        {
+            title: "Videos",
+            url: "/admin/videos",
+            icon: Video,
+        },
+        {
+            title: "Newsletter",
+            url: "/admin/newsletter-subscribers",
+            icon: Mail,
         },
     ],
 };
