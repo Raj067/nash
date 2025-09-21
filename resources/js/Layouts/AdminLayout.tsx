@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { usePage } from "@inertiajs/react";
+import { usePage, Link, router } from "@inertiajs/react";
 import {
     SidebarInset,
     SidebarProvider,
@@ -15,15 +15,27 @@ import {
     BreadcrumbPage,
     BreadcrumbSeparator,
 } from "@/Components/ui/breadcrumb";
-import { Shield } from "lucide-react";
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuLabel,
+    DropdownMenuSeparator,
+    DropdownMenuTrigger,
+} from "@/Components/ui/dropdown-menu";
+import { Button } from "@/Components/ui/button";
+import { Avatar, AvatarFallback, AvatarImage } from "@/Components/ui/avatar";
+import { Shield, User, Settings, LogOut, ChevronDown } from "lucide-react";
+
+interface BreadcrumbItem {
+    label: string;
+    href?: string;
+}
 
 interface AdminLayoutProps {
     children: ReactNode;
     header?: ReactNode;
-    breadcrumbs?: Array<{
-        label: string;
-        href?: string;
-    }>;
+    breadcrumbs?: BreadcrumbItem[];
 }
 
 export default function AdminLayout({
@@ -31,27 +43,70 @@ export default function AdminLayout({
     header,
     breadcrumbs,
 }: AdminLayoutProps) {
-    const { url } = usePage();
+    const { url, props } = usePage();
+    const auth = props.auth as any;
 
     // Generate breadcrumbs from URL if not provided
-    const defaultBreadcrumbs = breadcrumbs || [
-        { label: "Admin", href: "/dashboard" },
-        { label: "Dashboard" },
-    ];
-
-    // Get current page title from URL or header
-    const getPageTitle = () => {
-        if (header) return header;
+    const generateBreadcrumbs = (): BreadcrumbItem[] => {
+        if (breadcrumbs) return breadcrumbs;
 
         const pathSegments = url.split("/").filter(Boolean);
-        const lastSegment = pathSegments[pathSegments.length - 1];
+        const crumbs: BreadcrumbItem[] = [{ label: "Dashboard", href: "/dashboard" }];
 
-        if (!lastSegment || lastSegment === "dashboard") return "Dashboard";
+        if (pathSegments.length > 1) {
+            // Handle admin routes
+            if (pathSegments[0] === "admin") {
+                for (let i = 1; i < pathSegments.length; i++) {
+                    const segment = pathSegments[i];
+                    const isLast = i === pathSegments.length - 1;
+                    
+                    // Skip numeric IDs and action segments
+                    if (/^\d+$/.test(segment) || ['create', 'edit'].includes(segment)) {
+                        continue;
+                    }
 
-        return lastSegment
-            .split("-")
-            .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-            .join(" ");
+                    let label = segment
+                        .split("-")
+                        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                        .join(" ");
+
+                    // Custom labels for specific routes
+                    const routeLabels: { [key: string]: string } = {
+                        'users': 'User Management',
+                        'feedback': 'Feedback Management',
+                        'blogs': 'Blog Management',
+                        'documents': 'Document Management',
+                        'faqs': 'FAQ Management',
+                        'videos': 'Video Management',
+                        'newsletter-subscribers': 'Newsletter Subscribers',
+                    };
+
+                    if (routeLabels[segment]) {
+                        label = routeLabels[segment];
+                    }
+
+                    const href = isLast ? undefined : `/admin/${pathSegments.slice(1, i + 1).join('/')}`;
+                    crumbs.push({ label, href });
+                }
+
+                // Add action-specific breadcrumbs
+                if (pathSegments.includes('create')) {
+                    crumbs.push({ label: 'Create New' });
+                } else if (pathSegments.includes('edit')) {
+                    crumbs.push({ label: 'Edit' });
+                } else if (/^\d+$/.test(pathSegments[pathSegments.length - 1])) {
+                    crumbs.push({ label: 'View Details' });
+                }
+            }
+        }
+
+        return crumbs;
+    };
+
+    const currentBreadcrumbs = generateBreadcrumbs();
+
+    const handleLogout = () => {
+        router.post('/logout');
     };
 
     return (
@@ -67,19 +122,10 @@ export default function AdminLayout({
                             className="mr-2 data-[orientation=vertical]:h-4"
                         />
 
-                        {/* <div className="flex items-center gap-2 mr-4">
-                            <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
-                                <Shield className="w-4 h-4 text-white" />
-                            </div>
-                            <span className="font-semibold text-lg bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                                NACP Admin
-                            </span>
-                        </div> */}
-
                         {/* Breadcrumbs */}
                         <Breadcrumb>
                             <BreadcrumbList>
-                                {defaultBreadcrumbs.map((crumb, index) => (
+                                {currentBreadcrumbs.map((crumb: BreadcrumbItem, index: number) => (
                                     <div
                                         key={index}
                                         className="flex items-center"
@@ -106,12 +152,62 @@ export default function AdminLayout({
                             </BreadcrumbList>
                         </Breadcrumb>
 
-                        {/* Page Title */}
-                        {/* <div className="ml-auto">
-                            <h1 className="text-xl font-semibold text-foreground">
-                                {getPageTitle()}
-                            </h1>
-                        </div> */}
+                        {/* User Profile Dropdown */}
+                        <div className="ml-auto">
+                            <DropdownMenu>
+                                <DropdownMenuTrigger asChild>
+                                    <Button variant="ghost" className="relative h-8 w-8 rounded-full p-0">
+                                        <Avatar className="h-8 w-8">
+                                            <AvatarImage 
+                                                src={auth?.user?.avatar || undefined} 
+                                                alt={auth?.user?.name || 'User'} 
+                                            />
+                                            <AvatarFallback className="bg-gradient-to-r from-blue-500 to-purple-500 text-white text-xs font-medium">
+                                                {auth?.user?.name?.charAt(0)?.toUpperCase() || 'U'}
+                                            </AvatarFallback>
+                                        </Avatar>
+                                    </Button>
+                                </DropdownMenuTrigger>
+                                <DropdownMenuContent className="w-56" align="end" forceMount>
+                                    <DropdownMenuLabel className="font-normal">
+                                        <div className="flex flex-col space-y-1">
+                                            <p className="text-sm font-medium leading-none">
+                                                {auth?.user?.name || 'User'}
+                                            </p>
+                                            <p className="text-xs leading-none text-muted-foreground">
+                                                {auth?.user?.email || 'user@example.com'}
+                                            </p>
+                                            {auth?.user?.role && (
+                                                <p className="text-xs leading-none text-muted-foreground">
+                                                    Role: {auth.user.role.charAt(0).toUpperCase() + auth.user.role.slice(1)}
+                                                </p>
+                                            )}
+                                        </div>
+                                    </DropdownMenuLabel>
+                                    <DropdownMenuSeparator />
+                                    <DropdownMenuItem asChild>
+                                        <Link href="/profile" className="cursor-pointer">
+                                            <User className="mr-2 h-4 w-4" />
+                                            <span>Profile</span>
+                                        </Link>
+                                    </DropdownMenuItem>
+                                    <DropdownMenuItem asChild>
+                                        <Link href="/profile/settings" className="cursor-pointer">
+                                            <Settings className="mr-2 h-4 w-4" />
+                                            <span>Settings</span>
+                                        </Link>
+                                    </DropdownMenuItem>
+                                    <DropdownMenuSeparator />
+                                    <DropdownMenuItem 
+                                        className="cursor-pointer text-red-600 focus:text-red-600"
+                                        onClick={handleLogout}
+                                    >
+                                        <LogOut className="mr-2 h-4 w-4" />
+                                        <span>Log out</span>
+                                    </DropdownMenuItem>
+                                </DropdownMenuContent>
+                            </DropdownMenu>
+                        </div>
                     </div>
                 </header>
 
