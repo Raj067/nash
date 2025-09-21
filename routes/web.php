@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\NewsletterSubscriberController as AdminNewsletter
 use App\Http\Controllers\Admin\DocumentController as AdminDocumentController;
 use App\Http\Controllers\Admin\BlogController as AdminBlogController;
 use App\Http\Controllers\Admin\FeedbackController as AdminFeedbackController;
+use App\Http\Controllers\Admin\UserController as AdminUserController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -145,6 +146,15 @@ Route::middleware('auth')->group(function () {
         Route::post('feedback/bulk-action', [AdminFeedbackController::class, 'bulkAction'])->name('feedback.bulk-action');
         Route::get('feedback-export', [AdminFeedbackController::class, 'export'])->name('feedback.export');
         Route::get('feedback-analytics', [AdminFeedbackController::class, 'analytics'])->name('feedback.analytics');
+        
+        // User Management
+        Route::resource('users', AdminUserController::class);
+        Route::patch('users/{user}/update-status', [AdminUserController::class, 'updateStatus'])->name('users.update-status');
+        Route::patch('users/{user}/update-role', [AdminUserController::class, 'updateRole'])->name('users.update-role');
+        Route::patch('users/{user}/verify-email', [AdminUserController::class, 'verifyEmail'])->name('users.verify-email');
+        Route::patch('users/{user}/unverify-email', [AdminUserController::class, 'unverifyEmail'])->name('users.unverify-email');
+        Route::post('users/bulk-action', [AdminUserController::class, 'bulkAction'])->name('users.bulk-action');
+        Route::get('users-export', [AdminUserController::class, 'export'])->name('users.export');
     });
 });
 

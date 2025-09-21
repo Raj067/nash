@@ -101,6 +101,11 @@ const data = {
             url: "/admin/feedback",
             icon: MessageCircle,
         },
+        {
+            title: "Users",
+            url: "/admin/users",
+            icon: Users,
+        },
     ],
 };
 

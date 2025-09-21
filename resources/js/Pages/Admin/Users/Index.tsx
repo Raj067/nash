@@ -1,20 +1,8 @@
-import AdminLayout from '@/Layouts/AdminLayout';
-import { Head } from '@inertiajs/react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/Components/ui/card';
-import { Button } from '@/Components/ui/button';
-import { Input } from '@/Components/ui/input';
-import { Badge } from '@/Components/ui/badge';
-import { 
-    Users, 
-    Plus, 
-    Search, 
-    Filter,
-    MoreHorizontal,
-    Edit,
-    Trash2,
-    UserCheck,
-    UserX
-} from 'lucide-react';
+import React, { useState } from "react";
+import { Head, Link, router } from "@inertiajs/react";
+import AdminLayout from "@/Layouts/AdminLayout";
+import { Button } from "@/Components/ui/button";
+import { Input } from "@/Components/ui/input";
 import {
     Table,
     TableBody,
@@ -22,242 +10,363 @@ import {
     TableHead,
     TableHeader,
     TableRow,
-} from '@/Components/ui/table';
+} from "@/Components/ui/table";
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from "@/Components/ui/select";
 import {
     DropdownMenu,
     DropdownMenuContent,
     DropdownMenuItem,
-    DropdownMenuLabel,
-    DropdownMenuSeparator,
     DropdownMenuTrigger,
-} from '@/Components/ui/dropdown-menu';
+} from "@/Components/ui/dropdown-menu";
+import { Badge } from "@/Components/ui/badge";
+import { Checkbox } from "@/Components/ui/checkbox";
+import { Card, CardContent, CardHeader, CardTitle } from "@/Components/ui/card";
+import {
+    AlertDialog,
+    AlertDialogAction,
+    AlertDialogCancel,
+    AlertDialogContent,
+    AlertDialogDescription,
+    AlertDialogFooter,
+    AlertDialogHeader,
+    AlertDialogTitle,
+    AlertDialogTrigger,
+} from "@/Components/ui/alert-dialog";
+import {
+    Plus,
+    Search,
+    MoreHorizontal,
+    Edit,
+    Trash2,
+    Eye,
+    Filter,
+    Download,
+    Users,
+    UserCheck,
+    UserX,
+    Shield,
+    Clock,
+    CheckCircle,
+    XCircle,
+    Calendar,
+    Mail,
+    Phone,
+} from "lucide-react";
 
 interface User {
     id: number;
     name: string;
     email: string;
+    phone: string | null;
     role: string;
-    status: 'active' | 'inactive';
+    status: string;
+    avatar: string | null;
+    email_verified_at: string | null;
+    last_login_at: string | null;
+    last_login_ip: string | null;
     created_at: string;
-    last_login?: string;
+    updated_at: string;
+    role_display_name: string;
+    status_display_name: string;
+}
+
+interface PaginatedUsers {
+    data: User[];
+    current_page: number;
+    last_page: number;
+    per_page: number;
+    total: number;
+    from: number;
+    to: number;
+}
+
+interface Stats {
+    total: number;
+    active: number;
+    inactive: number;
+    admins: number;
+    managers: number;
+    editors: number;
+    users: number;
+    verified: number;
+    unverified: number;
 }
 
 interface Props {
-    users: User[];
+    users: PaginatedUsers;
+    roles: { [key: string]: string };
+    statuses: { [key: string]: string };
+    stats: Stats;
+    filters: {
+        search?: string;
+        role?: string;
+        status?: string;
+        verified?: string;
+        date_from?: string;
+        date_to?: string;
+    };
 }
 
-export default function UsersIndex({ users }: Props) {
-    const breadcrumbs = [
-        { label: "Admin", href: "/dashboard" },
-        { label: "Users" }
-    ];
+export default function Index({ users, roles, statuses, stats, filters }: Props) {
+    const [selectedUsers, setSelectedUsers] = useState<number[]>([]);
+    const [searchTerm, setSearchTerm] = useState(filters.search || "");
 
-    const mockUsers: User[] = [
-        {
-            id: 1,
-            name: "Dr. John Mwamba",
-            email: "john.mwamba@nacp.go.tz",
-            role: "Super Admin",
-            status: "active",
-            created_at: "2024-01-15",
-            last_login: "2024-01-20"
-        },
-        {
-            id: 2,
-            name: "Sarah Kimani",
-            email: "sarah.kimani@nacp.go.tz",
-            role: "Content Manager",
-            status: "active",
-            created_at: "2024-01-10",
-            last_login: "2024-01-19"
-        },
-        {
-            id: 3,
-            name: "Michael Ndovu",
-            email: "michael.ndovu@nacp.go.tz",
-            role: "Data Analyst",
-            status: "inactive",
-            created_at: "2024-01-05",
-            last_login: "2024-01-15"
-        }
-    ];
-
-    const displayUsers = users || mockUsers;
+    const handleExport = () => {
+        window.open(route("admin.users.export"));
+    };
 
     return (
-        <AdminLayout breadcrumbs={breadcrumbs}>
-            <Head title="User Management - NACP Admin" />
+        <AdminLayout>
+            <Head title="User Management" />
 
             <div className="space-y-6">
-                {/* Header Section */}
-                <div className="flex items-center justify-between">
+                {/* Header */}
+                <div className="flex justify-between items-center">
                     <div>
-                        <h2 className="text-3xl font-bold tracking-tight">User Management</h2>
-                        <p className="text-muted-foreground">
-                            Manage admin users and their permissions
+                        <h1 className="text-2xl font-bold text-gray-900">
+                            User Management
+                        </h1>
+                        <p className="text-gray-600">
+                            Manage system users, roles, and permissions
                         </p>
                     </div>
-                    <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
-                        <Plus className="mr-2 h-4 w-4" />
-                        Add New User
-                    </Button>
+                    <div className="flex gap-2">
+                        <Button variant="outline" onClick={handleExport}>
+                            <Download className="h-4 w-4 mr-2" />
+                            Export CSV
+                        </Button>
+                        <Link href={route("admin.users.create")}>
+                            <Button>
+                                <Plus className="h-4 w-4 mr-2" />
+                                Add User
+                            </Button>
+                        </Link>
+                    </div>
                 </div>
 
-                {/* Stats Cards */}
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                {/* Statistics Cards */}
+                <div className="grid grid-cols-2 md:grid-cols-9 gap-4">
                     <Card>
-                        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                            <CardTitle className="text-sm font-medium">Total Users</CardTitle>
-                            <Users className="h-4 w-4 text-muted-foreground" />
-                        </CardHeader>
-                        <CardContent>
-                            <div className="text-2xl font-bold">{displayUsers.length}</div>
-                            <p className="text-xs text-muted-foreground">
-                                +2 from last month
-                            </p>
-                        </CardContent>
-                    </Card>
-                    
-                    <Card>
-                        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                            <CardTitle className="text-sm font-medium">Active Users</CardTitle>
-                            <UserCheck className="h-4 w-4 text-green-600" />
-                        </CardHeader>
-                        <CardContent>
-                            <div className="text-2xl font-bold">
-                                {displayUsers.filter(u => u.status === 'active').length}
-                            </div>
-                            <p className="text-xs text-muted-foreground">
-                                Currently online
-                            </p>
-                        </CardContent>
-                    </Card>
-
-                    <Card>
-                        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                            <CardTitle className="text-sm font-medium">Inactive Users</CardTitle>
-                            <UserX className="h-4 w-4 text-red-600" />
-                        </CardHeader>
-                        <CardContent>
-                            <div className="text-2xl font-bold">
-                                {displayUsers.filter(u => u.status === 'inactive').length}
-                            </div>
-                            <p className="text-xs text-muted-foreground">
-                                Need attention
-                            </p>
-                        </CardContent>
-                    </Card>
-
-                    <Card>
-                        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                            <CardTitle className="text-sm font-medium">Admin Roles</CardTitle>
-                            <Filter className="h-4 w-4 text-muted-foreground" />
-                        </CardHeader>
-                        <CardContent>
-                            <div className="text-2xl font-bold">5</div>
-                            <p className="text-xs text-muted-foreground">
-                                Different roles
-                            </p>
-                        </CardContent>
-                    </Card>
-                </div>
-
-                {/* Users Table */}
-                <Card>
-                    <CardHeader>
-                        <div className="flex items-center justify-between">
-                            <div>
-                                <CardTitle>All Users</CardTitle>
-                                <CardDescription>
-                                    Manage user accounts and permissions
-                                </CardDescription>
-                            </div>
-                            <div className="flex items-center space-x-2">
-                                <div className="relative">
-                                    <Search className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground" />
-                                    <Input
-                                        placeholder="Search users..."
-                                        className="pl-8 w-64"
-                                    />
+                        <CardContent className="p-4">
+                            <div className="flex items-center gap-2">
+                                <Users className="h-4 w-4 text-blue-500" />
+                                <div>
+                                    <p className="text-2xl font-bold">{stats.total}</p>
+                                    <p className="text-xs text-gray-500">Total</p>
                                 </div>
-                                <Button variant="outline" size="sm">
-                                    <Filter className="mr-2 h-4 w-4" />
-                                    Filter
-                                </Button>
                             </div>
-                        </div>
-                    </CardHeader>
-                    <CardContent>
-                        <Table>
-                            <TableHeader>
+                        </CardContent>
+                    </Card>
+                    <Card>
+                        <CardContent className="p-4">
+                            <div className="flex items-center gap-2">
+                                <UserCheck className="h-4 w-4 text-green-500" />
+                                <div>
+                                    <p className="text-2xl font-bold">{stats.active}</p>
+                                    <p className="text-xs text-gray-500">Active</p>
+                                </div>
+                            </div>
+                        </CardContent>
+                    </Card>
+                    <Card>
+                        <CardContent className="p-4">
+                            <div className="flex items-center gap-2">
+                                <UserX className="h-4 w-4 text-yellow-500" />
+                                <div>
+                                    <p className="text-2xl font-bold">{stats.inactive}</p>
+                                    <p className="text-xs text-gray-500">Inactive</p>
+                                </div>
+                            </div>
+                        </CardContent>
+                    </Card>
+                    <Card>
+                        <CardContent className="p-4">
+                            <div className="flex items-center gap-2">
+                                <Shield className="h-4 w-4 text-red-500" />
+                                <div>
+                                    <p className="text-2xl font-bold">{stats.admins}</p>
+                                    <p className="text-xs text-gray-500">Admins</p>
+                                </div>
+                            </div>
+                        </CardContent>
+                    </Card>
+                    <Card>
+                        <CardContent className="p-4">
+                            <div className="flex items-center gap-2">
+                                <Users className="h-4 w-4 text-purple-500" />
+                                <div>
+                                    <p className="text-2xl font-bold">{stats.managers}</p>
+                                    <p className="text-xs text-gray-500">Managers</p>
+                                </div>
+                            </div>
+                        </CardContent>
+                    </Card>
+                    <Card>
+                        <CardContent className="p-4">
+                            <div className="flex items-center gap-2">
+                                <Edit className="h-4 w-4 text-blue-500" />
+                                <div>
+                                    <p className="text-2xl font-bold">{stats.editors}</p>
+                                    <p className="text-xs text-gray-500">Editors</p>
+                                </div>
+                            </div>
+                        </CardContent>
+                    </Card>
+                    <Card>
+                        <CardContent className="p-4">
+                            <div className="flex items-center gap-2">
+                                <Users className="h-4 w-4 text-gray-500" />
+                                <div>
+                                    <p className="text-2xl font-bold">{stats.users}</p>
+                                    <p className="text-xs text-gray-500">Users</p>
+                                </div>
+                            </div>
+                        </CardContent>
+                    </Card>
+                    <Card>
+                        <CardContent className="p-4">
+                            <div className="flex items-center gap-2">
+                                <CheckCircle className="h-4 w-4 text-green-500" />
+                                <div>
+                                    <p className="text-2xl font-bold">{stats.verified}</p>
+                                    <p className="text-xs text-gray-500">Verified</p>
+                                </div>
+                            </div>
+                        </CardContent>
+                    </Card>
+                    <Card>
+                        <CardContent className="p-4">
+                            <div className="flex items-center gap-2">
+                                <XCircle className="h-4 w-4 text-red-500" />
+                                <div>
+                                    <p className="text-2xl font-bold">{stats.unverified}</p>
+                                    <p className="text-xs text-gray-500">Unverified</p>
+                                </div>
+                            </div>
+                        </CardContent>
+                    </Card>
+                </div>
+
+                {/* Basic Table for now - will be enhanced */}
+                <div className="bg-white rounded-lg border">
+                    <Table>
+                        <TableHeader>
+                            <TableRow>
+                                <TableHead>User</TableHead>
+                                <TableHead>Role</TableHead>
+                                <TableHead>Status</TableHead>
+                                <TableHead>Verified</TableHead>
+                                <TableHead>Last Login</TableHead>
+                                <TableHead>Joined</TableHead>
+                                <TableHead className="w-24">Actions</TableHead>
+                            </TableRow>
+                        </TableHeader>
+                        <TableBody>
+                            {users.data.length === 0 ? (
                                 <TableRow>
-                                    <TableHead>Name</TableHead>
-                                    <TableHead>Email</TableHead>
-                                    <TableHead>Role</TableHead>
-                                    <TableHead>Status</TableHead>
-                                    <TableHead>Last Login</TableHead>
-                                    <TableHead className="text-right">Actions</TableHead>
+                                    <TableCell colSpan={7} className="text-center py-8 text-gray-500">
+                                        No users found.{" "}
+                                        <Link
+                                            href={route("admin.users.create")}
+                                            className="text-blue-600 hover:underline"
+                                        >
+                                            Add your first user
+                                        </Link>
+                                    </TableCell>
                                 </TableRow>
-                            </TableHeader>
-                            <TableBody>
-                                {displayUsers.map((user) => (
+                            ) : (
+                                users.data.map((user) => (
                                     <TableRow key={user.id}>
                                         <TableCell className="font-medium">
-                                            <div className="flex items-center space-x-3">
-                                                <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
-                                                    <span className="text-white text-sm font-medium">
-                                                        {user.name.charAt(0)}
-                                                    </span>
+                                            <div className="flex items-center gap-3">
+                                                {user.avatar ? (
+                                                    <img
+                                                        src={user.avatar}
+                                                        alt={user.name}
+                                                        className="w-10 h-10 rounded-full object-cover"
+                                                    />
+                                                ) : (
+                                                    <div className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center">
+                                                        <span className="text-sm font-medium text-gray-600">
+                                                            {user.name.charAt(0).toUpperCase()}
+                                                        </span>
+                                                    </div>
+                                                )}
+                                                <div>
+                                                    <div className="font-medium">{user.name}</div>
+                                                    <div className="text-sm text-gray-500">{user.email}</div>
                                                 </div>
-                                                <span>{user.name}</span>
                                             </div>
                                         </TableCell>
-                                        <TableCell>{user.email}</TableCell>
                                         <TableCell>
-                                            <Badge variant="outline">{user.role}</Badge>
-                                        </TableCell>
-                                        <TableCell>
-                                            <Badge 
-                                                variant={user.status === 'active' ? 'default' : 'secondary'}
-                                                className={user.status === 'active' ? 'bg-green-100 text-green-800' : ''}
-                                            >
-                                                {user.status}
+                                            <Badge className="bg-blue-100 text-blue-800">
+                                                {user.role_display_name}
                                             </Badge>
                                         </TableCell>
                                         <TableCell>
-                                            {user.last_login ? new Date(user.last_login).toLocaleDateString() : 'Never'}
+                                            <Badge className="bg-green-100 text-green-800">
+                                                {user.status_display_name}
+                                            </Badge>
                                         </TableCell>
-                                        <TableCell className="text-right">
+                                        <TableCell>
+                                            {user.email_verified_at ? (
+                                                <Badge className="bg-green-100 text-green-800">
+                                                    Verified
+                                                </Badge>
+                                            ) : (
+                                                <Badge className="bg-red-100 text-red-800">
+                                                    Unverified
+                                                </Badge>
+                                            )}
+                                        </TableCell>
+                                        <TableCell>
+                                            <span className="text-sm text-gray-600">
+                                                {user.last_login_at ? 
+                                                    new Date(user.last_login_at).toLocaleDateString() : 
+                                                    'Never'
+                                                }
+                                            </span>
+                                        </TableCell>
+                                        <TableCell>
+                                            <span className="text-sm text-gray-600">
+                                                {new Date(user.created_at).toLocaleDateString()}
+                                            </span>
+                                        </TableCell>
+                                        <TableCell>
                                             <DropdownMenu>
                                                 <DropdownMenuTrigger asChild>
-                                                    <Button variant="ghost" className="h-8 w-8 p-0">
+                                                    <Button variant="ghost" size="sm">
                                                         <MoreHorizontal className="h-4 w-4" />
                                                     </Button>
                                                 </DropdownMenuTrigger>
                                                 <DropdownMenuContent align="end">
-                                                    <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                                                    <DropdownMenuItem>
-                                                        <Edit className="mr-2 h-4 w-4" />
-                                                        Edit User
+                                                    <DropdownMenuItem asChild>
+                                                        <Link href={route("admin.users.show", user.id)}>
+                                                            <Eye className="h-4 w-4 mr-2" />
+                                                            View
+                                                        </Link>
                                                     </DropdownMenuItem>
-                                                    <DropdownMenuItem>
-                                                        <UserCheck className="mr-2 h-4 w-4" />
-                                                        Change Role
-                                                    </DropdownMenuItem>
-                                                    <DropdownMenuSeparator />
-                                                    <DropdownMenuItem className="text-red-600">
-                                                        <Trash2 className="mr-2 h-4 w-4" />
-                                                        Delete User
+                                                    <DropdownMenuItem asChild>
+                                                        <Link href={route("admin.users.edit", user.id)}>
+                                                            <Edit className="h-4 w-4 mr-2" />
+                                                            Edit
+                                                        </Link>
                                                     </DropdownMenuItem>
                                                 </DropdownMenuContent>
                                             </DropdownMenu>
                                         </TableCell>
                                     </TableRow>
-                                ))}
-                            </TableBody>
-                        </Table>
-                    </CardContent>
-                </Card>
+                                ))
+                            )}
+                        </TableBody>
+                    </Table>
+                </div>
             </div>
         </AdminLayout>
     );
