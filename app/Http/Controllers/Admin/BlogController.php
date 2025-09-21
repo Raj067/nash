@@ -196,21 +196,43 @@ class BlogController extends Controller
      */
     public function update(Request $request, Blog $blog)
     {
-        $validated = $request->validate([
-            'title' => 'required|string|max:255',
-            'slug' => ['nullable', 'string', 'max:255', Rule::unique('blogs', 'slug')->ignore($blog->id)],
-            'excerpt' => 'nullable|string|max:500',
-            'content' => 'required|string',
-            'category' => 'required|string|in:' . implode(',', array_keys(Blog::getCategories())),
-            'featured_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:5120', // 5MB
-            'author' => 'required|string|max:255',
-            'published_date' => 'required|date',
-            'tags' => 'nullable|string',
-            'is_featured' => 'boolean',
-            'is_published' => 'boolean',
-            'sort_order' => 'nullable|integer|min:0',
-            'meta_data' => 'nullable|array',
+        // Debug: Log incoming request data
+        \Log::info('Blog update request received', [
+            'request_data' => $request->all(),
+            'files' => $request->allFiles(),
+            'blog_id' => $blog->id,
+            'method' => $request->method(),
+            'content_type' => $request->header('Content-Type')
         ]);
+
+        try {
+            $validated = $request->validate([
+                'title' => 'required|string|max:255',
+                'slug' => ['nullable', 'string', 'max:255', Rule::unique('blogs', 'slug')->ignore($blog->id)],
+                'excerpt' => 'nullable|string|max:500',
+                'content' => 'required|string',
+                'category' => 'required|string|in:' . implode(',', array_keys(Blog::getCategories())),
+                'featured_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:5120', // 5MB
+                'author' => 'required|string|max:255',
+                'published_date' => 'required|date',
+                'tags' => 'nullable|string',
+                'is_featured' => 'sometimes|boolean',
+                'is_published' => 'sometimes|boolean',
+                'sort_order' => 'nullable|integer|min:0',
+                'meta_data' => 'nullable|array',
+                'meta_data.seo_title' => 'nullable|string|max:255',
+                'meta_data.seo_description' => 'nullable|string|max:500',
+                'meta_data.seo_keywords' => 'nullable|string|max:255',
+            ]);
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            // Log validation errors for debugging
+            \Log::error('Blog update validation failed', [
+                'errors' => $e->errors(),
+                'request_data' => $request->all(),
+                'blog_id' => $blog->id
+            ]);
+            throw $e;
+        }
 
         // Generate slug if not provided
         if (empty($validated['slug'])) {
@@ -242,18 +264,18 @@ class BlogController extends Controller
         }
 
         // Process tags
-        if ($validated['tags']) {
+        if (isset($validated['tags']) && $validated['tags']) {
             $validated['tags'] = array_map('trim', explode(',', $validated['tags']));
         } else {
             $validated['tags'] = [];
         }
 
-        // Set defaults
-        if (!isset($validated['is_published'])) {
-            $validated['is_published'] = false;
+        // Set defaults for boolean fields if not provided
+        if (!array_key_exists('is_published', $validated)) {
+            $validated['is_published'] = $blog->is_published; // Keep existing value
         }
-        if (!isset($validated['is_featured'])) {
-            $validated['is_featured'] = false;
+        if (!array_key_exists('is_featured', $validated)) {
+            $validated['is_featured'] = $blog->is_featured; // Keep existing value
         }
 
         $blog->update($validated);
