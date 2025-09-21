@@ -9,6 +9,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\Admin\FaqController as AdminFaqController;
 use App\Http\Controllers\Admin\VideoController as AdminVideoController;
 use App\Http\Controllers\Admin\NewsletterSubscriberController as AdminNewsletterSubscriberController;
+use App\Http\Controllers\Admin\DocumentController as AdminDocumentController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -120,6 +121,13 @@ Route::middleware('auth')->group(function () {
         Route::patch('newsletter-subscribers/{newsletter_subscriber}/toggle-status', [AdminNewsletterSubscriberController::class, 'toggleStatus'])->name('newsletter-subscribers.toggle-status');
         Route::post('newsletter-subscribers/bulk-action', [AdminNewsletterSubscriberController::class, 'bulkAction'])->name('newsletter-subscribers.bulk-action');
         Route::get('newsletter-subscribers-export', [AdminNewsletterSubscriberController::class, 'export'])->name('newsletter-subscribers.export');
+        
+        // Document Management
+        Route::resource('documents', AdminDocumentController::class);
+        Route::patch('documents/{document}/toggle-status', [AdminDocumentController::class, 'toggleStatus'])->name('documents.toggle-status');
+        Route::patch('documents/{document}/toggle-featured', [AdminDocumentController::class, 'toggleFeatured'])->name('documents.toggle-featured');
+        Route::post('documents/bulk-action', [AdminDocumentController::class, 'bulkAction'])->name('documents.bulk-action');
+        Route::get('documents/{document}/download', [AdminDocumentController::class, 'download'])->name('documents.download');
     });
 });
 
