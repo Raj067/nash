@@ -67,15 +67,14 @@ export default function AdminLayout({
                             className="mr-2 data-[orientation=vertical]:h-4"
                         />
 
-                        {/* NACP Branding */}
-                        <div className="flex items-center gap-2 mr-4">
+                        {/* <div className="flex items-center gap-2 mr-4">
                             <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
                                 <Shield className="w-4 h-4 text-white" />
                             </div>
                             <span className="font-semibold text-lg bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                                 NACP Admin
                             </span>
-                        </div>
+                        </div> */}
 
                         {/* Breadcrumbs */}
                         <Breadcrumb>
@@ -108,11 +107,11 @@ export default function AdminLayout({
                         </Breadcrumb>
 
                         {/* Page Title */}
-                        <div className="ml-auto">
+                        {/* <div className="ml-auto">
                             <h1 className="text-xl font-semibold text-foreground">
                                 {getPageTitle()}
                             </h1>
-                        </div>
+                        </div> */}
                     </div>
                 </header>
 

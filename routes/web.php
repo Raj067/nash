@@ -6,6 +6,7 @@ use App\Http\Controllers\VideoController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\Admin\FaqController as AdminFaqController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -98,6 +99,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    
+    // Admin FAQ Management Routes
+    Route::prefix('admin')->name('admin.')->group(function () {
+        Route::resource('faqs', AdminFaqController::class);
+        Route::patch('faqs/{faq}/toggle-status', [AdminFaqController::class, 'toggleStatus'])->name('faqs.toggle-status');
+        Route::post('faqs/bulk-action', [AdminFaqController::class, 'bulkAction'])->name('faqs.bulk-action');
+    });
 });
 
 require __DIR__.'/auth.php';
