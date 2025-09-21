@@ -20,6 +20,8 @@ import {
     HelpCircle,
     Mail,
     File,
+    PenTool,
+    MessageCircle,
 } from "lucide-react";
 
 import {
@@ -88,6 +90,16 @@ const data = {
             title: "Documents",
             url: "/admin/documents",
             icon: File,
+        },
+        {
+            title: "Blog Posts",
+            url: "/admin/blogs",
+            icon: PenTool,
+        },
+        {
+            title: "Feedback",
+            url: "/admin/feedback",
+            icon: MessageCircle,
         },
     ],
 };

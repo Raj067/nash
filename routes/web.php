@@ -10,6 +10,8 @@ use App\Http\Controllers\Admin\FaqController as AdminFaqController;
 use App\Http\Controllers\Admin\VideoController as AdminVideoController;
 use App\Http\Controllers\Admin\NewsletterSubscriberController as AdminNewsletterSubscriberController;
 use App\Http\Controllers\Admin\DocumentController as AdminDocumentController;
+use App\Http\Controllers\Admin\BlogController as AdminBlogController;
+use App\Http\Controllers\Admin\FeedbackController as AdminFeedbackController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -128,6 +130,21 @@ Route::middleware('auth')->group(function () {
         Route::patch('documents/{document}/toggle-featured', [AdminDocumentController::class, 'toggleFeatured'])->name('documents.toggle-featured');
         Route::post('documents/bulk-action', [AdminDocumentController::class, 'bulkAction'])->name('documents.bulk-action');
         Route::get('documents/{document}/download', [AdminDocumentController::class, 'download'])->name('documents.download');
+        
+        // Blog Management
+        Route::resource('blogs', AdminBlogController::class);
+        Route::patch('blogs/{blog}/toggle-status', [AdminBlogController::class, 'toggleStatus'])->name('blogs.toggle-status');
+        Route::patch('blogs/{blog}/toggle-featured', [AdminBlogController::class, 'toggleFeatured'])->name('blogs.toggle-featured');
+        Route::post('blogs/bulk-action', [AdminBlogController::class, 'bulkAction'])->name('blogs.bulk-action');
+        Route::post('blogs/upload-image', [AdminBlogController::class, 'uploadImage'])->name('blogs.upload-image');
+        
+        // Feedback Management
+        Route::resource('feedback', AdminFeedbackController::class);
+        Route::patch('feedback/{feedback}/update-status', [AdminFeedbackController::class, 'updateStatus'])->name('feedback.update-status');
+        Route::patch('feedback/{feedback}/respond', [AdminFeedbackController::class, 'respond'])->name('feedback.respond');
+        Route::post('feedback/bulk-action', [AdminFeedbackController::class, 'bulkAction'])->name('feedback.bulk-action');
+        Route::get('feedback-export', [AdminFeedbackController::class, 'export'])->name('feedback.export');
+        Route::get('feedback-analytics', [AdminFeedbackController::class, 'analytics'])->name('feedback.analytics');
     });
 });
 
