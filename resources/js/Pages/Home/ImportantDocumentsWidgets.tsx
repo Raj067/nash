@@ -26,8 +26,9 @@ interface ImportantDocumentsWidgetsProps {
     featuredDocuments: Document[];
 }
 
-function ImportantDocumentsWidgets({ featuredDocuments }: ImportantDocumentsWidgetsProps) {
-
+function ImportantDocumentsWidgets({
+    featuredDocuments,
+}: ImportantDocumentsWidgetsProps) {
     return (
         <section className="py-20 bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50 relative overflow-hidden">
             {/* Background Elements */}
@@ -69,7 +70,9 @@ function ImportantDocumentsWidgets({ featuredDocuments }: ImportantDocumentsWidg
                                     {/* Document Icon with Animation */}
                                     <div className="relative mb-6">
                                         <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-red-500 to-pink-600 rounded-2xl shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110">
-                                            <span className="text-2xl">{doc.file_icon}</span>
+                                            <span className="text-2xl">
+                                                {doc.file_icon}
+                                            </span>
                                         </div>
                                         {/* File Type Badge */}
                                         <div className="absolute -top-2 -right-2 bg-gradient-to-r from-orange-400 to-red-500 text-white text-xs font-bold px-2 py-1 rounded-full shadow-md">
@@ -101,7 +104,7 @@ function ImportantDocumentsWidgets({ featuredDocuments }: ImportantDocumentsWidg
                                     </div>
 
                                     {/* Download Button */}
-                                    <Button 
+                                    <Button
                                         asChild
                                         className="w-full bg-gradient-to-r from-red-500 to-pink-600 hover:from-red-600 hover:to-pink-700 text-white border-0 shadow-md hover:shadow-lg transition-all duration-300 group-hover:scale-105"
                                     >

@@ -38,32 +38,10 @@ import { NavMain } from "./nav-main";
 
 // NACP Admin Navigation Data
 const data = {
-    user: {
-        name: "NACP Admin",
-        email: "admin@nacp.go.tz",
-        avatar: "/images/nacp-logo.png",
-    },
-    teams: [
-        {
-            name: "NACP Tanzania",
-            logo: Heart,
-            plan: "Admin Panel",
-        },
-        {
-            name: "HIV/AIDS Control",
-            logo: Shield,
-            plan: "Management",
-        },
-        {
-            name: "Public Health",
-            logo: Activity,
-            plan: "System",
-        },
-    ],
     navMain: [
         {
             title: "Dashboard",
-            url: "/dashboard",
+            url: "/admin/dashboard",
             icon: LayoutDashboard,
             isActive: true,
         },
@@ -112,24 +90,30 @@ const data = {
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     return (
-        <Sidebar collapsible="icon" {...props}>
-            <SidebarHeader>
+        <Sidebar
+            collapsible="icon"
+            {...props}
+            className="border-r border-sidebar-border"
+        >
+            <SidebarHeader className="border-b border-sidebar-border">
                 <SidebarMenu>
                     <SidebarMenuItem>
                         <SidebarMenuButton
                             size="lg"
-                            className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
+                            className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground hover:bg-sidebar-accent/50 transition-colors"
                         >
-                            <img
-                                src="/images/nashcop.jpeg"
-                                alt="NASHCOP Logo"
-                                className="size-8"
-                            />
+                            <div className="flex aspect-square size-8 items-center justify-center rounded-lg ">
+                                <img
+                                    src="/images/nashcop.jpeg"
+                                    alt="NASHCOP Logo"
+                                    className="size-8 rounded"
+                                />
+                            </div>
                             <div className="grid flex-1 text-left text-sm leading-tight">
-                                <span className="truncate font-medium">
+                                <span className="truncate font-semibold text-sidebar-foreground">
                                     NASHCOP
                                 </span>
-                                <span className="truncate text-xs">
+                                <span className="truncate text-xs text-sidebar-foreground/70">
                                     Admin Panel
                                 </span>
                             </div>
@@ -137,13 +121,15 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                     </SidebarMenuItem>
                 </SidebarMenu>
             </SidebarHeader>
-            <SidebarContent>
+            <SidebarContent className="px-2 py-4">
                 <NavMain items={data.navMain} />
             </SidebarContent>
-            {/* <SidebarFooter>
-                <NavUser user={data.user} />
-            </SidebarFooter> */}
-            {/* <SidebarRail /> */}
+            <SidebarFooter className="border-t border-sidebar-border p-4">
+                <div className="flex items-center gap-2 text-xs text-sidebar-foreground/60">
+                    <div className="h-2 w-2 rounded-full bg-green-500"></div>
+                    <span>System Online</span>
+                </div>
+            </SidebarFooter>
         </Sidebar>
     );
 }

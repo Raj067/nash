@@ -386,7 +386,9 @@ export default function Index({ videos, categories, filters }: Props) {
                                 <Button
                                     size="sm"
                                     variant="outline"
-                                    onClick={() => handleBulkAction("unfeature")}
+                                    onClick={() =>
+                                        handleBulkAction("unfeature")
+                                    }
                                 >
                                     Unfeature
                                 </Button>
@@ -403,8 +405,9 @@ export default function Index({ videos, categories, filters }: Props) {
                                             </AlertDialogTitle>
                                             <AlertDialogDescription>
                                                 Are you sure you want to delete{" "}
-                                                {selectedVideos.length} video(s)?
-                                                This action cannot be undone.
+                                                {selectedVideos.length}{" "}
+                                                video(s)? This action cannot be
+                                                undone.
                                             </AlertDialogDescription>
                                         </AlertDialogHeader>
                                         <AlertDialogFooter>
@@ -441,7 +444,9 @@ export default function Index({ videos, categories, filters }: Props) {
                                         onCheckedChange={handleSelectAll}
                                     />
                                 </TableHead>
-                                <TableHead className="w-20">Thumbnail</TableHead>
+                                <TableHead className="w-20">
+                                    Thumbnail
+                                </TableHead>
                                 <TableHead>Title</TableHead>
                                 <TableHead>Category</TableHead>
                                 <TableHead>Duration</TableHead>
@@ -498,10 +503,16 @@ export default function Index({ videos, categories, filters }: Props) {
                                         <TableCell className="font-medium">
                                             <div>
                                                 <div className="font-medium">
-                                                    {truncateText(video.title, 50)}
+                                                    {truncateText(
+                                                        video.title,
+                                                        50
+                                                    )}
                                                 </div>
                                                 <div className="text-sm text-gray-500">
-                                                    {truncateText(video.description, 60)}
+                                                    {truncateText(
+                                                        video.description,
+                                                        60
+                                                    )}
                                                 </div>
                                             </div>
                                         </TableCell>
@@ -521,7 +532,9 @@ export default function Index({ videos, categories, filters }: Props) {
                                             <div className="flex items-center gap-1">
                                                 <Clock className="h-3 w-3 text-gray-400" />
                                                 <span className="text-sm">
-                                                    {formatDuration(video.duration)}
+                                                    {formatDuration(
+                                                        video.duration
+                                                    )}
                                                 </span>
                                             </div>
                                         </TableCell>
@@ -546,7 +559,9 @@ export default function Index({ videos, categories, filters }: Props) {
                                         <TableCell>
                                             <button
                                                 onClick={() =>
-                                                    handleToggleFeatured(video.id)
+                                                    handleToggleFeatured(
+                                                        video.id
+                                                    )
                                                 }
                                                 className="flex items-center"
                                             >
@@ -563,7 +578,9 @@ export default function Index({ videos, categories, filters }: Props) {
                                                 )}
                                             </button>
                                         </TableCell>
-                                        <TableCell>{video.sort_order}</TableCell>
+                                        <TableCell>
+                                            {video.sort_order}
+                                        </TableCell>
                                         <TableCell>
                                             <DropdownMenu>
                                                 <DropdownMenuTrigger asChild>
@@ -694,8 +711,8 @@ export default function Index({ videos, categories, filters }: Props) {
                 {videos.last_page > 1 && (
                     <div className="flex items-center justify-between">
                         <div className="text-sm text-gray-700">
-                            Showing {videos.from} to {videos.to} of {videos.total}{" "}
-                            results
+                            Showing {videos.from} to {videos.to} of{" "}
+                            {videos.total} results
                         </div>
                         <div className="flex gap-2">
                             {Array.from(

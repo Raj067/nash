@@ -120,8 +120,8 @@ export default function StrategicPlan() {
                                     National Strategic Plan 90-90-90
                                 </h1>
                                 <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
-                                    Tanzania's strategic framework for achieving 90-90-90 targets
-                                    and ending AIDS by 2030
+                                    Tanzania's strategic framework for achieving
+                                    90-90-90 targets and ending AIDS by 2030
                                 </p>
                             </div>
                         </div>
@@ -146,8 +146,9 @@ export default function StrategicPlan() {
                                 90-90-90 Targets Progress
                             </h2>
                             <p className="text-gray-600 max-w-3xl mx-auto text-lg leading-relaxed">
-                                Our progress towards achieving the UNAIDS 90-90-90 targets
-                                for ending AIDS as a public health threat
+                                Our progress towards achieving the UNAIDS
+                                90-90-90 targets for ending AIDS as a public
+                                health threat
                             </p>
                         </div>
 
@@ -300,19 +301,21 @@ export default function StrategicPlan() {
 
                             <div className="relative z-10">
                                 <div className="space-y-6">
-                                    {keyAchievements.map((achievement, index) => (
-                                        <div
-                                            key={index}
-                                            className="flex items-start space-x-4"
-                                        >
-                                            <div className="w-10 h-10 bg-gradient-to-r from-green-500 to-cyan-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1 shadow-lg group-hover:shadow-xl transition-shadow duration-300">
-                                                <CheckCircle className="w-6 h-6 text-white" />
+                                    {keyAchievements.map(
+                                        (achievement, index) => (
+                                            <div
+                                                key={index}
+                                                className="flex items-start space-x-4"
+                                            >
+                                                <div className="w-10 h-10 bg-gradient-to-r from-green-500 to-cyan-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1 shadow-lg group-hover:shadow-xl transition-shadow duration-300">
+                                                    <CheckCircle className="w-6 h-6 text-white" />
+                                                </div>
+                                                <p className="text-gray-700 leading-relaxed text-lg">
+                                                    {achievement}
+                                                </p>
                                             </div>
-                                            <p className="text-gray-700 leading-relaxed text-lg">
-                                                {achievement}
-                                            </p>
-                                        </div>
-                                    ))}
+                                        )
+                                    )}
                                 </div>
                             </div>
                         </div>

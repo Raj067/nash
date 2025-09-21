@@ -56,7 +56,8 @@ export default function Edit({ video, categories }: Props) {
     useEffect(() => {
         if (data.youtube_url) {
             const extractYouTubeId = (url: string) => {
-                const regex = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
+                const regex =
+                    /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
                 const matches = url.match(regex);
                 return matches ? matches[1] : null;
             };
@@ -64,7 +65,9 @@ export default function Edit({ video, categories }: Props) {
             const id = extractYouTubeId(data.youtube_url);
             if (id) {
                 setYoutubeId(id);
-                setThumbnailUrl(`https://img.youtube.com/vi/${id}/maxresdefault.jpg`);
+                setThumbnailUrl(
+                    `https://img.youtube.com/vi/${id}/maxresdefault.jpg`
+                );
             } else {
                 setYoutubeId("");
                 setThumbnailUrl("");
@@ -135,7 +138,8 @@ export default function Edit({ video, categories }: Props) {
                             {/* YouTube URL */}
                             <div className="space-y-2">
                                 <Label htmlFor="youtube_url">
-                                    YouTube URL <span className="text-red-500">*</span>
+                                    YouTube URL{" "}
+                                    <span className="text-red-500">*</span>
                                 </Label>
                                 <Input
                                     id="youtube_url"
@@ -145,7 +149,11 @@ export default function Edit({ video, categories }: Props) {
                                         setData("youtube_url", e.target.value)
                                     }
                                     placeholder="https://www.youtube.com/watch?v=..."
-                                    className={errors.youtube_url ? "border-red-500" : ""}
+                                    className={
+                                        errors.youtube_url
+                                            ? "border-red-500"
+                                            : ""
+                                    }
                                 />
                                 {errors.youtube_url && (
                                     <p className="text-sm text-red-600">
@@ -153,33 +161,41 @@ export default function Edit({ video, categories }: Props) {
                                     </p>
                                 )}
                                 <p className="text-sm text-gray-500">
-                                    Enter a valid YouTube video URL. The video ID will be
-                                    extracted automatically.
+                                    Enter a valid YouTube video URL. The video
+                                    ID will be extracted automatically.
                                 </p>
                             </div>
 
                             {/* Title */}
                             <div className="space-y-2">
                                 <Label htmlFor="title">
-                                    Title <span className="text-red-500">*</span>
+                                    Title{" "}
+                                    <span className="text-red-500">*</span>
                                 </Label>
                                 <Input
                                     id="title"
                                     type="text"
                                     value={data.title}
-                                    onChange={(e) => setData("title", e.target.value)}
+                                    onChange={(e) =>
+                                        setData("title", e.target.value)
+                                    }
                                     placeholder="Enter video title..."
-                                    className={errors.title ? "border-red-500" : ""}
+                                    className={
+                                        errors.title ? "border-red-500" : ""
+                                    }
                                 />
                                 {errors.title && (
-                                    <p className="text-sm text-red-600">{errors.title}</p>
+                                    <p className="text-sm text-red-600">
+                                        {errors.title}
+                                    </p>
                                 )}
                             </div>
 
                             {/* Description */}
                             <div className="space-y-2">
                                 <Label htmlFor="description">
-                                    Description <span className="text-red-500">*</span>
+                                    Description{" "}
+                                    <span className="text-red-500">*</span>
                                 </Label>
                                 <Textarea
                                     id="description"
@@ -189,7 +205,11 @@ export default function Edit({ video, categories }: Props) {
                                     }
                                     placeholder="Enter video description..."
                                     rows={4}
-                                    className={errors.description ? "border-red-500" : ""}
+                                    className={
+                                        errors.description
+                                            ? "border-red-500"
+                                            : ""
+                                    }
                                 />
                                 {errors.description && (
                                     <p className="text-sm text-red-600">
@@ -202,7 +222,8 @@ export default function Edit({ video, categories }: Props) {
                                 {/* Category */}
                                 <div className="space-y-2">
                                     <Label htmlFor="category">
-                                        Category <span className="text-red-500">*</span>
+                                        Category{" "}
+                                        <span className="text-red-500">*</span>
                                     </Label>
                                     <Select
                                         value={data.category}
@@ -212,26 +233,32 @@ export default function Edit({ video, categories }: Props) {
                                     >
                                         <SelectTrigger
                                             className={
-                                                errors.category ? "border-red-500" : ""
+                                                errors.category
+                                                    ? "border-red-500"
+                                                    : ""
                                             }
                                         >
                                             <SelectValue placeholder="Select a category" />
                                         </SelectTrigger>
                                         <SelectContent>
-                                            {predefinedCategories.map((category) => (
-                                                <SelectItem
-                                                    key={category.value}
-                                                    value={category.value}
-                                                >
-                                                    {category.label}
-                                                </SelectItem>
-                                            ))}
+                                            {predefinedCategories.map(
+                                                (category) => (
+                                                    <SelectItem
+                                                        key={category.value}
+                                                        value={category.value}
+                                                    >
+                                                        {category.label}
+                                                    </SelectItem>
+                                                )
+                                            )}
                                             {/* Show existing categories that aren't in predefined list */}
                                             {categories
                                                 .filter(
                                                     (cat) =>
                                                         !predefinedCategories.some(
-                                                            (pred) => pred.value === cat
+                                                            (pred) =>
+                                                                pred.value ===
+                                                                cat
                                                         )
                                                 )
                                                 .map((category) => (
@@ -239,7 +266,9 @@ export default function Edit({ video, categories }: Props) {
                                                         key={category}
                                                         value={category}
                                                     >
-                                                        {category.charAt(0).toUpperCase() +
+                                                        {category
+                                                            .charAt(0)
+                                                            .toUpperCase() +
                                                             category.slice(1)}
                                                     </SelectItem>
                                                 ))}
@@ -266,12 +295,19 @@ export default function Edit({ video, categories }: Props) {
                                         }
                                         placeholder="Enter duration in seconds"
                                         min="1"
-                                        className={errors.duration ? "border-red-500" : ""}
+                                        className={
+                                            errors.duration
+                                                ? "border-red-500"
+                                                : ""
+                                        }
                                     />
                                     {data.duration && (
                                         <p className="text-sm text-gray-500 flex items-center gap-1">
                                             <Clock className="h-3 w-3" />
-                                            Duration: {formatDuration(parseInt(data.duration))}
+                                            Duration:{" "}
+                                            {formatDuration(
+                                                parseInt(data.duration)
+                                            )}
                                         </p>
                                     )}
                                     {errors.duration && (
@@ -285,18 +321,25 @@ export default function Edit({ video, categories }: Props) {
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 {/* Sort Order */}
                                 <div className="space-y-2">
-                                    <Label htmlFor="sort_order">Sort Order</Label>
+                                    <Label htmlFor="sort_order">
+                                        Sort Order
+                                    </Label>
                                     <Input
                                         id="sort_order"
                                         type="number"
                                         value={data.sort_order}
                                         onChange={(e) =>
-                                            setData("sort_order", e.target.value)
+                                            setData(
+                                                "sort_order",
+                                                e.target.value
+                                            )
                                         }
                                         placeholder="Enter sort order"
                                         min="0"
                                         className={
-                                            errors.sort_order ? "border-red-500" : ""
+                                            errors.sort_order
+                                                ? "border-red-500"
+                                                : ""
                                         }
                                     />
                                     {errors.sort_order && (
@@ -333,7 +376,9 @@ export default function Edit({ video, categories }: Props) {
                                             setData("is_featured", checked)
                                         }
                                     />
-                                    <Label htmlFor="is_featured">Featured</Label>
+                                    <Label htmlFor="is_featured">
+                                        Featured
+                                    </Label>
                                     <p className="text-sm text-gray-500 ml-2">
                                         {data.is_featured
                                             ? "Video will appear in featured sections"
@@ -346,7 +391,9 @@ export default function Edit({ video, categories }: Props) {
                             <div className="flex items-center gap-4 pt-6 border-t">
                                 <Button type="submit" disabled={processing}>
                                     <Save className="h-4 w-4 mr-2" />
-                                    {processing ? "Updating..." : "Update Video"}
+                                    {processing
+                                        ? "Updating..."
+                                        : "Update Video"}
                                 </Button>
                                 <Link href={route("admin.videos.index")}>
                                     <Button type="button" variant="outline">
@@ -396,7 +443,11 @@ export default function Edit({ video, categories }: Props) {
                                 {data.duration && (
                                     <div className="flex items-center gap-1">
                                         <Clock className="h-3 w-3" />
-                                        <span>{formatDuration(parseInt(data.duration))}</span>
+                                        <span>
+                                            {formatDuration(
+                                                parseInt(data.duration)
+                                            )}
+                                        </span>
                                     </div>
                                 )}
                                 <div className="flex items-center gap-2">
@@ -430,38 +481,54 @@ export default function Edit({ video, categories }: Props) {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div className="space-y-4">
                                 <div>
-                                    <h4 className="font-medium text-gray-900 mb-1">Created</h4>
+                                    <h4 className="font-medium text-gray-900 mb-1">
+                                        Created
+                                    </h4>
                                     <p className="text-gray-600">
-                                        {new Date(video.created_at).toLocaleString('en-US', {
-                                            year: 'numeric',
-                                            month: 'long',
-                                            day: 'numeric',
-                                            hour: '2-digit',
-                                            minute: '2-digit',
+                                        {new Date(
+                                            video.created_at
+                                        ).toLocaleString("en-US", {
+                                            year: "numeric",
+                                            month: "long",
+                                            day: "numeric",
+                                            hour: "2-digit",
+                                            minute: "2-digit",
                                         })}
                                     </p>
                                 </div>
                                 <div>
-                                    <h4 className="font-medium text-gray-900 mb-1">YouTube ID</h4>
-                                    <p className="text-gray-600 font-mono text-sm">{youtubeId}</p>
+                                    <h4 className="font-medium text-gray-900 mb-1">
+                                        YouTube ID
+                                    </h4>
+                                    <p className="text-gray-600 font-mono text-sm">
+                                        {youtubeId}
+                                    </p>
                                 </div>
                             </div>
                             <div className="space-y-4">
                                 <div>
-                                    <h4 className="font-medium text-gray-900 mb-1">Last Updated</h4>
+                                    <h4 className="font-medium text-gray-900 mb-1">
+                                        Last Updated
+                                    </h4>
                                     <p className="text-gray-600">
-                                        {new Date(video.updated_at).toLocaleString('en-US', {
-                                            year: 'numeric',
-                                            month: 'long',
-                                            day: 'numeric',
-                                            hour: '2-digit',
-                                            minute: '2-digit',
+                                        {new Date(
+                                            video.updated_at
+                                        ).toLocaleString("en-US", {
+                                            year: "numeric",
+                                            month: "long",
+                                            day: "numeric",
+                                            hour: "2-digit",
+                                            minute: "2-digit",
                                         })}
                                     </p>
                                 </div>
                                 <div>
-                                    <h4 className="font-medium text-gray-900 mb-1">Sort Order</h4>
-                                    <p className="text-gray-600">{data.sort_order}</p>
+                                    <h4 className="font-medium text-gray-900 mb-1">
+                                        Sort Order
+                                    </h4>
+                                    <p className="text-gray-600">
+                                        {data.sort_order}
+                                    </p>
                                 </div>
                             </div>
                         </div>

@@ -114,13 +114,25 @@ interface Props {
     };
 }
 
-export default function Index({ documents, categories, fileTypes, stats, filters }: Props) {
+export default function Index({
+    documents,
+    categories,
+    fileTypes,
+    stats,
+    filters,
+}: Props) {
     const [selectedDocuments, setSelectedDocuments] = useState<number[]>([]);
     const [searchTerm, setSearchTerm] = useState(filters.search || "");
-    const [selectedCategory, setSelectedCategory] = useState(filters.category || "");
+    const [selectedCategory, setSelectedCategory] = useState(
+        filters.category || ""
+    );
     const [selectedStatus, setSelectedStatus] = useState(filters.status || "");
-    const [selectedFeatured, setSelectedFeatured] = useState(filters.featured || "");
-    const [selectedFileType, setSelectedFileType] = useState(filters.file_type || "");
+    const [selectedFeatured, setSelectedFeatured] = useState(
+        filters.featured || ""
+    );
+    const [selectedFileType, setSelectedFileType] = useState(
+        filters.file_type || ""
+    );
 
     const handleSearch = (e: React.FormEvent) => {
         e.preventDefault();
@@ -154,10 +166,13 @@ export default function Index({ documents, categories, fileTypes, stats, filters
             if (fileTypeValue) params.file_type = fileTypeValue;
         }
 
-        if (selectedCategory && type !== "category") params.category = selectedCategory;
+        if (selectedCategory && type !== "category")
+            params.category = selectedCategory;
         if (selectedStatus && type !== "status") params.status = selectedStatus;
-        if (selectedFeatured && type !== "featured") params.featured = selectedFeatured;
-        if (selectedFileType && type !== "file_type") params.file_type = selectedFileType;
+        if (selectedFeatured && type !== "featured")
+            params.featured = selectedFeatured;
+        if (selectedFileType && type !== "file_type")
+            params.file_type = selectedFileType;
 
         router.get(route("admin.documents.index"), params);
     };
@@ -183,7 +198,9 @@ export default function Index({ documents, categories, fileTypes, stats, filters
         if (checked) {
             setSelectedDocuments([...selectedDocuments, docId]);
         } else {
-            setSelectedDocuments(selectedDocuments.filter((id) => id !== docId));
+            setSelectedDocuments(
+                selectedDocuments.filter((id) => id !== docId)
+            );
         }
     };
 
@@ -238,21 +255,29 @@ export default function Index({ documents, categories, fileTypes, stats, filters
 
     const getFileTypeIcon = (fileType: string) => {
         switch (fileType.toLowerCase()) {
-            case 'pdf': return '📄';
-            case 'doc':
-            case 'docx': return '📝';
-            case 'xls':
-            case 'xlsx': return '📊';
-            case 'ppt':
-            case 'pptx': return '📋';
-            case 'zip':
-            case 'rar': return '📦';
-            case 'jpg':
-            case 'jpeg':
-            case 'png':
-            case 'gif': return '🖼️';
-            case 'url': return '🔗';
-            default: return '📁';
+            case "pdf":
+                return "📄";
+            case "doc":
+            case "docx":
+                return "📝";
+            case "xls":
+            case "xlsx":
+                return "📊";
+            case "ppt":
+            case "pptx":
+                return "📋";
+            case "zip":
+            case "rar":
+                return "📦";
+            case "jpg":
+            case "jpeg":
+            case "png":
+            case "gif":
+                return "🖼️";
+            case "url":
+                return "🔗";
+            default:
+                return "📁";
         }
     };
 
@@ -286,8 +311,12 @@ export default function Index({ documents, categories, fileTypes, stats, filters
                             <div className="flex items-center gap-2">
                                 <File className="h-4 w-4 text-blue-500" />
                                 <div>
-                                    <p className="text-2xl font-bold">{stats.total}</p>
-                                    <p className="text-xs text-gray-500">Total</p>
+                                    <p className="text-2xl font-bold">
+                                        {stats.total}
+                                    </p>
+                                    <p className="text-xs text-gray-500">
+                                        Total
+                                    </p>
                                 </div>
                             </div>
                         </CardContent>
@@ -297,8 +326,12 @@ export default function Index({ documents, categories, fileTypes, stats, filters
                             <div className="flex items-center gap-2">
                                 <FileText className="h-4 w-4 text-green-500" />
                                 <div>
-                                    <p className="text-2xl font-bold">{stats.active}</p>
-                                    <p className="text-xs text-gray-500">Active</p>
+                                    <p className="text-2xl font-bold">
+                                        {stats.active}
+                                    </p>
+                                    <p className="text-xs text-gray-500">
+                                        Active
+                                    </p>
                                 </div>
                             </div>
                         </CardContent>
@@ -308,8 +341,12 @@ export default function Index({ documents, categories, fileTypes, stats, filters
                             <div className="flex items-center gap-2">
                                 <Star className="h-4 w-4 text-yellow-500" />
                                 <div>
-                                    <p className="text-2xl font-bold">{stats.featured}</p>
-                                    <p className="text-xs text-gray-500">Featured</p>
+                                    <p className="text-2xl font-bold">
+                                        {stats.featured}
+                                    </p>
+                                    <p className="text-xs text-gray-500">
+                                        Featured
+                                    </p>
                                 </div>
                             </div>
                         </CardContent>
@@ -319,8 +356,12 @@ export default function Index({ documents, categories, fileTypes, stats, filters
                             <div className="flex items-center gap-2">
                                 <Download className="h-4 w-4 text-purple-500" />
                                 <div>
-                                    <p className="text-2xl font-bold">{stats.total_downloads}</p>
-                                    <p className="text-xs text-gray-500">Downloads</p>
+                                    <p className="text-2xl font-bold">
+                                        {stats.total_downloads}
+                                    </p>
+                                    <p className="text-xs text-gray-500">
+                                        Downloads
+                                    </p>
                                 </div>
                             </div>
                         </CardContent>
@@ -330,8 +371,12 @@ export default function Index({ documents, categories, fileTypes, stats, filters
                             <div className="flex items-center gap-2">
                                 <Users className="h-4 w-4 text-orange-500" />
                                 <div>
-                                    <p className="text-2xl font-bold">{stats.categories_count}</p>
-                                    <p className="text-xs text-gray-500">Categories</p>
+                                    <p className="text-2xl font-bold">
+                                        {stats.categories_count}
+                                    </p>
+                                    <p className="text-xs text-gray-500">
+                                        Categories
+                                    </p>
                                 </div>
                             </div>
                         </CardContent>
@@ -341,8 +386,12 @@ export default function Index({ documents, categories, fileTypes, stats, filters
                             <div className="flex items-center gap-2">
                                 <TrendingUp className="h-4 w-4 text-indigo-500" />
                                 <div>
-                                    <p className="text-2xl font-bold">{stats.file_types_count}</p>
-                                    <p className="text-xs text-gray-500">File Types</p>
+                                    <p className="text-2xl font-bold">
+                                        {stats.file_types_count}
+                                    </p>
+                                    <p className="text-xs text-gray-500">
+                                        File Types
+                                    </p>
                                 </div>
                             </div>
                         </CardContent>
@@ -351,7 +400,10 @@ export default function Index({ documents, categories, fileTypes, stats, filters
 
                 {/* Filters */}
                 <div className="bg-white p-4 rounded-lg border space-y-4">
-                    <form onSubmit={handleSearch} className="flex gap-4 items-end flex-wrap">
+                    <form
+                        onSubmit={handleSearch}
+                        className="flex gap-4 items-end flex-wrap"
+                    >
                         <div className="flex-1 min-w-64">
                             <label className="block text-sm font-medium text-gray-700 mb-1">
                                 Search
@@ -362,7 +414,9 @@ export default function Index({ documents, categories, fileTypes, stats, filters
                                     type="text"
                                     placeholder="Search documents, authors, or tags..."
                                     value={searchTerm}
-                                    onChange={(e) => setSearchTerm(e.target.value)}
+                                    onChange={(e) =>
+                                        setSearchTerm(e.target.value)
+                                    }
                                     className="pl-10"
                                 />
                             </div>
@@ -373,18 +427,24 @@ export default function Index({ documents, categories, fileTypes, stats, filters
                             </label>
                             <Select
                                 value={selectedCategory || "all"}
-                                onValueChange={(value) => handleFilterChange("category", value)}
+                                onValueChange={(value) =>
+                                    handleFilterChange("category", value)
+                                }
                             >
                                 <SelectTrigger className="w-40">
                                     <SelectValue placeholder="All Categories" />
                                 </SelectTrigger>
                                 <SelectContent>
-                                    <SelectItem value="all">All Categories</SelectItem>
-                                    {Object.entries(categories).map(([key, label]) => (
-                                        <SelectItem key={key} value={key}>
-                                            {label}
-                                        </SelectItem>
-                                    ))}
+                                    <SelectItem value="all">
+                                        All Categories
+                                    </SelectItem>
+                                    {Object.entries(categories).map(
+                                        ([key, label]) => (
+                                            <SelectItem key={key} value={key}>
+                                                {label}
+                                            </SelectItem>
+                                        )
+                                    )}
                                 </SelectContent>
                             </Select>
                         </div>
@@ -394,15 +454,23 @@ export default function Index({ documents, categories, fileTypes, stats, filters
                             </label>
                             <Select
                                 value={selectedStatus || "all"}
-                                onValueChange={(value) => handleFilterChange("status", value)}
+                                onValueChange={(value) =>
+                                    handleFilterChange("status", value)
+                                }
                             >
                                 <SelectTrigger className="w-32">
                                     <SelectValue placeholder="All Status" />
                                 </SelectTrigger>
                                 <SelectContent>
-                                    <SelectItem value="all">All Status</SelectItem>
-                                    <SelectItem value="active">Active</SelectItem>
-                                    <SelectItem value="inactive">Inactive</SelectItem>
+                                    <SelectItem value="all">
+                                        All Status
+                                    </SelectItem>
+                                    <SelectItem value="active">
+                                        Active
+                                    </SelectItem>
+                                    <SelectItem value="inactive">
+                                        Inactive
+                                    </SelectItem>
                                 </SelectContent>
                             </Select>
                         </div>
@@ -412,14 +480,18 @@ export default function Index({ documents, categories, fileTypes, stats, filters
                             </label>
                             <Select
                                 value={selectedFeatured || "all"}
-                                onValueChange={(value) => handleFilterChange("featured", value)}
+                                onValueChange={(value) =>
+                                    handleFilterChange("featured", value)
+                                }
                             >
                                 <SelectTrigger className="w-32">
                                     <SelectValue placeholder="All" />
                                 </SelectTrigger>
                                 <SelectContent>
                                     <SelectItem value="all">All</SelectItem>
-                                    <SelectItem value="yes">Featured</SelectItem>
+                                    <SelectItem value="yes">
+                                        Featured
+                                    </SelectItem>
                                     <SelectItem value="no">Regular</SelectItem>
                                 </SelectContent>
                             </Select>
@@ -430,13 +502,17 @@ export default function Index({ documents, categories, fileTypes, stats, filters
                             </label>
                             <Select
                                 value={selectedFileType || "all"}
-                                onValueChange={(value) => handleFilterChange("file_type", value)}
+                                onValueChange={(value) =>
+                                    handleFilterChange("file_type", value)
+                                }
                             >
                                 <SelectTrigger className="w-32">
                                     <SelectValue placeholder="All Types" />
                                 </SelectTrigger>
                                 <SelectContent>
-                                    <SelectItem value="all">All Types</SelectItem>
+                                    <SelectItem value="all">
+                                        All Types
+                                    </SelectItem>
                                     {fileTypes.map((type) => (
                                         <SelectItem key={type} value={type}>
                                             {type.toUpperCase()}
@@ -449,7 +525,11 @@ export default function Index({ documents, categories, fileTypes, stats, filters
                             <Filter className="h-4 w-4 mr-2" />
                             Filter
                         </Button>
-                        <Button type="button" variant="outline" onClick={clearFilters}>
+                        <Button
+                            type="button"
+                            variant="outline"
+                            onClick={clearFilters}
+                        >
                             Clear
                         </Button>
                     </form>
@@ -473,7 +553,9 @@ export default function Index({ documents, categories, fileTypes, stats, filters
                                 <Button
                                     size="sm"
                                     variant="outline"
-                                    onClick={() => handleBulkAction("deactivate")}
+                                    onClick={() =>
+                                        handleBulkAction("deactivate")
+                                    }
                                 >
                                     Deactivate
                                 </Button>
@@ -487,7 +569,9 @@ export default function Index({ documents, categories, fileTypes, stats, filters
                                 <Button
                                     size="sm"
                                     variant="outline"
-                                    onClick={() => handleBulkAction("unfeature")}
+                                    onClick={() =>
+                                        handleBulkAction("unfeature")
+                                    }
                                 >
                                     Unfeature
                                 </Button>
@@ -499,16 +583,24 @@ export default function Index({ documents, categories, fileTypes, stats, filters
                                     </AlertDialogTrigger>
                                     <AlertDialogContent>
                                         <AlertDialogHeader>
-                                            <AlertDialogTitle>Delete Documents</AlertDialogTitle>
+                                            <AlertDialogTitle>
+                                                Delete Documents
+                                            </AlertDialogTitle>
                                             <AlertDialogDescription>
-                                                Are you sure you want to delete {selectedDocuments.length} document(s)?
-                                                This action cannot be undone.
+                                                Are you sure you want to delete{" "}
+                                                {selectedDocuments.length}{" "}
+                                                document(s)? This action cannot
+                                                be undone.
                                             </AlertDialogDescription>
                                         </AlertDialogHeader>
                                         <AlertDialogFooter>
-                                            <AlertDialogCancel>Cancel</AlertDialogCancel>
+                                            <AlertDialogCancel>
+                                                Cancel
+                                            </AlertDialogCancel>
                                             <AlertDialogAction
-                                                onClick={() => handleBulkAction("delete")}
+                                                onClick={() =>
+                                                    handleBulkAction("delete")
+                                                }
                                             >
                                                 Delete
                                             </AlertDialogAction>
@@ -528,7 +620,8 @@ export default function Index({ documents, categories, fileTypes, stats, filters
                                 <TableHead className="w-12">
                                     <Checkbox
                                         checked={
-                                            selectedDocuments.length === documents.data.length &&
+                                            selectedDocuments.length ===
+                                                documents.data.length &&
                                             documents.data.length > 0
                                         }
                                         onCheckedChange={handleSelectAll}
@@ -546,10 +639,15 @@ export default function Index({ documents, categories, fileTypes, stats, filters
                         <TableBody>
                             {documents.data.length === 0 ? (
                                 <TableRow>
-                                    <TableCell colSpan={8} className="text-center py-8 text-gray-500">
+                                    <TableCell
+                                        colSpan={8}
+                                        className="text-center py-8 text-gray-500"
+                                    >
                                         No documents found.{" "}
                                         <Link
-                                            href={route("admin.documents.create")}
+                                            href={route(
+                                                "admin.documents.create"
+                                            )}
                                             className="text-blue-600 hover:underline"
                                         >
                                             Create your first document
@@ -561,42 +659,65 @@ export default function Index({ documents, categories, fileTypes, stats, filters
                                     <TableRow key={document.id}>
                                         <TableCell>
                                             <Checkbox
-                                                checked={selectedDocuments.includes(document.id)}
+                                                checked={selectedDocuments.includes(
+                                                    document.id
+                                                )}
                                                 onCheckedChange={(checked) =>
-                                                    handleSelectDocument(document.id, checked as boolean)
+                                                    handleSelectDocument(
+                                                        document.id,
+                                                        checked as boolean
+                                                    )
                                                 }
                                             />
                                         </TableCell>
                                         <TableCell className="font-medium">
                                             <div className="flex items-start gap-3">
                                                 <span className="text-lg">
-                                                    {getFileTypeIcon(document.file_type)}
+                                                    {getFileTypeIcon(
+                                                        document.file_type
+                                                    )}
                                                 </span>
                                                 <div>
                                                     <div className="font-medium flex items-center gap-2">
-                                                        {truncateText(document.title, 50)}
+                                                        {truncateText(
+                                                            document.title,
+                                                            50
+                                                        )}
                                                         {document.is_featured && (
                                                             <Star className="h-3 w-3 text-yellow-500" />
                                                         )}
                                                     </div>
                                                     <div className="text-sm text-gray-500">
-                                                        {truncateText(document.description, 80)}
+                                                        {truncateText(
+                                                            document.description,
+                                                            80
+                                                        )}
                                                     </div>
                                                     {document.formatted_file_size && (
                                                         <div className="text-xs text-gray-400">
-                                                            {document.formatted_file_size}
+                                                            {
+                                                                document.formatted_file_size
+                                                            }
                                                         </div>
                                                     )}
                                                 </div>
                                             </div>
                                         </TableCell>
                                         <TableCell>
-                                            <Badge className={getCategoryBadgeColor(document.category)}>
-                                                {categories[document.category] || document.category}
+                                            <Badge
+                                                className={getCategoryBadgeColor(
+                                                    document.category
+                                                )}
+                                            >
+                                                {categories[
+                                                    document.category
+                                                ] || document.category}
                                             </Badge>
                                         </TableCell>
                                         <TableCell>
-                                            <span className="text-sm">{document.author}</span>
+                                            <span className="text-sm">
+                                                {document.author}
+                                            </span>
                                         </TableCell>
                                         <TableCell>
                                             <span className="font-mono text-xs bg-gray-100 px-2 py-1 rounded">
@@ -605,7 +726,11 @@ export default function Index({ documents, categories, fileTypes, stats, filters
                                         </TableCell>
                                         <TableCell>
                                             <button
-                                                onClick={() => handleToggleStatus(document.id)}
+                                                onClick={() =>
+                                                    handleToggleStatus(
+                                                        document.id
+                                                    )
+                                                }
                                                 className="flex items-center"
                                             >
                                                 {document.is_active ? (
@@ -627,54 +752,89 @@ export default function Index({ documents, categories, fileTypes, stats, filters
                                         <TableCell>
                                             <DropdownMenu>
                                                 <DropdownMenuTrigger asChild>
-                                                    <Button variant="ghost" size="sm">
+                                                    <Button
+                                                        variant="ghost"
+                                                        size="sm"
+                                                    >
                                                         <MoreHorizontal className="h-4 w-4" />
                                                     </Button>
                                                 </DropdownMenuTrigger>
                                                 <DropdownMenuContent align="end">
                                                     <DropdownMenuItem asChild>
-                                                        <Link href={route("admin.documents.show", document.id)}>
+                                                        <Link
+                                                            href={route(
+                                                                "admin.documents.show",
+                                                                document.id
+                                                            )}
+                                                        >
                                                             <Eye className="h-4 w-4 mr-2" />
                                                             View
                                                         </Link>
                                                     </DropdownMenuItem>
                                                     <DropdownMenuItem asChild>
-                                                        <Link href={route("admin.documents.edit", document.id)}>
+                                                        <Link
+                                                            href={route(
+                                                                "admin.documents.edit",
+                                                                document.id
+                                                            )}
+                                                        >
                                                             <Edit className="h-4 w-4 mr-2" />
                                                             Edit
                                                         </Link>
                                                     </DropdownMenuItem>
                                                     {document.file_path && (
                                                         <DropdownMenuItem
-                                                            onClick={() => handleDownload(document.id)}
+                                                            onClick={() =>
+                                                                handleDownload(
+                                                                    document.id
+                                                                )
+                                                            }
                                                         >
                                                             <Download className="h-4 w-4 mr-2" />
                                                             Download
                                                         </DropdownMenuItem>
                                                     )}
                                                     <DropdownMenuItem
-                                                        onClick={() => handleToggleStatus(document.id)}
+                                                        onClick={() =>
+                                                            handleToggleStatus(
+                                                                document.id
+                                                            )
+                                                        }
                                                     >
                                                         {document.is_active ? (
                                                             <ToggleLeft className="h-4 w-4 mr-2" />
                                                         ) : (
                                                             <ToggleRight className="h-4 w-4 mr-2" />
                                                         )}
-                                                        {document.is_active ? "Deactivate" : "Activate"}
+                                                        {document.is_active
+                                                            ? "Deactivate"
+                                                            : "Activate"}
                                                     </DropdownMenuItem>
                                                     <DropdownMenuItem
-                                                        onClick={() => handleToggleFeatured(document.id)}
+                                                        onClick={() =>
+                                                            handleToggleFeatured(
+                                                                document.id
+                                                            )
+                                                        }
                                                     >
                                                         {document.is_featured ? (
                                                             <StarOff className="h-4 w-4 mr-2" />
                                                         ) : (
                                                             <Star className="h-4 w-4 mr-2" />
                                                         )}
-                                                        {document.is_featured ? "Unfeature" : "Feature"}
+                                                        {document.is_featured
+                                                            ? "Unfeature"
+                                                            : "Feature"}
                                                     </DropdownMenuItem>
-                                                    <DropdownMenuItem onSelect={(e) => e.preventDefault()}>
+                                                    <DropdownMenuItem
+                                                        onSelect={(e) =>
+                                                            e.preventDefault()
+                                                        }
+                                                    >
                                                         <AlertDialog>
-                                                            <AlertDialogTrigger asChild>
+                                                            <AlertDialogTrigger
+                                                                asChild
+                                                            >
                                                                 <button className="flex items-center w-full">
                                                                     <Trash2 className="h-4 w-4 mr-2" />
                                                                     Delete
@@ -683,17 +843,33 @@ export default function Index({ documents, categories, fileTypes, stats, filters
                                                             <AlertDialogContent>
                                                                 <AlertDialogHeader>
                                                                     <AlertDialogTitle>
-                                                                        Delete Document
+                                                                        Delete
+                                                                        Document
                                                                     </AlertDialogTitle>
                                                                     <AlertDialogDescription>
-                                                                        Are you sure you want to delete this
-                                                                        document? This action cannot be undone.
+                                                                        Are you
+                                                                        sure you
+                                                                        want to
+                                                                        delete
+                                                                        this
+                                                                        document?
+                                                                        This
+                                                                        action
+                                                                        cannot
+                                                                        be
+                                                                        undone.
                                                                     </AlertDialogDescription>
                                                                 </AlertDialogHeader>
                                                                 <AlertDialogFooter>
-                                                                    <AlertDialogCancel>Cancel</AlertDialogCancel>
+                                                                    <AlertDialogCancel>
+                                                                        Cancel
+                                                                    </AlertDialogCancel>
                                                                     <AlertDialogAction
-                                                                        onClick={() => handleDelete(document.id)}
+                                                                        onClick={() =>
+                                                                            handleDelete(
+                                                                                document.id
+                                                                            )
+                                                                        }
                                                                     >
                                                                         Delete
                                                                     </AlertDialogAction>
@@ -715,10 +891,14 @@ export default function Index({ documents, categories, fileTypes, stats, filters
                 {documents.last_page > 1 && (
                     <div className="flex items-center justify-between">
                         <div className="text-sm text-gray-700">
-                            Showing {documents.from} to {documents.to} of {documents.total} results
+                            Showing {documents.from} to {documents.to} of{" "}
+                            {documents.total} results
                         </div>
                         <div className="flex gap-2">
-                            {Array.from({ length: documents.last_page }, (_, i) => i + 1).map((page) => (
+                            {Array.from(
+                                { length: documents.last_page },
+                                (_, i) => i + 1
+                            ).map((page) => (
                                 <Link
                                     key={page}
                                     href={route("admin.documents.index", {

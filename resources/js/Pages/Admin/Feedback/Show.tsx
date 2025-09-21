@@ -66,7 +66,7 @@ interface Props {
 
 export default function Show({ feedback }: Props) {
     const [isResponseDialogOpen, setIsResponseDialogOpen] = useState(false);
-    
+
     const { data, setData, patch, processing } = useForm({
         admin_response: "",
     });
@@ -85,26 +85,26 @@ export default function Show({ feedback }: Props) {
         patch(route("admin.feedback.respond", feedback.id), {
             onSuccess: () => {
                 setIsResponseDialogOpen(false);
-                setData('admin_response', '');
+                setData("admin_response", "");
             },
         });
     };
 
     const getTypeDisplayName = (type: string) => {
         const types: { [key: string]: string } = {
-            complaint: 'Complaint',
-            compliment: 'Compliment',
-            suggestion: 'Suggestion',
-            general: 'General Inquiry',
+            complaint: "Complaint",
+            compliment: "Compliment",
+            suggestion: "Suggestion",
+            general: "General Inquiry",
         };
         return types[type] || type;
     };
 
     const getStatusDisplayName = (status: string) => {
         const statuses: { [key: string]: string } = {
-            pending: 'Pending',
-            in_progress: 'In Progress',
-            resolved: 'Resolved',
+            pending: "Pending",
+            in_progress: "In Progress",
+            resolved: "Resolved",
         };
         return statuses[status] || status;
     };
@@ -169,16 +169,18 @@ export default function Show({ feedback }: Props) {
 
     const getResponseTime = () => {
         if (!feedback.responded_at) return null;
-        
+
         const submitted = new Date(feedback.created_at);
         const responded = new Date(feedback.responded_at);
-        const diffHours = Math.round((responded.getTime() - submitted.getTime()) / (1000 * 60 * 60));
-        
+        const diffHours = Math.round(
+            (responded.getTime() - submitted.getTime()) / (1000 * 60 * 60)
+        );
+
         if (diffHours < 24) {
-            return `${diffHours} hour${diffHours !== 1 ? 's' : ''}`;
+            return `${diffHours} hour${diffHours !== 1 ? "s" : ""}`;
         } else {
             const diffDays = Math.round(diffHours / 24);
-            return `${diffDays} day${diffDays !== 1 ? 's' : ''}`;
+            return `${diffDays} day${diffDays !== 1 ? "s" : ""}`;
         }
     };
 
@@ -212,17 +214,22 @@ export default function Show({ feedback }: Props) {
                                 Edit
                             </Button>
                         </Link>
-                        {feedback.status !== 'in_progress' && (
-                            <Button 
-                                variant="outline" 
-                                onClick={() => handleStatusUpdate('in_progress')}
+                        {feedback.status !== "in_progress" && (
+                            <Button
+                                variant="outline"
+                                onClick={() =>
+                                    handleStatusUpdate("in_progress")
+                                }
                             >
                                 <Clock className="h-4 w-4 mr-2" />
                                 Mark In Progress
                             </Button>
                         )}
-                        {feedback.status !== 'resolved' && (
-                            <Dialog open={isResponseDialogOpen} onOpenChange={setIsResponseDialogOpen}>
+                        {feedback.status !== "resolved" && (
+                            <Dialog
+                                open={isResponseDialogOpen}
+                                onOpenChange={setIsResponseDialogOpen}
+                            >
                                 <DialogTrigger asChild>
                                     <Button variant="outline">
                                         <Send className="h-4 w-4 mr-2" />
@@ -231,33 +238,54 @@ export default function Show({ feedback }: Props) {
                                 </DialogTrigger>
                                 <DialogContent>
                                     <DialogHeader>
-                                        <DialogTitle>Respond to Feedback</DialogTitle>
+                                        <DialogTitle>
+                                            Respond to Feedback
+                                        </DialogTitle>
                                         <DialogDescription>
-                                            Provide a response to resolve this feedback. The feedback will be marked as resolved.
+                                            Provide a response to resolve this
+                                            feedback. The feedback will be
+                                            marked as resolved.
                                         </DialogDescription>
                                     </DialogHeader>
                                     <div className="space-y-4">
                                         <div className="space-y-2">
-                                            <Label htmlFor="admin_response">Admin Response</Label>
+                                            <Label htmlFor="admin_response">
+                                                Admin Response
+                                            </Label>
                                             <Textarea
                                                 id="admin_response"
                                                 value={data.admin_response}
-                                                onChange={(e) => setData('admin_response', e.target.value)}
+                                                onChange={(e) =>
+                                                    setData(
+                                                        "admin_response",
+                                                        e.target.value
+                                                    )
+                                                }
                                                 placeholder="Enter your response to this feedback..."
                                                 rows={4}
                                             />
                                         </div>
                                     </div>
                                     <DialogFooter>
-                                        <Button variant="outline" onClick={() => setIsResponseDialogOpen(false)}>
+                                        <Button
+                                            variant="outline"
+                                            onClick={() =>
+                                                setIsResponseDialogOpen(false)
+                                            }
+                                        >
                                             Cancel
                                         </Button>
-                                        <Button 
-                                            onClick={handleRespond} 
-                                            disabled={processing || !data.admin_response.trim()}
+                                        <Button
+                                            onClick={handleRespond}
+                                            disabled={
+                                                processing ||
+                                                !data.admin_response.trim()
+                                            }
                                         >
                                             <Send className="h-4 w-4 mr-2" />
-                                            {processing ? "Sending..." : "Send Response"}
+                                            {processing
+                                                ? "Sending..."
+                                                : "Send Response"}
                                         </Button>
                                     </DialogFooter>
                                 </DialogContent>
@@ -272,14 +300,18 @@ export default function Show({ feedback }: Props) {
                             </AlertDialogTrigger>
                             <AlertDialogContent>
                                 <AlertDialogHeader>
-                                    <AlertDialogTitle>Delete Feedback</AlertDialogTitle>
+                                    <AlertDialogTitle>
+                                        Delete Feedback
+                                    </AlertDialogTitle>
                                     <AlertDialogDescription>
-                                        Are you sure you want to delete this feedback?
-                                        This action cannot be undone.
+                                        Are you sure you want to delete this
+                                        feedback? This action cannot be undone.
                                     </AlertDialogDescription>
                                 </AlertDialogHeader>
                                 <AlertDialogFooter>
-                                    <AlertDialogCancel>Cancel</AlertDialogCancel>
+                                    <AlertDialogCancel>
+                                        Cancel
+                                    </AlertDialogCancel>
                                     <AlertDialogAction onClick={handleDelete}>
                                         Delete
                                     </AlertDialogAction>
@@ -296,9 +328,9 @@ export default function Show({ feedback }: Props) {
                             <div className="flex items-center gap-2">
                                 <div
                                     className={`w-3 h-3 rounded-full ${
-                                        feedback.status === 'resolved' 
-                                            ? "bg-green-500" 
-                                            : feedback.status === 'in_progress'
+                                        feedback.status === "resolved"
+                                            ? "bg-green-500"
+                                            : feedback.status === "in_progress"
                                             ? "bg-blue-500"
                                             : "bg-yellow-500"
                                     }`}
@@ -313,7 +345,9 @@ export default function Show({ feedback }: Props) {
                         <CardContent className="p-4">
                             <div className="flex items-center gap-2">
                                 <MessageCircle className="h-4 w-4 text-gray-500" />
-                                <span className="text-sm">ID: #{feedback.id}</span>
+                                <span className="text-sm">
+                                    ID: #{feedback.id}
+                                </span>
                             </div>
                         </CardContent>
                     </Card>
@@ -322,7 +356,9 @@ export default function Show({ feedback }: Props) {
                             <div className="flex items-center gap-2">
                                 <Calendar className="h-4 w-4 text-gray-500" />
                                 <span className="text-sm">
-                                    {new Date(feedback.created_at).toLocaleDateString()}
+                                    {new Date(
+                                        feedback.created_at
+                                    ).toLocaleDateString()}
                                 </span>
                             </div>
                         </CardContent>
@@ -332,7 +368,9 @@ export default function Show({ feedback }: Props) {
                             <div className="flex items-center gap-2">
                                 <Star className="h-4 w-4 text-gray-500" />
                                 <span className="text-sm">
-                                    {feedback.rating ? `${feedback.rating}/5` : 'No rating'}
+                                    {feedback.rating
+                                        ? `${feedback.rating}/5`
+                                        : "No rating"}
                                 </span>
                             </div>
                         </CardContent>
@@ -342,7 +380,9 @@ export default function Show({ feedback }: Props) {
                             <div className="flex items-center gap-2">
                                 <Clock className="h-4 w-4 text-gray-500" />
                                 <span className="text-sm">
-                                    {feedback.responded_at ? getResponseTime() : 'No response'}
+                                    {feedback.responded_at
+                                        ? getResponseTime()
+                                        : "No response"}
                                 </span>
                             </div>
                         </CardContent>
@@ -361,10 +401,19 @@ export default function Show({ feedback }: Props) {
                                     <h2 className="text-2xl font-bold text-gray-900">
                                         {feedback.subject}
                                     </h2>
-                                    <Badge className={getTypeBadgeColor(feedback.type)}>
-                                        {getTypeIcon(feedback.type)} {getTypeDisplayName(feedback.type)}
+                                    <Badge
+                                        className={getTypeBadgeColor(
+                                            feedback.type
+                                        )}
+                                    >
+                                        {getTypeIcon(feedback.type)}{" "}
+                                        {getTypeDisplayName(feedback.type)}
                                     </Badge>
-                                    <Badge className={getStatusBadgeColor(feedback.status)}>
+                                    <Badge
+                                        className={getStatusBadgeColor(
+                                            feedback.status
+                                        )}
+                                    >
                                         {getStatusDisplayName(feedback.status)}
                                     </Badge>
                                 </div>
@@ -396,7 +445,9 @@ export default function Show({ feedback }: Props) {
                                 </div>
 
                                 <div className="prose max-w-none">
-                                    <h4 className="font-medium text-gray-900 mb-4">Message</h4>
+                                    <h4 className="font-medium text-gray-900 mb-4">
+                                        Message
+                                    </h4>
                                     <div className="bg-gray-50 border-l-4 border-blue-500 p-4 rounded">
                                         <p className="text-gray-700 whitespace-pre-wrap leading-relaxed">
                                             {feedback.message}
@@ -420,10 +471,14 @@ export default function Show({ feedback }: Props) {
                                             <div className="mt-3 text-sm text-gray-600">
                                                 <span className="flex items-center gap-1">
                                                     <Clock className="h-3 w-3" />
-                                                    Responded on {formatDate(feedback.responded_at)}
+                                                    Responded on{" "}
+                                                    {formatDate(
+                                                        feedback.responded_at
+                                                    )}
                                                     {getResponseTime() && (
                                                         <span className="ml-2 text-gray-500">
-                                                            (Response time: {getResponseTime()})
+                                                            (Response time:{" "}
+                                                            {getResponseTime()})
                                                         </span>
                                                     )}
                                                 </span>
@@ -445,47 +500,82 @@ export default function Show({ feedback }: Props) {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div className="space-y-4">
                                 <div>
-                                    <h4 className="font-medium text-gray-900 mb-1">Feedback ID</h4>
-                                    <p className="text-gray-600 font-mono">#{feedback.id}</p>
+                                    <h4 className="font-medium text-gray-900 mb-1">
+                                        Feedback ID
+                                    </h4>
+                                    <p className="text-gray-600 font-mono">
+                                        #{feedback.id}
+                                    </p>
                                 </div>
                                 <div>
-                                    <h4 className="font-medium text-gray-900 mb-1">Type</h4>
-                                    <Badge className={getTypeBadgeColor(feedback.type)}>
-                                        {getTypeIcon(feedback.type)} {getTypeDisplayName(feedback.type)}
+                                    <h4 className="font-medium text-gray-900 mb-1">
+                                        Type
+                                    </h4>
+                                    <Badge
+                                        className={getTypeBadgeColor(
+                                            feedback.type
+                                        )}
+                                    >
+                                        {getTypeIcon(feedback.type)}{" "}
+                                        {getTypeDisplayName(feedback.type)}
                                     </Badge>
                                 </div>
                                 <div>
-                                    <h4 className="font-medium text-gray-900 mb-1">Status</h4>
-                                    <Badge className={getStatusBadgeColor(feedback.status)}>
+                                    <h4 className="font-medium text-gray-900 mb-1">
+                                        Status
+                                    </h4>
+                                    <Badge
+                                        className={getStatusBadgeColor(
+                                            feedback.status
+                                        )}
+                                    >
                                         {getStatusDisplayName(feedback.status)}
                                     </Badge>
                                 </div>
                                 <div>
-                                    <h4 className="font-medium text-gray-900 mb-1">Rating</h4>
+                                    <h4 className="font-medium text-gray-900 mb-1">
+                                        Rating
+                                    </h4>
                                     <div className="text-gray-600">
-                                        {feedback.rating ? renderStars(feedback.rating) : 'No rating provided'}
+                                        {feedback.rating
+                                            ? renderStars(feedback.rating)
+                                            : "No rating provided"}
                                     </div>
                                 </div>
                             </div>
                             <div className="space-y-4">
                                 <div>
-                                    <h4 className="font-medium text-gray-900 mb-1">IP Address</h4>
+                                    <h4 className="font-medium text-gray-900 mb-1">
+                                        IP Address
+                                    </h4>
                                     <p className="text-gray-600 font-mono">
-                                        {feedback.ip_address || 'Not recorded'}
+                                        {feedback.ip_address || "Not recorded"}
                                     </p>
                                 </div>
                                 <div>
-                                    <h4 className="font-medium text-gray-900 mb-1">Submitted</h4>
-                                    <p className="text-gray-600">{formatDate(feedback.created_at)}</p>
+                                    <h4 className="font-medium text-gray-900 mb-1">
+                                        Submitted
+                                    </h4>
+                                    <p className="text-gray-600">
+                                        {formatDate(feedback.created_at)}
+                                    </p>
                                 </div>
                                 <div>
-                                    <h4 className="font-medium text-gray-900 mb-1">Last Updated</h4>
-                                    <p className="text-gray-600">{formatDate(feedback.updated_at)}</p>
+                                    <h4 className="font-medium text-gray-900 mb-1">
+                                        Last Updated
+                                    </h4>
+                                    <p className="text-gray-600">
+                                        {formatDate(feedback.updated_at)}
+                                    </p>
                                 </div>
                                 {feedback.responded_at && (
                                     <div>
-                                        <h4 className="font-medium text-gray-900 mb-1">Responded</h4>
-                                        <p className="text-gray-600">{formatDate(feedback.responded_at)}</p>
+                                        <h4 className="font-medium text-gray-900 mb-1">
+                                            Responded
+                                        </h4>
+                                        <p className="text-gray-600">
+                                            {formatDate(feedback.responded_at)}
+                                        </p>
                                     </div>
                                 )}
                             </div>
@@ -513,7 +603,7 @@ export default function Show({ feedback }: Props) {
                                     Email Address
                                 </h4>
                                 <p className="text-gray-700">
-                                    <a 
+                                    <a
                                         href={`mailto:${feedback.email}`}
                                         className="text-blue-600 hover:underline"
                                     >
@@ -528,14 +618,14 @@ export default function Show({ feedback }: Props) {
                                 </h4>
                                 <p className="text-gray-700">
                                     {feedback.phone ? (
-                                        <a 
+                                        <a
                                             href={`tel:${feedback.phone}`}
                                             className="text-blue-600 hover:underline"
                                         >
                                             {feedback.phone}
                                         </a>
                                     ) : (
-                                        'Not provided'
+                                        "Not provided"
                                     )}
                                 </p>
                             </div>
@@ -551,11 +641,19 @@ export default function Show({ feedback }: Props) {
                     <CardContent>
                         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                             <div className="p-4 border rounded-lg">
-                                <h4 className="font-medium text-gray-900 mb-2">Edit Feedback</h4>
+                                <h4 className="font-medium text-gray-900 mb-2">
+                                    Edit Feedback
+                                </h4>
                                 <p className="text-sm text-gray-600 mb-3">
-                                    Update feedback details, status, and add admin response
+                                    Update feedback details, status, and add
+                                    admin response
                                 </p>
-                                <Link href={route("admin.feedback.edit", feedback.id)}>
+                                <Link
+                                    href={route(
+                                        "admin.feedback.edit",
+                                        feedback.id
+                                    )}
+                                >
                                     <Button size="sm" className="w-full">
                                         <Edit className="h-4 w-4 mr-2" />
                                         Edit
@@ -563,7 +661,9 @@ export default function Show({ feedback }: Props) {
                                 </Link>
                             </div>
                             <div className="p-4 border rounded-lg">
-                                <h4 className="font-medium text-gray-900 mb-2">Update Status</h4>
+                                <h4 className="font-medium text-gray-900 mb-2">
+                                    Update Status
+                                </h4>
                                 <p className="text-sm text-gray-600 mb-3">
                                     Change feedback status to track progress
                                 </p>
@@ -571,54 +671,92 @@ export default function Show({ feedback }: Props) {
                                     size="sm"
                                     variant="outline"
                                     className="w-full"
-                                    onClick={() => handleStatusUpdate(
-                                        feedback.status === 'pending' ? 'in_progress' : 
-                                        feedback.status === 'in_progress' ? 'resolved' : 'pending'
-                                    )}
+                                    onClick={() =>
+                                        handleStatusUpdate(
+                                            feedback.status === "pending"
+                                                ? "in_progress"
+                                                : feedback.status ===
+                                                  "in_progress"
+                                                ? "resolved"
+                                                : "pending"
+                                        )
+                                    }
                                 >
                                     <Clock className="h-4 w-4 mr-2" />
-                                    {feedback.status === 'pending' ? 'Start Progress' : 
-                                     feedback.status === 'in_progress' ? 'Mark Resolved' : 'Reset Status'}
+                                    {feedback.status === "pending"
+                                        ? "Start Progress"
+                                        : feedback.status === "in_progress"
+                                        ? "Mark Resolved"
+                                        : "Reset Status"}
                                 </Button>
                             </div>
                             <div className="p-4 border rounded-lg">
-                                <h4 className="font-medium text-gray-900 mb-2">Send Response</h4>
+                                <h4 className="font-medium text-gray-900 mb-2">
+                                    Send Response
+                                </h4>
                                 <p className="text-sm text-gray-600 mb-3">
                                     Respond to customer and mark as resolved
                                 </p>
-                                <Dialog open={isResponseDialogOpen} onOpenChange={setIsResponseDialogOpen}>
+                                <Dialog
+                                    open={isResponseDialogOpen}
+                                    onOpenChange={setIsResponseDialogOpen}
+                                >
                                     <DialogTrigger asChild>
-                                        <Button size="sm" variant="outline" className="w-full">
+                                        <Button
+                                            size="sm"
+                                            variant="outline"
+                                            className="w-full"
+                                        >
                                             <Send className="h-4 w-4 mr-2" />
                                             Respond
                                         </Button>
                                     </DialogTrigger>
                                     <DialogContent>
                                         <DialogHeader>
-                                            <DialogTitle>Respond to Feedback</DialogTitle>
+                                            <DialogTitle>
+                                                Respond to Feedback
+                                            </DialogTitle>
                                             <DialogDescription>
-                                                Provide a response to resolve this feedback.
+                                                Provide a response to resolve
+                                                this feedback.
                                             </DialogDescription>
                                         </DialogHeader>
                                         <div className="space-y-4">
                                             <div className="space-y-2">
-                                                <Label htmlFor="admin_response">Admin Response</Label>
+                                                <Label htmlFor="admin_response">
+                                                    Admin Response
+                                                </Label>
                                                 <Textarea
                                                     id="admin_response"
                                                     value={data.admin_response}
-                                                    onChange={(e) => setData('admin_response', e.target.value)}
+                                                    onChange={(e) =>
+                                                        setData(
+                                                            "admin_response",
+                                                            e.target.value
+                                                        )
+                                                    }
                                                     placeholder="Enter your response..."
                                                     rows={4}
                                                 />
                                             </div>
                                         </div>
                                         <DialogFooter>
-                                            <Button variant="outline" onClick={() => setIsResponseDialogOpen(false)}>
+                                            <Button
+                                                variant="outline"
+                                                onClick={() =>
+                                                    setIsResponseDialogOpen(
+                                                        false
+                                                    )
+                                                }
+                                            >
                                                 Cancel
                                             </Button>
-                                            <Button 
-                                                onClick={handleRespond} 
-                                                disabled={processing || !data.admin_response.trim()}
+                                            <Button
+                                                onClick={handleRespond}
+                                                disabled={
+                                                    processing ||
+                                                    !data.admin_response.trim()
+                                                }
                                             >
                                                 Send Response
                                             </Button>
@@ -627,28 +765,41 @@ export default function Show({ feedback }: Props) {
                                 </Dialog>
                             </div>
                             <div className="p-4 border rounded-lg">
-                                <h4 className="font-medium text-gray-900 mb-2">Delete Feedback</h4>
+                                <h4 className="font-medium text-gray-900 mb-2">
+                                    Delete Feedback
+                                </h4>
                                 <p className="text-sm text-gray-600 mb-3">
                                     Permanently remove this feedback entry
                                 </p>
                                 <AlertDialog>
                                     <AlertDialogTrigger asChild>
-                                        <Button size="sm" variant="destructive" className="w-full">
+                                        <Button
+                                            size="sm"
+                                            variant="destructive"
+                                            className="w-full"
+                                        >
                                             <Trash2 className="h-4 w-4 mr-2" />
                                             Delete
                                         </Button>
                                     </AlertDialogTrigger>
                                     <AlertDialogContent>
                                         <AlertDialogHeader>
-                                            <AlertDialogTitle>Delete Feedback</AlertDialogTitle>
+                                            <AlertDialogTitle>
+                                                Delete Feedback
+                                            </AlertDialogTitle>
                                             <AlertDialogDescription>
-                                                Are you sure you want to delete this feedback?
-                                                This action cannot be undone.
+                                                Are you sure you want to delete
+                                                this feedback? This action
+                                                cannot be undone.
                                             </AlertDialogDescription>
                                         </AlertDialogHeader>
                                         <AlertDialogFooter>
-                                            <AlertDialogCancel>Cancel</AlertDialogCancel>
-                                            <AlertDialogAction onClick={handleDelete}>
+                                            <AlertDialogCancel>
+                                                Cancel
+                                            </AlertDialogCancel>
+                                            <AlertDialogAction
+                                                onClick={handleDelete}
+                                            >
                                                 Delete
                                             </AlertDialogAction>
                                         </AlertDialogFooter>

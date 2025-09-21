@@ -75,40 +75,48 @@ export default function Show({ document }: Props) {
         if (document.file_path) {
             window.open(route("admin.documents.download", document.id));
         } else if (document.file_url) {
-            window.open(document.file_url, '_blank');
+            window.open(document.file_url, "_blank");
         }
     };
 
     const getFileTypeIcon = (fileType: string) => {
         switch (fileType.toLowerCase()) {
-            case 'pdf': return '📄';
-            case 'doc':
-            case 'docx': return '📝';
-            case 'xls':
-            case 'xlsx': return '📊';
-            case 'ppt':
-            case 'pptx': return '📋';
-            case 'zip':
-            case 'rar': return '📦';
-            case 'jpg':
-            case 'jpeg':
-            case 'png':
-            case 'gif': return '🖼️';
-            case 'url': return '🔗';
-            default: return '📁';
+            case "pdf":
+                return "📄";
+            case "doc":
+            case "docx":
+                return "📝";
+            case "xls":
+            case "xlsx":
+                return "📊";
+            case "ppt":
+            case "pptx":
+                return "📋";
+            case "zip":
+            case "rar":
+                return "📦";
+            case "jpg":
+            case "jpeg":
+            case "png":
+            case "gif":
+                return "🖼️";
+            case "url":
+                return "🔗";
+            default:
+                return "📁";
         }
     };
 
     const getCategoryDisplayName = (category: string) => {
         const categories: { [key: string]: string } = {
-            plans_strategic: 'Plans & Strategic Documents',
-            policy: 'Policy Documents',
-            guidelines: 'Guidelines',
-            reports: 'Reports (Semi Annual and Annual Reports etc)',
-            manuals_sops: 'Manuals, Forms, Tools and SOPs',
-            frameworks: 'Frameworks',
-            iec_sbc: 'IEC/SBC Materials',
-            databases: 'Databases',
+            plans_strategic: "Plans & Strategic Documents",
+            policy: "Policy Documents",
+            guidelines: "Guidelines",
+            reports: "Reports (Semi Annual and Annual Reports etc)",
+            manuals_sops: "Manuals, Forms, Tools and SOPs",
+            frameworks: "Frameworks",
+            iec_sbc: "IEC/SBC Materials",
+            databases: "Databases",
         };
         return categories[category] || category;
     };
@@ -153,7 +161,7 @@ export default function Show({ document }: Props) {
                             ) : (
                                 <ExternalLink className="h-4 w-4 mr-2" />
                             )}
-                            {document.file_path ? 'Download' : 'Open URL'}
+                            {document.file_path ? "Download" : "Open URL"}
                         </Button>
                         <Link href={route("admin.documents.edit", document.id)}>
                             <Button>
@@ -169,7 +177,10 @@ export default function Show({ document }: Props) {
                             )}
                             {document.is_active ? "Deactivate" : "Activate"}
                         </Button>
-                        <Button variant="outline" onClick={handleToggleFeatured}>
+                        <Button
+                            variant="outline"
+                            onClick={handleToggleFeatured}
+                        >
                             {document.is_featured ? (
                                 <StarOff className="h-4 w-4 mr-2" />
                             ) : (
@@ -186,14 +197,18 @@ export default function Show({ document }: Props) {
                             </AlertDialogTrigger>
                             <AlertDialogContent>
                                 <AlertDialogHeader>
-                                    <AlertDialogTitle>Delete Document</AlertDialogTitle>
+                                    <AlertDialogTitle>
+                                        Delete Document
+                                    </AlertDialogTitle>
                                     <AlertDialogDescription>
-                                        Are you sure you want to delete this document?
-                                        This action cannot be undone.
+                                        Are you sure you want to delete this
+                                        document? This action cannot be undone.
                                     </AlertDialogDescription>
                                 </AlertDialogHeader>
                                 <AlertDialogFooter>
-                                    <AlertDialogCancel>Cancel</AlertDialogCancel>
+                                    <AlertDialogCancel>
+                                        Cancel
+                                    </AlertDialogCancel>
                                     <AlertDialogAction onClick={handleDelete}>
                                         Delete
                                     </AlertDialogAction>
@@ -210,7 +225,9 @@ export default function Show({ document }: Props) {
                             <div className="flex items-center gap-2">
                                 <div
                                     className={`w-3 h-3 rounded-full ${
-                                        document.is_active ? "bg-green-500" : "bg-red-500"
+                                        document.is_active
+                                            ? "bg-green-500"
+                                            : "bg-red-500"
                                     }`}
                                 />
                                 <span className="text-sm font-medium">
@@ -223,7 +240,9 @@ export default function Show({ document }: Props) {
                         <CardContent className="p-4">
                             <div className="flex items-center gap-2">
                                 <Hash className="h-4 w-4 text-gray-500" />
-                                <span className="text-sm">ID: {document.id}</span>
+                                <span className="text-sm">
+                                    ID: {document.id}
+                                </span>
                             </div>
                         </CardContent>
                     </Card>
@@ -257,7 +276,9 @@ export default function Show({ document }: Props) {
                     <CardContent>
                         <div className="space-y-6">
                             <div className="flex items-start gap-4">
-                                <span className="text-4xl">{getFileTypeIcon(document.file_type)}</span>
+                                <span className="text-4xl">
+                                    {getFileTypeIcon(document.file_type)}
+                                </span>
                                 <div className="flex-1">
                                     <div className="flex items-center gap-2 mb-2">
                                         <h2 className="text-2xl font-bold text-gray-900">
@@ -276,7 +297,9 @@ export default function Show({ document }: Props) {
                                                     : "bg-red-100 text-red-800"
                                             }
                                         >
-                                            {document.is_active ? "Active" : "Inactive"}
+                                            {document.is_active
+                                                ? "Active"
+                                                : "Inactive"}
                                         </Badge>
                                     </div>
                                     <p className="text-gray-700 text-lg leading-relaxed mb-4">
@@ -284,13 +307,19 @@ export default function Show({ document }: Props) {
                                     </p>
                                     <div className="flex items-center gap-4 text-sm text-gray-600">
                                         <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
-                                            {getCategoryDisplayName(document.category)}
+                                            {getCategoryDisplayName(
+                                                document.category
+                                            )}
                                         </span>
                                         {document.formatted_file_size && (
-                                            <span>{document.formatted_file_size}</span>
+                                            <span>
+                                                {document.formatted_file_size}
+                                            </span>
                                         )}
                                         {document.version && (
-                                            <span>Version {document.version}</span>
+                                            <span>
+                                                Version {document.version}
+                                            </span>
                                         )}
                                     </div>
                                 </div>
@@ -329,19 +358,26 @@ export default function Show({ document }: Props) {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div className="space-y-4">
                                 <div>
-                                    <h4 className="font-medium text-gray-900 mb-1">File Type</h4>
+                                    <h4 className="font-medium text-gray-900 mb-1">
+                                        File Type
+                                    </h4>
                                     <p className="text-gray-600 font-mono">
                                         {document.file_type.toUpperCase()}
                                     </p>
                                 </div>
                                 <div>
-                                    <h4 className="font-medium text-gray-900 mb-1">File Size</h4>
+                                    <h4 className="font-medium text-gray-900 mb-1">
+                                        File Size
+                                    </h4>
                                     <p className="text-gray-600">
-                                        {document.formatted_file_size || "Unknown"}
+                                        {document.formatted_file_size ||
+                                            "Unknown"}
                                     </p>
                                 </div>
                                 <div>
-                                    <h4 className="font-medium text-gray-900 mb-1">Download Count</h4>
+                                    <h4 className="font-medium text-gray-900 mb-1">
+                                        Download Count
+                                    </h4>
                                     <p className="text-gray-600 font-semibold">
                                         {document.download_count} downloads
                                     </p>
@@ -349,14 +385,20 @@ export default function Show({ document }: Props) {
                             </div>
                             <div className="space-y-4">
                                 <div>
-                                    <h4 className="font-medium text-gray-900 mb-1">Source</h4>
+                                    <h4 className="font-medium text-gray-900 mb-1">
+                                        Source
+                                    </h4>
                                     <p className="text-gray-600">
-                                        {document.file_path ? "Uploaded file" : "External URL"}
+                                        {document.file_path
+                                            ? "Uploaded file"
+                                            : "External URL"}
                                     </p>
                                 </div>
                                 {document.file_url && (
                                     <div>
-                                        <h4 className="font-medium text-gray-900 mb-1">External URL</h4>
+                                        <h4 className="font-medium text-gray-900 mb-1">
+                                            External URL
+                                        </h4>
                                         <a
                                             href={document.file_url}
                                             target="_blank"
@@ -368,8 +410,12 @@ export default function Show({ document }: Props) {
                                     </div>
                                 )}
                                 <div>
-                                    <h4 className="font-medium text-gray-900 mb-1">Sort Order</h4>
-                                    <p className="text-gray-600">{document.sort_order}</p>
+                                    <h4 className="font-medium text-gray-900 mb-1">
+                                        Sort Order
+                                    </h4>
+                                    <p className="text-gray-600">
+                                        {document.sort_order}
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -389,7 +435,9 @@ export default function Show({ document }: Props) {
                                         <User className="h-4 w-4" />
                                         Author
                                     </h4>
-                                    <p className="text-gray-600">{document.author}</p>
+                                    <p className="text-gray-600">
+                                        {document.author}
+                                    </p>
                                 </div>
                                 <div>
                                     <h4 className="font-medium text-gray-900 mb-1 flex items-center gap-2">
@@ -397,7 +445,9 @@ export default function Show({ document }: Props) {
                                         Published Date
                                     </h4>
                                     <p className="text-gray-600">
-                                        {new Date(document.published_date).toLocaleDateString("en-US", {
+                                        {new Date(
+                                            document.published_date
+                                        ).toLocaleDateString("en-US", {
                                             year: "numeric",
                                             month: "long",
                                             day: "numeric",
@@ -405,23 +455,39 @@ export default function Show({ document }: Props) {
                                     </p>
                                 </div>
                                 <div>
-                                    <h4 className="font-medium text-gray-900 mb-1">Version</h4>
-                                    <p className="text-gray-600">{document.version || "Not specified"}</p>
+                                    <h4 className="font-medium text-gray-900 mb-1">
+                                        Version
+                                    </h4>
+                                    <p className="text-gray-600">
+                                        {document.version || "Not specified"}
+                                    </p>
                                 </div>
                             </div>
                             <div className="space-y-4">
                                 <div>
-                                    <h4 className="font-medium text-gray-900 mb-1">Created</h4>
-                                    <p className="text-gray-600">{formatDate(document.created_at)}</p>
+                                    <h4 className="font-medium text-gray-900 mb-1">
+                                        Created
+                                    </h4>
+                                    <p className="text-gray-600">
+                                        {formatDate(document.created_at)}
+                                    </p>
                                 </div>
                                 <div>
-                                    <h4 className="font-medium text-gray-900 mb-1">Last Updated</h4>
-                                    <p className="text-gray-600">{formatDate(document.updated_at)}</p>
+                                    <h4 className="font-medium text-gray-900 mb-1">
+                                        Last Updated
+                                    </h4>
+                                    <p className="text-gray-600">
+                                        {formatDate(document.updated_at)}
+                                    </p>
                                 </div>
                                 <div>
-                                    <h4 className="font-medium text-gray-900 mb-1">Category</h4>
+                                    <h4 className="font-medium text-gray-900 mb-1">
+                                        Category
+                                    </h4>
                                     <Badge className="bg-blue-100 text-blue-800">
-                                        {getCategoryDisplayName(document.category)}
+                                        {getCategoryDisplayName(
+                                            document.category
+                                        )}
                                     </Badge>
                                 </div>
                             </div>
@@ -437,11 +503,18 @@ export default function Show({ document }: Props) {
                     <CardContent>
                         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                             <div className="p-4 border rounded-lg">
-                                <h4 className="font-medium text-gray-900 mb-2">Edit Document</h4>
+                                <h4 className="font-medium text-gray-900 mb-2">
+                                    Edit Document
+                                </h4>
                                 <p className="text-sm text-gray-600 mb-3">
                                     Update document details, file, or metadata
                                 </p>
-                                <Link href={route("admin.documents.edit", document.id)}>
+                                <Link
+                                    href={route(
+                                        "admin.documents.edit",
+                                        document.id
+                                    )}
+                                >
                                     <Button size="sm" className="w-full">
                                         <Edit className="h-4 w-4 mr-2" />
                                         Edit
@@ -450,7 +523,9 @@ export default function Show({ document }: Props) {
                             </div>
                             <div className="p-4 border rounded-lg">
                                 <h4 className="font-medium text-gray-900 mb-2">
-                                    {document.is_active ? "Deactivate" : "Activate"}
+                                    {document.is_active
+                                        ? "Deactivate"
+                                        : "Activate"}
                                 </h4>
                                 <p className="text-sm text-gray-600 mb-3">
                                     {document.is_active
@@ -468,12 +543,16 @@ export default function Show({ document }: Props) {
                                     ) : (
                                         <ToggleRight className="h-4 w-4 mr-2" />
                                     )}
-                                    {document.is_active ? "Deactivate" : "Activate"}
+                                    {document.is_active
+                                        ? "Deactivate"
+                                        : "Activate"}
                                 </Button>
                             </div>
                             <div className="p-4 border rounded-lg">
                                 <h4 className="font-medium text-gray-900 mb-2">
-                                    {document.is_featured ? "Unfeature" : "Feature"}
+                                    {document.is_featured
+                                        ? "Unfeature"
+                                        : "Feature"}
                                 </h4>
                                 <p className="text-sm text-gray-600 mb-3">
                                     {document.is_featured
@@ -491,32 +570,47 @@ export default function Show({ document }: Props) {
                                     ) : (
                                         <Star className="h-4 w-4 mr-2" />
                                     )}
-                                    {document.is_featured ? "Unfeature" : "Feature"}
+                                    {document.is_featured
+                                        ? "Unfeature"
+                                        : "Feature"}
                                 </Button>
                             </div>
                             <div className="p-4 border rounded-lg">
-                                <h4 className="font-medium text-gray-900 mb-2">Delete Document</h4>
+                                <h4 className="font-medium text-gray-900 mb-2">
+                                    Delete Document
+                                </h4>
                                 <p className="text-sm text-gray-600 mb-3">
                                     Permanently remove document and file
                                 </p>
                                 <AlertDialog>
                                     <AlertDialogTrigger asChild>
-                                        <Button size="sm" variant="destructive" className="w-full">
+                                        <Button
+                                            size="sm"
+                                            variant="destructive"
+                                            className="w-full"
+                                        >
                                             <Trash2 className="h-4 w-4 mr-2" />
                                             Delete
                                         </Button>
                                     </AlertDialogTrigger>
                                     <AlertDialogContent>
                                         <AlertDialogHeader>
-                                            <AlertDialogTitle>Delete Document</AlertDialogTitle>
+                                            <AlertDialogTitle>
+                                                Delete Document
+                                            </AlertDialogTitle>
                                             <AlertDialogDescription>
-                                                Are you sure you want to delete this document?
-                                                This action cannot be undone.
+                                                Are you sure you want to delete
+                                                this document? This action
+                                                cannot be undone.
                                             </AlertDialogDescription>
                                         </AlertDialogHeader>
                                         <AlertDialogFooter>
-                                            <AlertDialogCancel>Cancel</AlertDialogCancel>
-                                            <AlertDialogAction onClick={handleDelete}>
+                                            <AlertDialogCancel>
+                                                Cancel
+                                            </AlertDialogCancel>
+                                            <AlertDialogAction
+                                                onClick={handleDelete}
+                                            >
                                                 Delete
                                             </AlertDialogAction>
                                         </AlertDialogFooter>

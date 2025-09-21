@@ -99,7 +99,9 @@ interface Props {
 }
 
 export default function Index({ subscribers, stats, filters }: Props) {
-    const [selectedSubscribers, setSelectedSubscribers] = useState<number[]>([]);
+    const [selectedSubscribers, setSelectedSubscribers] = useState<number[]>(
+        []
+    );
     const [searchTerm, setSearchTerm] = useState(filters.search || "");
     const [selectedStatus, setSelectedStatus] = useState(filters.status || "");
     const [dateFrom, setDateFrom] = useState(filters.date_from || "");
@@ -141,7 +143,9 @@ export default function Index({ subscribers, stats, filters }: Props) {
 
     const handleSelectAll = (checked: boolean) => {
         if (checked) {
-            setSelectedSubscribers(subscribers.data.map((subscriber) => subscriber.id));
+            setSelectedSubscribers(
+                subscribers.data.map((subscriber) => subscriber.id)
+            );
         } else {
             setSelectedSubscribers([]);
         }
@@ -151,7 +155,9 @@ export default function Index({ subscribers, stats, filters }: Props) {
         if (checked) {
             setSelectedSubscribers([...selectedSubscribers, subscriberId]);
         } else {
-            setSelectedSubscribers(selectedSubscribers.filter((id) => id !== subscriberId));
+            setSelectedSubscribers(
+                selectedSubscribers.filter((id) => id !== subscriberId)
+            );
         }
     };
 
@@ -171,11 +177,15 @@ export default function Index({ subscribers, stats, filters }: Props) {
     };
 
     const handleDelete = (subscriberId: number) => {
-        router.delete(route("admin.newsletter-subscribers.destroy", subscriberId));
+        router.delete(
+            route("admin.newsletter-subscribers.destroy", subscriberId)
+        );
     };
 
     const handleToggleStatus = (subscriberId: number) => {
-        router.patch(route("admin.newsletter-subscribers.toggle-status", subscriberId));
+        router.patch(
+            route("admin.newsletter-subscribers.toggle-status", subscriberId)
+        );
     };
 
     const handleExport = () => {
@@ -185,8 +195,12 @@ export default function Index({ subscribers, stats, filters }: Props) {
             date_from: dateFrom,
             date_to: dateTo,
         });
-        
-        window.open(route("admin.newsletter-subscribers.export") + "?" + params.toString());
+
+        window.open(
+            route("admin.newsletter-subscribers.export") +
+                "?" +
+                params.toString()
+        );
     };
 
     const formatDate = (dateString: string) => {
@@ -219,7 +233,9 @@ export default function Index({ subscribers, stats, filters }: Props) {
                             <Download className="h-4 w-4 mr-2" />
                             Export CSV
                         </Button>
-                        <Link href={route("admin.newsletter-subscribers.create")}>
+                        <Link
+                            href={route("admin.newsletter-subscribers.create")}
+                        >
                             <Button>
                                 <Plus className="h-4 w-4 mr-2" />
                                 Add Subscriber
@@ -235,8 +251,12 @@ export default function Index({ subscribers, stats, filters }: Props) {
                             <div className="flex items-center gap-2">
                                 <Users className="h-4 w-4 text-blue-500" />
                                 <div>
-                                    <p className="text-2xl font-bold">{stats.total}</p>
-                                    <p className="text-xs text-gray-500">Total</p>
+                                    <p className="text-2xl font-bold">
+                                        {stats.total}
+                                    </p>
+                                    <p className="text-xs text-gray-500">
+                                        Total
+                                    </p>
                                 </div>
                             </div>
                         </CardContent>
@@ -246,8 +266,12 @@ export default function Index({ subscribers, stats, filters }: Props) {
                             <div className="flex items-center gap-2">
                                 <UserCheck className="h-4 w-4 text-green-500" />
                                 <div>
-                                    <p className="text-2xl font-bold">{stats.active}</p>
-                                    <p className="text-xs text-gray-500">Active</p>
+                                    <p className="text-2xl font-bold">
+                                        {stats.active}
+                                    </p>
+                                    <p className="text-xs text-gray-500">
+                                        Active
+                                    </p>
                                 </div>
                             </div>
                         </CardContent>
@@ -257,8 +281,12 @@ export default function Index({ subscribers, stats, filters }: Props) {
                             <div className="flex items-center gap-2">
                                 <UserX className="h-4 w-4 text-red-500" />
                                 <div>
-                                    <p className="text-2xl font-bold">{stats.inactive}</p>
-                                    <p className="text-xs text-gray-500">Inactive</p>
+                                    <p className="text-2xl font-bold">
+                                        {stats.inactive}
+                                    </p>
+                                    <p className="text-xs text-gray-500">
+                                        Inactive
+                                    </p>
                                 </div>
                             </div>
                         </CardContent>
@@ -268,8 +296,12 @@ export default function Index({ subscribers, stats, filters }: Props) {
                             <div className="flex items-center gap-2">
                                 <Calendar className="h-4 w-4 text-purple-500" />
                                 <div>
-                                    <p className="text-2xl font-bold">{stats.today}</p>
-                                    <p className="text-xs text-gray-500">Today</p>
+                                    <p className="text-2xl font-bold">
+                                        {stats.today}
+                                    </p>
+                                    <p className="text-xs text-gray-500">
+                                        Today
+                                    </p>
                                 </div>
                             </div>
                         </CardContent>
@@ -279,8 +311,12 @@ export default function Index({ subscribers, stats, filters }: Props) {
                             <div className="flex items-center gap-2">
                                 <TrendingUp className="h-4 w-4 text-orange-500" />
                                 <div>
-                                    <p className="text-2xl font-bold">{stats.this_week}</p>
-                                    <p className="text-xs text-gray-500">This Week</p>
+                                    <p className="text-2xl font-bold">
+                                        {stats.this_week}
+                                    </p>
+                                    <p className="text-xs text-gray-500">
+                                        This Week
+                                    </p>
                                 </div>
                             </div>
                         </CardContent>
@@ -290,8 +326,12 @@ export default function Index({ subscribers, stats, filters }: Props) {
                             <div className="flex items-center gap-2">
                                 <Mail className="h-4 w-4 text-indigo-500" />
                                 <div>
-                                    <p className="text-2xl font-bold">{stats.this_month}</p>
-                                    <p className="text-xs text-gray-500">This Month</p>
+                                    <p className="text-2xl font-bold">
+                                        {stats.this_month}
+                                    </p>
+                                    <p className="text-xs text-gray-500">
+                                        This Month
+                                    </p>
                                 </div>
                             </div>
                         </CardContent>
@@ -314,7 +354,9 @@ export default function Index({ subscribers, stats, filters }: Props) {
                                     type="text"
                                     placeholder="Search by email or IP address..."
                                     value={searchTerm}
-                                    onChange={(e) => setSearchTerm(e.target.value)}
+                                    onChange={(e) =>
+                                        setSearchTerm(e.target.value)
+                                    }
                                     className="pl-10"
                                 />
                             </div>
@@ -333,9 +375,15 @@ export default function Index({ subscribers, stats, filters }: Props) {
                                     <SelectValue placeholder="All Status" />
                                 </SelectTrigger>
                                 <SelectContent>
-                                    <SelectItem value="all">All Status</SelectItem>
-                                    <SelectItem value="active">Active</SelectItem>
-                                    <SelectItem value="inactive">Inactive</SelectItem>
+                                    <SelectItem value="all">
+                                        All Status
+                                    </SelectItem>
+                                    <SelectItem value="active">
+                                        Active
+                                    </SelectItem>
+                                    <SelectItem value="inactive">
+                                        Inactive
+                                    </SelectItem>
                                 </SelectContent>
                             </Select>
                         </div>
@@ -365,7 +413,11 @@ export default function Index({ subscribers, stats, filters }: Props) {
                             <Filter className="h-4 w-4 mr-2" />
                             Filter
                         </Button>
-                        <Button type="button" variant="outline" onClick={clearFilters}>
+                        <Button
+                            type="button"
+                            variant="outline"
+                            onClick={clearFilters}
+                        >
                             Clear
                         </Button>
                     </form>
@@ -376,7 +428,8 @@ export default function Index({ subscribers, stats, filters }: Props) {
                     <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
                         <div className="flex items-center justify-between">
                             <span className="text-sm text-blue-800">
-                                {selectedSubscribers.length} subscriber(s) selected
+                                {selectedSubscribers.length} subscriber(s)
+                                selected
                             </span>
                             <div className="flex gap-2">
                                 <Button
@@ -389,7 +442,9 @@ export default function Index({ subscribers, stats, filters }: Props) {
                                 <Button
                                     size="sm"
                                     variant="outline"
-                                    onClick={() => handleBulkAction("deactivate")}
+                                    onClick={() =>
+                                        handleBulkAction("deactivate")
+                                    }
                                 >
                                     Deactivate
                                 </Button>
@@ -406,14 +461,19 @@ export default function Index({ subscribers, stats, filters }: Props) {
                                             </AlertDialogTitle>
                                             <AlertDialogDescription>
                                                 Are you sure you want to delete{" "}
-                                                {selectedSubscribers.length} subscriber(s)?
-                                                This action cannot be undone.
+                                                {selectedSubscribers.length}{" "}
+                                                subscriber(s)? This action
+                                                cannot be undone.
                                             </AlertDialogDescription>
                                         </AlertDialogHeader>
                                         <AlertDialogFooter>
-                                            <AlertDialogCancel>Cancel</AlertDialogCancel>
+                                            <AlertDialogCancel>
+                                                Cancel
+                                            </AlertDialogCancel>
                                             <AlertDialogAction
-                                                onClick={() => handleBulkAction("delete")}
+                                                onClick={() =>
+                                                    handleBulkAction("delete")
+                                                }
                                             >
                                                 Delete
                                             </AlertDialogAction>
@@ -457,7 +517,9 @@ export default function Index({ subscribers, stats, filters }: Props) {
                                     >
                                         No newsletter subscribers found.{" "}
                                         <Link
-                                            href={route("admin.newsletter-subscribers.create")}
+                                            href={route(
+                                                "admin.newsletter-subscribers.create"
+                                            )}
                                             className="text-blue-600 hover:underline"
                                         >
                                             Add your first subscriber
@@ -494,7 +556,9 @@ export default function Index({ subscribers, stats, filters }: Props) {
                                         <TableCell>
                                             <button
                                                 onClick={() =>
-                                                    handleToggleStatus(subscriber.id)
+                                                    handleToggleStatus(
+                                                        subscriber.id
+                                                    )
                                                 }
                                                 className="flex items-center"
                                             >
@@ -513,20 +577,27 @@ export default function Index({ subscribers, stats, filters }: Props) {
                                         </TableCell>
                                         <TableCell>
                                             <span className="text-sm text-gray-600">
-                                                {formatDate(subscriber.subscribed_at)}
+                                                {formatDate(
+                                                    subscriber.subscribed_at
+                                                )}
                                             </span>
                                         </TableCell>
                                         <TableCell>
                                             <span className="text-sm text-gray-600">
                                                 {subscriber.unsubscribed_at
-                                                    ? formatDate(subscriber.unsubscribed_at)
+                                                    ? formatDate(
+                                                          subscriber.unsubscribed_at
+                                                      )
                                                     : "—"}
                                             </span>
                                         </TableCell>
                                         <TableCell>
                                             <DropdownMenu>
                                                 <DropdownMenuTrigger asChild>
-                                                    <Button variant="ghost" size="sm">
+                                                    <Button
+                                                        variant="ghost"
+                                                        size="sm"
+                                                    >
                                                         <MoreHorizontal className="h-4 w-4" />
                                                     </Button>
                                                 </DropdownMenuTrigger>
@@ -555,7 +626,9 @@ export default function Index({ subscribers, stats, filters }: Props) {
                                                     </DropdownMenuItem>
                                                     <DropdownMenuItem
                                                         onClick={() =>
-                                                            handleToggleStatus(subscriber.id)
+                                                            handleToggleStatus(
+                                                                subscriber.id
+                                                            )
                                                         }
                                                     >
                                                         {subscriber.is_active ? (
@@ -568,10 +641,14 @@ export default function Index({ subscribers, stats, filters }: Props) {
                                                             : "Activate"}
                                                     </DropdownMenuItem>
                                                     <DropdownMenuItem
-                                                        onSelect={(e) => e.preventDefault()}
+                                                        onSelect={(e) =>
+                                                            e.preventDefault()
+                                                        }
                                                     >
                                                         <AlertDialog>
-                                                            <AlertDialogTrigger asChild>
+                                                            <AlertDialogTrigger
+                                                                asChild
+                                                            >
                                                                 <button className="flex items-center w-full">
                                                                     <Trash2 className="h-4 w-4 mr-2" />
                                                                     Delete
@@ -580,13 +657,22 @@ export default function Index({ subscribers, stats, filters }: Props) {
                                                             <AlertDialogContent>
                                                                 <AlertDialogHeader>
                                                                     <AlertDialogTitle>
-                                                                        Delete Subscriber
+                                                                        Delete
+                                                                        Subscriber
                                                                     </AlertDialogTitle>
                                                                     <AlertDialogDescription>
-                                                                        Are you sure you want to
-                                                                        delete this newsletter
-                                                                        subscriber? This action
-                                                                        cannot be undone.
+                                                                        Are you
+                                                                        sure you
+                                                                        want to
+                                                                        delete
+                                                                        this
+                                                                        newsletter
+                                                                        subscriber?
+                                                                        This
+                                                                        action
+                                                                        cannot
+                                                                        be
+                                                                        undone.
                                                                     </AlertDialogDescription>
                                                                 </AlertDialogHeader>
                                                                 <AlertDialogFooter>
@@ -630,13 +716,16 @@ export default function Index({ subscribers, stats, filters }: Props) {
                             ).map((page) => (
                                 <Link
                                     key={page}
-                                    href={route("admin.newsletter-subscribers.index", {
-                                        page,
-                                        search: searchTerm,
-                                        status: selectedStatus,
-                                        date_from: dateFrom,
-                                        date_to: dateTo,
-                                    })}
+                                    href={route(
+                                        "admin.newsletter-subscribers.index",
+                                        {
+                                            page,
+                                            search: searchTerm,
+                                            status: selectedStatus,
+                                            date_from: dateFrom,
+                                            date_to: dateTo,
+                                        }
+                                    )}
                                     className={`px-3 py-2 text-sm rounded-md ${
                                         page === subscribers.current_page
                                             ? "bg-blue-600 text-white"

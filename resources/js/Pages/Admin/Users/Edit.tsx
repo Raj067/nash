@@ -13,7 +13,19 @@ import {
 } from "@/Components/ui/select";
 import { Card, CardContent, CardHeader, CardTitle } from "@/Components/ui/card";
 import { Badge } from "@/Components/ui/badge";
-import { ArrowLeft, Save, Upload, User, Mail, Phone, Shield, Eye, EyeOff, Calendar, Clock } from "lucide-react";
+import {
+    ArrowLeft,
+    Save,
+    Upload,
+    User,
+    Mail,
+    Phone,
+    Shield,
+    Eye,
+    EyeOff,
+    Calendar,
+    Clock,
+} from "lucide-react";
 
 interface User {
     id: number;
@@ -50,9 +62,12 @@ export default function Edit({ user, roles, statuses }: Props) {
         avatar: null as File | null,
     });
 
-    const [previewAvatar, setPreviewAvatar] = useState<string | null>(user.avatar);
+    const [previewAvatar, setPreviewAvatar] = useState<string | null>(
+        user.avatar
+    );
     const [showPassword, setShowPassword] = useState(false);
-    const [showPasswordConfirmation, setShowPasswordConfirmation] = useState(false);
+    const [showPasswordConfirmation, setShowPasswordConfirmation] =
+        useState(false);
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
@@ -61,8 +76,8 @@ export default function Edit({ user, roles, statuses }: Props) {
 
     const handleAvatarChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0] || null;
-        setData('avatar', file);
-        
+        setData("avatar", file);
+
         if (file) {
             const reader = new FileReader();
             reader.onload = (e) => setPreviewAvatar(e.target?.result as string);
@@ -136,31 +151,52 @@ export default function Edit({ user, roles, statuses }: Props) {
                     <CardContent>
                         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 text-sm">
                             <div>
-                                <span className="font-medium text-gray-700">Status:</span>
+                                <span className="font-medium text-gray-700">
+                                    Status:
+                                </span>
                                 <div className="mt-1">
-                                    <Badge className={getStatusBadgeColor(user.status)}>
+                                    <Badge
+                                        className={getStatusBadgeColor(
+                                            user.status
+                                        )}
+                                    >
                                         {user.status_display_name}
                                     </Badge>
                                 </div>
                             </div>
                             <div>
-                                <span className="font-medium text-gray-700">Role:</span>
-                                <div className="mt-1">{getRoleIcon(user.role)} {user.role_display_name}</div>
+                                <span className="font-medium text-gray-700">
+                                    Role:
+                                </span>
+                                <div className="mt-1">
+                                    {getRoleIcon(user.role)}{" "}
+                                    {user.role_display_name}
+                                </div>
                             </div>
                             <div>
-                                <span className="font-medium text-gray-700">Email Verified:</span>
+                                <span className="font-medium text-gray-700">
+                                    Email Verified:
+                                </span>
                                 <div className="mt-1">
                                     {user.email_verified_at ? (
-                                        <Badge className="bg-green-100 text-green-800">Verified</Badge>
+                                        <Badge className="bg-green-100 text-green-800">
+                                            Verified
+                                        </Badge>
                                     ) : (
-                                        <Badge className="bg-red-100 text-red-800">Unverified</Badge>
+                                        <Badge className="bg-red-100 text-red-800">
+                                            Unverified
+                                        </Badge>
                                     )}
                                 </div>
                             </div>
                             <div>
-                                <span className="font-medium text-gray-700">Last Login:</span>
+                                <span className="font-medium text-gray-700">
+                                    Last Login:
+                                </span>
                                 <div className="mt-1 text-gray-600">
-                                    {user.last_login_at ? formatDate(user.last_login_at) : 'Never'}
+                                    {user.last_login_at
+                                        ? formatDate(user.last_login_at)
+                                        : "Never"}
                                 </div>
                             </div>
                         </div>
@@ -175,12 +211,18 @@ export default function Edit({ user, roles, statuses }: Props) {
                                 <CardTitle>User Information</CardTitle>
                             </CardHeader>
                             <CardContent>
-                                <form onSubmit={handleSubmit} className="space-y-6">
+                                <form
+                                    onSubmit={handleSubmit}
+                                    className="space-y-6"
+                                >
                                     {/* Basic Information */}
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                         <div className="space-y-2">
                                             <Label htmlFor="name">
-                                                Full Name <span className="text-red-500">*</span>
+                                                Full Name{" "}
+                                                <span className="text-red-500">
+                                                    *
+                                                </span>
                                             </Label>
                                             <div className="relative">
                                                 <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
@@ -188,18 +230,32 @@ export default function Edit({ user, roles, statuses }: Props) {
                                                     id="name"
                                                     type="text"
                                                     value={data.name}
-                                                    onChange={(e) => setData("name", e.target.value)}
-                                                    className={`pl-10 ${errors.name ? "border-red-500" : ""}`}
+                                                    onChange={(e) =>
+                                                        setData(
+                                                            "name",
+                                                            e.target.value
+                                                        )
+                                                    }
+                                                    className={`pl-10 ${
+                                                        errors.name
+                                                            ? "border-red-500"
+                                                            : ""
+                                                    }`}
                                                 />
                                             </div>
                                             {errors.name && (
-                                                <p className="text-sm text-red-600">{errors.name}</p>
+                                                <p className="text-sm text-red-600">
+                                                    {errors.name}
+                                                </p>
                                             )}
                                         </div>
 
                                         <div className="space-y-2">
                                             <Label htmlFor="email">
-                                                Email Address <span className="text-red-500">*</span>
+                                                Email Address{" "}
+                                                <span className="text-red-500">
+                                                    *
+                                                </span>
                                             </Label>
                                             <div className="relative">
                                                 <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
@@ -207,31 +263,55 @@ export default function Edit({ user, roles, statuses }: Props) {
                                                     id="email"
                                                     type="email"
                                                     value={data.email}
-                                                    onChange={(e) => setData("email", e.target.value)}
-                                                    className={`pl-10 ${errors.email ? "border-red-500" : ""}`}
+                                                    onChange={(e) =>
+                                                        setData(
+                                                            "email",
+                                                            e.target.value
+                                                        )
+                                                    }
+                                                    className={`pl-10 ${
+                                                        errors.email
+                                                            ? "border-red-500"
+                                                            : ""
+                                                    }`}
                                                 />
                                             </div>
                                             {errors.email && (
-                                                <p className="text-sm text-red-600">{errors.email}</p>
+                                                <p className="text-sm text-red-600">
+                                                    {errors.email}
+                                                </p>
                                             )}
                                         </div>
                                     </div>
 
                                     {/* Phone Number */}
                                     <div className="space-y-2">
-                                        <Label htmlFor="phone">Phone Number</Label>
+                                        <Label htmlFor="phone">
+                                            Phone Number
+                                        </Label>
                                         <div className="relative">
                                             <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
                                             <Input
                                                 id="phone"
                                                 type="tel"
                                                 value={data.phone}
-                                                onChange={(e) => setData("phone", e.target.value)}
-                                                className={`pl-10 ${errors.phone ? "border-red-500" : ""}`}
+                                                onChange={(e) =>
+                                                    setData(
+                                                        "phone",
+                                                        e.target.value
+                                                    )
+                                                }
+                                                className={`pl-10 ${
+                                                    errors.phone
+                                                        ? "border-red-500"
+                                                        : ""
+                                                }`}
                                             />
                                         </div>
                                         {errors.phone && (
-                                            <p className="text-sm text-red-600">{errors.phone}</p>
+                                            <p className="text-sm text-red-600">
+                                                {errors.phone}
+                                            </p>
                                         )}
                                     </div>
 
@@ -239,20 +319,38 @@ export default function Edit({ user, roles, statuses }: Props) {
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                         <div className="space-y-2">
                                             <Label htmlFor="password">
-                                                New Password (Leave blank to keep current)
+                                                New Password (Leave blank to
+                                                keep current)
                                             </Label>
                                             <div className="relative">
                                                 <Input
                                                     id="password"
-                                                    type={showPassword ? "text" : "password"}
+                                                    type={
+                                                        showPassword
+                                                            ? "text"
+                                                            : "password"
+                                                    }
                                                     value={data.password}
-                                                    onChange={(e) => setData("password", e.target.value)}
+                                                    onChange={(e) =>
+                                                        setData(
+                                                            "password",
+                                                            e.target.value
+                                                        )
+                                                    }
                                                     placeholder="Enter new password"
-                                                    className={`pr-10 ${errors.password ? "border-red-500" : ""}`}
+                                                    className={`pr-10 ${
+                                                        errors.password
+                                                            ? "border-red-500"
+                                                            : ""
+                                                    }`}
                                                 />
                                                 <button
                                                     type="button"
-                                                    onClick={() => setShowPassword(!showPassword)}
+                                                    onClick={() =>
+                                                        setShowPassword(
+                                                            !showPassword
+                                                        )
+                                                    }
                                                     className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
                                                 >
                                                     {showPassword ? (
@@ -263,7 +361,9 @@ export default function Edit({ user, roles, statuses }: Props) {
                                                 </button>
                                             </div>
                                             {errors.password && (
-                                                <p className="text-sm text-red-600">{errors.password}</p>
+                                                <p className="text-sm text-red-600">
+                                                    {errors.password}
+                                                </p>
                                             )}
                                         </div>
 
@@ -274,15 +374,34 @@ export default function Edit({ user, roles, statuses }: Props) {
                                             <div className="relative">
                                                 <Input
                                                     id="password_confirmation"
-                                                    type={showPasswordConfirmation ? "text" : "password"}
-                                                    value={data.password_confirmation}
-                                                    onChange={(e) => setData("password_confirmation", e.target.value)}
+                                                    type={
+                                                        showPasswordConfirmation
+                                                            ? "text"
+                                                            : "password"
+                                                    }
+                                                    value={
+                                                        data.password_confirmation
+                                                    }
+                                                    onChange={(e) =>
+                                                        setData(
+                                                            "password_confirmation",
+                                                            e.target.value
+                                                        )
+                                                    }
                                                     placeholder="Confirm new password"
-                                                    className={`pr-10 ${errors.password_confirmation ? "border-red-500" : ""}`}
+                                                    className={`pr-10 ${
+                                                        errors.password_confirmation
+                                                            ? "border-red-500"
+                                                            : ""
+                                                    }`}
                                                 />
                                                 <button
                                                     type="button"
-                                                    onClick={() => setShowPasswordConfirmation(!showPasswordConfirmation)}
+                                                    onClick={() =>
+                                                        setShowPasswordConfirmation(
+                                                            !showPasswordConfirmation
+                                                        )
+                                                    }
                                                     className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
                                                 >
                                                     {showPasswordConfirmation ? (
@@ -293,7 +412,11 @@ export default function Edit({ user, roles, statuses }: Props) {
                                                 </button>
                                             </div>
                                             {errors.password_confirmation && (
-                                                <p className="text-sm text-red-600">{errors.password_confirmation}</p>
+                                                <p className="text-sm text-red-600">
+                                                    {
+                                                        errors.password_confirmation
+                                                    }
+                                                </p>
                                             )}
                                         </div>
                                     </div>
@@ -302,49 +425,88 @@ export default function Edit({ user, roles, statuses }: Props) {
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                         <div className="space-y-2">
                                             <Label htmlFor="role">
-                                                Role <span className="text-red-500">*</span>
+                                                Role{" "}
+                                                <span className="text-red-500">
+                                                    *
+                                                </span>
                                             </Label>
                                             <Select
                                                 value={data.role}
-                                                onValueChange={(value) => setData("role", value)}
+                                                onValueChange={(value) =>
+                                                    setData("role", value)
+                                                }
                                             >
-                                                <SelectTrigger className={errors.role ? "border-red-500" : ""}>
+                                                <SelectTrigger
+                                                    className={
+                                                        errors.role
+                                                            ? "border-red-500"
+                                                            : ""
+                                                    }
+                                                >
                                                     <SelectValue />
                                                 </SelectTrigger>
                                                 <SelectContent>
-                                                    {Object.entries(roles).map(([key, label]) => (
-                                                        <SelectItem key={key} value={key}>
-                                                            {getRoleIcon(key)} {label}
-                                                        </SelectItem>
-                                                    ))}
+                                                    {Object.entries(roles).map(
+                                                        ([key, label]) => (
+                                                            <SelectItem
+                                                                key={key}
+                                                                value={key}
+                                                            >
+                                                                {getRoleIcon(
+                                                                    key
+                                                                )}{" "}
+                                                                {label}
+                                                            </SelectItem>
+                                                        )
+                                                    )}
                                                 </SelectContent>
                                             </Select>
                                             {errors.role && (
-                                                <p className="text-sm text-red-600">{errors.role}</p>
+                                                <p className="text-sm text-red-600">
+                                                    {errors.role}
+                                                </p>
                                             )}
                                         </div>
 
                                         <div className="space-y-2">
                                             <Label htmlFor="status">
-                                                Status <span className="text-red-500">*</span>
+                                                Status{" "}
+                                                <span className="text-red-500">
+                                                    *
+                                                </span>
                                             </Label>
                                             <Select
                                                 value={data.status}
-                                                onValueChange={(value) => setData("status", value)}
+                                                onValueChange={(value) =>
+                                                    setData("status", value)
+                                                }
                                             >
-                                                <SelectTrigger className={errors.status ? "border-red-500" : ""}>
+                                                <SelectTrigger
+                                                    className={
+                                                        errors.status
+                                                            ? "border-red-500"
+                                                            : ""
+                                                    }
+                                                >
                                                     <SelectValue />
                                                 </SelectTrigger>
                                                 <SelectContent>
-                                                    {Object.entries(statuses).map(([key, label]) => (
-                                                        <SelectItem key={key} value={key}>
+                                                    {Object.entries(
+                                                        statuses
+                                                    ).map(([key, label]) => (
+                                                        <SelectItem
+                                                            key={key}
+                                                            value={key}
+                                                        >
                                                             {label}
                                                         </SelectItem>
                                                     ))}
                                                 </SelectContent>
                                             </Select>
                                             {errors.status && (
-                                                <p className="text-sm text-red-600">{errors.status}</p>
+                                                <p className="text-sm text-red-600">
+                                                    {errors.status}
+                                                </p>
                                             )}
                                         </div>
                                     </div>
@@ -370,7 +532,10 @@ export default function Edit({ user, roles, statuses }: Props) {
                                             accept="image/*"
                                             className="hidden"
                                         />
-                                        <label htmlFor="avatar" className="cursor-pointer">
+                                        <label
+                                            htmlFor="avatar"
+                                            className="cursor-pointer"
+                                        >
                                             {previewAvatar ? (
                                                 <div className="space-y-2">
                                                     <img
@@ -378,7 +543,11 @@ export default function Edit({ user, roles, statuses }: Props) {
                                                         alt="Preview"
                                                         className="w-24 h-24 mx-auto rounded-full object-cover"
                                                     />
-                                                    <Button type="button" variant="outline" size="sm">
+                                                    <Button
+                                                        type="button"
+                                                        variant="outline"
+                                                        size="sm"
+                                                    >
                                                         Change Avatar
                                                     </Button>
                                                 </div>
@@ -386,10 +555,14 @@ export default function Edit({ user, roles, statuses }: Props) {
                                                 <div className="space-y-2">
                                                     <div className="w-24 h-24 mx-auto bg-gray-200 rounded-full flex items-center justify-center">
                                                         <span className="text-lg font-medium text-gray-600">
-                                                            {user.name.charAt(0).toUpperCase()}
+                                                            {user.name
+                                                                .charAt(0)
+                                                                .toUpperCase()}
                                                         </span>
                                                     </div>
-                                                    <div className="font-medium">Upload avatar</div>
+                                                    <div className="font-medium">
+                                                        Upload avatar
+                                                    </div>
                                                     <div className="text-sm text-gray-500">
                                                         JPG, PNG up to 2MB
                                                     </div>
@@ -398,7 +571,9 @@ export default function Edit({ user, roles, statuses }: Props) {
                                         </label>
                                     </div>
                                     {errors.avatar && (
-                                        <p className="text-sm text-red-600">{errors.avatar}</p>
+                                        <p className="text-sm text-red-600">
+                                            {errors.avatar}
+                                        </p>
                                     )}
                                 </div>
                             </CardContent>
@@ -408,16 +583,22 @@ export default function Edit({ user, roles, statuses }: Props) {
                         <Card>
                             <CardContent className="pt-6">
                                 <div className="space-y-3">
-                                    <Button 
-                                        onClick={handleSubmit} 
+                                    <Button
+                                        onClick={handleSubmit}
                                         disabled={processing}
                                         className="w-full"
                                     >
                                         <Save className="h-4 w-4 mr-2" />
-                                        {processing ? "Updating..." : "Update User"}
+                                        {processing
+                                            ? "Updating..."
+                                            : "Update User"}
                                     </Button>
                                     <Link href={route("admin.users.index")}>
-                                        <Button type="button" variant="outline" className="w-full">
+                                        <Button
+                                            type="button"
+                                            variant="outline"
+                                            className="w-full"
+                                        >
                                             Cancel
                                         </Button>
                                     </Link>
@@ -432,31 +613,57 @@ export default function Edit({ user, roles, statuses }: Props) {
                             </CardHeader>
                             <CardContent className="space-y-3 text-sm">
                                 <div>
-                                    <span className="font-medium text-gray-700">User ID:</span>
-                                    <div className="text-gray-600">#{user.id}</div>
+                                    <span className="font-medium text-gray-700">
+                                        User ID:
+                                    </span>
+                                    <div className="text-gray-600">
+                                        #{user.id}
+                                    </div>
                                 </div>
                                 <div>
-                                    <span className="font-medium text-gray-700">Original Role:</span>
-                                    <div className="text-gray-600">{user.role_display_name}</div>
+                                    <span className="font-medium text-gray-700">
+                                        Original Role:
+                                    </span>
+                                    <div className="text-gray-600">
+                                        {user.role_display_name}
+                                    </div>
                                 </div>
                                 <div>
-                                    <span className="font-medium text-gray-700">Original Status:</span>
-                                    <div className="text-gray-600">{user.status_display_name}</div>
+                                    <span className="font-medium text-gray-700">
+                                        Original Status:
+                                    </span>
+                                    <div className="text-gray-600">
+                                        {user.status_display_name}
+                                    </div>
                                 </div>
                                 <div>
-                                    <span className="font-medium text-gray-700">Created:</span>
-                                    <div className="text-gray-600">{formatDate(user.created_at)}</div>
+                                    <span className="font-medium text-gray-700">
+                                        Created:
+                                    </span>
+                                    <div className="text-gray-600">
+                                        {formatDate(user.created_at)}
+                                    </div>
                                 </div>
                                 <div>
-                                    <span className="font-medium text-gray-700">Last Updated:</span>
-                                    <div className="text-gray-600">{formatDate(user.updated_at)}</div>
+                                    <span className="font-medium text-gray-700">
+                                        Last Updated:
+                                    </span>
+                                    <div className="text-gray-600">
+                                        {formatDate(user.updated_at)}
+                                    </div>
                                 </div>
                                 {user.last_login_at && (
                                     <div>
-                                        <span className="font-medium text-gray-700">Last Login:</span>
-                                        <div className="text-gray-600">{formatDate(user.last_login_at)}</div>
+                                        <span className="font-medium text-gray-700">
+                                            Last Login:
+                                        </span>
+                                        <div className="text-gray-600">
+                                            {formatDate(user.last_login_at)}
+                                        </div>
                                         {user.last_login_ip && (
-                                            <div className="text-xs text-gray-500">IP: {user.last_login_ip}</div>
+                                            <div className="text-xs text-gray-500">
+                                                IP: {user.last_login_ip}
+                                            </div>
                                         )}
                                     </div>
                                 )}
@@ -474,11 +681,19 @@ export default function Edit({ user, roles, statuses }: Props) {
                                     size="sm"
                                     className="w-full"
                                     onClick={() => {
-                                        setData('status', user.status === 'active' ? 'inactive' : 'active');
+                                        setData(
+                                            "status",
+                                            user.status === "active"
+                                                ? "inactive"
+                                                : "active"
+                                        );
                                     }}
                                 >
                                     <Clock className="h-4 w-4 mr-2" />
-                                    {user.status === 'active' ? 'Deactivate' : 'Activate'} User
+                                    {user.status === "active"
+                                        ? "Deactivate"
+                                        : "Activate"}{" "}
+                                    User
                                 </Button>
                                 {!user.email_verified_at && (
                                     <Button
@@ -503,10 +718,22 @@ export default function Edit({ user, roles, statuses }: Props) {
                             </CardHeader>
                             <CardContent>
                                 <div className="space-y-2 text-sm text-gray-600">
-                                    <p>• Leave password fields blank to keep the current password</p>
-                                    <p>• Changing the role will affect user permissions immediately</p>
-                                    <p>• Deactivating a user will prevent them from logging in</p>
-                                    <p>• Email changes may require re-verification</p>
+                                    <p>
+                                        • Leave password fields blank to keep
+                                        the current password
+                                    </p>
+                                    <p>
+                                        • Changing the role will affect user
+                                        permissions immediately
+                                    </p>
+                                    <p>
+                                        • Deactivating a user will prevent them
+                                        from logging in
+                                    </p>
+                                    <p>
+                                        • Email changes may require
+                                        re-verification
+                                    </p>
                                 </div>
                             </CardContent>
                         </Card>

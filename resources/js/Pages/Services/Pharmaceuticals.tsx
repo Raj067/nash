@@ -127,8 +127,8 @@ export default function Pharmaceuticals() {
                                     Pharmaceuticals & Laboratory Services
                                 </h1>
                                 <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
-                                    Ensuring quality pharmaceutical and laboratory
-                                    services for HIV/AIDS programs
+                                    Ensuring quality pharmaceutical and
+                                    laboratory services for HIV/AIDS programs
                                 </p>
                             </div>
                         </div>
@@ -164,21 +164,23 @@ export default function Pharmaceuticals() {
 
                             <div className="relative z-10">
                                 <div className="space-y-6">
-                                    {divisionObjectives.map((objective, index) => (
-                                        <div
-                                            key={index}
-                                            className="flex items-start space-x-4"
-                                        >
-                                            <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1 shadow-lg group-hover:shadow-xl transition-shadow duration-300">
-                                                <span className="text-white font-bold text-lg">
-                                                    {index + 1}
-                                                </span>
+                                    {divisionObjectives.map(
+                                        (objective, index) => (
+                                            <div
+                                                key={index}
+                                                className="flex items-start space-x-4"
+                                            >
+                                                <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1 shadow-lg group-hover:shadow-xl transition-shadow duration-300">
+                                                    <span className="text-white font-bold text-lg">
+                                                        {index + 1}
+                                                    </span>
+                                                </div>
+                                                <p className="text-gray-700 leading-relaxed text-lg">
+                                                    {objective}
+                                                </p>
                                             </div>
-                                            <p className="text-gray-700 leading-relaxed text-lg">
-                                                {objective}
-                                            </p>
-                                        </div>
-                                    ))}
+                                        )
+                                    )}
                                 </div>
                             </div>
                         </div>
@@ -205,8 +207,8 @@ export default function Pharmaceuticals() {
                                 Key Functions
                             </h2>
                             <p className="text-blue-100 max-w-3xl mx-auto text-lg">
-                                Essential functions that drive our pharmaceutical
-                                and laboratory services
+                                Essential functions that drive our
+                                pharmaceutical and laboratory services
                                 <br />
                                 <span className="text-sm text-blue-200 mt-2 block">
                                     Supporting HIV/AIDS program effectiveness
@@ -255,8 +257,8 @@ export default function Pharmaceuticals() {
                             </h2>
                             <p className="text-gray-600 max-w-3xl mx-auto text-lg leading-relaxed">
                                 Two specialized sections working together to
-                                deliver comprehensive pharmaceutical and laboratory
-                                services
+                                deliver comprehensive pharmaceutical and
+                                laboratory services
                             </p>
                         </div>
 

@@ -40,8 +40,7 @@ export default function DivisionPrevention() {
         {
             icon: Target,
             title: "Advocacy Strategies",
-            description:
-                "To develop advocacy strategies for HIV Prevention.",
+            description: "To develop advocacy strategies for HIV Prevention.",
         },
         {
             icon: FileText,
@@ -70,8 +69,7 @@ export default function DivisionPrevention() {
         {
             icon: Activity,
             title: "Prevention Campaigns",
-            description:
-                "To carry out HIV combination prevention campaigns.",
+            description: "To carry out HIV combination prevention campaigns.",
         },
     ];
 
@@ -86,27 +84,33 @@ export default function DivisionPrevention() {
     const biomedicalFunctions = [
         {
             title: "Assessment & Management",
-            description: "To assess and manage HIV Interventions that includes HIV Testing, Voluntary Medical Male Circumcision (VMMC), Early Infancy Male Circumcision, STI /RT, Key and Vulnerable Populations.",
+            description:
+                "To assess and manage HIV Interventions that includes HIV Testing, Voluntary Medical Male Circumcision (VMMC), Early Infancy Male Circumcision, STI /RT, Key and Vulnerable Populations.",
         },
         {
             title: "Implementation Coordination",
-            description: "To coordinate the implementation of HIV Interventions that includes HIV Testing, Voluntary Medical Male Circumcision (VMMC), Early Infancy Male Circumcision, STI /RT, Key and Vulnerable Populations.",
+            description:
+                "To coordinate the implementation of HIV Interventions that includes HIV Testing, Voluntary Medical Male Circumcision (VMMC), Early Infancy Male Circumcision, STI /RT, Key and Vulnerable Populations.",
         },
         {
             title: "Supervision & Monitoring",
-            description: "To supervise, monitor and evaluate the implementation of HIV Interventions that includes HIV Testing, Voluntary Medical Male Circumcision (VMMC), Early Infancy Male Circumcision, STI /RT, Key and Vulnerable Populations.",
+            description:
+                "To supervise, monitor and evaluate the implementation of HIV Interventions that includes HIV Testing, Voluntary Medical Male Circumcision (VMMC), Early Infancy Male Circumcision, STI /RT, Key and Vulnerable Populations.",
         },
         {
             title: "Policy Guidelines Development",
-            description: "To develop HIV/AIDS Policy guidelines and SOPs for HIV biomedical Interventions.",
+            description:
+                "To develop HIV/AIDS Policy guidelines and SOPs for HIV biomedical Interventions.",
         },
         {
             title: "Partner Coordination",
-            description: "To coordinate all Implementing Partners under HIV Biomedical intervention in line with Regional and Council Comprehensive Health Plans (R/CCHP).",
+            description:
+                "To coordinate all Implementing Partners under HIV Biomedical intervention in line with Regional and Council Comprehensive Health Plans (R/CCHP).",
         },
         {
             title: "Technical Support",
-            description: "To provide technical support on Biomedical services in Regions and Councils.",
+            description:
+                "To provide technical support on Biomedical services in Regions and Councils.",
         },
     ];
 
@@ -121,39 +125,48 @@ export default function DivisionPrevention() {
     const behavioralFunctions = [
         {
             title: "Assessment & Management",
-            description: "To assess and manage HIV behavioral Interventions that includes IEC/SBCC, condom programming, gender, Adolescents Reproductive Health (ARH).",
+            description:
+                "To assess and manage HIV behavioral Interventions that includes IEC/SBCC, condom programming, gender, Adolescents Reproductive Health (ARH).",
         },
         {
             title: "Implementation Coordination",
-            description: "To coordinate the implementation of HIV Interventions that includes IEC/SBCC, condom programming, gender, Adolescents Reproductive Health (ARH).",
+            description:
+                "To coordinate the implementation of HIV Interventions that includes IEC/SBCC, condom programming, gender, Adolescents Reproductive Health (ARH).",
         },
         {
             title: "Supervision & Monitoring",
-            description: "To supervise, monitor and evaluate the implementation of HIV Interventions that IEC/SBCC, condom programming, gender, Adolescents Reproductive Health (ARH).",
+            description:
+                "To supervise, monitor and evaluate the implementation of HIV Interventions that IEC/SBCC, condom programming, gender, Adolescents Reproductive Health (ARH).",
         },
         {
             title: "Policy Dissemination",
-            description: "To coordinate dissemination of policy guidelines and tools on IEC/SBCC, condom programming, gender, Adolescents Reproductive Health (ARH) for HIV National Response.",
+            description:
+                "To coordinate dissemination of policy guidelines and tools on IEC/SBCC, condom programming, gender, Adolescents Reproductive Health (ARH) for HIV National Response.",
         },
         {
             title: "Advocacy & Campaigns",
-            description: "To carry out HIV advocacy and behavior change campaigns.",
+            description:
+                "To carry out HIV advocacy and behavior change campaigns.",
         },
         {
             title: "Guidelines Development",
-            description: "To develop HIV/AIDS Policy guidelines, SOPs and advocacy strategies for HIV behavioral Interventions.",
+            description:
+                "To develop HIV/AIDS Policy guidelines, SOPs and advocacy strategies for HIV behavioral Interventions.",
         },
         {
             title: "Partner Coordination",
-            description: "To coordinate all Implementing Partners under HIV behavioral intervention in line with Regional and Council Comprehensive Health Plans (R/CCHP).",
+            description:
+                "To coordinate all Implementing Partners under HIV behavioral intervention in line with Regional and Council Comprehensive Health Plans (R/CCHP).",
         },
         {
             title: "Technical Support & Advocacy",
-            description: "To provide technical support on behavioral services including advocacy to HIV stakeholders.",
+            description:
+                "To provide technical support on behavioral services including advocacy to HIV stakeholders.",
         },
         {
             title: "Information Management",
-            description: "To develop HIV messages data bank and manage HIV information and documentation.",
+            description:
+                "To develop HIV messages data bank and manage HIV information and documentation.",
         },
     ];
     return (
@@ -371,7 +384,8 @@ export default function DivisionPrevention() {
                                 Biomedical Section Functions
                             </h2>
                             <p className="text-gray-600 max-w-3xl mx-auto text-lg leading-relaxed">
-                                Detailed functions and responsibilities of the Biomedical Section
+                                Detailed functions and responsibilities of the
+                                Biomedical Section
                             </p>
                         </div>
 
@@ -382,7 +396,7 @@ export default function DivisionPrevention() {
                                     className="group hover:shadow-2xl transition-all duration-500 border-0 bg-white/80 backdrop-blur-sm hover:scale-105 hover:bg-white relative overflow-hidden rounded-2xl p-6 shadow-lg"
                                 >
                                     <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 to-teal-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                                    
+
                                     <div className="relative z-10">
                                         <div className="flex items-start space-x-4 mb-4">
                                             <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-green-500 to-teal-600 rounded-full flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
@@ -420,7 +434,8 @@ export default function DivisionPrevention() {
                                 Behavioral Section Functions
                             </h2>
                             <p className="text-gray-600 max-w-3xl mx-auto text-lg leading-relaxed">
-                                Comprehensive functions and responsibilities of the Behavioral Section
+                                Comprehensive functions and responsibilities of
+                                the Behavioral Section
                             </p>
                         </div>
 
@@ -431,7 +446,7 @@ export default function DivisionPrevention() {
                                     className="group hover:shadow-2xl transition-all duration-500 border-0 bg-white/80 backdrop-blur-sm hover:scale-105 hover:bg-white relative overflow-hidden rounded-2xl p-6 shadow-lg"
                                 >
                                     <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                                    
+
                                     <div className="relative z-10">
                                         <div className="flex items-start space-x-4 mb-4">
                                             <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full flex-shrink-0 group-hover:scale-110 transition-transform duration-300">

@@ -26,39 +26,39 @@ function QuickActionWidget() {
 
     const fetchFeaturedVideos = async () => {
         try {
-            const response = await fetch('/api/videos/featured');
+            const response = await fetch("/api/videos/featured");
             const data = await response.json();
             setVideos(data);
         } catch (error) {
-            console.error('Error fetching videos:', error);
+            console.error("Error fetching videos:", error);
         } finally {
             setLoading(false);
         }
     };
 
     const formatDuration = (seconds: number) => {
-        if (!seconds) return '';
+        if (!seconds) return "";
         const minutes = Math.floor(seconds / 60);
         const remainingSeconds = seconds % 60;
-        return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
+        return `${minutes}:${remainingSeconds.toString().padStart(2, "0")}`;
     };
 
     const getCategoryIcon = (category: string) => {
         switch (category) {
-            case 'prevention':
-                return '🛡️';
-            case 'awareness':
-                return '💡';
-            case 'treatment':
-                return '💊';
-            case 'community':
-                return '👥';
-            case 'education':
-                return '📚';
-            case 'training':
-                return '🎓';
+            case "prevention":
+                return "🛡️";
+            case "awareness":
+                return "💡";
+            case "treatment":
+                return "💊";
+            case "community":
+                return "👥";
+            case "education":
+                return "📚";
+            case "training":
+                return "🎓";
             default:
-                return '📹';
+                return "📹";
         }
     };
 
@@ -71,7 +71,10 @@ function QuickActionWidget() {
                     </h2>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         {[1, 2, 3].map((i) => (
-                            <Card key={i} className="bg-white/10 border-white/20 text-white animate-pulse">
+                            <Card
+                                key={i}
+                                className="bg-white/10 border-white/20 text-white animate-pulse"
+                            >
                                 <div className="aspect-video bg-white/20 rounded-t-lg"></div>
                                 <CardContent className="p-4">
                                     <div className="h-4 bg-white/20 rounded mb-2"></div>
@@ -100,7 +103,10 @@ function QuickActionWidget() {
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
                     {videos.map((video) => (
-                        <Card key={video.id} className="bg-white/10 border-white/20 text-white hover:bg-white/15 transition-all duration-300 group">
+                        <Card
+                            key={video.id}
+                            className="bg-white/10 border-white/20 text-white hover:bg-white/15 transition-all duration-300 group"
+                        >
                             <div className="relative aspect-video overflow-hidden rounded-t-lg">
                                 <img
                                     src={video.thumbnail}
@@ -111,13 +117,19 @@ function QuickActionWidget() {
                                     <Play className="w-12 h-12 text-white" />
                                 </div>
                                 <div className="absolute top-2 left-2 bg-black/70 px-2 py-1 rounded text-xs flex items-center space-x-1">
-                                    <span>{getCategoryIcon(video.category)}</span>
-                                    <span className="capitalize">{video.category}</span>
+                                    <span>
+                                        {getCategoryIcon(video.category)}
+                                    </span>
+                                    <span className="capitalize">
+                                        {video.category}
+                                    </span>
                                 </div>
                                 {video.duration && (
                                     <div className="absolute bottom-2 right-2 bg-black/70 px-2 py-1 rounded text-xs flex items-center space-x-1">
                                         <Clock className="w-3 h-3" />
-                                        <span>{formatDuration(video.duration)}</span>
+                                        <span>
+                                            {formatDuration(video.duration)}
+                                        </span>
                                     </div>
                                 )}
                             </div>
@@ -154,7 +166,10 @@ function QuickActionWidget() {
                         asChild
                         className="bg-white/20 hover:bg-white/30 text-white border border-white/30"
                     >
-                        <Link href="/news/video-library" className="flex items-center space-x-2">
+                        <Link
+                            href="/news/video-library"
+                            className="flex items-center space-x-2"
+                        >
                             <ExternalLink className="w-4 h-4" />
                             <span>Tazama Video Zote - View All Videos</span>
                         </Link>

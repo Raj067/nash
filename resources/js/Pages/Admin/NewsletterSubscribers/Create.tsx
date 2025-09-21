@@ -53,7 +53,8 @@ export default function Create() {
                             {/* Email */}
                             <div className="space-y-2">
                                 <Label htmlFor="email">
-                                    Email Address <span className="text-red-500">*</span>
+                                    Email Address{" "}
+                                    <span className="text-red-500">*</span>
                                 </Label>
                                 <div className="relative">
                                     <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
@@ -61,13 +62,19 @@ export default function Create() {
                                         id="email"
                                         type="email"
                                         value={data.email}
-                                        onChange={(e) => setData("email", e.target.value)}
+                                        onChange={(e) =>
+                                            setData("email", e.target.value)
+                                        }
                                         placeholder="Enter email address..."
-                                        className={`pl-10 ${errors.email ? "border-red-500" : ""}`}
+                                        className={`pl-10 ${
+                                            errors.email ? "border-red-500" : ""
+                                        }`}
                                     />
                                 </div>
                                 {errors.email && (
-                                    <p className="text-sm text-red-600">{errors.email}</p>
+                                    <p className="text-sm text-red-600">
+                                        {errors.email}
+                                    </p>
                                 )}
                                 <p className="text-sm text-gray-500">
                                     The email address must be unique and valid
@@ -76,23 +83,37 @@ export default function Create() {
 
                             {/* IP Address */}
                             <div className="space-y-2">
-                                <Label htmlFor="ip_address">IP Address (Optional)</Label>
+                                <Label htmlFor="ip_address">
+                                    IP Address (Optional)
+                                </Label>
                                 <div className="relative">
                                     <Globe className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
                                     <Input
                                         id="ip_address"
                                         type="text"
                                         value={data.ip_address}
-                                        onChange={(e) => setData("ip_address", e.target.value)}
+                                        onChange={(e) =>
+                                            setData(
+                                                "ip_address",
+                                                e.target.value
+                                            )
+                                        }
                                         placeholder="Enter IP address (optional)..."
-                                        className={`pl-10 ${errors.ip_address ? "border-red-500" : ""}`}
+                                        className={`pl-10 ${
+                                            errors.ip_address
+                                                ? "border-red-500"
+                                                : ""
+                                        }`}
                                     />
                                 </div>
                                 {errors.ip_address && (
-                                    <p className="text-sm text-red-600">{errors.ip_address}</p>
+                                    <p className="text-sm text-red-600">
+                                        {errors.ip_address}
+                                    </p>
                                 )}
                                 <p className="text-sm text-gray-500">
-                                    Leave empty to use the current request IP address
+                                    Leave empty to use the current request IP
+                                    address
                                 </p>
                             </div>
 
@@ -101,9 +122,13 @@ export default function Create() {
                                 <Switch
                                     id="is_active"
                                     checked={data.is_active}
-                                    onCheckedChange={(checked) => setData("is_active", checked)}
+                                    onCheckedChange={(checked) =>
+                                        setData("is_active", checked)
+                                    }
                                 />
-                                <Label htmlFor="is_active">Active Subscription</Label>
+                                <Label htmlFor="is_active">
+                                    Active Subscription
+                                </Label>
                                 <p className="text-sm text-gray-500 ml-2">
                                     {data.is_active
                                         ? "Subscriber will receive newsletters"
@@ -115,9 +140,15 @@ export default function Create() {
                             <div className="flex items-center gap-4 pt-6 border-t">
                                 <Button type="submit" disabled={processing}>
                                     <Save className="h-4 w-4 mr-2" />
-                                    {processing ? "Adding..." : "Add Subscriber"}
+                                    {processing
+                                        ? "Adding..."
+                                        : "Add Subscriber"}
                                 </Button>
-                                <Link href={route("admin.newsletter-subscribers.index")}>
+                                <Link
+                                    href={route(
+                                        "admin.newsletter-subscribers.index"
+                                    )}
+                                >
                                     <Button type="button" variant="outline">
                                         Cancel
                                     </Button>
@@ -137,16 +168,22 @@ export default function Create() {
                             <div className="space-y-4">
                                 <div className="flex items-center gap-2">
                                     <Mail className="h-4 w-4 text-gray-500" />
-                                    <span className="font-medium">{data.email}</span>
+                                    <span className="font-medium">
+                                        {data.email}
+                                    </span>
                                 </div>
                                 {data.ip_address && (
                                     <div className="flex items-center gap-2">
                                         <Globe className="h-4 w-4 text-gray-500" />
-                                        <span className="font-mono text-sm">{data.ip_address}</span>
+                                        <span className="font-mono text-sm">
+                                            {data.ip_address}
+                                        </span>
                                     </div>
                                 )}
                                 <div className="flex items-center gap-2">
-                                    <span className="text-sm text-gray-500">Status:</span>
+                                    <span className="text-sm text-gray-500">
+                                        Status:
+                                    </span>
                                     <span
                                         className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
                                             data.is_active
@@ -170,19 +207,26 @@ export default function Create() {
                     <CardContent>
                         <div className="space-y-3 text-sm text-gray-600">
                             <p>
-                                • <strong>Email Validation:</strong> The email address will be validated for proper format and uniqueness
+                                • <strong>Email Validation:</strong> The email
+                                address will be validated for proper format and
+                                uniqueness
                             </p>
                             <p>
-                                • <strong>IP Address:</strong> If not provided, the current request IP will be used automatically
+                                • <strong>IP Address:</strong> If not provided,
+                                the current request IP will be used
+                                automatically
                             </p>
                             <p>
-                                • <strong>Subscription Date:</strong> Will be set to the current date and time when created
+                                • <strong>Subscription Date:</strong> Will be
+                                set to the current date and time when created
                             </p>
                             <p>
-                                • <strong>Status:</strong> Active subscribers will receive newsletters, inactive ones will not
+                                • <strong>Status:</strong> Active subscribers
+                                will receive newsletters, inactive ones will not
                             </p>
                             <p>
-                                • <strong>Duplicate Check:</strong> The system will prevent adding duplicate email addresses
+                                • <strong>Duplicate Check:</strong> The system
+                                will prevent adding duplicate email addresses
                             </p>
                         </div>
                     </CardContent>

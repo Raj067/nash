@@ -102,8 +102,9 @@ export default function NacpRoles() {
                                     NASHCOP Roles & Responsibilities
                                 </h1>
                                 <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
-                                    Comprehensive overview of NASHCOP's roles and
-                                    responsibilities in Tanzania's HIV/AIDS response
+                                    Comprehensive overview of NASHCOP's roles
+                                    and responsibilities in Tanzania's HIV/AIDS
+                                    response
                                 </p>
                             </div>
                         </div>
@@ -128,32 +129,35 @@ export default function NacpRoles() {
                                 Core Responsibilities
                             </h2>
                             <p className="text-gray-600 max-w-3xl mx-auto text-lg leading-relaxed">
-                                NASHCOP's primary functions in coordinating Tanzania's national HIV/AIDS response
+                                NASHCOP's primary functions in coordinating
+                                Tanzania's national HIV/AIDS response
                             </p>
                         </div>
 
                         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            {coreResponsibilities.map((responsibility, index) => (
-                                <div
-                                    key={index}
-                                    className="group hover:shadow-2xl transition-all duration-500 border-0 bg-white/80 backdrop-blur-sm hover:scale-105 hover:bg-white relative overflow-hidden rounded-2xl p-6 shadow-lg"
-                                >
-                                    {/* Card Background Gradient */}
-                                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            {coreResponsibilities.map(
+                                (responsibility, index) => (
+                                    <div
+                                        key={index}
+                                        className="group hover:shadow-2xl transition-all duration-500 border-0 bg-white/80 backdrop-blur-sm hover:scale-105 hover:bg-white relative overflow-hidden rounded-2xl p-6 shadow-lg"
+                                    >
+                                        {/* Card Background Gradient */}
+                                        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-                                    <div className="text-center relative z-10">
-                                        <div className="mx-auto mb-6 p-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl w-20 h-20 flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300">
-                                            <responsibility.icon className="h-10 w-10 text-white" />
+                                        <div className="text-center relative z-10">
+                                            <div className="mx-auto mb-6 p-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl w-20 h-20 flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300">
+                                                <responsibility.icon className="h-10 w-10 text-white" />
+                                            </div>
+                                            <h3 className="text-xl font-bold text-gray-800 mb-4 group-hover:text-blue-600 transition-colors duration-300">
+                                                {responsibility.title}
+                                            </h3>
+                                            <p className="text-gray-600 leading-relaxed text-sm">
+                                                {responsibility.description}
+                                            </p>
                                         </div>
-                                        <h3 className="text-xl font-bold text-gray-800 mb-4 group-hover:text-blue-600 transition-colors duration-300">
-                                            {responsibility.title}
-                                        </h3>
-                                        <p className="text-gray-600 leading-relaxed text-sm">
-                                            {responsibility.description}
-                                        </p>
                                     </div>
-                                </div>
-                            ))}
+                                )
+                            )}
                         </div>
                     </div>
                 </section>
@@ -178,10 +182,12 @@ export default function NacpRoles() {
                                 Additional Key Functions
                             </h2>
                             <p className="text-blue-100 max-w-3xl mx-auto text-lg">
-                                Extended responsibilities that support NASHCOP's comprehensive approach to HIV/AIDS response
+                                Extended responsibilities that support NASHCOP's
+                                comprehensive approach to HIV/AIDS response
                                 <br />
                                 <span className="text-sm text-blue-200 mt-2 block">
-                                    Strategic coordination and technical leadership
+                                    Strategic coordination and technical
+                                    leadership
                                 </span>
                             </p>
                         </div>
@@ -220,7 +226,7 @@ export default function NacpRoles() {
                         <div className="group hover:shadow-2xl transition-all duration-500 border-0 bg-white/80 backdrop-blur-sm hover:scale-105 hover:bg-white relative overflow-hidden rounded-2xl p-12 shadow-lg text-center max-w-2xl mx-auto">
                             {/* Card Background Gradient */}
                             <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                            
+
                             <div className="relative z-10">
                                 <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full mb-6">
                                     <Mail className="h-10 w-10 text-white" />
@@ -229,7 +235,8 @@ export default function NacpRoles() {
                                     Get in Touch / Wasiliana Nasi
                                 </h2>
                                 <p className="text-gray-600 mb-8 leading-relaxed">
-                                    For more information about NASHCOP's roles and responsibilities, contact us:
+                                    For more information about NASHCOP's roles
+                                    and responsibilities, contact us:
                                 </p>
                                 <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-8">
                                     <div className="flex items-center space-x-2">

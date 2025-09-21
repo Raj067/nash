@@ -79,12 +79,12 @@ export default function Show({ blog }: Props) {
 
     const getCategoryDisplayName = (category: string) => {
         const categories: { [key: string]: string } = {
-            news: 'News',
-            press_releases: 'Press Releases',
-            speeches: 'Speeches',
-            events: 'NASHCOP Events',
-            newsletter: 'Newsletter',
-            photo_gallery: 'Photo Gallery',
+            news: "News",
+            press_releases: "Press Releases",
+            speeches: "Speeches",
+            events: "NASHCOP Events",
+            newsletter: "Newsletter",
+            photo_gallery: "Photo Gallery",
         };
         return categories[category] || category;
     };
@@ -118,7 +118,9 @@ export default function Show({ blog }: Props) {
     };
 
     const getWordCount = (text: string) => {
-        return stripHtml(text).split(/\s+/).filter(word => word.length > 0).length;
+        return stripHtml(text)
+            .split(/\s+/)
+            .filter((word) => word.length > 0).length;
     };
 
     return (
@@ -146,7 +148,11 @@ export default function Show({ blog }: Props) {
                     </div>
                     <div className="flex items-center gap-2">
                         <Button variant="outline" size="sm" asChild>
-                            <a href={`/blog/${blog.slug}`} target="_blank" rel="noopener noreferrer">
+                            <a
+                                href={`/blog/${blog.slug}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
                                 <Globe className="h-4 w-4 mr-2" />
                                 View Live
                             </a>
@@ -165,7 +171,10 @@ export default function Show({ blog }: Props) {
                             )}
                             {blog.is_published ? "Unpublish" : "Publish"}
                         </Button>
-                        <Button variant="outline" onClick={handleToggleFeatured}>
+                        <Button
+                            variant="outline"
+                            onClick={handleToggleFeatured}
+                        >
                             {blog.is_featured ? (
                                 <StarOff className="h-4 w-4 mr-2" />
                             ) : (
@@ -182,14 +191,18 @@ export default function Show({ blog }: Props) {
                             </AlertDialogTrigger>
                             <AlertDialogContent>
                                 <AlertDialogHeader>
-                                    <AlertDialogTitle>Delete Blog Post</AlertDialogTitle>
+                                    <AlertDialogTitle>
+                                        Delete Blog Post
+                                    </AlertDialogTitle>
                                     <AlertDialogDescription>
-                                        Are you sure you want to delete this blog post?
-                                        This action cannot be undone.
+                                        Are you sure you want to delete this
+                                        blog post? This action cannot be undone.
                                     </AlertDialogDescription>
                                 </AlertDialogHeader>
                                 <AlertDialogFooter>
-                                    <AlertDialogCancel>Cancel</AlertDialogCancel>
+                                    <AlertDialogCancel>
+                                        Cancel
+                                    </AlertDialogCancel>
                                     <AlertDialogAction onClick={handleDelete}>
                                         Delete
                                     </AlertDialogAction>
@@ -206,7 +219,9 @@ export default function Show({ blog }: Props) {
                             <div className="flex items-center gap-2">
                                 <div
                                     className={`w-3 h-3 rounded-full ${
-                                        blog.is_published ? "bg-green-500" : "bg-yellow-500"
+                                        blog.is_published
+                                            ? "bg-green-500"
+                                            : "bg-yellow-500"
                                     }`}
                                 />
                                 <span className="text-sm font-medium">
@@ -296,13 +311,16 @@ export default function Show({ blog }: Props) {
                                                 : "bg-yellow-100 text-yellow-800"
                                         }
                                     >
-                                        {blog.is_published ? "Published" : "Draft"}
+                                        {blog.is_published
+                                            ? "Published"
+                                            : "Draft"}
                                     </Badge>
                                 </div>
 
                                 <div className="flex items-center gap-4 text-sm text-gray-600 mb-6">
                                     <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
-                                        {getCategoryIcon(blog.category)} {getCategoryDisplayName(blog.category)}
+                                        {getCategoryIcon(blog.category)}{" "}
+                                        {getCategoryDisplayName(blog.category)}
                                     </span>
                                     <span className="flex items-center gap-1">
                                         <User className="h-4 w-4" />
@@ -324,7 +342,9 @@ export default function Show({ blog }: Props) {
 
                                 {blog.excerpt && (
                                     <div className="mb-6">
-                                        <h4 className="font-medium text-gray-900 mb-2">Excerpt</h4>
+                                        <h4 className="font-medium text-gray-900 mb-2">
+                                            Excerpt
+                                        </h4>
                                         <p className="text-lg text-gray-700 italic border-l-4 border-blue-500 pl-4">
                                             {blog.excerpt}
                                         </p>
@@ -332,10 +352,14 @@ export default function Show({ blog }: Props) {
                                 )}
 
                                 <div className="prose max-w-none">
-                                    <h4 className="font-medium text-gray-900 mb-4">Content</h4>
-                                    <div 
+                                    <h4 className="font-medium text-gray-900 mb-4">
+                                        Content
+                                    </h4>
+                                    <div
                                         className="prose-content"
-                                        dangerouslySetInnerHTML={{ __html: blog.content }}
+                                        dangerouslySetInnerHTML={{
+                                            __html: blog.content,
+                                        }}
                                     />
                                 </div>
                             </div>
@@ -365,35 +389,50 @@ export default function Show({ blog }: Props) {
                 </Card>
 
                 {/* SEO Information */}
-                {blog.meta_data && (blog.meta_data.seo_title || blog.meta_data.seo_description || blog.meta_data.seo_keywords) && (
-                    <Card>
-                        <CardHeader>
-                            <CardTitle>SEO Information</CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                            <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
-                                {blog.meta_data.seo_title && (
-                                    <div>
-                                        <h4 className="font-medium text-gray-900 mb-1">SEO Title</h4>
-                                        <p className="text-gray-600">{blog.meta_data.seo_title}</p>
-                                    </div>
-                                )}
-                                {blog.meta_data.seo_description && (
-                                    <div>
-                                        <h4 className="font-medium text-gray-900 mb-1">SEO Description</h4>
-                                        <p className="text-gray-600">{blog.meta_data.seo_description}</p>
-                                    </div>
-                                )}
-                                {blog.meta_data.seo_keywords && (
-                                    <div>
-                                        <h4 className="font-medium text-gray-900 mb-1">SEO Keywords</h4>
-                                        <p className="text-gray-600">{blog.meta_data.seo_keywords}</p>
-                                    </div>
-                                )}
-                            </div>
-                        </CardContent>
-                    </Card>
-                )}
+                {blog.meta_data &&
+                    (blog.meta_data.seo_title ||
+                        blog.meta_data.seo_description ||
+                        blog.meta_data.seo_keywords) && (
+                        <Card>
+                            <CardHeader>
+                                <CardTitle>SEO Information</CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
+                                    {blog.meta_data.seo_title && (
+                                        <div>
+                                            <h4 className="font-medium text-gray-900 mb-1">
+                                                SEO Title
+                                            </h4>
+                                            <p className="text-gray-600">
+                                                {blog.meta_data.seo_title}
+                                            </p>
+                                        </div>
+                                    )}
+                                    {blog.meta_data.seo_description && (
+                                        <div>
+                                            <h4 className="font-medium text-gray-900 mb-1">
+                                                SEO Description
+                                            </h4>
+                                            <p className="text-gray-600">
+                                                {blog.meta_data.seo_description}
+                                            </p>
+                                        </div>
+                                    )}
+                                    {blog.meta_data.seo_keywords && (
+                                        <div>
+                                            <h4 className="font-medium text-gray-900 mb-1">
+                                                SEO Keywords
+                                            </h4>
+                                            <p className="text-gray-600">
+                                                {blog.meta_data.seo_keywords}
+                                            </p>
+                                        </div>
+                                    )}
+                                </div>
+                            </CardContent>
+                        </Card>
+                    )}
 
                 {/* Technical Details */}
                 <Card>
@@ -404,39 +443,64 @@ export default function Show({ blog }: Props) {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div className="space-y-4">
                                 <div>
-                                    <h4 className="font-medium text-gray-900 mb-1">URL Slug</h4>
+                                    <h4 className="font-medium text-gray-900 mb-1">
+                                        URL Slug
+                                    </h4>
                                     <p className="text-gray-600 font-mono text-sm bg-gray-100 px-2 py-1 rounded">
                                         /blog/{blog.slug}
                                     </p>
                                 </div>
                                 <div>
-                                    <h4 className="font-medium text-gray-900 mb-1">Category</h4>
+                                    <h4 className="font-medium text-gray-900 mb-1">
+                                        Category
+                                    </h4>
                                     <Badge className="bg-blue-100 text-blue-800">
-                                        {getCategoryIcon(blog.category)} {getCategoryDisplayName(blog.category)}
+                                        {getCategoryIcon(blog.category)}{" "}
+                                        {getCategoryDisplayName(blog.category)}
                                     </Badge>
                                 </div>
                                 <div>
-                                    <h4 className="font-medium text-gray-900 mb-1">Sort Order</h4>
-                                    <p className="text-gray-600">{blog.sort_order}</p>
+                                    <h4 className="font-medium text-gray-900 mb-1">
+                                        Sort Order
+                                    </h4>
+                                    <p className="text-gray-600">
+                                        {blog.sort_order}
+                                    </p>
                                 </div>
                                 <div>
-                                    <h4 className="font-medium text-gray-900 mb-1">Word Count</h4>
-                                    <p className="text-gray-600">{getWordCount(blog.content)} words</p>
+                                    <h4 className="font-medium text-gray-900 mb-1">
+                                        Word Count
+                                    </h4>
+                                    <p className="text-gray-600">
+                                        {getWordCount(blog.content)} words
+                                    </p>
                                 </div>
                             </div>
                             <div className="space-y-4">
                                 <div>
-                                    <h4 className="font-medium text-gray-900 mb-1">Created</h4>
-                                    <p className="text-gray-600">{formatDate(blog.created_at)}</p>
-                                </div>
-                                <div>
-                                    <h4 className="font-medium text-gray-900 mb-1">Last Updated</h4>
-                                    <p className="text-gray-600">{formatDate(blog.updated_at)}</p>
-                                </div>
-                                <div>
-                                    <h4 className="font-medium text-gray-900 mb-1">Published Date</h4>
+                                    <h4 className="font-medium text-gray-900 mb-1">
+                                        Created
+                                    </h4>
                                     <p className="text-gray-600">
-                                        {new Date(blog.published_date).toLocaleDateString("en-US", {
+                                        {formatDate(blog.created_at)}
+                                    </p>
+                                </div>
+                                <div>
+                                    <h4 className="font-medium text-gray-900 mb-1">
+                                        Last Updated
+                                    </h4>
+                                    <p className="text-gray-600">
+                                        {formatDate(blog.updated_at)}
+                                    </p>
+                                </div>
+                                <div>
+                                    <h4 className="font-medium text-gray-900 mb-1">
+                                        Published Date
+                                    </h4>
+                                    <p className="text-gray-600">
+                                        {new Date(
+                                            blog.published_date
+                                        ).toLocaleDateString("en-US", {
                                             year: "numeric",
                                             month: "long",
                                             day: "numeric",
@@ -444,8 +508,12 @@ export default function Show({ blog }: Props) {
                                     </p>
                                 </div>
                                 <div>
-                                    <h4 className="font-medium text-gray-900 mb-1">Reading Time</h4>
-                                    <p className="text-gray-600">{blog.reading_time}</p>
+                                    <h4 className="font-medium text-gray-900 mb-1">
+                                        Reading Time
+                                    </h4>
+                                    <p className="text-gray-600">
+                                        {blog.reading_time}
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -460,7 +528,9 @@ export default function Show({ blog }: Props) {
                     <CardContent>
                         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                             <div className="p-4 border rounded-lg">
-                                <h4 className="font-medium text-gray-900 mb-2">Edit Post</h4>
+                                <h4 className="font-medium text-gray-900 mb-2">
+                                    Edit Post
+                                </h4>
                                 <p className="text-sm text-gray-600 mb-3">
                                     Update content, settings, and metadata
                                 </p>
@@ -473,7 +543,9 @@ export default function Show({ blog }: Props) {
                             </div>
                             <div className="p-4 border rounded-lg">
                                 <h4 className="font-medium text-gray-900 mb-2">
-                                    {blog.is_published ? "Unpublish" : "Publish"}
+                                    {blog.is_published
+                                        ? "Unpublish"
+                                        : "Publish"}
                                 </h4>
                                 <p className="text-sm text-gray-600 mb-3">
                                     {blog.is_published
@@ -491,7 +563,9 @@ export default function Show({ blog }: Props) {
                                     ) : (
                                         <ToggleRight className="h-4 w-4 mr-2" />
                                     )}
-                                    {blog.is_published ? "Unpublish" : "Publish"}
+                                    {blog.is_published
+                                        ? "Unpublish"
+                                        : "Publish"}
                                 </Button>
                             </div>
                             <div className="p-4 border rounded-lg">
@@ -518,28 +592,41 @@ export default function Show({ blog }: Props) {
                                 </Button>
                             </div>
                             <div className="p-4 border rounded-lg">
-                                <h4 className="font-medium text-gray-900 mb-2">Delete Post</h4>
+                                <h4 className="font-medium text-gray-900 mb-2">
+                                    Delete Post
+                                </h4>
                                 <p className="text-sm text-gray-600 mb-3">
                                     Permanently remove this blog post
                                 </p>
                                 <AlertDialog>
                                     <AlertDialogTrigger asChild>
-                                        <Button size="sm" variant="destructive" className="w-full">
+                                        <Button
+                                            size="sm"
+                                            variant="destructive"
+                                            className="w-full"
+                                        >
                                             <Trash2 className="h-4 w-4 mr-2" />
                                             Delete
                                         </Button>
                                     </AlertDialogTrigger>
                                     <AlertDialogContent>
                                         <AlertDialogHeader>
-                                            <AlertDialogTitle>Delete Blog Post</AlertDialogTitle>
+                                            <AlertDialogTitle>
+                                                Delete Blog Post
+                                            </AlertDialogTitle>
                                             <AlertDialogDescription>
-                                                Are you sure you want to delete this blog post?
-                                                This action cannot be undone.
+                                                Are you sure you want to delete
+                                                this blog post? This action
+                                                cannot be undone.
                                             </AlertDialogDescription>
                                         </AlertDialogHeader>
                                         <AlertDialogFooter>
-                                            <AlertDialogCancel>Cancel</AlertDialogCancel>
-                                            <AlertDialogAction onClick={handleDelete}>
+                                            <AlertDialogCancel>
+                                                Cancel
+                                            </AlertDialogCancel>
+                                            <AlertDialogAction
+                                                onClick={handleDelete}
+                                            >
                                                 Delete
                                             </AlertDialogAction>
                                         </AlertDialogFooter>

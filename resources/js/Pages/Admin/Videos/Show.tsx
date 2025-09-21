@@ -131,7 +131,10 @@ export default function Show({ video }: Props) {
                             )}
                             {video.is_active ? "Deactivate" : "Activate"}
                         </Button>
-                        <Button variant="outline" onClick={handleToggleFeatured}>
+                        <Button
+                            variant="outline"
+                            onClick={handleToggleFeatured}
+                        >
                             {video.is_featured ? (
                                 <StarOff className="h-4 w-4 mr-2" />
                             ) : (
@@ -148,14 +151,18 @@ export default function Show({ video }: Props) {
                             </AlertDialogTrigger>
                             <AlertDialogContent>
                                 <AlertDialogHeader>
-                                    <AlertDialogTitle>Delete Video</AlertDialogTitle>
+                                    <AlertDialogTitle>
+                                        Delete Video
+                                    </AlertDialogTitle>
                                     <AlertDialogDescription>
-                                        Are you sure you want to delete this video? This
-                                        action cannot be undone.
+                                        Are you sure you want to delete this
+                                        video? This action cannot be undone.
                                     </AlertDialogDescription>
                                 </AlertDialogHeader>
                                 <AlertDialogFooter>
-                                    <AlertDialogCancel>Cancel</AlertDialogCancel>
+                                    <AlertDialogCancel>
+                                        Cancel
+                                    </AlertDialogCancel>
                                     <AlertDialogAction onClick={handleDelete}>
                                         Delete
                                     </AlertDialogAction>
@@ -172,7 +179,9 @@ export default function Show({ video }: Props) {
                             <div className="flex items-center gap-2">
                                 <div
                                     className={`w-3 h-3 rounded-full ${
-                                        video.is_active ? "bg-green-500" : "bg-red-500"
+                                        video.is_active
+                                            ? "bg-green-500"
+                                            : "bg-red-500"
                                     }`}
                                 />
                                 <span className="text-sm font-medium">
@@ -185,7 +194,11 @@ export default function Show({ video }: Props) {
                         <CardContent className="p-4">
                             <div className="flex items-center gap-2">
                                 <Tag className="h-4 w-4 text-gray-500" />
-                                <Badge className={getCategoryBadgeColor(video.category)}>
+                                <Badge
+                                    className={getCategoryBadgeColor(
+                                        video.category
+                                    )}
+                                >
                                     {video.category.charAt(0).toUpperCase() +
                                         video.category.slice(1)}
                                 </Badge>
@@ -253,13 +266,19 @@ export default function Show({ video }: Props) {
                                 </div>
                             </div>
                             <div className="flex items-center gap-4 text-sm text-gray-500">
-                                <Badge className={getCategoryBadgeColor(video.category)}>
+                                <Badge
+                                    className={getCategoryBadgeColor(
+                                        video.category
+                                    )}
+                                >
                                     {video.category.charAt(0).toUpperCase() +
                                         video.category.slice(1)}
                                 </Badge>
                                 <div className="flex items-center gap-1">
                                     <Clock className="h-3 w-3" />
-                                    <span>{formatDuration(video.duration)}</span>
+                                    <span>
+                                        {formatDuration(video.duration)}
+                                    </span>
                                 </div>
                                 {video.is_featured && (
                                     <Badge className="bg-yellow-100 text-yellow-800">
@@ -305,7 +324,9 @@ export default function Show({ video }: Props) {
                                     <h4 className="font-medium text-gray-900 mb-1">
                                         Sort Order
                                     </h4>
-                                    <p className="text-gray-600">{video.sort_order}</p>
+                                    <p className="text-gray-600">
+                                        {video.sort_order}
+                                    </p>
                                 </div>
                             </div>
                             <div className="space-y-4">
@@ -314,7 +335,9 @@ export default function Show({ video }: Props) {
                                         Created
                                     </h4>
                                     <p className="text-gray-600">
-                                        {new Date(video.created_at).toLocaleString("en-US", {
+                                        {new Date(
+                                            video.created_at
+                                        ).toLocaleString("en-US", {
                                             year: "numeric",
                                             month: "long",
                                             day: "numeric",
@@ -328,7 +351,9 @@ export default function Show({ video }: Props) {
                                         Last Updated
                                     </h4>
                                     <p className="text-gray-600">
-                                        {new Date(video.updated_at).toLocaleString("en-US", {
+                                        {new Date(
+                                            video.updated_at
+                                        ).toLocaleString("en-US", {
                                             year: "numeric",
                                             month: "long",
                                             day: "numeric",
@@ -404,7 +429,8 @@ export default function Show({ video }: Props) {
                     <CardHeader>
                         <CardTitle>User Preview</CardTitle>
                         <p className="text-sm text-gray-600">
-                            This is how the video will appear to users on the website
+                            This is how the video will appear to users on the
+                            website
                         </p>
                     </CardHeader>
                     <CardContent>
@@ -439,13 +465,20 @@ export default function Show({ video }: Props) {
                                     </p>
                                 </div>
                                 <div className="flex items-center gap-4 text-sm text-gray-500">
-                                    <Badge variant="secondary" className="text-xs">
-                                        {video.category.charAt(0).toUpperCase() +
+                                    <Badge
+                                        variant="secondary"
+                                        className="text-xs"
+                                    >
+                                        {video.category
+                                            .charAt(0)
+                                            .toUpperCase() +
                                             video.category.slice(1)}
                                     </Badge>
                                     <div className="flex items-center gap-1">
                                         <Clock className="h-3 w-3" />
-                                        <span>{formatDuration(video.duration)}</span>
+                                        <span>
+                                            {formatDuration(video.duration)}
+                                        </span>
                                     </div>
                                 </div>
                             </div>

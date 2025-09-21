@@ -492,17 +492,21 @@ export default function Feedback() {
 
                                         {/* Success/Error Messages */}
                                         {message && (
-                                            <div className={`p-4 rounded-lg flex items-center space-x-3 ${
-                                                message.type === 'success' 
-                                                    ? 'bg-green-50 text-green-800 border border-green-200' 
-                                                    : 'bg-red-50 text-red-800 border border-red-200'
-                                            }`}>
-                                                {message.type === 'success' ? (
+                                            <div
+                                                className={`p-4 rounded-lg flex items-center space-x-3 ${
+                                                    message.type === "success"
+                                                        ? "bg-green-50 text-green-800 border border-green-200"
+                                                        : "bg-red-50 text-red-800 border border-red-200"
+                                                }`}
+                                            >
+                                                {message.type === "success" ? (
                                                     <CheckCircle className="w-5 h-5 flex-shrink-0" />
                                                 ) : (
                                                     <AlertCircle className="w-5 h-5 flex-shrink-0" />
                                                 )}
-                                                <span className="text-sm">{message.text}</span>
+                                                <span className="text-sm">
+                                                    {message.text}
+                                                </span>
                                             </div>
                                         )}
 
@@ -518,7 +522,9 @@ export default function Feedback() {
                                                 ) : (
                                                     <Send className="w-4 h-4 mr-2" />
                                                 )}
-                                                {isLoading ? 'Submitting...' : 'Submit Feedback'}
+                                                {isLoading
+                                                    ? "Submitting..."
+                                                    : "Submit Feedback"}
                                             </Button>
                                         </div>
                                     </form>

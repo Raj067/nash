@@ -98,7 +98,10 @@ Route::get('/api/blogs/featured', [BlogController::class, 'getFeatured'])->name(
 Route::get('/api/blogs/category/{category}', [BlogController::class, 'getByCategory'])->name('api.blogs.category');
 
 // Admin/Auth Routes
-Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/admin/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::redirect('/dashboard', '/admin/dashboard');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

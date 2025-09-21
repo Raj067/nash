@@ -56,7 +56,12 @@ export default function Edit({ subscriber }: Props) {
                             Update subscriber information and status
                         </p>
                     </div>
-                    <Link href={route("admin.newsletter-subscribers.show", subscriber.id)}>
+                    <Link
+                        href={route(
+                            "admin.newsletter-subscribers.show",
+                            subscriber.id
+                        )}
+                    >
                         <Button variant="outline" size="sm">
                             <Eye className="h-4 w-4 mr-2" />
                             View
@@ -74,7 +79,8 @@ export default function Edit({ subscriber }: Props) {
                             {/* Email */}
                             <div className="space-y-2">
                                 <Label htmlFor="email">
-                                    Email Address <span className="text-red-500">*</span>
+                                    Email Address{" "}
+                                    <span className="text-red-500">*</span>
                                 </Label>
                                 <div className="relative">
                                     <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
@@ -82,13 +88,19 @@ export default function Edit({ subscriber }: Props) {
                                         id="email"
                                         type="email"
                                         value={data.email}
-                                        onChange={(e) => setData("email", e.target.value)}
+                                        onChange={(e) =>
+                                            setData("email", e.target.value)
+                                        }
                                         placeholder="Enter email address..."
-                                        className={`pl-10 ${errors.email ? "border-red-500" : ""}`}
+                                        className={`pl-10 ${
+                                            errors.email ? "border-red-500" : ""
+                                        }`}
                                     />
                                 </div>
                                 {errors.email && (
-                                    <p className="text-sm text-red-600">{errors.email}</p>
+                                    <p className="text-sm text-red-600">
+                                        {errors.email}
+                                    </p>
                                 )}
                                 <p className="text-sm text-gray-500">
                                     The email address must be unique and valid
@@ -104,16 +116,28 @@ export default function Edit({ subscriber }: Props) {
                                         id="ip_address"
                                         type="text"
                                         value={data.ip_address}
-                                        onChange={(e) => setData("ip_address", e.target.value)}
+                                        onChange={(e) =>
+                                            setData(
+                                                "ip_address",
+                                                e.target.value
+                                            )
+                                        }
                                         placeholder="Enter IP address..."
-                                        className={`pl-10 ${errors.ip_address ? "border-red-500" : ""}`}
+                                        className={`pl-10 ${
+                                            errors.ip_address
+                                                ? "border-red-500"
+                                                : ""
+                                        }`}
                                     />
                                 </div>
                                 {errors.ip_address && (
-                                    <p className="text-sm text-red-600">{errors.ip_address}</p>
+                                    <p className="text-sm text-red-600">
+                                        {errors.ip_address}
+                                    </p>
                                 )}
                                 <p className="text-sm text-gray-500">
-                                    The IP address from which the subscription was made
+                                    The IP address from which the subscription
+                                    was made
                                 </p>
                             </div>
 
@@ -122,9 +146,13 @@ export default function Edit({ subscriber }: Props) {
                                 <Switch
                                     id="is_active"
                                     checked={data.is_active}
-                                    onCheckedChange={(checked) => setData("is_active", checked)}
+                                    onCheckedChange={(checked) =>
+                                        setData("is_active", checked)
+                                    }
                                 />
-                                <Label htmlFor="is_active">Active Subscription</Label>
+                                <Label htmlFor="is_active">
+                                    Active Subscription
+                                </Label>
                                 <p className="text-sm text-gray-500 ml-2">
                                     {data.is_active
                                         ? "Subscriber will receive newsletters"
@@ -134,18 +162,23 @@ export default function Edit({ subscriber }: Props) {
 
                             {/* Status Change Warning */}
                             {data.is_active !== subscriber.is_active && (
-                                <div className={`p-4 rounded-lg border ${
-                                    data.is_active 
-                                        ? "bg-green-50 border-green-200" 
-                                        : "bg-yellow-50 border-yellow-200"
-                                }`}>
-                                    <p className={`text-sm font-medium ${
-                                        data.is_active ? "text-green-800" : "text-yellow-800"
-                                    }`}>
-                                        {data.is_active 
+                                <div
+                                    className={`p-4 rounded-lg border ${
+                                        data.is_active
+                                            ? "bg-green-50 border-green-200"
+                                            : "bg-yellow-50 border-yellow-200"
+                                    }`}
+                                >
+                                    <p
+                                        className={`text-sm font-medium ${
+                                            data.is_active
+                                                ? "text-green-800"
+                                                : "text-yellow-800"
+                                        }`}
+                                    >
+                                        {data.is_active
                                             ? "⚠️ This will reactivate the subscription and update the subscription date"
-                                            : "⚠️ This will deactivate the subscription and set the unsubscription date"
-                                        }
+                                            : "⚠️ This will deactivate the subscription and set the unsubscription date"}
                                     </p>
                                 </div>
                             )}
@@ -154,9 +187,15 @@ export default function Edit({ subscriber }: Props) {
                             <div className="flex items-center gap-4 pt-6 border-t">
                                 <Button type="submit" disabled={processing}>
                                     <Save className="h-4 w-4 mr-2" />
-                                    {processing ? "Updating..." : "Update Subscriber"}
+                                    {processing
+                                        ? "Updating..."
+                                        : "Update Subscriber"}
                                 </Button>
-                                <Link href={route("admin.newsletter-subscribers.index")}>
+                                <Link
+                                    href={route(
+                                        "admin.newsletter-subscribers.index"
+                                    )}
+                                >
                                     <Button type="button" variant="outline">
                                         Cancel
                                     </Button>
@@ -175,16 +214,22 @@ export default function Edit({ subscriber }: Props) {
                         <div className="space-y-4">
                             <div className="flex items-center gap-2">
                                 <Mail className="h-4 w-4 text-gray-500" />
-                                <span className="font-medium">{data.email}</span>
+                                <span className="font-medium">
+                                    {data.email}
+                                </span>
                             </div>
                             {data.ip_address && (
                                 <div className="flex items-center gap-2">
                                     <Globe className="h-4 w-4 text-gray-500" />
-                                    <span className="font-mono text-sm">{data.ip_address}</span>
+                                    <span className="font-mono text-sm">
+                                        {data.ip_address}
+                                    </span>
                                 </div>
                             )}
                             <div className="flex items-center gap-2">
-                                <span className="text-sm text-gray-500">Status:</span>
+                                <span className="text-sm text-gray-500">
+                                    Status:
+                                </span>
                                 <span
                                     className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
                                         data.is_active
@@ -212,7 +257,9 @@ export default function Edit({ subscriber }: Props) {
                                         Originally Subscribed
                                     </h4>
                                     <p className="text-gray-600">
-                                        {new Date(subscriber.subscribed_at).toLocaleString("en-US", {
+                                        {new Date(
+                                            subscriber.subscribed_at
+                                        ).toLocaleString("en-US", {
                                             year: "numeric",
                                             month: "long",
                                             day: "numeric",
@@ -226,7 +273,9 @@ export default function Edit({ subscriber }: Props) {
                                         Record Created
                                     </h4>
                                     <p className="text-gray-600">
-                                        {new Date(subscriber.created_at).toLocaleString("en-US", {
+                                        {new Date(
+                                            subscriber.created_at
+                                        ).toLocaleString("en-US", {
                                             year: "numeric",
                                             month: "long",
                                             day: "numeric",
@@ -243,13 +292,15 @@ export default function Edit({ subscriber }: Props) {
                                     </h4>
                                     <p className="text-gray-600">
                                         {subscriber.unsubscribed_at
-                                            ? new Date(subscriber.unsubscribed_at).toLocaleString("en-US", {
-                                                year: "numeric",
-                                                month: "long",
-                                                day: "numeric",
-                                                hour: "2-digit",
-                                                minute: "2-digit",
-                                            })
+                                            ? new Date(
+                                                  subscriber.unsubscribed_at
+                                              ).toLocaleString("en-US", {
+                                                  year: "numeric",
+                                                  month: "long",
+                                                  day: "numeric",
+                                                  hour: "2-digit",
+                                                  minute: "2-digit",
+                                              })
                                             : "Never unsubscribed"}
                                     </p>
                                 </div>
@@ -258,7 +309,9 @@ export default function Edit({ subscriber }: Props) {
                                         Last Updated
                                     </h4>
                                     <p className="text-gray-600">
-                                        {new Date(subscriber.updated_at).toLocaleString("en-US", {
+                                        {new Date(
+                                            subscriber.updated_at
+                                        ).toLocaleString("en-US", {
                                             year: "numeric",
                                             month: "long",
                                             day: "numeric",

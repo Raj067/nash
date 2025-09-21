@@ -54,14 +54,16 @@ export default function HivAidsTanzania() {
         {
             route: "Heterosexual Sex",
             percentage: "80%",
-            description: "Commonest route for HIV transmission in Tanzania Mainland",
+            description:
+                "Commonest route for HIV transmission in Tanzania Mainland",
             icon: Heart,
             color: "from-red-400 to-red-600",
         },
         {
             route: "Other Routes",
             percentage: "20%",
-            description: "Including mother-to-child transmission and other modes",
+            description:
+                "Including mother-to-child transmission and other modes",
             icon: Activity,
             color: "from-blue-400 to-blue-600",
         },
@@ -107,8 +109,7 @@ export default function HivAidsTanzania() {
             title: "Mobile Populations and Sex Workers",
             prevalence: "14-35%",
             population: "High-risk group",
-            description:
-                "Higher risk due to mobility and occupational factors",
+            description: "Higher risk due to mobility and occupational factors",
             icon: Users,
             color: "from-purple-400 to-purple-600",
         },
@@ -117,28 +118,32 @@ export default function HivAidsTanzania() {
     const trends = [
         {
             title: "Declining HIV Incidence",
-            description: "HIV incidence dropped from 1.34% in 1992 to 0.07% among 15-24 year-olds in 2017",
+            description:
+                "HIV incidence dropped from 1.34% in 1992 to 0.07% among 15-24 year-olds in 2017",
             value: "0.07%",
             icon: TrendingDown,
             color: "text-green-600",
         },
         {
             title: "Adult Incidence Reduction",
-            description: "HIV incidence among adults (15-64) reduced to 0.25% in 2017",
+            description:
+                "HIV incidence among adults (15-64) reduced to 0.25% in 2017",
             value: "0.25%",
             icon: TrendingDown,
             color: "text-blue-600",
         },
         {
             title: "90-90-90 Target Progress",
-            description: "Attainment will lead to 90% reduction in new HIV infections by 2030",
+            description:
+                "Attainment will lead to 90% reduction in new HIV infections by 2030",
             value: "90%",
             icon: Target,
             color: "text-purple-600",
         },
         {
             title: "Test and Treat Strategy",
-            description: "Recent adoption of Treat All strategy to scale up services",
+            description:
+                "Recent adoption of Treat All strategy to scale up services",
             value: "100%",
             icon: Stethoscope,
             color: "text-indigo-600",
@@ -166,7 +171,9 @@ export default function HivAidsTanzania() {
                                     HIV/AIDS in Tanzania
                                 </h1>
                                 <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
-                                    Tanzania mainland experiences a generalised HIV epidemic with significant heterogeneity across demographics and geography
+                                    Tanzania mainland experiences a generalised
+                                    HIV epidemic with significant heterogeneity
+                                    across demographics and geography
                                 </p>
                             </div>
                         </div>
@@ -191,7 +198,8 @@ export default function HivAidsTanzania() {
                                 Key Statistics (2020)
                             </h2>
                             <p className="text-gray-600 max-w-3xl mx-auto text-lg leading-relaxed">
-                                Key statistics showing HIV prevalence and demographic patterns (THMIS 2011-12)
+                                Key statistics showing HIV prevalence and
+                                demographic patterns (THMIS 2011-12)
                             </p>
                         </div>
 
@@ -297,7 +305,8 @@ export default function HivAidsTanzania() {
                                 HIV Transmission Routes
                             </h2>
                             <p className="text-gray-600 max-w-3xl mx-auto text-lg leading-relaxed">
-                                Understanding how HIV is transmitted in Tanzania mainland
+                                Understanding how HIV is transmitted in Tanzania
+                                mainland
                             </p>
                         </div>
 
@@ -308,9 +317,11 @@ export default function HivAidsTanzania() {
                                     className="group hover:shadow-2xl transition-all duration-500 border-0 bg-white/80 backdrop-blur-sm hover:scale-105 hover:bg-white relative overflow-hidden rounded-2xl p-8 shadow-lg text-center"
                                 >
                                     <div className="absolute inset-0 bg-gradient-to-br from-red-500/5 to-orange-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                                    
+
                                     <div className="relative z-10">
-                                        <div className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r ${item.color} rounded-full mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                                        <div
+                                            className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r ${item.color} rounded-full mb-6 group-hover:scale-110 transition-transform duration-300`}
+                                        >
                                             <item.icon className="w-8 h-8 text-white" />
                                         </div>
                                         <h3 className="text-xl font-bold text-gray-800 mb-2">
@@ -340,7 +351,8 @@ export default function HivAidsTanzania() {
                                 Age Group Analysis
                             </h2>
                             <p className="text-gray-600 max-w-3xl mx-auto text-lg leading-relaxed">
-                                HIV prevalence patterns across different age groups showing gender disparities
+                                HIV prevalence patterns across different age
+                                groups showing gender disparities
                             </p>
                         </div>
 
@@ -351,10 +363,12 @@ export default function HivAidsTanzania() {
                                     className="group hover:shadow-2xl transition-all duration-500 border-0 bg-white/80 backdrop-blur-sm hover:scale-105 hover:bg-white relative overflow-hidden rounded-2xl p-8 shadow-lg"
                                 >
                                     <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                                    
+
                                     <div className="relative z-10">
                                         <div className="flex items-start space-x-4 mb-6">
-                                            <div className={`inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r ${item.color} rounded-full flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}>
+                                            <div
+                                                className={`inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r ${item.color} rounded-full flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}
+                                            >
                                                 <item.icon className="w-6 h-6 text-white" />
                                             </div>
                                             <div>
@@ -463,7 +477,9 @@ export default function HivAidsTanzania() {
                                 HIV Epidemic Context
                             </h2>
                             <p className="text-gray-600 max-w-3xl mx-auto text-lg leading-relaxed">
-                                Understanding Tanzania's HIV epidemic characteristics and progress towards ending AIDS by 2030
+                                Understanding Tanzania's HIV epidemic
+                                characteristics and progress towards ending AIDS
+                                by 2030
                             </p>
                         </div>
 
@@ -471,7 +487,7 @@ export default function HivAidsTanzania() {
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                 <div className="group hover:shadow-2xl transition-all duration-500 border-0 bg-white/80 backdrop-blur-sm hover:scale-105 hover:bg-white relative overflow-hidden rounded-2xl p-8 shadow-lg">
                                     <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                                    
+
                                     <div className="relative z-10">
                                         <div className="flex items-start space-x-4 mb-6">
                                             <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
@@ -482,14 +498,20 @@ export default function HivAidsTanzania() {
                                             </h3>
                                         </div>
                                         <p className="text-gray-600 leading-relaxed">
-                                            Tanzania mainland experiences a generalised HIV epidemic with significant heterogeneity across age, gender, socioeconomic status, and geographic location, implying differentials in the risk of transmission.
+                                            Tanzania mainland experiences a
+                                            generalised HIV epidemic with
+                                            significant heterogeneity across
+                                            age, gender, socioeconomic status,
+                                            and geographic location, implying
+                                            differentials in the risk of
+                                            transmission.
                                         </p>
                                     </div>
                                 </div>
 
                                 <div className="group hover:shadow-2xl transition-all duration-500 border-0 bg-white/80 backdrop-blur-sm hover:scale-105 hover:bg-white relative overflow-hidden rounded-2xl p-8 shadow-lg">
                                     <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                                    
+
                                     <div className="relative z-10">
                                         <div className="flex items-start space-x-4 mb-6">
                                             <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-green-500 to-blue-500 rounded-full flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
@@ -500,14 +522,18 @@ export default function HivAidsTanzania() {
                                             </h3>
                                         </div>
                                         <p className="text-gray-600 leading-relaxed">
-                                            Attainment of global 90-90-90 targets will lead to reduction of new HIV infections by 90%, providing an opportunity for ending the AIDS epidemic by 2030.
+                                            Attainment of global 90-90-90
+                                            targets will lead to reduction of
+                                            new HIV infections by 90%, providing
+                                            an opportunity for ending the AIDS
+                                            epidemic by 2030.
                                         </p>
                                     </div>
                                 </div>
 
                                 <div className="group hover:shadow-2xl transition-all duration-500 border-0 bg-white/80 backdrop-blur-sm hover:scale-105 hover:bg-white relative overflow-hidden rounded-2xl p-8 shadow-lg">
                                     <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                                    
+
                                     <div className="relative z-10">
                                         <div className="flex items-start space-x-4 mb-6">
                                             <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
@@ -518,14 +544,19 @@ export default function HivAidsTanzania() {
                                             </h3>
                                         </div>
                                         <p className="text-gray-600 leading-relaxed">
-                                            The country's goal was to reduce HIV incidence in the general population to less than 0.16% by 2017, with significant progress made through scaled-up prevention and treatment services.
+                                            The country's goal was to reduce HIV
+                                            incidence in the general population
+                                            to less than 0.16% by 2017, with
+                                            significant progress made through
+                                            scaled-up prevention and treatment
+                                            services.
                                         </p>
                                     </div>
                                 </div>
 
                                 <div className="group hover:shadow-2xl transition-all duration-500 border-0 bg-white/80 backdrop-blur-sm hover:scale-105 hover:bg-white relative overflow-hidden rounded-2xl p-8 shadow-lg">
                                     <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-red-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                                    
+
                                     <div className="relative z-10">
                                         <div className="flex items-start space-x-4 mb-6">
                                             <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
@@ -536,7 +567,12 @@ export default function HivAidsTanzania() {
                                             </h3>
                                         </div>
                                         <p className="text-gray-600 leading-relaxed">
-                                            Women are disproportionally more affected, with HIV prevalence of 6.3% versus 3.9% among men, with particularly high rates among young women aged 20-24 (4.4% vs 1.7% for men).
+                                            Women are disproportionally more
+                                            affected, with HIV prevalence of
+                                            6.3% versus 3.9% among men, with
+                                            particularly high rates among young
+                                            women aged 20-24 (4.4% vs 1.7% for
+                                            men).
                                         </p>
                                     </div>
                                 </div>

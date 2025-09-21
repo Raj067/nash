@@ -113,7 +113,13 @@ interface Props {
     };
 }
 
-export default function Index({ users, roles, statuses, stats, filters }: Props) {
+export default function Index({
+    users,
+    roles,
+    statuses,
+    stats,
+    filters,
+}: Props) {
     const [selectedUsers, setSelectedUsers] = useState<number[]>([]);
     const [searchTerm, setSearchTerm] = useState(filters.search || "");
 
@@ -157,8 +163,12 @@ export default function Index({ users, roles, statuses, stats, filters }: Props)
                             <div className="flex items-center gap-2">
                                 <Users className="h-4 w-4 text-blue-500" />
                                 <div>
-                                    <p className="text-2xl font-bold">{stats.total}</p>
-                                    <p className="text-xs text-gray-500">Total</p>
+                                    <p className="text-2xl font-bold">
+                                        {stats.total}
+                                    </p>
+                                    <p className="text-xs text-gray-500">
+                                        Total
+                                    </p>
                                 </div>
                             </div>
                         </CardContent>
@@ -168,8 +178,12 @@ export default function Index({ users, roles, statuses, stats, filters }: Props)
                             <div className="flex items-center gap-2">
                                 <UserCheck className="h-4 w-4 text-green-500" />
                                 <div>
-                                    <p className="text-2xl font-bold">{stats.active}</p>
-                                    <p className="text-xs text-gray-500">Active</p>
+                                    <p className="text-2xl font-bold">
+                                        {stats.active}
+                                    </p>
+                                    <p className="text-xs text-gray-500">
+                                        Active
+                                    </p>
                                 </div>
                             </div>
                         </CardContent>
@@ -179,8 +193,12 @@ export default function Index({ users, roles, statuses, stats, filters }: Props)
                             <div className="flex items-center gap-2">
                                 <UserX className="h-4 w-4 text-yellow-500" />
                                 <div>
-                                    <p className="text-2xl font-bold">{stats.inactive}</p>
-                                    <p className="text-xs text-gray-500">Inactive</p>
+                                    <p className="text-2xl font-bold">
+                                        {stats.inactive}
+                                    </p>
+                                    <p className="text-xs text-gray-500">
+                                        Inactive
+                                    </p>
                                 </div>
                             </div>
                         </CardContent>
@@ -190,8 +208,12 @@ export default function Index({ users, roles, statuses, stats, filters }: Props)
                             <div className="flex items-center gap-2">
                                 <Shield className="h-4 w-4 text-red-500" />
                                 <div>
-                                    <p className="text-2xl font-bold">{stats.admins}</p>
-                                    <p className="text-xs text-gray-500">Admins</p>
+                                    <p className="text-2xl font-bold">
+                                        {stats.admins}
+                                    </p>
+                                    <p className="text-xs text-gray-500">
+                                        Admins
+                                    </p>
                                 </div>
                             </div>
                         </CardContent>
@@ -201,8 +223,12 @@ export default function Index({ users, roles, statuses, stats, filters }: Props)
                             <div className="flex items-center gap-2">
                                 <Users className="h-4 w-4 text-purple-500" />
                                 <div>
-                                    <p className="text-2xl font-bold">{stats.managers}</p>
-                                    <p className="text-xs text-gray-500">Managers</p>
+                                    <p className="text-2xl font-bold">
+                                        {stats.managers}
+                                    </p>
+                                    <p className="text-xs text-gray-500">
+                                        Managers
+                                    </p>
                                 </div>
                             </div>
                         </CardContent>
@@ -212,8 +238,12 @@ export default function Index({ users, roles, statuses, stats, filters }: Props)
                             <div className="flex items-center gap-2">
                                 <Edit className="h-4 w-4 text-blue-500" />
                                 <div>
-                                    <p className="text-2xl font-bold">{stats.editors}</p>
-                                    <p className="text-xs text-gray-500">Editors</p>
+                                    <p className="text-2xl font-bold">
+                                        {stats.editors}
+                                    </p>
+                                    <p className="text-xs text-gray-500">
+                                        Editors
+                                    </p>
                                 </div>
                             </div>
                         </CardContent>
@@ -223,8 +253,12 @@ export default function Index({ users, roles, statuses, stats, filters }: Props)
                             <div className="flex items-center gap-2">
                                 <Users className="h-4 w-4 text-gray-500" />
                                 <div>
-                                    <p className="text-2xl font-bold">{stats.users}</p>
-                                    <p className="text-xs text-gray-500">Users</p>
+                                    <p className="text-2xl font-bold">
+                                        {stats.users}
+                                    </p>
+                                    <p className="text-xs text-gray-500">
+                                        Users
+                                    </p>
                                 </div>
                             </div>
                         </CardContent>
@@ -234,8 +268,12 @@ export default function Index({ users, roles, statuses, stats, filters }: Props)
                             <div className="flex items-center gap-2">
                                 <CheckCircle className="h-4 w-4 text-green-500" />
                                 <div>
-                                    <p className="text-2xl font-bold">{stats.verified}</p>
-                                    <p className="text-xs text-gray-500">Verified</p>
+                                    <p className="text-2xl font-bold">
+                                        {stats.verified}
+                                    </p>
+                                    <p className="text-xs text-gray-500">
+                                        Verified
+                                    </p>
                                 </div>
                             </div>
                         </CardContent>
@@ -245,8 +283,12 @@ export default function Index({ users, roles, statuses, stats, filters }: Props)
                             <div className="flex items-center gap-2">
                                 <XCircle className="h-4 w-4 text-red-500" />
                                 <div>
-                                    <p className="text-2xl font-bold">{stats.unverified}</p>
-                                    <p className="text-xs text-gray-500">Unverified</p>
+                                    <p className="text-2xl font-bold">
+                                        {stats.unverified}
+                                    </p>
+                                    <p className="text-xs text-gray-500">
+                                        Unverified
+                                    </p>
                                 </div>
                             </div>
                         </CardContent>
@@ -270,7 +312,10 @@ export default function Index({ users, roles, statuses, stats, filters }: Props)
                         <TableBody>
                             {users.data.length === 0 ? (
                                 <TableRow>
-                                    <TableCell colSpan={7} className="text-center py-8 text-gray-500">
+                                    <TableCell
+                                        colSpan={7}
+                                        className="text-center py-8 text-gray-500"
+                                    >
                                         No users found.{" "}
                                         <Link
                                             href={route("admin.users.create")}
@@ -294,13 +339,19 @@ export default function Index({ users, roles, statuses, stats, filters }: Props)
                                                 ) : (
                                                     <div className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center">
                                                         <span className="text-sm font-medium text-gray-600">
-                                                            {user.name.charAt(0).toUpperCase()}
+                                                            {user.name
+                                                                .charAt(0)
+                                                                .toUpperCase()}
                                                         </span>
                                                     </div>
                                                 )}
                                                 <div>
-                                                    <div className="font-medium">{user.name}</div>
-                                                    <div className="text-sm text-gray-500">{user.email}</div>
+                                                    <div className="font-medium">
+                                                        {user.name}
+                                                    </div>
+                                                    <div className="text-sm text-gray-500">
+                                                        {user.email}
+                                                    </div>
                                                 </div>
                                             </div>
                                         </TableCell>
@@ -327,33 +378,49 @@ export default function Index({ users, roles, statuses, stats, filters }: Props)
                                         </TableCell>
                                         <TableCell>
                                             <span className="text-sm text-gray-600">
-                                                {user.last_login_at ? 
-                                                    new Date(user.last_login_at).toLocaleDateString() : 
-                                                    'Never'
-                                                }
+                                                {user.last_login_at
+                                                    ? new Date(
+                                                          user.last_login_at
+                                                      ).toLocaleDateString()
+                                                    : "Never"}
                                             </span>
                                         </TableCell>
                                         <TableCell>
                                             <span className="text-sm text-gray-600">
-                                                {new Date(user.created_at).toLocaleDateString()}
+                                                {new Date(
+                                                    user.created_at
+                                                ).toLocaleDateString()}
                                             </span>
                                         </TableCell>
                                         <TableCell>
                                             <DropdownMenu>
                                                 <DropdownMenuTrigger asChild>
-                                                    <Button variant="ghost" size="sm">
+                                                    <Button
+                                                        variant="ghost"
+                                                        size="sm"
+                                                    >
                                                         <MoreHorizontal className="h-4 w-4" />
                                                     </Button>
                                                 </DropdownMenuTrigger>
                                                 <DropdownMenuContent align="end">
                                                     <DropdownMenuItem asChild>
-                                                        <Link href={route("admin.users.show", user.id)}>
+                                                        <Link
+                                                            href={route(
+                                                                "admin.users.show",
+                                                                user.id
+                                                            )}
+                                                        >
                                                             <Eye className="h-4 w-4 mr-2" />
                                                             View
                                                         </Link>
                                                     </DropdownMenuItem>
                                                     <DropdownMenuItem asChild>
-                                                        <Link href={route("admin.users.edit", user.id)}>
+                                                        <Link
+                                                            href={route(
+                                                                "admin.users.edit",
+                                                                user.id
+                                                            )}
+                                                        >
                                                             <Edit className="h-4 w-4 mr-2" />
                                                             Edit
                                                         </Link>

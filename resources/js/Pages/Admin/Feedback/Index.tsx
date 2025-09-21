@@ -111,7 +111,13 @@ interface Props {
     };
 }
 
-export default function Index({ feedback, types, statuses, stats, filters }: Props) {
+export default function Index({
+    feedback,
+    types,
+    statuses,
+    stats,
+    filters,
+}: Props) {
     const [selectedFeedback, setSelectedFeedback] = useState<number[]>([]);
     const [searchTerm, setSearchTerm] = useState(filters.search || "");
     const [selectedType, setSelectedType] = useState(filters.type || "");
@@ -150,8 +156,10 @@ export default function Index({ feedback, types, statuses, stats, filters }: Pro
         }
 
         if (selectedType && filterType !== "type") params.type = selectedType;
-        if (selectedStatus && filterType !== "status") params.status = selectedStatus;
-        if (selectedRating && filterType !== "rating") params.rating = selectedRating;
+        if (selectedStatus && filterType !== "status")
+            params.status = selectedStatus;
+        if (selectedRating && filterType !== "rating")
+            params.rating = selectedRating;
         if (dateFrom) params.date_from = dateFrom;
         if (dateTo) params.date_to = dateTo;
 
@@ -180,7 +188,9 @@ export default function Index({ feedback, types, statuses, stats, filters }: Pro
         if (checked) {
             setSelectedFeedback([...selectedFeedback, feedbackId]);
         } else {
-            setSelectedFeedback(selectedFeedback.filter((id) => id !== feedbackId));
+            setSelectedFeedback(
+                selectedFeedback.filter((id) => id !== feedbackId)
+            );
         }
     };
 
@@ -289,7 +299,8 @@ export default function Index({ feedback, types, statuses, stats, filters }: Pro
                             Feedback Management
                         </h1>
                         <p className="text-gray-600">
-                            Manage customer feedback, complaints, and suggestions
+                            Manage customer feedback, complaints, and
+                            suggestions
                         </p>
                     </div>
                     <div className="flex gap-2">
@@ -313,8 +324,12 @@ export default function Index({ feedback, types, statuses, stats, filters }: Pro
                             <div className="flex items-center gap-2">
                                 <MessageCircle className="h-4 w-4 text-blue-500" />
                                 <div>
-                                    <p className="text-2xl font-bold">{stats.total}</p>
-                                    <p className="text-xs text-gray-500">Total</p>
+                                    <p className="text-2xl font-bold">
+                                        {stats.total}
+                                    </p>
+                                    <p className="text-xs text-gray-500">
+                                        Total
+                                    </p>
                                 </div>
                             </div>
                         </CardContent>
@@ -324,8 +339,12 @@ export default function Index({ feedback, types, statuses, stats, filters }: Pro
                             <div className="flex items-center gap-2">
                                 <Clock className="h-4 w-4 text-yellow-500" />
                                 <div>
-                                    <p className="text-2xl font-bold">{stats.pending}</p>
-                                    <p className="text-xs text-gray-500">Pending</p>
+                                    <p className="text-2xl font-bold">
+                                        {stats.pending}
+                                    </p>
+                                    <p className="text-xs text-gray-500">
+                                        Pending
+                                    </p>
                                 </div>
                             </div>
                         </CardContent>
@@ -335,8 +354,12 @@ export default function Index({ feedback, types, statuses, stats, filters }: Pro
                             <div className="flex items-center gap-2">
                                 <CheckCircle className="h-4 w-4 text-green-500" />
                                 <div>
-                                    <p className="text-2xl font-bold">{stats.resolved}</p>
-                                    <p className="text-xs text-gray-500">Resolved</p>
+                                    <p className="text-2xl font-bold">
+                                        {stats.resolved}
+                                    </p>
+                                    <p className="text-xs text-gray-500">
+                                        Resolved
+                                    </p>
                                 </div>
                             </div>
                         </CardContent>
@@ -346,8 +369,12 @@ export default function Index({ feedback, types, statuses, stats, filters }: Pro
                             <div className="flex items-center gap-2">
                                 <AlertCircle className="h-4 w-4 text-red-500" />
                                 <div>
-                                    <p className="text-2xl font-bold">{stats.complaints}</p>
-                                    <p className="text-xs text-gray-500">Complaints</p>
+                                    <p className="text-2xl font-bold">
+                                        {stats.complaints}
+                                    </p>
+                                    <p className="text-xs text-gray-500">
+                                        Complaints
+                                    </p>
                                 </div>
                             </div>
                         </CardContent>
@@ -357,8 +384,12 @@ export default function Index({ feedback, types, statuses, stats, filters }: Pro
                             <div className="flex items-center gap-2">
                                 <MessageSquare className="h-4 w-4 text-green-500" />
                                 <div>
-                                    <p className="text-2xl font-bold">{stats.compliments}</p>
-                                    <p className="text-xs text-gray-500">Compliments</p>
+                                    <p className="text-2xl font-bold">
+                                        {stats.compliments}
+                                    </p>
+                                    <p className="text-xs text-gray-500">
+                                        Compliments
+                                    </p>
                                 </div>
                             </div>
                         </CardContent>
@@ -368,8 +399,12 @@ export default function Index({ feedback, types, statuses, stats, filters }: Pro
                             <div className="flex items-center gap-2">
                                 <TrendingUp className="h-4 w-4 text-blue-500" />
                                 <div>
-                                    <p className="text-2xl font-bold">{stats.suggestions}</p>
-                                    <p className="text-xs text-gray-500">Suggestions</p>
+                                    <p className="text-2xl font-bold">
+                                        {stats.suggestions}
+                                    </p>
+                                    <p className="text-xs text-gray-500">
+                                        Suggestions
+                                    </p>
                                 </div>
                             </div>
                         </CardContent>
@@ -379,8 +414,12 @@ export default function Index({ feedback, types, statuses, stats, filters }: Pro
                             <div className="flex items-center gap-2">
                                 <Users className="h-4 w-4 text-purple-500" />
                                 <div>
-                                    <p className="text-2xl font-bold">{stats.general}</p>
-                                    <p className="text-xs text-gray-500">General</p>
+                                    <p className="text-2xl font-bold">
+                                        {stats.general}
+                                    </p>
+                                    <p className="text-xs text-gray-500">
+                                        General
+                                    </p>
                                 </div>
                             </div>
                         </CardContent>
@@ -391,9 +430,14 @@ export default function Index({ feedback, types, statuses, stats, filters }: Pro
                                 <Star className="h-4 w-4 text-yellow-500" />
                                 <div>
                                     <p className="text-2xl font-bold">
-                                        {stats.average_rating && typeof stats.average_rating === 'number' ? stats.average_rating.toFixed(1) : 'N/A'}
+                                        {stats.average_rating &&
+                                        typeof stats.average_rating === "number"
+                                            ? stats.average_rating.toFixed(1)
+                                            : "N/A"}
                                     </p>
-                                    <p className="text-xs text-gray-500">Avg Rating</p>
+                                    <p className="text-xs text-gray-500">
+                                        Avg Rating
+                                    </p>
                                 </div>
                             </div>
                         </CardContent>
@@ -402,7 +446,10 @@ export default function Index({ feedback, types, statuses, stats, filters }: Pro
 
                 {/* Filters */}
                 <div className="bg-white p-4 rounded-lg border space-y-4">
-                    <form onSubmit={handleSearch} className="flex gap-4 items-end flex-wrap">
+                    <form
+                        onSubmit={handleSearch}
+                        className="flex gap-4 items-end flex-wrap"
+                    >
                         <div className="flex-1 min-w-64">
                             <label className="block text-sm font-medium text-gray-700 mb-1">
                                 Search
@@ -413,7 +460,9 @@ export default function Index({ feedback, types, statuses, stats, filters }: Pro
                                     type="text"
                                     placeholder="Search feedback, names, emails..."
                                     value={searchTerm}
-                                    onChange={(e) => setSearchTerm(e.target.value)}
+                                    onChange={(e) =>
+                                        setSearchTerm(e.target.value)
+                                    }
                                     className="pl-10"
                                 />
                             </div>
@@ -424,18 +473,24 @@ export default function Index({ feedback, types, statuses, stats, filters }: Pro
                             </label>
                             <Select
                                 value={selectedType || "all"}
-                                onValueChange={(value) => handleFilterChange("type", value)}
+                                onValueChange={(value) =>
+                                    handleFilterChange("type", value)
+                                }
                             >
                                 <SelectTrigger className="w-40">
                                     <SelectValue placeholder="All Types" />
                                 </SelectTrigger>
                                 <SelectContent>
-                                    <SelectItem value="all">All Types</SelectItem>
-                                    {Object.entries(types).map(([key, label]) => (
-                                        <SelectItem key={key} value={key}>
-                                            {getTypeIcon(key)} {label}
-                                        </SelectItem>
-                                    ))}
+                                    <SelectItem value="all">
+                                        All Types
+                                    </SelectItem>
+                                    {Object.entries(types).map(
+                                        ([key, label]) => (
+                                            <SelectItem key={key} value={key}>
+                                                {getTypeIcon(key)} {label}
+                                            </SelectItem>
+                                        )
+                                    )}
                                 </SelectContent>
                             </Select>
                         </div>
@@ -445,18 +500,24 @@ export default function Index({ feedback, types, statuses, stats, filters }: Pro
                             </label>
                             <Select
                                 value={selectedStatus || "all"}
-                                onValueChange={(value) => handleFilterChange("status", value)}
+                                onValueChange={(value) =>
+                                    handleFilterChange("status", value)
+                                }
                             >
                                 <SelectTrigger className="w-32">
                                     <SelectValue placeholder="All Status" />
                                 </SelectTrigger>
                                 <SelectContent>
-                                    <SelectItem value="all">All Status</SelectItem>
-                                    {Object.entries(statuses).map(([key, label]) => (
-                                        <SelectItem key={key} value={key}>
-                                            {label}
-                                        </SelectItem>
-                                    ))}
+                                    <SelectItem value="all">
+                                        All Status
+                                    </SelectItem>
+                                    {Object.entries(statuses).map(
+                                        ([key, label]) => (
+                                            <SelectItem key={key} value={key}>
+                                                {label}
+                                            </SelectItem>
+                                        )
+                                    )}
                                 </SelectContent>
                             </Select>
                         </div>
@@ -466,16 +527,24 @@ export default function Index({ feedback, types, statuses, stats, filters }: Pro
                             </label>
                             <Select
                                 value={selectedRating || "all"}
-                                onValueChange={(value) => handleFilterChange("rating", value)}
+                                onValueChange={(value) =>
+                                    handleFilterChange("rating", value)
+                                }
                             >
                                 <SelectTrigger className="w-32">
                                     <SelectValue placeholder="All Ratings" />
                                 </SelectTrigger>
                                 <SelectContent>
-                                    <SelectItem value="all">All Ratings</SelectItem>
+                                    <SelectItem value="all">
+                                        All Ratings
+                                    </SelectItem>
                                     {[5, 4, 3, 2, 1].map((rating) => (
-                                        <SelectItem key={rating} value={rating.toString()}>
-                                            {rating} Star{rating !== 1 ? 's' : ''}
+                                        <SelectItem
+                                            key={rating}
+                                            value={rating.toString()}
+                                        >
+                                            {rating} Star
+                                            {rating !== 1 ? "s" : ""}
                                         </SelectItem>
                                     ))}
                                 </SelectContent>
@@ -507,7 +576,11 @@ export default function Index({ feedback, types, statuses, stats, filters }: Pro
                             <Filter className="h-4 w-4 mr-2" />
                             Filter
                         </Button>
-                        <Button type="button" variant="outline" onClick={clearFilters}>
+                        <Button
+                            type="button"
+                            variant="outline"
+                            onClick={clearFilters}
+                        >
                             Clear
                         </Button>
                     </form>
@@ -518,27 +591,34 @@ export default function Index({ feedback, types, statuses, stats, filters }: Pro
                     <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
                         <div className="flex items-center justify-between">
                             <span className="text-sm text-blue-800">
-                                {selectedFeedback.length} feedback item(s) selected
+                                {selectedFeedback.length} feedback item(s)
+                                selected
                             </span>
                             <div className="flex gap-2">
                                 <Button
                                     size="sm"
                                     variant="outline"
-                                    onClick={() => handleBulkAction("mark_pending")}
+                                    onClick={() =>
+                                        handleBulkAction("mark_pending")
+                                    }
                                 >
                                     Mark Pending
                                 </Button>
                                 <Button
                                     size="sm"
                                     variant="outline"
-                                    onClick={() => handleBulkAction("mark_in_progress")}
+                                    onClick={() =>
+                                        handleBulkAction("mark_in_progress")
+                                    }
                                 >
                                     Mark In Progress
                                 </Button>
                                 <Button
                                     size="sm"
                                     variant="outline"
-                                    onClick={() => handleBulkAction("mark_resolved")}
+                                    onClick={() =>
+                                        handleBulkAction("mark_resolved")
+                                    }
                                 >
                                     Mark Resolved
                                 </Button>
@@ -550,16 +630,24 @@ export default function Index({ feedback, types, statuses, stats, filters }: Pro
                                     </AlertDialogTrigger>
                                     <AlertDialogContent>
                                         <AlertDialogHeader>
-                                            <AlertDialogTitle>Delete Feedback</AlertDialogTitle>
+                                            <AlertDialogTitle>
+                                                Delete Feedback
+                                            </AlertDialogTitle>
                                             <AlertDialogDescription>
-                                                Are you sure you want to delete {selectedFeedback.length} feedback item(s)?
-                                                This action cannot be undone.
+                                                Are you sure you want to delete{" "}
+                                                {selectedFeedback.length}{" "}
+                                                feedback item(s)? This action
+                                                cannot be undone.
                                             </AlertDialogDescription>
                                         </AlertDialogHeader>
                                         <AlertDialogFooter>
-                                            <AlertDialogCancel>Cancel</AlertDialogCancel>
+                                            <AlertDialogCancel>
+                                                Cancel
+                                            </AlertDialogCancel>
                                             <AlertDialogAction
-                                                onClick={() => handleBulkAction("delete")}
+                                                onClick={() =>
+                                                    handleBulkAction("delete")
+                                                }
                                             >
                                                 Delete
                                             </AlertDialogAction>
@@ -579,7 +667,8 @@ export default function Index({ feedback, types, statuses, stats, filters }: Pro
                                 <TableHead className="w-12">
                                     <Checkbox
                                         checked={
-                                            selectedFeedback.length === feedback.data.length &&
+                                            selectedFeedback.length ===
+                                                feedback.data.length &&
                                             feedback.data.length > 0
                                         }
                                         onCheckedChange={handleSelectAll}
@@ -597,10 +686,15 @@ export default function Index({ feedback, types, statuses, stats, filters }: Pro
                         <TableBody>
                             {feedback.data.length === 0 ? (
                                 <TableRow>
-                                    <TableCell colSpan={8} className="text-center py-8 text-gray-500">
+                                    <TableCell
+                                        colSpan={8}
+                                        className="text-center py-8 text-gray-500"
+                                    >
                                         No feedback found.{" "}
                                         <Link
-                                            href={route("admin.feedback.create")}
+                                            href={route(
+                                                "admin.feedback.create"
+                                            )}
                                             className="text-blue-600 hover:underline"
                                         >
                                             Add your first feedback entry
@@ -612,33 +706,55 @@ export default function Index({ feedback, types, statuses, stats, filters }: Pro
                                     <TableRow key={item.id}>
                                         <TableCell>
                                             <Checkbox
-                                                checked={selectedFeedback.includes(item.id)}
+                                                checked={selectedFeedback.includes(
+                                                    item.id
+                                                )}
                                                 onCheckedChange={(checked) =>
-                                                    handleSelectFeedback(item.id, checked as boolean)
+                                                    handleSelectFeedback(
+                                                        item.id,
+                                                        checked as boolean
+                                                    )
                                                 }
                                             />
                                         </TableCell>
                                         <TableCell className="font-medium">
                                             <div className="space-y-1">
                                                 <div className="font-medium">
-                                                    {truncateText(item.subject, 40)}
+                                                    {truncateText(
+                                                        item.subject,
+                                                        40
+                                                    )}
                                                 </div>
                                                 <div className="text-sm text-gray-500">
-                                                    {truncateText(item.message, 60)}
+                                                    {truncateText(
+                                                        item.message,
+                                                        60
+                                                    )}
                                                 </div>
                                             </div>
                                         </TableCell>
                                         <TableCell>
-                                            <Badge className={getTypeBadgeColor(item.type)}>
-                                                {getTypeIcon(item.type)} {types[item.type]}
+                                            <Badge
+                                                className={getTypeBadgeColor(
+                                                    item.type
+                                                )}
+                                            >
+                                                {getTypeIcon(item.type)}{" "}
+                                                {types[item.type]}
                                             </Badge>
                                         </TableCell>
                                         <TableCell>
                                             <div className="space-y-1">
-                                                <div className="font-medium text-sm">{item.name}</div>
-                                                <div className="text-xs text-gray-500">{item.email}</div>
+                                                <div className="font-medium text-sm">
+                                                    {item.name}
+                                                </div>
+                                                <div className="text-xs text-gray-500">
+                                                    {item.email}
+                                                </div>
                                                 {item.phone && (
-                                                    <div className="text-xs text-gray-500">{item.phone}</div>
+                                                    <div className="text-xs text-gray-500">
+                                                        {item.phone}
+                                                    </div>
                                                 )}
                                             </div>
                                         </TableCell>
@@ -646,7 +762,11 @@ export default function Index({ feedback, types, statuses, stats, filters }: Pro
                                             {renderStars(item.rating)}
                                         </TableCell>
                                         <TableCell>
-                                            <Badge className={getStatusBadgeColor(item.status)}>
+                                            <Badge
+                                                className={getStatusBadgeColor(
+                                                    item.status
+                                                )}
+                                            >
                                                 {statuses[item.status]}
                                             </Badge>
                                         </TableCell>
@@ -658,26 +778,45 @@ export default function Index({ feedback, types, statuses, stats, filters }: Pro
                                         <TableCell>
                                             <DropdownMenu>
                                                 <DropdownMenuTrigger asChild>
-                                                    <Button variant="ghost" size="sm">
+                                                    <Button
+                                                        variant="ghost"
+                                                        size="sm"
+                                                    >
                                                         <MoreHorizontal className="h-4 w-4" />
                                                     </Button>
                                                 </DropdownMenuTrigger>
                                                 <DropdownMenuContent align="end">
                                                     <DropdownMenuItem asChild>
-                                                        <Link href={route("admin.feedback.show", item.id)}>
+                                                        <Link
+                                                            href={route(
+                                                                "admin.feedback.show",
+                                                                item.id
+                                                            )}
+                                                        >
                                                             <Eye className="h-4 w-4 mr-2" />
                                                             View
                                                         </Link>
                                                     </DropdownMenuItem>
                                                     <DropdownMenuItem asChild>
-                                                        <Link href={route("admin.feedback.edit", item.id)}>
+                                                        <Link
+                                                            href={route(
+                                                                "admin.feedback.edit",
+                                                                item.id
+                                                            )}
+                                                        >
                                                             <Edit className="h-4 w-4 mr-2" />
                                                             Edit
                                                         </Link>
                                                     </DropdownMenuItem>
-                                                    <DropdownMenuItem onSelect={(e) => e.preventDefault()}>
+                                                    <DropdownMenuItem
+                                                        onSelect={(e) =>
+                                                            e.preventDefault()
+                                                        }
+                                                    >
                                                         <AlertDialog>
-                                                            <AlertDialogTrigger asChild>
+                                                            <AlertDialogTrigger
+                                                                asChild
+                                                            >
                                                                 <button className="flex items-center w-full">
                                                                     <Trash2 className="h-4 w-4 mr-2" />
                                                                     Delete
@@ -686,17 +825,33 @@ export default function Index({ feedback, types, statuses, stats, filters }: Pro
                                                             <AlertDialogContent>
                                                                 <AlertDialogHeader>
                                                                     <AlertDialogTitle>
-                                                                        Delete Feedback
+                                                                        Delete
+                                                                        Feedback
                                                                     </AlertDialogTitle>
                                                                     <AlertDialogDescription>
-                                                                        Are you sure you want to delete this
-                                                                        feedback? This action cannot be undone.
+                                                                        Are you
+                                                                        sure you
+                                                                        want to
+                                                                        delete
+                                                                        this
+                                                                        feedback?
+                                                                        This
+                                                                        action
+                                                                        cannot
+                                                                        be
+                                                                        undone.
                                                                     </AlertDialogDescription>
                                                                 </AlertDialogHeader>
                                                                 <AlertDialogFooter>
-                                                                    <AlertDialogCancel>Cancel</AlertDialogCancel>
+                                                                    <AlertDialogCancel>
+                                                                        Cancel
+                                                                    </AlertDialogCancel>
                                                                     <AlertDialogAction
-                                                                        onClick={() => handleDelete(item.id)}
+                                                                        onClick={() =>
+                                                                            handleDelete(
+                                                                                item.id
+                                                                            )
+                                                                        }
                                                                     >
                                                                         Delete
                                                                     </AlertDialogAction>
@@ -718,10 +873,14 @@ export default function Index({ feedback, types, statuses, stats, filters }: Pro
                 {feedback.last_page > 1 && (
                     <div className="flex items-center justify-between">
                         <div className="text-sm text-gray-700">
-                            Showing {feedback.from} to {feedback.to} of {feedback.total} results
+                            Showing {feedback.from} to {feedback.to} of{" "}
+                            {feedback.total} results
                         </div>
                         <div className="flex gap-2">
-                            {Array.from({ length: feedback.last_page }, (_, i) => i + 1).map((page) => (
+                            {Array.from(
+                                { length: feedback.last_page },
+                                (_, i) => i + 1
+                            ).map((page) => (
                                 <Link
                                     key={page}
                                     href={route("admin.feedback.index", {

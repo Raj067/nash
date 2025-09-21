@@ -70,8 +70,8 @@ export default function Show({ user }: Props) {
         });
     };
 
-    const handleEmailVerification = (action: 'verify' | 'unverify') => {
-        if (action === 'verify') {
+    const handleEmailVerification = (action: "verify" | "unverify") => {
+        if (action === "verify") {
             router.patch(route("admin.users.verify-email", user.id));
         } else {
             router.patch(route("admin.users.unverify-email", user.id));
@@ -122,29 +122,30 @@ export default function Show({ user }: Props) {
         const now = new Date();
         const diffTime = Math.abs(now.getTime() - created.getTime());
         const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-        
+
         if (diffDays < 30) {
-            return `${diffDays} day${diffDays !== 1 ? 's' : ''}`;
+            return `${diffDays} day${diffDays !== 1 ? "s" : ""}`;
         } else if (diffDays < 365) {
             const months = Math.floor(diffDays / 30);
-            return `${months} month${months !== 1 ? 's' : ''}`;
+            return `${months} month${months !== 1 ? "s" : ""}`;
         } else {
             const years = Math.floor(diffDays / 365);
-            return `${years} year${years !== 1 ? 's' : ''}`;
+            return `${years} year${years !== 1 ? "s" : ""}`;
         }
     };
 
     const getLastLoginStatus = () => {
         if (!user.last_login_at) return "Never logged in";
-        
+
         const lastLogin = new Date(user.last_login_at);
         const now = new Date();
         const diffTime = Math.abs(now.getTime() - lastLogin.getTime());
         const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-        
+
         if (diffDays === 1) return "Last seen yesterday";
         if (diffDays < 7) return `Last seen ${diffDays} days ago`;
-        if (diffDays < 30) return `Last seen ${Math.floor(diffDays / 7)} weeks ago`;
+        if (diffDays < 30)
+            return `Last seen ${Math.floor(diffDays / 7)} weeks ago`;
         return `Last seen ${Math.floor(diffDays / 30)} months ago`;
     };
 
@@ -178,12 +179,20 @@ export default function Show({ user }: Props) {
                                 Edit
                             </Button>
                         </Link>
-                        <Button 
-                            variant="outline" 
-                            onClick={() => handleStatusUpdate(user.status === 'active' ? 'inactive' : 'active')}
+                        <Button
+                            variant="outline"
+                            onClick={() =>
+                                handleStatusUpdate(
+                                    user.status === "active"
+                                        ? "inactive"
+                                        : "active"
+                                )
+                            }
                         >
                             <Activity className="h-4 w-4 mr-2" />
-                            {user.status === 'active' ? 'Deactivate' : 'Activate'}
+                            {user.status === "active"
+                                ? "Deactivate"
+                                : "Activate"}
                         </Button>
                         {user.id !== 1 && ( // Prevent deleting the first admin user
                             <AlertDialog>
@@ -195,15 +204,22 @@ export default function Show({ user }: Props) {
                                 </AlertDialogTrigger>
                                 <AlertDialogContent>
                                     <AlertDialogHeader>
-                                        <AlertDialogTitle>Delete User</AlertDialogTitle>
+                                        <AlertDialogTitle>
+                                            Delete User
+                                        </AlertDialogTitle>
                                         <AlertDialogDescription>
-                                            Are you sure you want to delete this user?
-                                            This action cannot be undone and will remove all user data.
+                                            Are you sure you want to delete this
+                                            user? This action cannot be undone
+                                            and will remove all user data.
                                         </AlertDialogDescription>
                                     </AlertDialogHeader>
                                     <AlertDialogFooter>
-                                        <AlertDialogCancel>Cancel</AlertDialogCancel>
-                                        <AlertDialogAction onClick={handleDelete}>
+                                        <AlertDialogCancel>
+                                            Cancel
+                                        </AlertDialogCancel>
+                                        <AlertDialogAction
+                                            onClick={handleDelete}
+                                        >
                                             Delete
                                         </AlertDialogAction>
                                     </AlertDialogFooter>
@@ -232,11 +248,20 @@ export default function Show({ user }: Props) {
                             )}
                             <div className="flex-1">
                                 <div className="flex items-center gap-4 mb-2">
-                                    <h2 className="text-3xl font-bold text-gray-900">{user.name}</h2>
-                                    <Badge className={getRoleBadgeColor(user.role)}>
-                                        {getRoleIcon(user.role)} {user.role_display_name}
+                                    <h2 className="text-3xl font-bold text-gray-900">
+                                        {user.name}
+                                    </h2>
+                                    <Badge
+                                        className={getRoleBadgeColor(user.role)}
+                                    >
+                                        {getRoleIcon(user.role)}{" "}
+                                        {user.role_display_name}
                                     </Badge>
-                                    <Badge className={getStatusBadgeColor(user.status)}>
+                                    <Badge
+                                        className={getStatusBadgeColor(
+                                            user.status
+                                        )}
+                                    >
                                         {user.status_display_name}
                                     </Badge>
                                 </div>
@@ -260,17 +285,23 @@ export default function Show({ user }: Props) {
                                     {user.email_verified_at ? (
                                         <div className="flex items-center gap-1 text-green-600">
                                             <CheckCircle className="h-4 w-4" />
-                                            <span className="text-sm">Email verified</span>
+                                            <span className="text-sm">
+                                                Email verified
+                                            </span>
                                         </div>
                                     ) : (
                                         <div className="flex items-center gap-1 text-red-600">
                                             <XCircle className="h-4 w-4" />
-                                            <span className="text-sm">Email not verified</span>
+                                            <span className="text-sm">
+                                                Email not verified
+                                            </span>
                                         </div>
                                     )}
                                     <div className="flex items-center gap-1 text-gray-600">
                                         <Clock className="h-4 w-4" />
-                                        <span className="text-sm">{getLastLoginStatus()}</span>
+                                        <span className="text-sm">
+                                            {getLastLoginStatus()}
+                                        </span>
                                     </div>
                                 </div>
                             </div>
@@ -287,23 +318,40 @@ export default function Show({ user }: Props) {
                         <CardContent className="space-y-4">
                             <div className="grid grid-cols-2 gap-4">
                                 <div>
-                                    <h4 className="font-medium text-gray-900 mb-1">User ID</h4>
-                                    <p className="text-gray-600 font-mono">#{user.id}</p>
+                                    <h4 className="font-medium text-gray-900 mb-1">
+                                        User ID
+                                    </h4>
+                                    <p className="text-gray-600 font-mono">
+                                        #{user.id}
+                                    </p>
                                 </div>
                                 <div>
-                                    <h4 className="font-medium text-gray-900 mb-1">Role</h4>
-                                    <Badge className={getRoleBadgeColor(user.role)}>
-                                        {getRoleIcon(user.role)} {user.role_display_name}
+                                    <h4 className="font-medium text-gray-900 mb-1">
+                                        Role
+                                    </h4>
+                                    <Badge
+                                        className={getRoleBadgeColor(user.role)}
+                                    >
+                                        {getRoleIcon(user.role)}{" "}
+                                        {user.role_display_name}
                                     </Badge>
                                 </div>
                                 <div>
-                                    <h4 className="font-medium text-gray-900 mb-1">Status</h4>
-                                    <Badge className={getStatusBadgeColor(user.status)}>
+                                    <h4 className="font-medium text-gray-900 mb-1">
+                                        Status
+                                    </h4>
+                                    <Badge
+                                        className={getStatusBadgeColor(
+                                            user.status
+                                        )}
+                                    >
                                         {user.status_display_name}
                                     </Badge>
                                 </div>
                                 <div>
-                                    <h4 className="font-medium text-gray-900 mb-1">Email Status</h4>
+                                    <h4 className="font-medium text-gray-900 mb-1">
+                                        Email Status
+                                    </h4>
                                     {user.email_verified_at ? (
                                         <Badge className="bg-green-100 text-green-800">
                                             <CheckCircle className="h-3 w-3 mr-1" />
@@ -331,7 +379,7 @@ export default function Show({ user }: Props) {
                                     Email Address
                                 </h4>
                                 <p className="text-gray-600">
-                                    <a 
+                                    <a
                                         href={`mailto:${user.email}`}
                                         className="text-blue-600 hover:underline"
                                     >
@@ -340,7 +388,8 @@ export default function Show({ user }: Props) {
                                 </p>
                                 {user.email_verified_at && (
                                     <p className="text-xs text-green-600 mt-1">
-                                        Verified on {formatDate(user.email_verified_at)}
+                                        Verified on{" "}
+                                        {formatDate(user.email_verified_at)}
                                     </p>
                                 )}
                             </div>
@@ -351,7 +400,7 @@ export default function Show({ user }: Props) {
                                         Phone Number
                                     </h4>
                                     <p className="text-gray-600">
-                                        <a 
+                                        <a
                                             href={`tel:${user.phone}`}
                                             className="text-blue-600 hover:underline"
                                         >
@@ -372,24 +421,40 @@ export default function Show({ user }: Props) {
                         </CardHeader>
                         <CardContent className="space-y-4">
                             <div>
-                                <h4 className="font-medium text-gray-900 mb-1">Last Login</h4>
+                                <h4 className="font-medium text-gray-900 mb-1">
+                                    Last Login
+                                </h4>
                                 <p className="text-gray-600">
-                                    {user.last_login_at ? formatDate(user.last_login_at) : 'Never logged in'}
+                                    {user.last_login_at
+                                        ? formatDate(user.last_login_at)
+                                        : "Never logged in"}
                                 </p>
                             </div>
                             {user.last_login_ip && (
                                 <div>
-                                    <h4 className="font-medium text-gray-900 mb-1">Last Login IP</h4>
-                                    <p className="text-gray-600 font-mono">{user.last_login_ip}</p>
+                                    <h4 className="font-medium text-gray-900 mb-1">
+                                        Last Login IP
+                                    </h4>
+                                    <p className="text-gray-600 font-mono">
+                                        {user.last_login_ip}
+                                    </p>
                                 </div>
                             )}
                             <div>
-                                <h4 className="font-medium text-gray-900 mb-1">Account Created</h4>
-                                <p className="text-gray-600">{formatDate(user.created_at)}</p>
+                                <h4 className="font-medium text-gray-900 mb-1">
+                                    Account Created
+                                </h4>
+                                <p className="text-gray-600">
+                                    {formatDate(user.created_at)}
+                                </p>
                             </div>
                             <div>
-                                <h4 className="font-medium text-gray-900 mb-1">Last Updated</h4>
-                                <p className="text-gray-600">{formatDate(user.updated_at)}</p>
+                                <h4 className="font-medium text-gray-900 mb-1">
+                                    Last Updated
+                                </h4>
+                                <p className="text-gray-600">
+                                    {formatDate(user.updated_at)}
+                                </p>
                             </div>
                         </CardContent>
                     </Card>
@@ -400,9 +465,11 @@ export default function Show({ user }: Props) {
                         </CardHeader>
                         <CardContent className="space-y-4">
                             <div>
-                                <h4 className="font-medium text-gray-900 mb-2">Role Permissions</h4>
+                                <h4 className="font-medium text-gray-900 mb-2">
+                                    Role Permissions
+                                </h4>
                                 <div className="space-y-2 text-sm">
-                                    {user.role === 'admin' && (
+                                    {user.role === "admin" && (
                                         <>
                                             <div className="flex items-center gap-2 text-green-600">
                                                 <CheckCircle className="h-3 w-3" />
@@ -418,11 +485,13 @@ export default function Show({ user }: Props) {
                                             </div>
                                             <div className="flex items-center gap-2 text-green-600">
                                                 <CheckCircle className="h-3 w-3" />
-                                                <span>System configuration</span>
+                                                <span>
+                                                    System configuration
+                                                </span>
                                             </div>
                                         </>
                                     )}
-                                    {user.role === 'manager' && (
+                                    {user.role === "manager" && (
                                         <>
                                             <div className="flex items-center gap-2 text-green-600">
                                                 <CheckCircle className="h-3 w-3" />
@@ -434,15 +503,19 @@ export default function Show({ user }: Props) {
                                             </div>
                                             <div className="flex items-center gap-2 text-gray-400">
                                                 <XCircle className="h-3 w-3" />
-                                                <span>System configuration</span>
+                                                <span>
+                                                    System configuration
+                                                </span>
                                             </div>
                                         </>
                                     )}
-                                    {user.role === 'editor' && (
+                                    {user.role === "editor" && (
                                         <>
                                             <div className="flex items-center gap-2 text-green-600">
                                                 <CheckCircle className="h-3 w-3" />
-                                                <span>Create and edit content</span>
+                                                <span>
+                                                    Create and edit content
+                                                </span>
                                             </div>
                                             <div className="flex items-center gap-2 text-gray-400">
                                                 <XCircle className="h-3 w-3" />
@@ -450,11 +523,13 @@ export default function Show({ user }: Props) {
                                             </div>
                                             <div className="flex items-center gap-2 text-gray-400">
                                                 <XCircle className="h-3 w-3" />
-                                                <span>System configuration</span>
+                                                <span>
+                                                    System configuration
+                                                </span>
                                             </div>
                                         </>
                                     )}
-                                    {user.role === 'user' && (
+                                    {user.role === "user" && (
                                         <>
                                             <div className="flex items-center gap-2 text-green-600">
                                                 <CheckCircle className="h-3 w-3" />
@@ -484,7 +559,9 @@ export default function Show({ user }: Props) {
                     <CardContent>
                         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                             <div className="p-4 border rounded-lg">
-                                <h4 className="font-medium text-gray-900 mb-2">Edit User</h4>
+                                <h4 className="font-medium text-gray-900 mb-2">
+                                    Edit User
+                                </h4>
                                 <p className="text-sm text-gray-600 mb-3">
                                     Update user information, role, and status
                                 </p>
@@ -497,66 +574,99 @@ export default function Show({ user }: Props) {
                             </div>
                             <div className="p-4 border rounded-lg">
                                 <h4 className="font-medium text-gray-900 mb-2">
-                                    {user.status === 'active' ? 'Deactivate' : 'Activate'} User
+                                    {user.status === "active"
+                                        ? "Deactivate"
+                                        : "Activate"}{" "}
+                                    User
                                 </h4>
                                 <p className="text-sm text-gray-600 mb-3">
-                                    {user.status === 'active' 
-                                        ? 'Disable user access to the system'
-                                        : 'Enable user access to the system'
-                                    }
+                                    {user.status === "active"
+                                        ? "Disable user access to the system"
+                                        : "Enable user access to the system"}
                                 </p>
                                 <Button
                                     size="sm"
                                     variant="outline"
                                     className="w-full"
-                                    onClick={() => handleStatusUpdate(user.status === 'active' ? 'inactive' : 'active')}
+                                    onClick={() =>
+                                        handleStatusUpdate(
+                                            user.status === "active"
+                                                ? "inactive"
+                                                : "active"
+                                        )
+                                    }
                                 >
                                     <Activity className="h-4 w-4 mr-2" />
-                                    {user.status === 'active' ? 'Deactivate' : 'Activate'}
+                                    {user.status === "active"
+                                        ? "Deactivate"
+                                        : "Activate"}
                                 </Button>
                             </div>
                             <div className="p-4 border rounded-lg">
-                                <h4 className="font-medium text-gray-900 mb-2">Email Verification</h4>
+                                <h4 className="font-medium text-gray-900 mb-2">
+                                    Email Verification
+                                </h4>
                                 <p className="text-sm text-gray-600 mb-3">
-                                    {user.email_verified_at 
-                                        ? 'Remove email verification status'
-                                        : 'Mark email as verified'
-                                    }
+                                    {user.email_verified_at
+                                        ? "Remove email verification status"
+                                        : "Mark email as verified"}
                                 </p>
                                 <Button
                                     size="sm"
                                     variant="outline"
                                     className="w-full"
-                                    onClick={() => handleEmailVerification(user.email_verified_at ? 'unverify' : 'verify')}
+                                    onClick={() =>
+                                        handleEmailVerification(
+                                            user.email_verified_at
+                                                ? "unverify"
+                                                : "verify"
+                                        )
+                                    }
                                 >
                                     <Mail className="h-4 w-4 mr-2" />
-                                    {user.email_verified_at ? 'Unverify' : 'Verify'} Email
+                                    {user.email_verified_at
+                                        ? "Unverify"
+                                        : "Verify"}{" "}
+                                    Email
                                 </Button>
                             </div>
                             {user.id !== 1 && (
                                 <div className="p-4 border rounded-lg">
-                                    <h4 className="font-medium text-gray-900 mb-2">Delete User</h4>
+                                    <h4 className="font-medium text-gray-900 mb-2">
+                                        Delete User
+                                    </h4>
                                     <p className="text-sm text-gray-600 mb-3">
                                         Permanently remove this user account
                                     </p>
                                     <AlertDialog>
                                         <AlertDialogTrigger asChild>
-                                            <Button size="sm" variant="destructive" className="w-full">
+                                            <Button
+                                                size="sm"
+                                                variant="destructive"
+                                                className="w-full"
+                                            >
                                                 <Trash2 className="h-4 w-4 mr-2" />
                                                 Delete
                                             </Button>
                                         </AlertDialogTrigger>
                                         <AlertDialogContent>
                                             <AlertDialogHeader>
-                                                <AlertDialogTitle>Delete User</AlertDialogTitle>
+                                                <AlertDialogTitle>
+                                                    Delete User
+                                                </AlertDialogTitle>
                                                 <AlertDialogDescription>
-                                                    Are you sure you want to delete this user?
-                                                    This action cannot be undone.
+                                                    Are you sure you want to
+                                                    delete this user? This
+                                                    action cannot be undone.
                                                 </AlertDialogDescription>
                                             </AlertDialogHeader>
                                             <AlertDialogFooter>
-                                                <AlertDialogCancel>Cancel</AlertDialogCancel>
-                                                <AlertDialogAction onClick={handleDelete}>
+                                                <AlertDialogCancel>
+                                                    Cancel
+                                                </AlertDialogCancel>
+                                                <AlertDialogAction
+                                                    onClick={handleDelete}
+                                                >
                                                     Delete
                                                 </AlertDialogAction>
                                             </AlertDialogFooter>
