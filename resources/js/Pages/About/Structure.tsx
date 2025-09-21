@@ -1,24 +1,24 @@
 import { Head } from "@inertiajs/react";
 import PublicLayout from "@/Layouts/PublicLayout";
-import { 
-    Activity, 
-    Building, 
-    TrendingUp, 
-    UserCheck, 
-    Users, 
-    Shield, 
-    BarChart3, 
-    Pill, 
-    Microscope, 
-    DollarSign, 
-    FileText, 
-    Heart, 
-    Baby, 
-    Home, 
-    Stethoscope, 
-    Target, 
-    Database, 
-    Search 
+import {
+    Activity,
+    Building,
+    TrendingUp,
+    UserCheck,
+    Users,
+    Shield,
+    BarChart3,
+    Pill,
+    Microscope,
+    DollarSign,
+    FileText,
+    Heart,
+    Baby,
+    Home,
+    Stethoscope,
+    Target,
+    Database,
+    Search,
 } from "lucide-react";
 
 export default function Structure() {
@@ -66,7 +66,9 @@ export default function Structure() {
                             NACP Organization Structure
                         </h2>
                         <p className="text-gray-600 max-w-3xl mx-auto text-lg leading-relaxed">
-                            Hierarchical structure ensuring effective coordination and implementation of Tanzania's HIV/AIDS response
+                            Hierarchical structure ensuring effective
+                            coordination and implementation of Tanzania's
+                            HIV/AIDS response
                         </p>
                     </div>
 
@@ -82,7 +84,8 @@ export default function Structure() {
                                     Permanent Secretary
                                 </h3>
                                 <p className="text-sm text-gray-600">
-                                    Ministry of Health, Community Development, Gender, Elderly and Children
+                                    Ministry of Health, Community Development,
+                                    Gender, Elderly and Children
                                 </p>
                             </div>
                         </div>
@@ -105,7 +108,8 @@ export default function Structure() {
                                     Directorate of Preventive Services
                                 </h3>
                                 <p className="text-sm text-gray-600">
-                                    Overseeing preventive health services including HIV/AIDS
+                                    Overseeing preventive health services
+                                    including HIV/AIDS
                                 </p>
                             </div>
                         </div>
@@ -128,7 +132,8 @@ export default function Structure() {
                                     Program Manager
                                 </h3>
                                 <p className="text-sm text-gray-600">
-                                    National AIDS Control Programme
+                                    NATIONAL AIDS, STIs AND HEPATITIS CONTROL
+                                    PROGRAMME
                                 </p>
                             </div>
                         </div>
@@ -212,19 +217,27 @@ export default function Structure() {
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                                 <div className="bg-green-100 rounded-xl p-4 text-center">
                                     <Users className="h-6 w-6 text-green-600 mx-auto mb-2" />
-                                    <p className="font-semibold text-green-800">Adolescence & Adult Therapy</p>
+                                    <p className="font-semibold text-green-800">
+                                        Adolescence & Adult Therapy
+                                    </p>
                                 </div>
                                 <div className="bg-green-100 rounded-xl p-4 text-center">
                                     <Stethoscope className="h-6 w-6 text-green-600 mx-auto mb-2" />
-                                    <p className="font-semibold text-green-800">TB/HIV</p>
+                                    <p className="font-semibold text-green-800">
+                                        TB/HIV
+                                    </p>
                                 </div>
                                 <div className="bg-green-100 rounded-xl p-4 text-center">
                                     <Baby className="h-6 w-6 text-green-600 mx-auto mb-2" />
-                                    <p className="font-semibold text-green-800">PedART</p>
+                                    <p className="font-semibold text-green-800">
+                                        PedART
+                                    </p>
                                 </div>
                                 <div className="bg-green-100 rounded-xl p-4 text-center">
                                     <Home className="h-6 w-6 text-green-600 mx-auto mb-2" />
-                                    <p className="font-semibold text-green-800">Home Base Care & Support</p>
+                                    <p className="font-semibold text-green-800">
+                                        Home Base Care & Support
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -238,11 +251,15 @@ export default function Structure() {
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div className="bg-green-100 rounded-xl p-4 text-center">
                                     <Microscope className="h-6 w-6 text-green-600 mx-auto mb-2" />
-                                    <p className="font-semibold text-green-800">Biomedical (HTS, VMMC, KP, STI)</p>
+                                    <p className="font-semibold text-green-800">
+                                        Biomedical (HTS, VMMC, KP, STI)
+                                    </p>
                                 </div>
                                 <div className="bg-green-100 rounded-xl p-4 text-center">
                                     <Users className="h-6 w-6 text-green-600 mx-auto mb-2" />
-                                    <p className="font-semibold text-green-800">Behavior (IEC/SBCC)</p>
+                                    <p className="font-semibold text-green-800">
+                                        Behavior (IEC/SBCC)
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -256,15 +273,21 @@ export default function Structure() {
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                                 <div className="bg-green-100 rounded-xl p-4 text-center">
                                     <Target className="h-6 w-6 text-green-600 mx-auto mb-2" />
-                                    <p className="font-semibold text-green-800">Quality Improvement</p>
+                                    <p className="font-semibold text-green-800">
+                                        Quality Improvement
+                                    </p>
                                 </div>
                                 <div className="bg-green-100 rounded-xl p-4 text-center">
                                     <Database className="h-6 w-6 text-green-600 mx-auto mb-2" />
-                                    <p className="font-semibold text-green-800">Health Information System</p>
+                                    <p className="font-semibold text-green-800">
+                                        Health Information System
+                                    </p>
                                 </div>
                                 <div className="bg-green-100 rounded-xl p-4 text-center">
                                     <Search className="h-6 w-6 text-green-600 mx-auto mb-2" />
-                                    <p className="font-semibold text-green-800">Surveillance & Research</p>
+                                    <p className="font-semibold text-green-800">
+                                        Surveillance & Research
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -278,11 +301,16 @@ export default function Structure() {
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div className="bg-green-100 rounded-xl p-4 text-center">
                                     <Pill className="h-6 w-6 text-green-600 mx-auto mb-2" />
-                                    <p className="font-semibold text-green-800">Supply Chain Management</p>
+                                    <p className="font-semibold text-green-800">
+                                        Supply Chain Management
+                                    </p>
                                 </div>
                                 <div className="bg-green-100 rounded-xl p-4 text-center">
                                     <Shield className="h-6 w-6 text-green-600 mx-auto mb-2" />
-                                    <p className="font-semibold text-green-800">Quality Assurance & Equipment Maintenance</p>
+                                    <p className="font-semibold text-green-800">
+                                        Quality Assurance & Equipment
+                                        Maintenance
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -296,19 +324,27 @@ export default function Structure() {
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                                 <div className="bg-green-100 rounded-xl p-4 text-center">
                                     <Users className="h-6 w-6 text-green-600 mx-auto mb-2" />
-                                    <p className="font-semibold text-green-800">Human Resources</p>
+                                    <p className="font-semibold text-green-800">
+                                        Human Resources
+                                    </p>
                                 </div>
                                 <div className="bg-green-100 rounded-xl p-4 text-center">
                                     <FileText className="h-6 w-6 text-green-600 mx-auto mb-2" />
-                                    <p className="font-semibold text-green-800">Administration & Procurement</p>
+                                    <p className="font-semibold text-green-800">
+                                        Administration & Procurement
+                                    </p>
                                 </div>
                                 <div className="bg-green-100 rounded-xl p-4 text-center">
                                     <DollarSign className="h-6 w-6 text-green-600 mx-auto mb-2" />
-                                    <p className="font-semibold text-green-800">Accounts</p>
+                                    <p className="font-semibold text-green-800">
+                                        Accounts
+                                    </p>
                                 </div>
                                 <div className="bg-green-100 rounded-xl p-4 text-center">
                                     <Target className="h-6 w-6 text-green-600 mx-auto mb-2" />
-                                    <p className="font-semibold text-green-800">Planning (Donor Support Programs)</p>
+                                    <p className="font-semibold text-green-800">
+                                        Planning (Donor Support Programs)
+                                    </p>
                                 </div>
                             </div>
                         </div>

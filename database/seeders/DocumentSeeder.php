@@ -137,7 +137,7 @@ class DocumentSeeder extends Seeder
         $title = str_replace([
             'HSHSP', 'NACP', 'CTC2', 'VMMC', 'EIMC', 'PMD', 'DHIS2', 'TB', 'HIV'
         ], [
-            'Health Sector Strategic Plan', 'National AIDS Control Programme', 'Care and Treatment Center 2', 
+            'Health Sector Strategic Plan', 'NATIONAL AIDS, STIs AND HEPATITIS CONTROL PROGRAMME', 'Care and Treatment Center 2', 
             'Voluntary Medical Male Circumcision', 'Early Infant Male Circumcision', 'Program Management Database',
             'District Health Information System 2', 'Tuberculosis', 'HIV'
         ], $cleanName);
@@ -230,7 +230,7 @@ class DocumentSeeder extends Seeder
     {
         // Determine author based on content
         if (stripos($cleanName, 'nacp') !== false || stripos($cleanName, 'habari') !== false) {
-            return 'National AIDS Control Programme (NACP)';
+            return 'NATIONAL AIDS, STIs AND HEPATITIS CONTROL PROGRAMME (NACP)';
         }
         if (stripos($cleanName, 'hshsp') !== false || stripos($cleanName, 'health sector') !== false) {
             return 'Ministry of Health, Community Development, Gender, Elderly and Children';

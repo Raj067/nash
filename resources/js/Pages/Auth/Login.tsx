@@ -54,10 +54,10 @@ export default function Login({
                         <Shield className="w-10 h-10 text-white" />
                     </div>
                     <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                        NACP Admin
+                        NASHCOP Admin
                     </h1>
                     <p className="text-gray-600 mt-2">
-                        National AIDS Control Programme
+                        NATIONAL AIDS, STIs AND HEPATITIS CONTROL PROGRAMME
                     </p>
                 </div>
 
@@ -208,7 +208,10 @@ export default function Login({
 
                 {/* Footer */}
                 <div className="text-center mt-6 text-sm text-gray-600">
-                    <p>© 2025 National AIDS Control Programme, Tanzania</p>
+                    <p>
+                        © 2025 NATIONAL AIDS, STIs AND HEPATITIS CONTROL
+                        PROGRAMME, Tanzania
+                    </p>
                 </div>
             </div>
         </div>

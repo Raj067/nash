@@ -23,7 +23,7 @@ class BlogSeeder extends Seeder
                 'title' => 'NASHCOP Launches New Community Policing Initiative in Dar es Salaam',
                 'slug' => 'nashcop-launches-new-community-policing-initiative-dar-es-salaam',
                 'excerpt' => 'A comprehensive community policing program aimed at strengthening police-community relationships and reducing crime rates in urban areas.',
-                'content' => '<p>The National AIDS Control Programme (NASHCOP) has officially launched a groundbreaking community policing initiative in Dar es Salaam, marking a significant milestone in Tanzania\'s approach to community safety and HIV/AIDS prevention.</p>
+                'content' => '<p>The NATIONAL AIDS, STIs AND HEPATITIS CONTROL PROGRAMME (NASHCOP) has officially launched a groundbreaking community policing initiative in Dar es Salaam, marking a significant milestone in Tanzania\'s approach to community safety and HIV/AIDS prevention.</p>
 
 <p>This innovative program brings together law enforcement officers, community leaders, and health workers to create a unified approach to addressing both security concerns and public health challenges in urban communities.</p>
 
@@ -54,7 +54,7 @@ class BlogSeeder extends Seeder
                 'title' => 'NASHCOP Receives International Recognition for HIV Prevention Programs',
                 'slug' => 'nashcop-receives-international-recognition-hiv-prevention',
                 'excerpt' => 'The World Health Organization acknowledges Tanzania\'s innovative approach to community-based HIV prevention and control.',
-                'content' => '<p>The National AIDS Control Programme (NASHCOP) has been recognized by the World Health Organization (WHO) for its outstanding contribution to HIV prevention and community health initiatives in East Africa.</p>
+                'content' => '<p>The NATIONAL AIDS, STIs AND HEPATITIS CONTROL PROGRAMME (NASHCOP) has been recognized by the World Health Organization (WHO) for its outstanding contribution to HIV prevention and community health initiatives in East Africa.</p>
 
 <p>The recognition comes following a comprehensive evaluation of NASHCOP\'s community policing and health integration programs, which have shown remarkable success in reducing HIV transmission rates while improving community safety.</p>
 

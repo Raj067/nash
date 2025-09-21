@@ -193,7 +193,8 @@ const NASHCOPFooter: FC = () => {
                                     NASHCOP Tanzania
                                 </h3>
                                 <p className="text-sm text-blue-200">
-                                    National AIDS Control Programme
+                                    NATIONAL AIDS, STIs AND HEPATITIS CONTROL
+                                    PROGRAMME
                                 </p>
                             </div>
                         </div>
@@ -428,8 +429,9 @@ const NASHCOPFooter: FC = () => {
                     <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
                         <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-6 text-sm text-blue-300">
                             <p>
-                                &copy; 2025 National AIDS Control Programme,
-                                Tanzania. All rights reserved.
+                                &copy; 2025 NATIONAL AIDS, STIs AND HEPATITIS
+                                CONTROL PROGRAMME, Tanzania. All rights
+                                reserved.
                             </p>
                             {/* <div className="flex items-center space-x-4">
                                 <a

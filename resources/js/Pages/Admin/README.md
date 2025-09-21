@@ -1,6 +1,6 @@
-# NACP Admin Panel Structure
+# NASHCOP Admin Panel Structure
 
-This directory contains all the admin pages for the National AIDS Control Programme (NACP) Tanzania website.
+This directory contains all the admin pages for the NATIONAL AIDS, STIs AND HEPATITIS CONTROL PROGRAMME (NACP) Tanzania website.
 
 ## Directory Structure
 
@@ -47,84 +47,94 @@ Admin/
 The admin sidebar includes the following main sections:
 
 ### 1. Dashboard
-- Main overview with statistics and quick actions
-- System health monitoring
-- Recent activities
+
+-   Main overview with statistics and quick actions
+-   System health monitoring
+-   Recent activities
 
 ### 2. Users
-- User management and permissions
-- Role-based access control
-- User activity monitoring
+
+-   User management and permissions
+-   Role-based access control
+-   User activity monitoring
 
 ### 3. Resources
-- **Strategic Framework & Policies**: National strategies and policy documents
-- **Guidelines**: Implementation guidelines and protocols
-- **Databases**: Data management and surveillance systems
-- **SOP & Manuals**: Standard operating procedures and training materials
+
+-   **Strategic Framework & Policies**: National strategies and policy documents
+-   **Guidelines**: Implementation guidelines and protocols
+-   **Databases**: Data management and surveillance systems
+-   **SOP & Manuals**: Standard operating procedures and training materials
 
 ### 4. News & Media
-- **Blogs**: Blog posts and articles
-- **Press Releases**: Official press releases
-- **Speeches**: Ministerial and official speeches
-- **Photo Gallery**: Image collections and galleries
-- **Video Library**: Video content and documentaries
+
+-   **Blogs**: Blog posts and articles
+-   **Press Releases**: Official press releases
+-   **Speeches**: Ministerial and official speeches
+-   **Photo Gallery**: Image collections and galleries
+-   **Video Library**: Video content and documentaries
 
 ### 5. Content Management
-- **Pages**: Website page content
-- **Services**: Service descriptions and information
-- **Interventions**: HIV intervention programs
-- **About Sections**: Organizational information
+
+-   **Pages**: Website page content
+-   **Services**: Service descriptions and information
+-   **Interventions**: HIV intervention programs
+-   **About Sections**: Organizational information
 
 ### 6. Statistics & Reports
-- **HIV Statistics**: Epidemiological data and trends
-- **Program Reports**: Implementation reports and progress
-- **Data Analytics**: Advanced analytics and insights
-- **Export Data**: Data export and reporting tools
+
+-   **HIV Statistics**: Epidemiological data and trends
+-   **Program Reports**: Implementation reports and progress
+-   **Data Analytics**: Advanced analytics and insights
+-   **Export Data**: Data export and reporting tools
 
 ### 7. Settings
-- **General Settings**: Basic system configuration
-- **User Management**: User roles and permissions
-- **System Configuration**: Technical settings
-- **Backup & Security**: Data backup and security policies
+
+-   **General Settings**: Basic system configuration
+-   **User Management**: User roles and permissions
+-   **System Configuration**: Technical settings
+-   **Backup & Security**: Data backup and security policies
 
 ## Features
 
 ### Layout Features
-- **Sticky Header**: Header remains visible when scrolling
-- **Collapsible Sidebar**: Icon-only mode for more screen space
-- **Breadcrumb Navigation**: Clear navigation path
-- **NACP Branding**: Consistent branding throughout
+
+-   **Sticky Header**: Header remains visible when scrolling
+-   **Collapsible Sidebar**: Icon-only mode for more screen space
+-   **Breadcrumb Navigation**: Clear navigation path
+-   **NACP Branding**: Consistent branding throughout
 
 ### UI Components
-- Built with shadcn/ui components
-- Responsive design for all screen sizes
-- Modern gradient designs
-- Professional color scheme
-- Accessible interface
+
+-   Built with shadcn/ui components
+-   Responsive design for all screen sizes
+-   Modern gradient designs
+-   Professional color scheme
+-   Accessible interface
 
 ### Security Features
-- Role-based access control
-- Session management
-- Activity logging
-- Secure authentication
+
+-   Role-based access control
+-   Session management
+-   Activity logging
+-   Secure authentication
 
 ## Usage
 
 Each admin page follows the same pattern:
 
 ```tsx
-import AdminLayout from '@/Layouts/AdminLayout';
-import { Head } from '@inertiajs/react';
+import AdminLayout from "@/Layouts/AdminLayout";
+import { Head } from "@inertiajs/react";
 
 export default function PageName() {
     const breadcrumbs = [
         { label: "Admin", href: "/dashboard" },
-        { label: "Section Name" }
+        { label: "Section Name" },
     ];
 
     return (
         <AdminLayout breadcrumbs={breadcrumbs}>
-            <Head title="Page Title - NACP Admin" />
+            <Head title="Page Title - NASHCOP Admin" />
             {/* Page content */}
         </AdminLayout>
     );
@@ -134,16 +144,17 @@ export default function PageName() {
 ## Styling
 
 The admin panel uses:
-- **Primary Colors**: Blue (#2563eb) to Purple (#7c3aed) gradients
-- **NACP Branding**: Shield icon and official colors
-- **Typography**: Clean, professional fonts
-- **Spacing**: Consistent padding and margins
-- **Cards**: Elevated cards with subtle shadows
+
+-   **Primary Colors**: Blue (#2563eb) to Purple (#7c3aed) gradients
+-   **NACP Branding**: Shield icon and official colors
+-   **Typography**: Clean, professional fonts
+-   **Spacing**: Consistent padding and margins
+-   **Cards**: Elevated cards with subtle shadows
 
 ## Development Notes
 
-- All pages use TypeScript for type safety
-- Inertia.js for seamless navigation
-- Laravel backend integration
-- Responsive design principles
-- Accessibility considerations
+-   All pages use TypeScript for type safety
+-   Inertia.js for seamless navigation
+-   Laravel backend integration
+-   Responsive design principles
+-   Accessibility considerations

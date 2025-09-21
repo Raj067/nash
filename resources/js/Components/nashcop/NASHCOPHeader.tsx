@@ -267,7 +267,7 @@ const NASHCOPHeader: FC = () => {
             "Our Mission": "Dhamira Yetu",
             "Our Vision": "Maono Yetu",
             "HIV/AIDS": "VVU/UKIMWI",
-            "National AIDS Control Programme":
+            "NATIONAL AIDS, STIs AND HEPATITIS CONTROL PROGRAMME":
                 "Mpango wa Kitaifa wa Kudhibiti UKIMWI",
             NACP: "NACP",
             Tanzania: "Tanzania",
@@ -466,13 +466,13 @@ const NASHCOPHeader: FC = () => {
         },
         {
             title: "CONTACT & SUPPORT",
-            href: "/contact",
+            href: "/contact/locations",
             icon: MessageCircle,
             dropdown: [
                 { title: "Office Locations", href: "/contact/locations" },
                 // { title: "Contact Information", href: "/contact/info" },
                 { title: "Feedback & Complaints", href: "/contact/feedback" },
-                { title: "Help Desk", href: "/contact/help" },
+                // { title: "Help Desk", href: "/contact/help" },
             ],
         },
     ];

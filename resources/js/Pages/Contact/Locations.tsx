@@ -27,7 +27,8 @@ export default function Locations() {
         type: "National Office",
         type_sw: "Ofisi ya Kitaifa",
         address: "Programme Manager",
-        address_detail: "National AIDS Control Programme-NACP",
+        address_detail:
+            "NATIONAL AIDS, STIs AND HEPATITIS CONTROL PROGRAMME-NACP",
         location: "Kilimani Area, NACP/NTLP Building",
         city: "Dodoma, Tanzania",
         postal: "P O Box 784, Dodoma, Tanzania",
@@ -77,7 +78,8 @@ export default function Locations() {
                                     NACP Office
                                 </h1>
                                 <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
-                                    National AIDS Control Programme Headquarters
+                                    NATIONAL AIDS, STIs AND HEPATITIS CONTROL
+                                    PROGRAMME Headquarters
                                 </p>
                             </div>
                         </div>

@@ -45,7 +45,7 @@ export default function ForgotPassword({ status }: { status?: string }) {
                         Reset Password
                     </h1>
                     <p className="text-gray-600 mt-2">
-                        National AIDS Control Programme
+                        NATIONAL AIDS, STIs AND HEPATITIS CONTROL PROGRAMME
                     </p>
                 </div>
 
@@ -137,7 +137,10 @@ export default function ForgotPassword({ status }: { status?: string }) {
 
                 {/* Footer */}
                 <div className="text-center mt-6 text-sm text-gray-600">
-                    <p>© 2025 National AIDS Control Programme, Tanzania</p>
+                    <p>
+                        © 2025 NATIONAL AIDS, STIs AND HEPATITIS CONTROL
+                        PROGRAMME, Tanzania
+                    </p>
                 </div>
             </div>
         </div>

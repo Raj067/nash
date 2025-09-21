@@ -158,9 +158,9 @@ export default function AboutUs() {
                                     About NASHCOP
                                 </h1>
                                 <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
-                                    Tanzania's National AIDS Control Programme -
-                                    leading the fight against HIV/AIDS, STIs and
-                                    Hepatitis
+                                    Tanzania's NATIONAL AIDS, STIs AND HEPATITIS
+                                    CONTROL PROGRAMME - leading the fight
+                                    against HIV/AIDS, STIs and Hepatitis
                                 </p>
                             </div>
                         </div>

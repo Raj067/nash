@@ -17,38 +17,43 @@ export default function Search({ query = "" }: SearchProps) {
         {
             id: 1,
             title: "HIV Testing Services",
-            description: "Comprehensive HIV testing services available across Tanzania including rapid testing and counseling.",
+            description:
+                "Comprehensive HIV testing services available across Tanzania including rapid testing and counseling.",
             url: "/services/hiv-testing",
-            type: "Service"
+            type: "Service",
         },
         {
             id: 2,
             title: "Prevention of Infection",
-            description: "HIV prevention programs and interventions to reduce new infections in Tanzania.",
+            description:
+                "HIV prevention programs and interventions to reduce new infections in Tanzania.",
             url: "/interventions/prevention-infection",
-            type: "Intervention"
+            type: "Intervention",
         },
         {
             id: 3,
             title: "Care, Treatment & Support",
-            description: "Comprehensive HIV care, treatment and support services for all age groups.",
+            description:
+                "Comprehensive HIV care, treatment and support services for all age groups.",
             url: "/services/care-support",
-            type: "Service"
+            type: "Service",
         },
         {
             id: 4,
             title: "About NACP",
-            description: "Learn about the National AIDS Control Programme and our mission to end HIV/AIDS in Tanzania.",
+            description:
+                "Learn about the NATIONAL AIDS, STIs AND HEPATITIS CONTROL PROGRAMME and our mission to end HIV/AIDS in Tanzania.",
             url: "/about/about-us",
-            type: "About"
+            type: "About",
         },
         {
             id: 5,
             title: "HIV/AIDS in Tanzania",
-            description: "Current statistics and trends of HIV/AIDS epidemic in Tanzania mainland.",
+            description:
+                "Current statistics and trends of HIV/AIDS epidemic in Tanzania mainland.",
             url: "/about/hiv-aids-tanzania",
-            type: "Information"
-        }
+            type: "Information",
+        },
     ];
 
     useEffect(() => {
@@ -56,9 +61,14 @@ export default function Search({ query = "" }: SearchProps) {
             setIsLoading(true);
             // Simulate API call delay
             setTimeout(() => {
-                const filtered = mockResults.filter(result =>
-                    result.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                    result.description.toLowerCase().includes(searchQuery.toLowerCase())
+                const filtered = mockResults.filter(
+                    (result) =>
+                        result.title
+                            .toLowerCase()
+                            .includes(searchQuery.toLowerCase()) ||
+                        result.description
+                            .toLowerCase()
+                            .includes(searchQuery.toLowerCase())
                 );
                 setSearchResults(filtered);
                 setIsLoading(false);
@@ -71,14 +81,18 @@ export default function Search({ query = "" }: SearchProps) {
     const handleSearch = (e: React.FormEvent) => {
         e.preventDefault();
         // Update URL without page reload
-        window.history.pushState({}, '', `/search?q=${encodeURIComponent(searchQuery)}`);
+        window.history.pushState(
+            {},
+            "",
+            `/search?q=${encodeURIComponent(searchQuery)}`
+        );
     };
 
     const getTypeIcon = (type: string) => {
         switch (type) {
-            case 'Service':
+            case "Service":
                 return <Heart className="h-5 w-5 text-blue-600" />;
-            case 'Intervention':
+            case "Intervention":
                 return <Users className="h-5 w-5 text-green-600" />;
             default:
                 return <FileText className="h-5 w-5 text-gray-600" />;
@@ -87,21 +101,25 @@ export default function Search({ query = "" }: SearchProps) {
 
     const getTypeColor = (type: string) => {
         switch (type) {
-            case 'Service':
-                return 'bg-blue-100 text-blue-800';
-            case 'Intervention':
-                return 'bg-green-100 text-green-800';
-            case 'Information':
-                return 'bg-purple-100 text-purple-800';
+            case "Service":
+                return "bg-blue-100 text-blue-800";
+            case "Intervention":
+                return "bg-green-100 text-green-800";
+            case "Information":
+                return "bg-purple-100 text-purple-800";
             default:
-                return 'bg-gray-100 text-gray-800';
+                return "bg-gray-100 text-gray-800";
         }
     };
 
     return (
         <PublicLayout title="Search Results">
-            <Head title={`Search Results${searchQuery ? ` - ${searchQuery}` : ''}`} />
-            
+            <Head
+                title={`Search Results${
+                    searchQuery ? ` - ${searchQuery}` : ""
+                }`}
+            />
+
             <div className="min-h-screen bg-gray-50">
                 {/* Hero Section */}
                 <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-16">
@@ -114,18 +132,24 @@ export default function Search({ query = "" }: SearchProps) {
                                 Search NACP
                             </h1>
                             <p className="text-xl text-blue-100 max-w-2xl mx-auto">
-                                Find information about HIV/AIDS services, programs, and resources
+                                Find information about HIV/AIDS services,
+                                programs, and resources
                             </p>
                         </div>
 
                         {/* Search Form */}
-                        <form onSubmit={handleSearch} className="max-w-2xl mx-auto">
+                        <form
+                            onSubmit={handleSearch}
+                            className="max-w-2xl mx-auto"
+                        >
                             <div className="flex items-center bg-white rounded-lg shadow-lg overflow-hidden">
                                 <input
                                     type="text"
                                     placeholder="Search for services, programs, information..."
                                     value={searchQuery}
-                                    onChange={(e) => setSearchQuery(e.target.value)}
+                                    onChange={(e) =>
+                                        setSearchQuery(e.target.value)
+                                    }
                                     className="flex-1 px-6 py-4 text-gray-900 text-lg focus:outline-none"
                                 />
                                 <button
@@ -147,10 +171,11 @@ export default function Search({ query = "" }: SearchProps) {
                                 Search Results
                             </h2>
                             <p className="text-gray-600">
-                                {isLoading 
-                                    ? 'Searching...' 
-                                    : `${searchResults.length} result${searchResults.length !== 1 ? 's' : ''} found for "${searchQuery}"`
-                                }
+                                {isLoading
+                                    ? "Searching..."
+                                    : `${searchResults.length} result${
+                                          searchResults.length !== 1 ? "s" : ""
+                                      } found for "${searchQuery}"`}
                             </p>
                         </div>
                     )}
@@ -178,7 +203,11 @@ export default function Search({ query = "" }: SearchProps) {
                                                 >
                                                     {result.title}
                                                 </a>
-                                                <span className={`px-2 py-1 text-xs font-medium rounded-full ${getTypeColor(result.type)}`}>
+                                                <span
+                                                    className={`px-2 py-1 text-xs font-medium rounded-full ${getTypeColor(
+                                                        result.type
+                                                    )}`}
+                                                >
                                                     {result.type}
                                                 </span>
                                             </div>
@@ -189,7 +218,8 @@ export default function Search({ query = "" }: SearchProps) {
                                                 href={result.url}
                                                 className="text-sm text-green-600 hover:text-green-800 font-medium"
                                             >
-                                                {window.location.origin}{result.url}
+                                                {window.location.origin}
+                                                {result.url}
                                             </a>
                                         </div>
                                     </div>
@@ -205,7 +235,9 @@ export default function Search({ query = "" }: SearchProps) {
                                 No results found
                             </h3>
                             <p className="text-gray-600 mb-6">
-                                We couldn't find any results for "{searchQuery}". Try different keywords or browse our main sections.
+                                We couldn't find any results for "{searchQuery}
+                                ". Try different keywords or browse our main
+                                sections.
                             </p>
                             <div className="flex flex-wrap justify-center gap-4">
                                 <a
@@ -237,7 +269,8 @@ export default function Search({ query = "" }: SearchProps) {
                                 Start your search
                             </h3>
                             <p className="text-gray-600">
-                                Enter keywords above to search for NACP services, programs, and information.
+                                Enter keywords above to search for NACP
+                                services, programs, and information.
                             </p>
                         </div>
                     )}

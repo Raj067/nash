@@ -36,7 +36,7 @@ import {
 } from "@/Components/ui/sidebar";
 import { NavMain } from "./nav-main";
 
-// NACP Admin Navigation Data
+// NASHCOP Admin Navigation Data
 const data = {
     navMain: [
         {

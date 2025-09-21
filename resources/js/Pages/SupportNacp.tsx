@@ -89,7 +89,7 @@ export default function SupportNacp() {
 
     return (
         <PublicLayout title="Support NACP">
-            <Head title="Support NACP - National AIDS Control Programme" />
+            <Head title="Support NACP - NATIONAL AIDS, STIs AND HEPATITIS CONTROL PROGRAMME" />
 
             <div className="min-h-screen">
                 {/* Hero Section */}
