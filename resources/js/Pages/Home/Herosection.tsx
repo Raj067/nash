@@ -201,7 +201,10 @@ function Herosection() {
             </div>
 
             {/* Welcome Message from PM - Enhanced with Image */}
-            <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-purple-50 relative overflow-hidden">
+            <section
+                id="programme-manager-statement"
+                className="py-20 bg-gradient-to-br from-blue-50 via-white to-purple-50 relative overflow-hidden"
+            >
                 {/* Background Elements */}
                 <div className="absolute inset-0 opacity-30">
                     <div className="absolute top-10 right-10 w-32 h-32 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full blur-3xl opacity-20"></div>

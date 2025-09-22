@@ -358,72 +358,125 @@ const NASHCOPHeader: FC = () => {
             href: "/about/about-us",
             icon: Users,
             dropdown: [
-                { title: "About Us", href: "/about/about-us" },
+                {
+                    title: "Historical Background",
+                    href: "/about/about-us#historical-background",
+                },
                 {
                     title: "HIV/AIDS in Tanzania",
                     href: "/about/hiv-aids-tanzania",
                 },
                 {
-                    title: "NASHCOP Organisation Structure",
+                    title: "Statement from Programme Manager",
+                    href: "/#programme-manager-statement",
+                },
+                {
+                    title: "Mission & Vision",
+                    href: "/about/about-us#mission-vision",
+                },
+                {
+                    title: "NASHCOP Main Goals & Functions",
+                    href: "/about/about-us#goals-functions",
+                },
+                { title: "Core Values", href: "/about/about-us#core-values" },
+                {
+                    title: "NASHCOP Structure",
                     href: "/about/structure",
                 },
             ],
         },
         {
-            title: "WHAT WE DO",
-            href: "/services/nacp-roles-and-responsibilities",
+            title: "PROGRAMME AREAS",
+            href: "/programme-areas",
             icon: Heart,
             dropdown: [
                 {
-                    title: "NASHCOP Roles & Responsibilities",
-                    href: "/services/nacp-roles-and-responsibilities",
+                    title: "Management & Coordination",
+                    href: "/programme-areas/management-coordination",
                 },
                 {
-                    title: "Division of Prevention",
-                    href: "/services/division-of-prevention",
+                    title: "Prevention",
+                    href: "/programme-areas/prevention",
                 },
                 {
-                    title: "Care, Treatment & Support Unit",
-                    href: "/services/care-treatment-and-support-unit",
-                },
-                {
-                    title: "Strategic Information Unit",
-                    href: "/services/strategic-information-unit",
-                },
-                {
-                    title: "Pharmaceuticals & Laboratory Services",
-                    href: "/services/division-of-pharmaceuticals-and-laboratory-services",
-                },
-                {
-                    title: "National Strategic Plan 90-90-90",
-                    href: "/services/national-strategic-plan-on-90-90-90",
-                },
-            ],
-        },
-        {
-            title: "INTERVENTIONS",
-            href: "/interventions/hiv-testing-services-linkage/",
-            icon: Shield,
-            dropdown: [
-                {
-                    title: "HIV Testing Services & Linkage",
+                    title: "• HIV Testing Services",
                     href: "/interventions/hiv-testing-services-linkage",
                 },
                 {
-                    title: "Prevention of New HIV Infection",
-                    href: "/interventions/prevention-new-hiv-infection",
+                    title: "• Voluntary Medical Male Circumcision (VMMC)",
+                    href: "/programme-areas/prevention/vmmc",
                 },
                 {
-                    title: "Building Resilient Health Systems",
-                    href: "/interventions/building-resilient-health-systems",
+                    title: "• Social Behaviour Change Communication (SBCC)",
+                    href: "/programme-areas/prevention/sbcc",
                 },
                 {
-                    title: "Decentralized HIV Care & Treatment",
-                    href: "/interventions/decentralized-hiv-care-treatment",
+                    title: "• Condom Promotion and Distribution",
+                    href: "/programme-areas/prevention/condoms",
                 },
                 {
-                    title: "Cross-Sector HIV Interventions",
-                    href: "/interventions/cross-sector-hiv-interventions",
+                    title: "• Prevention of Vertical Transmission",
+                    href: "/programme-areas/prevention/pmtct",
+                },
+                {
+                    title: "• Pre-Exposure Prophylaxis",
+                    href: "/programme-areas/prevention/prep",
+                },
+                {
+                    title: "• Key and Vulnerable Populations (KVP)",
+                    href: "/programme-areas/prevention/kvp",
+                },
+                {
+                    title: "Care, Treatment & Support",
+                    href: "/programme-areas/care-treatment-support",
+                },
+                {
+                    title: "• Community Based HIV and AIDS Services",
+                    href: "/programme-areas/care-treatment-support/community-services",
+                },
+                {
+                    title: "• TB/HIV Co-infection",
+                    href: "/programme-areas/care-treatment-support/tb-hiv",
+                },
+                {
+                    title: "• Viral Hepatitis and Co-infections",
+                    href: "/programme-areas/care-treatment-support/viral-hepatitis",
+                },
+                {
+                    title: "• Integrated Management of NCDs in HIV",
+                    href: "/programme-areas/care-treatment-support/ncd-integration",
+                },
+                {
+                    title: "• Integration of Mental Health Services",
+                    href: "/programme-areas/care-treatment-support/mental-health",
+                },
+                {
+                    title: "Monitoring & Evaluation",
+                    href: "/programme-areas/monitoring-evaluation",
+                },
+                {
+                    title: "• HIV Research",
+                    href: "/programme-areas/monitoring-evaluation/research",
+                },
+                {
+                    title: "• HIV Surveillance",
+                    href: "/programme-areas/monitoring-evaluation/surveillance",
+                },
+                {
+                    title: "• Health Information Systems (HIS)",
+                    href: "/programme-areas/monitoring-evaluation/his",
+                },
+                {
+                    title: "Pharmaceuticals & Laboratory Services",
+                    href: "/programme-areas/pharmaceuticals-laboratory",
+                },
+                {
+                    title: "• Supply Chain Management and Rational",
+                    href: "/programme-areas/pharmaceuticals-laboratory/supply-chain",
+                },
+                {
+                    title: "• HIV and AIDS Laboratory Services",
+                    href: "/programme-areas/pharmaceuticals-laboratory/laboratory-services",
                 },
             ],
         },

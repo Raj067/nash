@@ -168,7 +168,7 @@ export default function AboutUs() {
                 </div>
 
                 {/* Historical Background Section */}
-                <section className="py-20 bg-white relative overflow-hidden">
+                <section id="historical-background" className="py-20 bg-white relative overflow-hidden">
                     <div className="container mx-auto px-4">
                         <div className="text-center mb-16">
                             <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-orange-600 to-red-600 rounded-full mb-6">
@@ -337,7 +337,7 @@ export default function AboutUs() {
                 </section>
 
                 {/* Mission, Vision, Values */}
-                <section className="py-20 bg-white relative overflow-hidden">
+                <section id="mission-vision" className="py-20 bg-white relative overflow-hidden">
                     <div className="container mx-auto px-4">
                         <div className="text-center mb-16">
                             <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-green-600 to-blue-600 rounded-full mb-6">
@@ -458,7 +458,7 @@ export default function AboutUs() {
                 </section>
 
                 {/* Goals Section */}
-                <section className="py-20 bg-gradient-to-br from-green-50 via-white to-blue-50 relative overflow-hidden">
+                <section id="goals-functions" className="py-20 bg-gradient-to-br from-green-50 via-white to-blue-50 relative overflow-hidden">
                     {/* Background Pattern */}
                     <div className="absolute inset-0 opacity-5">
                         <div className="absolute top-10 right-10 w-32 h-32 bg-green-500 rounded-full blur-3xl"></div>
@@ -595,7 +595,7 @@ export default function AboutUs() {
                 </section>
 
                 {/* Core Values Detailed */}
-                <section className="py-20 bg-gradient-to-r from-blue-900 via-blue-800 to-purple-900 relative overflow-hidden">
+                <section id="core-values" className="py-20 bg-gradient-to-r from-blue-900 via-blue-800 to-purple-900 relative overflow-hidden">
                     {/* Background Graphics */}
                     <div className="absolute inset-0">
                         <div className="absolute top-0 left-0 w-full h-full opacity-20">

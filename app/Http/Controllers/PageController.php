@@ -240,4 +240,119 @@ class PageController extends Controller
     {
         return Inertia::render('SupportNacp');
     }
+
+    // Programme Areas pages
+    public function programmeAreas()
+    {
+        return Inertia::render('ProgrammeAreas/Index');
+    }
+
+    public function managementCoordination()
+    {
+        return Inertia::render('ProgrammeAreas/ManagementCoordination');
+    }
+
+    public function prevention()
+    {
+        return Inertia::render('ProgrammeAreas/Prevention');
+    }
+
+    public function careTreatmentSupport()
+    {
+        return Inertia::render('ProgrammeAreas/CareTreatmentSupport');
+    }
+
+    public function monitoringEvaluation()
+    {
+        return Inertia::render('ProgrammeAreas/MonitoringEvaluation');
+    }
+
+    public function pharmaceuticalsLaboratory()
+    {
+        return Inertia::render('ProgrammeAreas/PharmaceuticalsLaboratory');
+    }
+
+    // Programme Areas - Prevention sub-pages
+    public function preventionVmmc()
+    {
+        return Inertia::render('ProgrammeAreas/Prevention/Vmmc');
+    }
+
+    public function preventionSbcc()
+    {
+        return Inertia::render('ProgrammeAreas/Prevention/Sbcc');
+    }
+
+    public function preventionCondoms()
+    {
+        return Inertia::render('ProgrammeAreas/Prevention/Condoms');
+    }
+
+    public function preventionPmtct()
+    {
+        return Inertia::render('ProgrammeAreas/Prevention/Pmtct');
+    }
+
+    public function preventionPrep()
+    {
+        return Inertia::render('ProgrammeAreas/Prevention/Prep');
+    }
+
+    public function preventionKvp()
+    {
+        return Inertia::render('ProgrammeAreas/Prevention/Kvp');
+    }
+
+    // Programme Areas - Care, Treatment & Support sub-pages
+    public function careCommunityServices()
+    {
+        return Inertia::render('ProgrammeAreas/CareTreatmentSupport/CommunityServices');
+    }
+
+    public function careTbHiv()
+    {
+        return Inertia::render('ProgrammeAreas/CareTreatmentSupport/TbHiv');
+    }
+
+    public function careViralHepatitis()
+    {
+        return Inertia::render('ProgrammeAreas/CareTreatmentSupport/ViralHepatitis');
+    }
+
+    public function careNcdIntegration()
+    {
+        return Inertia::render('ProgrammeAreas/CareTreatmentSupport/NcdIntegration');
+    }
+
+    public function careMentalHealth()
+    {
+        return Inertia::render('ProgrammeAreas/CareTreatmentSupport/MentalHealth');
+    }
+
+    // Programme Areas - Monitoring & Evaluation sub-pages
+    public function meResearch()
+    {
+        return Inertia::render('ProgrammeAreas/MonitoringEvaluation/Research');
+    }
+
+    public function meSurveillance()
+    {
+        return Inertia::render('ProgrammeAreas/MonitoringEvaluation/Surveillance');
+    }
+
+    public function meHis()
+    {
+        return Inertia::render('ProgrammeAreas/MonitoringEvaluation/His');
+    }
+
+    // Programme Areas - Pharmaceuticals & Laboratory sub-pages
+    public function pharmaSupplyChain()
+    {
+        return Inertia::render('ProgrammeAreas/PharmaceuticalsLaboratory/SupplyChain');
+    }
+
+    public function pharmaLaboratoryServices()
+    {
+        return Inertia::render('ProgrammeAreas/PharmaceuticalsLaboratory/LaboratoryServices');
+    }
 }

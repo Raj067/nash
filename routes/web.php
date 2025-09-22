@@ -45,6 +45,38 @@ Route::get('/interventions/building-resilient-health-systems', [PageController::
 Route::get('/interventions/decentralized-hiv-care-treatment', [PageController::class, 'decentralizedCare'])->name('interventions.decentralized-care');
 Route::get('/interventions/cross-sector-hiv-interventions', [PageController::class, 'crossSector'])->name('interventions.cross-sector');
 
+// Programme Areas
+Route::get('/programme-areas', [PageController::class, 'programmeAreas'])->name('programme-areas');
+Route::get('/programme-areas/management-coordination', [PageController::class, 'managementCoordination'])->name('programme-areas.management-coordination');
+Route::get('/programme-areas/prevention', [PageController::class, 'prevention'])->name('programme-areas.prevention');
+Route::get('/programme-areas/care-treatment-support', [PageController::class, 'careTreatmentSupport'])->name('programme-areas.care-treatment-support');
+Route::get('/programme-areas/monitoring-evaluation', [PageController::class, 'monitoringEvaluation'])->name('programme-areas.monitoring-evaluation');
+Route::get('/programme-areas/pharmaceuticals-laboratory', [PageController::class, 'pharmaceuticalsLaboratory'])->name('programme-areas.pharmaceuticals-laboratory');
+
+// Programme Areas - Prevention sub-pages
+Route::get('/programme-areas/prevention/vmmc', [PageController::class, 'preventionVmmc'])->name('programme-areas.prevention.vmmc');
+Route::get('/programme-areas/prevention/sbcc', [PageController::class, 'preventionSbcc'])->name('programme-areas.prevention.sbcc');
+Route::get('/programme-areas/prevention/condoms', [PageController::class, 'preventionCondoms'])->name('programme-areas.prevention.condoms');
+Route::get('/programme-areas/prevention/pmtct', [PageController::class, 'preventionPmtct'])->name('programme-areas.prevention.pmtct');
+Route::get('/programme-areas/prevention/prep', [PageController::class, 'preventionPrep'])->name('programme-areas.prevention.prep');
+Route::get('/programme-areas/prevention/kvp', [PageController::class, 'preventionKvp'])->name('programme-areas.prevention.kvp');
+
+// Programme Areas - Care, Treatment & Support sub-pages
+Route::get('/programme-areas/care-treatment-support/community-services', [PageController::class, 'careCommunityServices'])->name('programme-areas.care-treatment-support.community-services');
+Route::get('/programme-areas/care-treatment-support/tb-hiv', [PageController::class, 'careTbHiv'])->name('programme-areas.care-treatment-support.tb-hiv');
+Route::get('/programme-areas/care-treatment-support/viral-hepatitis', [PageController::class, 'careViralHepatitis'])->name('programme-areas.care-treatment-support.viral-hepatitis');
+Route::get('/programme-areas/care-treatment-support/ncd-integration', [PageController::class, 'careNcdIntegration'])->name('programme-areas.care-treatment-support.ncd-integration');
+Route::get('/programme-areas/care-treatment-support/mental-health', [PageController::class, 'careMentalHealth'])->name('programme-areas.care-treatment-support.mental-health');
+
+// Programme Areas - Monitoring & Evaluation sub-pages
+Route::get('/programme-areas/monitoring-evaluation/research', [PageController::class, 'meResearch'])->name('programme-areas.monitoring-evaluation.research');
+Route::get('/programme-areas/monitoring-evaluation/surveillance', [PageController::class, 'meSurveillance'])->name('programme-areas.monitoring-evaluation.surveillance');
+Route::get('/programme-areas/monitoring-evaluation/his', [PageController::class, 'meHis'])->name('programme-areas.monitoring-evaluation.his');
+
+// Programme Areas - Pharmaceuticals & Laboratory sub-pages
+Route::get('/programme-areas/pharmaceuticals-laboratory/supply-chain', [PageController::class, 'pharmaSupplyChain'])->name('programme-areas.pharmaceuticals-laboratory.supply-chain');
+Route::get('/programme-areas/pharmaceuticals-laboratory/laboratory-services', [PageController::class, 'pharmaLaboratoryServices'])->name('programme-areas.pharmaceuticals-laboratory.laboratory-services');
+
 // Resources
 Route::get('/resources', [DocumentController::class, 'resources'])->name('resources');
 Route::get('/resources/strategic-framework', [DocumentController::class, 'strategicFramework'])->name('resources.strategic-framework');
