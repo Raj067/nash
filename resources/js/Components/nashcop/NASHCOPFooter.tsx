@@ -1,4 +1,5 @@
 import { FC, useState } from "react";
+import { useTranslation } from "react-i18next";
 import {
     Phone,
     Mail,
@@ -19,6 +20,7 @@ import {
 } from "lucide-react";
 
 const NASHCOPFooter: FC = () => {
+    const { t } = useTranslation('common');
     const [email, setEmail] = useState("");
     const [isLoading, setIsLoading] = useState(false);
     const [message, setMessage] = useState<{
@@ -32,7 +34,7 @@ const NASHCOPFooter: FC = () => {
         if (!email.trim()) {
             setMessage({
                 type: "error",
-                text: "Please enter your email address.",
+                text: t('footer.newsletter.email_required'),
             });
             return;
         }
@@ -65,7 +67,7 @@ const NASHCOPFooter: FC = () => {
         } catch (error) {
             setMessage({
                 type: "error",
-                text: "Network error. Please try again later.",
+                text: t('footer.newsletter.network_error'),
             });
         } finally {
             setIsLoading(false);
@@ -74,22 +76,22 @@ const NASHCOPFooter: FC = () => {
 
     const quickLinks = [
         {
-            title: "HIV Testing Services",
+            title: t('footer.services.hiv_testing'),
             href: "/interventions/hiv-testing-services-linkage",
             icon: Heart,
         },
         {
-            title: "Care & Treatment",
+            title: t('footer.services.care_treatment'),
             href: "/services/care-treatment-and-support-unit",
             icon: Shield,
         },
         {
-            title: "Prevention Programs",
+            title: t('footer.services.prevention_programs'),
             href: "/interventions/prevention-new-hiv-infection",
             icon: Users,
         },
         {
-            title: "Strategic Information",
+            title: t('footer.services.strategic_information'),
             href: "/services/strategic-information-unit",
             icon: FileText,
         },
@@ -97,24 +99,24 @@ const NASHCOPFooter: FC = () => {
 
     const importantLinks = [
         {
-            title: "Emergency HIV Hotline",
+            title: t('footer.links.emergency_hotline'),
             href: "tel:+177",
             phone: "+177",
         },
         {
-            title: "Division of Prevention",
+            title: t('footer.links.division_prevention'),
             href: "/services/division-of-prevention",
         },
         {
-            title: "Strategic Framework",
+            title: t('footer.links.strategic_framework'),
             href: "/resources/strategic-framework",
         },
         {
-            title: "Building Health Systems",
+            title: t('footer.links.building_health_systems'),
             href: "/interventions/building-resilient-health-systems",
         },
         {
-            title: "NACP Roles",
+            title: t('footer.links.nacp_roles'),
             href: "/services/nacp-roles-and-responsibilities",
         },
         // { title: "Contact Information", href: "/contact/info" },
@@ -146,7 +148,7 @@ const NASHCOPFooter: FC = () => {
     ];
 
     return (
-        <footer className="bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 text-white relative overflow-hidden">
+        <footer className="bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 text-white relative overflow-hidden notranslate">
             {/* Background Graphics */}
             <div className="absolute inset-0">
                 <div className="absolute top-0 left-0 w-full h-full opacity-20">
@@ -164,13 +166,13 @@ const NASHCOPFooter: FC = () => {
                         <div className="flex items-center space-x-2">
                             <AlertCircle className="h-5 w-5 animate-pulse" />
                             <span className="font-bold text-lg">
-                                HIV Emergency Hotline: 117
+                                {t('footer.emergency_banner.hotline')}
                             </span>
                         </div>
                         <div className="flex items-center space-x-2">
                             <Clock className="h-5 w-5" />
                             <span className="font-medium">
-                                Available 24/7 - Free & Confidential
+                                {t('footer.emergency_banner.availability')}
                             </span>
                         </div>
                     </div>
@@ -190,19 +192,16 @@ const NASHCOPFooter: FC = () => {
                             />
                             <div>
                                 <h3 className="text-xl font-bold text-yellow-400">
-                                    NASHCOP Tanzania
+                                    {t('footer.organization.name')}
                                 </h3>
                                 <p className="text-sm text-blue-200">
-                                    NATIONAL AIDS, STIs AND HEPATITIS CONTROL
-                                    PROGRAMME
+                                    {t('footer.organization.full_name')}
                                 </p>
                             </div>
                         </div>
 
                         <p className="text-blue-100 text-sm mb-6 leading-relaxed">
-                            Leading Tanzania's response to HIV/AIDS through
-                            prevention, treatment, care, and support services.
-                            Working towards an AIDS-free generation.
+                            {t('footer.organization.description')}
                         </p>
 
                         {/* Contact Info */}
@@ -210,16 +209,16 @@ const NASHCOPFooter: FC = () => {
                             <div className="flex items-center space-x-3">
                                 <MapPin className="h-4 w-4 text-yellow-400 flex-shrink-0" />
                                 <div className="text-sm">
-                                    <p>Kilimani, Dodoma, Tanzania</p>
+                                    <p>{t('footer.organization.address')}</p>
                                 </div>
                             </div>
 
                             <div className="flex items-center space-x-3">
                                 <Phone className="h-4 w-4 text-yellow-400 flex-shrink-0" />
                                 <div className="text-sm">
-                                    <p>+255-26-2960148</p>
+                                    <p>{t('footer.organization.phone')}</p>
                                     <p className="text-gray-400">
-                                        Mon-Fri: 8:00 AM - 4:30 PM
+                                        {t('footer.organization.phone_hours')}
                                     </p>
                                 </div>
                             </div>
@@ -227,9 +226,9 @@ const NASHCOPFooter: FC = () => {
                             <div className="flex items-center space-x-3">
                                 <Mail className="h-4 w-4 text-yellow-400 flex-shrink-0" />
                                 <div className="text-sm">
-                                    <p>nacp@afya.go.tz </p>
+                                    <p>{t('footer.organization.email')}</p>
                                     <p className="text-gray-400">
-                                        Official inquiries
+                                        {t('footer.organization.email_description')}
                                     </p>
                                 </div>
                             </div>
@@ -239,7 +238,7 @@ const NASHCOPFooter: FC = () => {
                     {/* Quick Services */}
                     <div>
                         <h4 className="text-lg font-semibold mb-6 text-yellow-400 border-b border-yellow-400 pb-2">
-                            Quick Services
+                            {t('footer.sections.quick_services')}
                         </h4>
                         <div className="space-y-3">
                             {quickLinks.map((link) => (
@@ -257,7 +256,7 @@ const NASHCOPFooter: FC = () => {
                         </div>
 
                         <h5 className="text-md font-semibold mt-8 mb-4 text-blue-200">
-                            Important Links
+                            {t('footer.sections.important_links')}
                         </h5>
                         <div className="space-y-2">
                             {importantLinks.map((link) => (
@@ -280,7 +279,7 @@ const NASHCOPFooter: FC = () => {
                     {/* Government Links */}
                     <div>
                         <h4 className="text-lg font-semibold mb-6 text-yellow-400 border-b border-yellow-400 pb-2">
-                            Government
+                            {t('footer.sections.government')}
                         </h4>
                         <div className="space-y-2">
                             {governmentLinks.map((link) => (
@@ -311,7 +310,7 @@ const NASHCOPFooter: FC = () => {
                     {/* Partners & Social */}
                     <div>
                         <h4 className="text-lg font-semibold mb-6 text-yellow-400 border-b border-yellow-400 pb-2">
-                            Partners
+                            {t('footer.sections.partners')}
                         </h4>
                         <div className="space-y-2">
                             {partnerOrganizations.map((partner) => (
@@ -329,7 +328,7 @@ const NASHCOPFooter: FC = () => {
 
                         {/* Social Media */}
                         <h5 className="text-md font-semibold mt-8 mb-4 text-blue-200">
-                            Follow Us
+                            {t('footer.sections.follow_us')}
                         </h5>
                         <div className="flex space-x-4">
                             <a
@@ -337,7 +336,7 @@ const NASHCOPFooter: FC = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="p-2 bg-blue-800 rounded-full hover:bg-yellow-500 hover:text-blue-900 transition-colors shadow-lg"
-                                title="Follow us on Facebook"
+                                title={t('footer.social.facebook')}
                             >
                                 <Facebook className="h-4 w-4" />
                             </a>
@@ -346,7 +345,7 @@ const NASHCOPFooter: FC = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="p-2 bg-blue-800 rounded-full hover:bg-yellow-500 hover:text-blue-900 transition-colors shadow-lg"
-                                title="Follow us on X (Twitter)"
+                                title={t('footer.social.twitter')}
                             >
                                 <Twitter className="h-4 w-4" />
                             </a>
@@ -355,7 +354,7 @@ const NASHCOPFooter: FC = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="p-2 bg-blue-800 rounded-full hover:bg-yellow-500 hover:text-blue-900 transition-colors shadow-lg"
-                                title="Follow us on Instagram"
+                                title={t('footer.social.instagram')}
                             >
                                 <Instagram className="h-4 w-4" />
                             </a>
@@ -364,7 +363,7 @@ const NASHCOPFooter: FC = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="p-2 bg-blue-800 rounded-full hover:bg-yellow-500 hover:text-blue-900 transition-colors shadow-lg"
-                                title="Subscribe to our YouTube channel"
+                                title={t('footer.social.youtube')}
                             >
                                 <Youtube className="h-4 w-4" />
                             </a>
@@ -373,7 +372,7 @@ const NASHCOPFooter: FC = () => {
                         {/* Newsletter Signup */}
                         <div className="mt-6">
                             <h5 className="text-sm font-semibold mb-3 text-blue-200">
-                                Stay Updated
+                                {t('footer.sections.stay_updated')}
                             </h5>
                             <form onSubmit={handleNewsletterSubmit}>
                                 <div className="flex">
@@ -383,7 +382,7 @@ const NASHCOPFooter: FC = () => {
                                         onChange={(e) =>
                                             setEmail(e.target.value)
                                         }
-                                        placeholder="Your email"
+                                        placeholder={t('footer.newsletter.email_placeholder')}
                                         disabled={isLoading}
                                         className="flex-1 px-3 py-2 text-sm bg-blue-800 border border-blue-600 rounded-l-md focus:outline-none focus:border-yellow-400 text-white placeholder-blue-300 disabled:opacity-50"
                                     />
@@ -395,7 +394,7 @@ const NASHCOPFooter: FC = () => {
                                         {isLoading ? (
                                             <Loader2 className="w-4 h-4 animate-spin" />
                                         ) : (
-                                            "Subscribe"
+                                            t('footer.newsletter.subscribe')
                                         )}
                                     </button>
                                 </div>
@@ -429,23 +428,21 @@ const NASHCOPFooter: FC = () => {
                     <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
                         <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-6 text-sm text-blue-300">
                             <p>
-                                &copy; 2025 NATIONAL AIDS, STIs AND HEPATITIS
-                                CONTROL PROGRAMME, Tanzania. All rights
-                                reserved.
+                                {t('footer.copyright')}
                             </p>
                             <div className="flex items-center space-x-4">
                                 <a
                                     href="/legal/privacy"
                                     className="hover:text-yellow-400 transition-colors"
                                 >
-                                    Privacy Policy
+                                    {t('footer.legal.privacy_policy')}
                                 </a>
                                 <span>|</span>
                                 <a
                                     href="/legal/terms"
                                     className="hover:text-yellow-400 transition-colors"
                                 >
-                                    Terms of Use
+                                    {t('footer.legal.terms_of_use')}
                                 </a>
                             </div>
                         </div>
@@ -454,8 +451,7 @@ const NASHCOPFooter: FC = () => {
                             <div className="flex items-center space-x-2">
                                 <Globe className="h-4 w-4" />
                                 <span>
-                                    Last updated:{" "}
-                                    {new Date().toLocaleDateString()}
+                                    {t('footer.last_updated', { date: new Date().toLocaleDateString() })}
                                 </span>
                             </div>
                         </div>

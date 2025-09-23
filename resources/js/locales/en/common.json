@@ -1,0 +1,145 @@
+{
+  "header": {
+    "emergency_hotline": "Emergency HIV Hotline: 117",
+    "email_contact": "nacp@afya.go.tz",
+    "search_placeholder": "Search NACP...",
+    "donate": "Donate",
+    "support_nacp": "Support NACP",
+    "select_language": "Select language",
+    "open_search": "Open search",
+    "tanzania_republic": "THE UNITED REPUBLIC OF TANZANIA",
+    "ministry_health": "MINISTRY OF HEALTH",
+    "nashcop_full": "NATIONAL AIDS, STIs AND HEPATITIS CONTROL PROGRAMME",
+    "navigation": {
+      "home": "HOME",
+      "about": "ABOUT NASHCOP",
+      "programme_areas": "PROGRAMME AREAS",
+      "resources": "RESOURCES CENTER",
+      "media": "MEDIA CENTER",
+      "contact": "CONTACT & SUPPORT",
+      "historical_background": "Historical Background",
+      "hiv_aids_tanzania": "HIV/AIDS in Tanzania",
+      "programme_manager_statement": "Statement from Programme Manager",
+      "mission_vision": "Mission & Vision",
+      "goals_functions": "NASHCOP Main Goals & Functions",
+      "core_values": "Core Values",
+      "structure": "NASHCOP Structure",
+      "management_coordination": "Management & Coordination",
+      "prevention": "Prevention",
+      "care_treatment_support": "Care, Treatment & Support",
+      "monitoring_evaluation": "Monitoring & Evaluation",
+      "pharmaceuticals_laboratory": "Pharmaceuticals & Laboratory Services",
+      "hiv_testing_services": "HIV Testing Services",
+      "vmmc": "Voluntary Medical Male Circumcision (VMMC)",
+      "sbcc": "Social Behaviour Change Communication (SBCC)",
+      "condom_promotion": "Condom Promotion and Distribution",
+      "pmtct": "Prevention of Vertical Transmission (PMTCT)",
+      "prep": "Pre-Exposure Prophylaxis (PrEP)",
+      "kvp": "Key and Vulnerable Populations (KVP)",
+      "community_services": "Community Based HIV and AIDS Services",
+      "tb_hiv": "TB/HIV Co-infection",
+      "viral_hepatitis": "Viral Hepatitis and Co-infections",
+      "ncd_integration": "Integrated Management of NCDs in HIV",
+      "mental_health": "Integration of Mental Health Services",
+      "research": "HIV Research",
+      "surveillance": "HIV Surveillance",
+      "his": "Health Information Systems (HIS)",
+      "supply_chain": "Supply Chain Management and Rational",
+      "laboratory_services": "HIV and AIDS Laboratory Services",
+      "strategic_framework": "Strategic Framework & Policies",
+      "guidelines": "Guidelines",
+      "policy_documents": "Policy Documents",
+      "reports": "Reports",
+      "sop_manuals": "SOP & Manuals",
+      "iec_materials": "IEC/SBC Materials",
+      "databases": "Databases",
+      "news": "News",
+      "press_releases": "Press Releases",
+      "speeches": "Speeches",
+      "events": "NASHCOP Events",
+      "newsletter": "Newsletter",
+      "photo_gallery": "Photo Gallery",
+      "video_library": "Video Library",
+      "office_locations": "Office Locations",
+      "feedback_complaints": "Feedback & Complaints"
+    }
+  },
+  "footer": {
+    "emergency_banner": {
+      "hotline": "HIV Emergency Hotline: 117",
+      "availability": "Available 24/7 - Free & Confidential"
+    },
+    "organization": {
+      "name": "NASHCOP Tanzania",
+      "full_name": "NATIONAL AIDS, STIs AND HEPATITIS CONTROL PROGRAMME",
+      "description": "Leading Tanzania's response to HIV/AIDS through prevention, treatment, care, and support services. Working towards an AIDS-free generation.",
+      "address": "Kilimani, Dodoma, Tanzania",
+      "phone": "+255-26-2960148",
+      "phone_hours": "Mon-Fri: 8:00 AM - 4:30 PM",
+      "email": "nacp@afya.go.tz",
+      "email_description": "Official inquiries"
+    },
+    "sections": {
+      "quick_services": "Quick Services",
+      "important_links": "Important Links",
+      "government": "Government",
+      "partners": "Partners",
+      "follow_us": "Follow Us",
+      "stay_updated": "Stay Updated"
+    },
+    "services": {
+      "hiv_testing": "HIV Testing Services",
+      "care_treatment": "Care & Treatment",
+      "prevention_programs": "Prevention Programs",
+      "strategic_information": "Strategic Information"
+    },
+    "links": {
+      "emergency_hotline": "Emergency HIV Hotline",
+      "division_prevention": "Division of Prevention",
+      "strategic_framework": "Strategic Framework",
+      "building_health_systems": "Building Health Systems",
+      "nacp_roles": "NACP Roles"
+    },
+    "government_links": {
+      "ministry_health": "Ministry of Health",
+      "government_mail": "Government Mailing System",
+      "dhis2": "DHIS2 Tanzania",
+      "eoffice": "eOffice Government",
+      "tacaids": "TACAIDS",
+      "aids_trust_fund": "AIDS Trust Fund Tanzania",
+      "tamisemi": "TAMISEMI",
+      "government_portal": "Tanzania Government Portal",
+      "president_office": "President's Office",
+      "pm_office": "Prime Minister's Office"
+    },
+    "partners": {
+      "pepfar": "PEPFAR",
+      "unaids": "UNAIDS",
+      "who": "WHO Tanzania",
+      "global_fund": "Global Fund",
+      "usaid": "USAID Tanzania",
+      "cdc": "CDC Tanzania"
+    },
+    "social": {
+      "facebook": "Follow us on Facebook",
+      "twitter": "Follow us on X (Twitter)",
+      "instagram": "Follow us on Instagram",
+      "youtube": "Subscribe to our YouTube channel"
+    },
+    "newsletter": {
+      "email_placeholder": "Your email",
+      "subscribe": "Subscribe",
+      "email_required": "Please enter your email address.",
+      "network_error": "Network error. Please try again later."
+    },
+    "copyright": "© 2025 NATIONAL AIDS, STIs AND HEPATITIS CONTROL PROGRAMME, Tanzania. All rights reserved.",
+    "legal": {
+      "privacy_policy": "Privacy Policy",
+      "terms_of_use": "Terms of Use"
+    },
+    "last_updated": "Last updated: {{date}}"
+  },
+  "home": {
+    "title": "Nash COP - Community Oriented Policing"
+  }
+}

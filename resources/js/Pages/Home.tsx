@@ -10,6 +10,7 @@ import {
 } from "@/Components/ui/card";
 import { Link } from "@inertiajs/react";
 import { Shield, Phone, Users, FileText, ArrowRight } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import Herosection from "./Home/Herosection";
 import RiskAssessmentShortlinks from "@/Components/nashcop/RiskAssessmentShortlinks";
 import FeaturedServiceWidget from "./Home/FeaturedServiceWidget";
@@ -88,20 +89,24 @@ export default function Home({
     featuredDocuments,
     featuredBlogs,
 }: HomeProps) {
+    const { t } = useTranslation('common');
+    
     console.log(featuredBlogs.length);
     return (
-        <PublicLayout title="Nash COP - Community Oriented Policing">
+        <PublicLayout title={t('home.title')}>
             <Head title="Home" />
-            <Herosection />
-            <RecentNews featuredBlogs={featuredBlogs} />
-            <RiskAssessmentShortlinks />
-            <WhistleblowingModule />
-            <HomeStatisticsPage />
-            <FeaturedServiceWidget />
-            <FaqsWidgets />
-            <ImportantDocumentsWidgets featuredDocuments={featuredDocuments} />
-            <QuickActionWidget />
-            <ContactInfoWidget />
+            <div className="notranslate">
+                <Herosection />
+                <RecentNews featuredBlogs={featuredBlogs} />
+                <RiskAssessmentShortlinks />
+                <WhistleblowingModule />
+                <HomeStatisticsPage />
+                <FeaturedServiceWidget />
+                <FaqsWidgets />
+                <ImportantDocumentsWidgets featuredDocuments={featuredDocuments} />
+                <QuickActionWidget />
+                <ContactInfoWidget />
+            </div>
             {/* <section className="bg-green-500 min-h-screen">Homepage1</section> */}
         </PublicLayout>
     );

@@ -1,0 +1,145 @@
+{
+  "header": {
+    "emergency_hotline": "Simu ya Dharura ya VVU: 117",
+    "email_contact": "nacp@afya.go.tz",
+    "search_placeholder": "Tafuta NACP...",
+    "donate": "Changia",
+    "support_nacp": "Unga Mkono NACP",
+    "select_language": "Chagua lugha",
+    "open_search": "Fungua utafutaji",
+    "tanzania_republic": "JAMHURI YA MUUNGANO WA TANZANIA",
+    "ministry_health": "WIZARA YA AFYA",
+    "nashcop_full": "MPANGO WA KITAIFA WA KUDHIBITI VVU, MAGONJWA YA ZINAA NA HEPATITIS",
+    "navigation": {
+      "home": "NYUMBANI",
+      "about": "KUHUSU NASHCOP",
+      "programme_areas": "MAENEO YA MPANGO",
+      "resources": "KITUO CHA RASILIMALI",
+      "media": "KITUO CHA HABARI",
+      "contact": "MAWASILIANO NA MSAADA",
+      "historical_background": "Utangulizi wa Kihistoria",
+      "hiv_aids_tanzania": "VVU/UKIMWI Tanzania",
+      "programme_manager_statement": "Taarifa kutoka kwa Meneja wa Mpango",
+      "mission_vision": "Dhamira na Maono",
+      "goals_functions": "Malengo Makuu na Kazi za NASHCOP",
+      "core_values": "Maadili Muhimu",
+      "structure": "Muundo wa NASHCOP",
+      "management_coordination": "Uongozi na Uratibu",
+      "prevention": "Kuzuia",
+      "care_treatment_support": "Huduma, Matibabu na Msaada",
+      "monitoring_evaluation": "Ufuatiliaji na Tathmini",
+      "pharmaceuticals_laboratory": "Huduma za Dawa na Maabara",
+      "hiv_testing_services": "Huduma za Upimaji wa VVU",
+      "vmmc": "Tohara ya Kijana wa Kiume kwa Hiari (VMMC)",
+      "sbcc": "Mawasiliano ya Mabadiliko ya Tabia za Kijamii (SBCC)",
+      "condom_promotion": "Kukuza na Kusambaza Kondomu",
+      "pmtct": "Kuzuia Maambukizi kutoka Mama kwenda Mtoto (PMTCT)",
+      "prep": "Dawa za Kuzuia Kabla ya Kuambukizwa (PrEP)",
+      "kvp": "Vikundi vya Muhimu na Hatarini (KVP)",
+      "community_services": "Huduma za VVU na UKIMWI za Kijamii",
+      "tb_hiv": "Maambukizi ya Kifua Kikuu/VVU",
+      "viral_hepatitis": "Hepatitis ya Virusi na Maambukizi Mengine",
+      "ncd_integration": "Uongozi wa Pamoja wa Magonjwa Yasiyoambukiza katika VVU",
+      "mental_health": "Ujumuishaji wa Huduma za Afya ya Akili",
+      "research": "Utafiti wa VVU",
+      "surveillance": "Ufuatiliaji wa VVU",
+      "his": "Mifumo ya Taarifa za Afya (HIS)",
+      "supply_chain": "Uongozi wa Mlolongo wa Ugavi na Uwiano",
+      "laboratory_services": "Huduma za Maabara za VVU na UKIMWI",
+      "strategic_framework": "Mfumo wa Kimkakati na Sera",
+      "guidelines": "Miongozo",
+      "policy_documents": "Hati za Sera",
+      "reports": "Ripoti",
+      "sop_manuals": "Miongozo ya SOP",
+      "iec_materials": "Nyenzo za IEC/SBC",
+      "databases": "Hifadhidata",
+      "news": "Habari",
+      "press_releases": "Taarifa za Vyombo vya Habari",
+      "speeches": "Hotuba",
+      "events": "Matukio ya NASHCOP",
+      "newsletter": "Jarida",
+      "photo_gallery": "Mkusanyiko wa Picha",
+      "video_library": "Maktaba ya Video",
+      "office_locations": "Maeneo ya Ofisi",
+      "feedback_complaints": "Maoni na Malalamiko"
+    }
+  },
+  "footer": {
+    "emergency_banner": {
+      "hotline": "Simu ya Dharura ya VVU: 117",
+      "availability": "Inapatikana Saa 24/7 - Bure na ya Siri"
+    },
+    "organization": {
+      "name": "NASHCOP Tanzania",
+      "full_name": "MPANGO WA KITAIFA WA KUDHIBITI VVU, MAGONJWA YA ZINAA NA HEPATITIS",
+      "description": "Kuongoza jibu la Tanzania dhidi ya VVU/UKIMWI kupitia kuzuia, matibabu, huduma na msaada. Kufanya kazi kuelekea kizazi kisichokuwa na UKIMWI.",
+      "address": "Kilimani, Dodoma, Tanzania",
+      "phone": "+255-26-2960148",
+      "phone_hours": "Jumatatu-Ijumaa: 8:00 Asubuhi - 4:30 Jioni",
+      "email": "nacp@afya.go.tz",
+      "email_description": "Maswali rasmi"
+    },
+    "sections": {
+      "quick_services": "Huduma za Haraka",
+      "important_links": "Viungo Muhimu",
+      "government": "Serikali",
+      "partners": "Washirika",
+      "follow_us": "Tufuate",
+      "stay_updated": "Pata Taarifa"
+    },
+    "services": {
+      "hiv_testing": "Huduma za Upimaji wa VVU",
+      "care_treatment": "Huduma na Matibabu",
+      "prevention_programs": "Mipango ya Kuzuia",
+      "strategic_information": "Taarifa za Kimkakati"
+    },
+    "links": {
+      "emergency_hotline": "Simu ya Dharura ya VVU",
+      "division_prevention": "Idara ya Kuzuia",
+      "strategic_framework": "Mfumo wa Kimkakati",
+      "building_health_systems": "Kujenga Mifumo ya Afya",
+      "nacp_roles": "Majukumu ya NACP"
+    },
+    "government_links": {
+      "ministry_health": "Wizara ya Afya",
+      "government_mail": "Mfumo wa Barua za Serikali",
+      "dhis2": "DHIS2 Tanzania",
+      "eoffice": "Ofisi ya Kielektroniki ya Serikali",
+      "tacaids": "TACAIDS",
+      "aids_trust_fund": "Mfuko wa Uaminifu wa UKIMWI Tanzania",
+      "tamisemi": "TAMISEMI",
+      "government_portal": "Tovuti ya Serikali ya Tanzania",
+      "president_office": "Ofisi ya Rais",
+      "pm_office": "Ofisi ya Waziri Mkuu"
+    },
+    "partners": {
+      "pepfar": "PEPFAR",
+      "unaids": "UNAIDS",
+      "who": "WHO Tanzania",
+      "global_fund": "Mfuko wa Kimataifa",
+      "usaid": "USAID Tanzania",
+      "cdc": "CDC Tanzania"
+    },
+    "social": {
+      "facebook": "Tufuate kwenye Facebook",
+      "twitter": "Tufuate kwenye X (Twitter)",
+      "instagram": "Tufuate kwenye Instagram",
+      "youtube": "Jisajili kwenye kituo chetu cha YouTube"
+    },
+    "newsletter": {
+      "email_placeholder": "Barua pepe yako",
+      "subscribe": "Jisajili",
+      "email_required": "Tafadhali ingiza anwani yako ya barua pepe.",
+      "network_error": "Hitilafu ya mtandao. Tafadhali jaribu tena baadaye."
+    },
+    "copyright": "© 2025 MPANGO WA KITAIFA WA KUDHIBITI VVU, MAGONJWA YA ZINAA NA HEPATITIS, Tanzania. Haki zote zimehifadhiwa.",
+    "legal": {
+      "privacy_policy": "Sera ya Faragha",
+      "terms_of_use": "Masharti ya Matumizi"
+    },
+    "last_updated": "Imesasishwa mwisho: {{date}}"
+  },
+  "home": {
+    "title": "Nash COP - Uongozi wa Jamii"
+  }
+}
