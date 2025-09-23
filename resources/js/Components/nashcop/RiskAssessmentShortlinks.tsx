@@ -76,13 +76,13 @@ const RiskAssessmentShortlinks = () => {
     return (
         <div className="bg-gradient-to-r from-blue-50 to-green-50 border-b border-gray-200 relative">
             {/* Close button */}
-            <button
+            {/* <button
                 onClick={() => setIsVisible(false)}
                 className="absolute top-4 right-4 z-10 p-2 rounded-full bg-white/80 hover:bg-white shadow-sm transition-colors"
                 aria-label="Close shortcuts"
             >
                 <X className="h-4 w-4 text-gray-500" />
-            </button>
+            </button> */}
 
             <div className="container mx-auto px-4 py-6">
                 {/* Header */}
@@ -157,12 +157,12 @@ const RiskAssessmentShortlinks = () => {
                 </div>
 
                 {/* Mobile Notice */}
-                <div className="mt-4 text-center">
+                {/* <div className="mt-4 text-center">
                     <p className="text-xs text-gray-500">
                         💡 Tip: These shortcuts hide when you scroll down to
                         keep your browsing clean
                     </p>
-                </div>
+                </div> */}
             </div>
         </div>
     );

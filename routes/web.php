@@ -127,6 +127,10 @@ Route::get('/tools/tb-risk-assessment', [PageController::class, 'tbRiskAssessmen
 Route::get('/tools/prep-assessment', [PageController::class, 'prepAssessment'])->name('tools.prep-assessment');
 Route::get('/tools/pep-assessment', [PageController::class, 'pepAssessment'])->name('tools.pep-assessment');
 
+// SEAH Reporting
+Route::get('/report/seah', [PageController::class, 'seahReport'])->name('report.seah');
+Route::post('/report/seah', [PageController::class, 'submitSeahReport'])->name('report.seah.submit');
+
 // SEO Routes
 Route::get('/sitemap.xml', [SeoController::class, 'sitemapIndex'])->name('sitemap.index');
 Route::get('/sitemap-pages.xml', [SeoController::class, 'sitemapPages'])->name('sitemap.pages');

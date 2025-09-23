@@ -392,4 +392,90 @@ class PageController extends Controller
     {
         return Inertia::render('Tools/PepAssessment');
     }
+
+    public function seahReport()
+    {
+        return Inertia::render('Report/SeahReport');
+    }
+
+    public function submitSeahReport(Request $request)
+    {
+        $validated = $request->validate([
+            'report_type' => 'required|string',
+            'incident_type' => 'required|string',
+            'description' => 'required|string|min:10',
+            'incident_date' => 'nullable|date',
+            'incident_location' => 'nullable|string|max:255',
+            'persons_involved' => 'nullable|string',
+            'witnesses' => 'nullable|string',
+            'previous_reports' => 'nullable|string',
+            'is_anonymous' => 'boolean',
+            'reporter_name' => 'nullable|string|max:255',
+            'reporter_email' => 'nullable|email|max:255',
+            'reporter_phone' => 'nullable|string|max:20',
+            'reporter_relationship' => 'nullable|string|max:255',
+            'consent_investigation' => 'boolean',
+            'consent_contact' => 'boolean',
+            'additional_support' => 'nullable|string',
+            'attachments.*' => 'nullable|file|max:10240|mimes:pdf,doc,docx,jpg,jpeg,png,mp3,mp4,wav'
+        ]);
+
+        // Handle file uploads
+        $attachmentPaths = [];
+        if ($request->hasFile('attachments')) {
+            foreach ($request->file('attachments') as $file) {
+                $path = $file->store('seah-reports', 'private');
+                $attachmentPaths[] = [
+                    'original_name' => $file->getClientOriginalName(),
+                    'path' => $path,
+                    'size' => $file->getSize(),
+                    'mime_type' => $file->getMimeType()
+                ];
+            }
+        }
+
+        // Prepare email data
+        $emailData = [
+            'report_type' => $validated['report_type'],
+            'incident_type' => $validated['incident_type'],
+            'description' => $validated['description'],
+            'incident_date' => $validated['incident_date'],
+            'incident_location' => $validated['incident_location'],
+            'persons_involved' => $validated['persons_involved'],
+            'witnesses' => $validated['witnesses'],
+            'previous_reports' => $validated['previous_reports'],
+            'is_anonymous' => $validated['is_anonymous'],
+            'reporter_name' => $validated['is_anonymous'] ? 'Anonymous' : $validated['reporter_name'],
+            'reporter_email' => $validated['is_anonymous'] ? 'Anonymous' : $validated['reporter_email'],
+            'reporter_phone' => $validated['is_anonymous'] ? 'Anonymous' : $validated['reporter_phone'],
+            'reporter_relationship' => $validated['reporter_relationship'],
+            'consent_investigation' => $validated['consent_investigation'],
+            'consent_contact' => $validated['consent_contact'],
+            'additional_support' => $validated['additional_support'],
+            'attachments' => $attachmentPaths,
+            'submitted_at' => now()->format('Y-m-d H:i:s'),
+            'report_id' => 'SEAH-' . now()->format('Ymd') . '-' . strtoupper(substr(md5(uniqid()), 0, 6))
+        ];
+
+        // Send email to administration
+        try {
+            \Mail::send('emails.seah-report', $emailData, function ($message) use ($emailData) {
+                $message->to('nacp@afya.go.tz')
+                    ->subject('SEAH Report - ' . $emailData['report_id'] . ' - ' . ucfirst(str_replace('_', ' ', $emailData['incident_type'])));
+                
+                // Attach files if any
+                foreach ($emailData['attachments'] as $attachment) {
+                    $message->attach(storage_path('app/private/' . $attachment['path']), [
+                        'as' => $attachment['original_name'],
+                        'mime' => $attachment['mime_type']
+                    ]);
+                }
+            });
+
+            return redirect()->back()->with('success', 'Your SEAH report has been submitted successfully. Report ID: ' . $emailData['report_id'] . '. Thank you for your courage in reporting this matter.');
+        } catch (\Exception $e) {
+            \Log::error('SEAH Report Email Failed: ' . $e->getMessage());
+            return redirect()->back()->with('error', 'There was an error submitting your report. Please try again or contact us directly at nacp@afya.go.tz');
+        }
+    }
 }

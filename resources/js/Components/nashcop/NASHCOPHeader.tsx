@@ -1,7 +1,7 @@
 import React, { FC, useState, useEffect } from "react";
 import { LucideIcon } from "lucide-react";
 
-// Type declarations for Google Translate
+// Google Translate declarations
 declare global {
     interface Window {
         google?: {
@@ -62,15 +62,62 @@ const NASHCOPHeader: FC = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isSearchOpen, setIsSearchOpen] = useState(false);
     const [currentLanguage, setCurrentLanguage] = useState<"en" | "sw">(() => {
-        // Get saved language preference or default to 'en'
+        // Get saved language preference or default to 'sw' (Swahili)
         if (typeof window !== "undefined") {
             return (
-                (localStorage.getItem("nacp_language") as "en" | "sw") || "en"
+                (localStorage.getItem("nacp_language") as "en" | "sw") || "sw"
             );
         }
-        return "en";
+        return "sw";
     });
+
     const [searchQuery, setSearchQuery] = useState("");
+
+    // Function to trigger Google Translate programmatically
+    const triggerGoogleTranslate = (langCode: string) => {
+        // Method 1: Try to find and trigger the Google Translate dropdown
+        const checkForTranslateElements = () => {
+            const combo = document.querySelector(
+                ".goog-te-combo"
+            ) as HTMLSelectElement;
+            if (combo) {
+                combo.value = langCode;
+                combo.dispatchEvent(new Event("change", { bubbles: true }));
+                return true;
+            }
+
+            // Method 2: Try to find Google Translate menu items
+            const menuItems = document.querySelectorAll(".goog-te-menu2-item");
+            for (let item of menuItems) {
+                const span = item.querySelector("span.text");
+                if (span) {
+                    const text = span.textContent?.toLowerCase();
+                    if (
+                        (langCode === "sw" &&
+                            (text?.includes("swahili") ||
+                                text?.includes("kiswahili"))) ||
+                        (langCode === "en" && text?.includes("english"))
+                    ) {
+                        (item as HTMLElement).click();
+                        return true;
+                    }
+                }
+            }
+            return false;
+        };
+
+        // Try multiple times to find the translation elements
+        let attempts = 0;
+        const tryTranslate = () => {
+            if (checkForTranslateElements() || attempts > 20) {
+                return;
+            }
+            attempts++;
+            setTimeout(tryTranslate, 200);
+        };
+
+        tryTranslate();
+    };
 
     useEffect(() => {
         const handleScroll = () => {
@@ -83,8 +130,8 @@ const NASHCOPHeader: FC = () => {
 
     // Initialize Google Translate
     useEffect(() => {
-        const addGoogleTranslateScript = () => {
-            // Remove existing script if any
+        const initializeGoogleTranslate = () => {
+            // Remove existing Google Translate elements
             const existingScript = document.querySelector(
                 'script[src*="translate.google.com"]'
             );
@@ -92,7 +139,7 @@ const NASHCOPHeader: FC = () => {
                 existingScript.remove();
             }
 
-            // Add CSS to hide Google Translate elements
+            // Add CSS to hide Google Translate UI elements
             const style = document.createElement("style");
             style.textContent = `
                 .goog-te-banner-frame.skiptranslate { display: none !important; }
@@ -101,6 +148,10 @@ const NASHCOPHeader: FC = () => {
                 .goog-te-ftab { display: none !important; }
                 #google_translate_element { display: none !important; }
                 .goog-te-combo { display: none !important; }
+                .goog-te-menu-value { display: none !important; }
+                .goog-te-gadget { display: none !important; }
+                .goog-te-gadget-simple { display: none !important; }
+                .goog-te-menu-frame { display: none !important; }
             `;
             document.head.appendChild(style);
 
@@ -125,50 +176,64 @@ const NASHCOPHeader: FC = () => {
                         },
                         "google_translate_element"
                     );
+                    
+                    // Auto-translate to Swahili on load if that's the current language
+                    setTimeout(() => {
+                        if (currentLanguage === 'sw') {
+                            triggerGoogleTranslate('sw');
+                        }
+                    }, 1000);
                 }
             };
         };
 
-        // Delay to ensure DOM is ready
-        setTimeout(addGoogleTranslateScript, 1000);
+        // Delay initialization to ensure DOM is ready
+        setTimeout(initializeGoogleTranslate, 1000);
     }, []);
 
-    // Apply saved language on page load
+    // Apply language changes
     useEffect(() => {
-        if (currentLanguage === "sw") {
-            // Delay to ensure page is fully loaded
-            setTimeout(() => {
-                handleLanguageChange("sw");
-            }, 2000);
+        // Update document language
+        document.documentElement.lang = currentLanguage;
+
+        // Trigger custom event for other components to listen to
+        window.dispatchEvent(
+            new CustomEvent("languageChanged", {
+                detail: { language: currentLanguage },
+            })
+        );
+
+        // Store language context globally
+        (window as any).translationContext = {
+            currentLanguage,
+            setLanguage: handleLanguageChange,
+        };
+    }, [currentLanguage]);
+
+    // Apply saved language on page load and auto-translate
+    useEffect(() => {
+        const savedLang = localStorage.getItem("nacp_language") as "en" | "sw";
+        if (savedLang && savedLang !== currentLanguage) {
+            setCurrentLanguage(savedLang);
         }
-    }, []);
-
-    // Detect current language from Google Translate
-    useEffect(() => {
-        const detectLanguage = () => {
-            const iframe = document.querySelector(
-                "iframe.goog-te-banner-frame"
-            );
-            if (iframe) {
-                try {
-                    const currentLang = document.documentElement.lang || "en";
-                    if (currentLang === "sw" && currentLanguage !== "sw") {
-                        setCurrentLanguage("sw");
-                    } else if (
-                        currentLang === "en" &&
-                        currentLanguage !== "en"
-                    ) {
-                        setCurrentLanguage("en");
-                    }
-                } catch (e) {
-                    // Ignore cross-origin errors
-                }
+        
+        // Auto-translate to current language after Google Translate loads
+        const autoTranslate = () => {
+            if (currentLanguage === 'sw') {
+                setTimeout(() => {
+                    triggerGoogleTranslate('sw');
+                }, 2000);
             }
         };
-
-        const interval = setInterval(detectLanguage, 1000);
-        return () => clearInterval(interval);
-    }, [currentLanguage]);
+        
+        // Wait for Google Translate to be ready
+        if (window.google?.translate) {
+            autoTranslate();
+        } else {
+            // Wait for Google Translate to load
+            setTimeout(autoTranslate, 3000);
+        }
+    }, []);
 
     const languages = [
         {
@@ -189,7 +254,11 @@ const NASHCOPHeader: FC = () => {
         // Store language preference
         localStorage.setItem("nacp_language", langCode);
 
-        // Method 1: Try to trigger Google Translate dropdown
+        // Smooth transition effect
+        document.body.style.transition = "opacity 0.3s ease";
+        document.body.style.opacity = "0.9";
+
+        // Use Google Translate to translate the entire page
         setTimeout(() => {
             const googleTranslateCombo = document.querySelector(
                 ".goog-te-combo"
@@ -199,157 +268,15 @@ const NASHCOPHeader: FC = () => {
                 googleTranslateCombo.dispatchEvent(
                     new Event("change", { bubbles: true })
                 );
-                return;
-            }
-
-            // Method 2: Try to find and click Google Translate menu items
-            const checkForTranslateMenu = () => {
-                const menuItems = document.querySelectorAll(
-                    ".goog-te-menu2-item"
-                );
-                for (let item of menuItems) {
-                    const span = item.querySelector("span.text");
-                    if (span) {
-                        const text = span.textContent?.toLowerCase();
-                        if (
-                            langCode === "sw" &&
-                            (text?.includes("swahili") ||
-                                text?.includes("kiswahili"))
-                        ) {
-                            (item as HTMLElement).click();
-                            return true;
-                        } else if (
-                            langCode === "en" &&
-                            text?.includes("english")
-                        ) {
-                            (item as HTMLElement).click();
-                            return true;
-                        }
-                    }
-                }
-                return false;
-            };
-
-            // Try multiple times to find the menu
-            let attempts = 0;
-            const tryTranslate = () => {
-                if (checkForTranslateMenu() || attempts > 10) {
-                    return;
-                }
-                attempts++;
-                setTimeout(tryTranslate, 200);
-            };
-
-            tryTranslate();
-        }, 500);
-
-        // Fallback: Manual translation
-        setTimeout(() => {
-            if (langCode === "sw") {
-                translatePageToSwahili();
             } else {
-                revertToEnglish();
+                // Fallback: Try to trigger translation via Google Translate API
+                triggerGoogleTranslate(langCode);
             }
-        }, 2000);
-    };
 
-    // Simple translation fallback
-    const translatePageToSwahili = () => {
-        const translations: { [key: string]: string } = {
-            // Navigation
-            Home: "Nyumbani",
-            "Who We Are": "Sisi ni Nani",
-            Services: "Huduma",
-            Interventions: "Mipango",
-            Publications: "Machapisho",
-            Contact: "Mawasiliano",
-            Search: "Tafuta",
-            Support: "Msaada",
-            Language: "Lugha",
-
-            // Languages
-            English: "Kiingereza",
-            Kiswahili: "Kiswahili",
-
-            // Header links
-            "HIV Testing Centers": "Vituo vya Upimaji wa VVU",
-            "Prevention Programs": "Mipango ya Kuzuia",
-            "Emergency Hotline": "Simu ya Dharura",
-
-            // Common terms
-            About: "Kuhusu",
-            "About Us": "Kuhusu Sisi",
-            "Our Mission": "Dhamira Yetu",
-            "Our Vision": "Maono Yetu",
-            "HIV/AIDS": "VVU/UKIMWI",
-            "NATIONAL AIDS, STIs AND HEPATITIS CONTROL PROGRAMME":
-                "Mpango wa Kitaifa wa Kudhibiti UKIMWI",
-            NACP: "NACP",
-            Tanzania: "Tanzania",
-
-            // Page titles
-            "Organization Structure": "Muundo wa Shirika",
-            "HIV/AIDS in Tanzania": "VVU/UKIMWI Tanzania",
-            "Care, Treatment & Support": "Huduma, Matibabu na Msaada",
-            "Division of Prevention": "Idara ya Kuzuia",
-            "NACP Roles & Responsibilities": "Majukumu na Wajibu wa NACP",
-
-            // Buttons and actions
-            "Read More": "Soma Zaidi",
-            "Learn More": "Jifunze Zaidi",
-            "Get Started": "Anza",
-            "Contact Us": "Wasiliana Nasi",
-            Download: "Pakua",
-            "View All": "Ona Zote",
-
-            // Common phrases
-            "Welcome to": "Karibu",
-            "Latest News": "Habari za Hivi Karibuni",
-            "Our Programs": "Mipango Yetu",
-            "Key Statistics": "Takwimu Muhimu",
-            "Quick Links": "Viungo vya Haraka",
-        };
-
-        // Store original content
-        if (!document.body.dataset.originalLang) {
-            document.body.dataset.originalLang = "en";
-            document.body.dataset.originalContent = document.body.innerHTML;
-        }
-
-        // More targeted text replacement to avoid breaking React components
-        const translateTextNodes = (node: Node) => {
-            if (node.nodeType === Node.TEXT_NODE) {
-                let text = node.textContent || "";
-                Object.entries(translations).forEach(([en, sw]) => {
-                    const regex = new RegExp(`\\b${en}\\b`, "g");
-                    text = text.replace(regex, sw);
-                });
-                if (node.textContent !== text) {
-                    node.textContent = text;
-                }
-            } else if (node.nodeType === Node.ELEMENT_NODE) {
-                const element = node as Element;
-                // Skip script tags, style tags, and React-specific elements
-                if (
-                    !["SCRIPT", "STYLE", "NOSCRIPT"].includes(
-                        element.tagName
-                    ) &&
-                    !element.hasAttribute("data-reactroot")
-                ) {
-                    Array.from(node.childNodes).forEach(translateTextNodes);
-                }
-            }
-        };
-
-        translateTextNodes(document.body);
-        document.documentElement.lang = "sw";
-    };
-
-    const revertToEnglish = () => {
-        if (document.body.dataset.originalContent) {
-            document.body.innerHTML = document.body.dataset.originalContent;
-            document.documentElement.lang = "en";
-        }
+            setTimeout(() => {
+                document.body.style.opacity = "1";
+            }, 500);
+        }, 300);
     };
 
     const handleSearch = (e: React.FormEvent) => {
@@ -1090,6 +1017,12 @@ const NASHCOPHeader: FC = () => {
                     </div>
                 </div>
             </div>
+
+            {/* Hidden Google Translate Element */}
+            <div
+                id="google_translate_element"
+                style={{ display: "none" }}
+            ></div>
         </>
     );
 };

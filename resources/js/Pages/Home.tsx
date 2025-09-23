@@ -19,6 +19,7 @@ import RecentNews from "./Home/RecentNews";
 import ImportantDocumentsWidgets from "./Home/ImportantDocumentsWidgets";
 import QuickActionWidget from "./Home/QuickActionWidget";
 import ContactInfoWidget from "./Home/ContactInfoWidget";
+import WhistleblowingModule from "@/Components/nashcop/WhistleblowingModule";
 
 interface Document {
     id: number;
@@ -93,6 +94,7 @@ export default function Home({
             <Head title="Home" />
             <Herosection />
             <RiskAssessmentShortlinks />
+            <WhistleblowingModule />
             <FeaturedServiceWidget />
             <HomeStatisticsPage />
             <FaqsWidgets />
