@@ -93,12 +93,12 @@ export default function Home({
         <PublicLayout title="Nash COP - Community Oriented Policing">
             <Head title="Home" />
             <Herosection />
+            <RecentNews featuredBlogs={featuredBlogs} />
             <RiskAssessmentShortlinks />
             <WhistleblowingModule />
-            <FeaturedServiceWidget />
             <HomeStatisticsPage />
+            <FeaturedServiceWidget />
             <FaqsWidgets />
-            <RecentNews featuredBlogs={featuredBlogs} />
             <ImportantDocumentsWidgets featuredDocuments={featuredDocuments} />
             <QuickActionWidget />
             <ContactInfoWidget />
