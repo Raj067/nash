@@ -117,16 +117,16 @@ const NASHCOPFooter: FC = () => {
             title: "NACP Roles",
             href: "/services/nacp-roles-and-responsibilities",
         },
-        { title: "Contact Information", href: "/contact/info" },
+        // { title: "Contact Information", href: "/contact/info" },
     ];
 
     const governmentLinks = [
         { title: "Ministry of Health", href: "https://www.moh.go.tz/" },
-        { title: "Health Mail System", href: "https://mail.afya.go.tz" },
+        { title: "Government Mailing System", href: "https://mail.afya.go.tz" },
         { title: "DHIS2 Tanzania", href: "https://dhis.moh.go.tz/" },
         { title: "eOffice Government", href: "https://eoffice.gov.go.tz/" },
         { title: "TACAIDS", href: "https://www.tacaids.go.tz/" },
-        { title: "ATF Tanzania", href: "https://www.atf.go.tz/" },
+        { title: "AIDS Trust Fund Tanzania", href: "https://www.atf.go.tz/" },
         { title: "TAMISEMI", href: "https://www.tamisemi.go.tz/" },
         { title: "Tanzania Government Portal", href: "https://tanzania.go.tz" },
         { title: "President's Office", href: "https://po.go.tz" },

@@ -176,11 +176,11 @@ const NASHCOPHeader: FC = () => {
                         },
                         "google_translate_element"
                     );
-                    
+
                     // Auto-translate to Swahili on load if that's the current language
                     setTimeout(() => {
-                        if (currentLanguage === 'sw') {
-                            triggerGoogleTranslate('sw');
+                        if (currentLanguage === "sw") {
+                            triggerGoogleTranslate("sw");
                         }
                     }, 1000);
                 }
@@ -216,16 +216,16 @@ const NASHCOPHeader: FC = () => {
         if (savedLang && savedLang !== currentLanguage) {
             setCurrentLanguage(savedLang);
         }
-        
+
         // Auto-translate to current language after Google Translate loads
         const autoTranslate = () => {
-            if (currentLanguage === 'sw') {
+            if (currentLanguage === "sw") {
                 setTimeout(() => {
-                    triggerGoogleTranslate('sw');
+                    triggerGoogleTranslate("sw");
                 }, 2000);
             }
         };
-        
+
         // Wait for Google Translate to be ready
         if (window.google?.translate) {
             autoTranslate();
@@ -1019,10 +1019,10 @@ const NASHCOPHeader: FC = () => {
             </div>
 
             {/* Hidden Google Translate Element */}
-            <div
+            {/* <div
                 id="google_translate_element"
                 style={{ display: "none" }}
-            ></div>
+            ></div> */}
         </>
     );
 };
