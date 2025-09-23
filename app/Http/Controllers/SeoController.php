@@ -123,6 +123,50 @@ class SeoController extends Controller
                 'changefreq' => 'monthly',
                 'priority' => '0.6',
             ],
+            // Legal Pages
+            [
+                'loc' => route('legal.privacy'),
+                'lastmod' => now()->toISOString(),
+                'changefreq' => 'yearly',
+                'priority' => '0.5',
+            ],
+            [
+                'loc' => route('legal.terms'),
+                'lastmod' => now()->toISOString(),
+                'changefreq' => 'yearly',
+                'priority' => '0.5',
+            ],
+            // Risk Assessment Tools
+            [
+                'loc' => route('tools.risk-assessment'),
+                'lastmod' => now()->toISOString(),
+                'changefreq' => 'monthly',
+                'priority' => '0.8',
+            ],
+            [
+                'loc' => route('tools.hiv-risk-assessment'),
+                'lastmod' => now()->toISOString(),
+                'changefreq' => 'monthly',
+                'priority' => '0.7',
+            ],
+            [
+                'loc' => route('tools.tb-risk-assessment'),
+                'lastmod' => now()->toISOString(),
+                'changefreq' => 'monthly',
+                'priority' => '0.7',
+            ],
+            [
+                'loc' => route('tools.prep-assessment'),
+                'lastmod' => now()->toISOString(),
+                'changefreq' => 'monthly',
+                'priority' => '0.7',
+            ],
+            [
+                'loc' => route('tools.pep-assessment'),
+                'lastmod' => now()->toISOString(),
+                'changefreq' => 'monthly',
+                'priority' => '0.7',
+            ],
         ];
 
         return response()->view('sitemaps.pages', compact('pages'))

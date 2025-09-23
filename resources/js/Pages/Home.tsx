@@ -11,6 +11,7 @@ import {
 import { Link } from "@inertiajs/react";
 import { Shield, Phone, Users, FileText, ArrowRight } from "lucide-react";
 import Herosection from "./Home/Herosection";
+import RiskAssessmentShortlinks from "@/Components/nashcop/RiskAssessmentShortlinks";
 import FeaturedServiceWidget from "./Home/FeaturedServiceWidget";
 import HomeStatisticsPage from "./Home/HomeStatisticsPage";
 import FaqsWidgets from "./Home/FaqsWidgets";
@@ -91,6 +92,7 @@ export default function Home({
         <PublicLayout title="Nash COP - Community Oriented Policing">
             <Head title="Home" />
             <Herosection />
+            <RiskAssessmentShortlinks />
             <FeaturedServiceWidget />
             <HomeStatisticsPage />
             <FaqsWidgets />

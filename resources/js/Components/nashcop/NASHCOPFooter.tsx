@@ -433,7 +433,7 @@ const NASHCOPFooter: FC = () => {
                                 CONTROL PROGRAMME, Tanzania. All rights
                                 reserved.
                             </p>
-                            {/* <div className="flex items-center space-x-4">
+                            <div className="flex items-center space-x-4">
                                 <a
                                     href="/legal/privacy"
                                     className="hover:text-yellow-400 transition-colors"
@@ -447,7 +447,7 @@ const NASHCOPFooter: FC = () => {
                                 >
                                     Terms of Use
                                 </a>
-                            </div> */}
+                            </div>
                         </div>
 
                         <div className="flex items-center space-x-4 text-sm text-blue-300">

@@ -111,6 +111,17 @@ Route::get('/contact/help', [PageController::class, 'help'])->name('contact.help
 // Support
 Route::get('/support-nacp', [PageController::class, 'supportNacp'])->name('support-nacp');
 
+// Legal Pages
+Route::get('/legal/privacy', [PageController::class, 'privacy'])->name('legal.privacy');
+Route::get('/legal/terms', [PageController::class, 'terms'])->name('legal.terms');
+
+// Risk Assessment Tools
+Route::get('/tools/risk-assessment', [PageController::class, 'riskAssessment'])->name('tools.risk-assessment');
+Route::get('/tools/hiv-risk-assessment', [PageController::class, 'hivRiskAssessment'])->name('tools.hiv-risk-assessment');
+Route::get('/tools/tb-risk-assessment', [PageController::class, 'tbRiskAssessment'])->name('tools.tb-risk-assessment');
+Route::get('/tools/prep-assessment', [PageController::class, 'prepAssessment'])->name('tools.prep-assessment');
+Route::get('/tools/pep-assessment', [PageController::class, 'pepAssessment'])->name('tools.pep-assessment');
+
 // SEO Routes
 Route::get('/sitemap.xml', [SeoController::class, 'sitemapIndex'])->name('sitemap.index');
 Route::get('/sitemap-pages.xml', [SeoController::class, 'sitemapPages'])->name('sitemap.pages');

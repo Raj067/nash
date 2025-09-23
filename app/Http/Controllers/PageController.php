@@ -355,4 +355,41 @@ class PageController extends Controller
     {
         return Inertia::render('ProgrammeAreas/PharmaceuticalsLaboratory/LaboratoryServices');
     }
+
+    // Legal Pages
+    public function privacy()
+    {
+        return Inertia::render('Legal/Privacy');
+    }
+
+    public function terms()
+    {
+        return Inertia::render('Legal/Terms');
+    }
+
+    // Risk Assessment Tools
+    public function riskAssessment()
+    {
+        return Inertia::render('Tools/RiskAssessment');
+    }
+
+    public function hivRiskAssessment()
+    {
+        return Inertia::render('Tools/HivRiskAssessment');
+    }
+
+    public function tbRiskAssessment()
+    {
+        return Inertia::render('Tools/TbRiskAssessment');
+    }
+
+    public function prepAssessment()
+    {
+        return Inertia::render('Tools/PrepAssessment');
+    }
+
+    public function pepAssessment()
+    {
+        return Inertia::render('Tools/PepAssessment');
+    }
 }
