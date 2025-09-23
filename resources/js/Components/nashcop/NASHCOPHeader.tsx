@@ -1,4 +1,5 @@
-import { FC, useState, useEffect } from "react";
+import React, { FC, useState, useEffect } from "react";
+import { LucideIcon } from "lucide-react";
 
 // Type declarations for Google Translate
 declare global {
@@ -22,6 +23,9 @@ import {
     DropdownMenuContent,
     DropdownMenuItem,
     DropdownMenuTrigger,
+    DropdownMenuSub,
+    DropdownMenuSubContent,
+    DropdownMenuSubTrigger,
 } from "@/Components/ui/dropdown-menu";
 import {
     Menu,
@@ -41,9 +45,20 @@ import {
     Globe,
 } from "lucide-react";
 
+// Type definitions for navigation
+interface NavigationItem {
+    title: string;
+    href?: string;
+    icon?: LucideIcon;
+    dropdown?: NavigationItem[];
+}
+
 const NASHCOPHeader: FC = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+    const [activeNestedDropdown, setActiveNestedDropdown] = useState<
+        string | null
+    >(null);
     const [isScrolled, setIsScrolled] = useState(false);
     const [isSearchOpen, setIsSearchOpen] = useState(false);
     const [currentLanguage, setCurrentLanguage] = useState<"en" | "sw">(() => {
@@ -347,11 +362,10 @@ const NASHCOPHeader: FC = () => {
         }
     };
 
-    const navigationItems = [
+    const navigationItems: NavigationItem[] = [
         {
             title: "HOME",
             href: "/",
-            icon: null,
         },
         {
             title: "ABOUT NASHCOP",
@@ -397,86 +411,94 @@ const NASHCOPHeader: FC = () => {
                 {
                     title: "Prevention",
                     href: "/programme-areas/prevention",
-                },
-                {
-                    title: "• HIV Testing Services",
-                    href: "/interventions/hiv-testing-services-linkage",
-                },
-                {
-                    title: "• Voluntary Medical Male Circumcision (VMMC)",
-                    href: "/programme-areas/prevention/vmmc",
-                },
-                {
-                    title: "• Social Behaviour Change Communication (SBCC)",
-                    href: "/programme-areas/prevention/sbcc",
-                },
-                {
-                    title: "• Condom Promotion and Distribution",
-                    href: "/programme-areas/prevention/condoms",
-                },
-                {
-                    title: "• Prevention of Vertical Transmission",
-                    href: "/programme-areas/prevention/pmtct",
-                },
-                {
-                    title: "• Pre-Exposure Prophylaxis",
-                    href: "/programme-areas/prevention/prep",
-                },
-                {
-                    title: "• Key and Vulnerable Populations (KVP)",
-                    href: "/programme-areas/prevention/kvp",
+                    dropdown: [
+                        {
+                            title: "HIV Testing Services",
+                            href: "/interventions/hiv-testing-services-linkage",
+                        },
+                        {
+                            title: "Voluntary Medical Male Circumcision (VMMC)",
+                            href: "/programme-areas/prevention/vmmc",
+                        },
+                        {
+                            title: "Social Behaviour Change Communication (SBCC)",
+                            href: "/programme-areas/prevention/sbcc",
+                        },
+                        {
+                            title: "Condom Promotion and Distribution",
+                            href: "/programme-areas/prevention/condoms",
+                        },
+                        {
+                            title: "Prevention of Vertical Transmission (PMTCT)",
+                            href: "/programme-areas/prevention/pmtct",
+                        },
+                        {
+                            title: "Pre-Exposure Prophylaxis (PrEP)",
+                            href: "/programme-areas/prevention/prep",
+                        },
+                        {
+                            title: "Key and Vulnerable Populations (KVP)",
+                            href: "/programme-areas/prevention/kvp",
+                        },
+                    ],
                 },
                 {
                     title: "Care, Treatment & Support",
                     href: "/programme-areas/care-treatment-support",
-                },
-                {
-                    title: "• Community Based HIV and AIDS Services",
-                    href: "/programme-areas/care-treatment-support/community-services",
-                },
-                {
-                    title: "• TB/HIV Co-infection",
-                    href: "/programme-areas/care-treatment-support/tb-hiv",
-                },
-                {
-                    title: "• Viral Hepatitis and Co-infections",
-                    href: "/programme-areas/care-treatment-support/viral-hepatitis",
-                },
-                {
-                    title: "• Integrated Management of NCDs in HIV",
-                    href: "/programme-areas/care-treatment-support/ncd-integration",
-                },
-                {
-                    title: "• Integration of Mental Health Services",
-                    href: "/programme-areas/care-treatment-support/mental-health",
+                    dropdown: [
+                        {
+                            title: "Community Based HIV and AIDS Services",
+                            href: "/programme-areas/care-treatment-support/community-services",
+                        },
+                        {
+                            title: "TB/HIV Co-infection",
+                            href: "/programme-areas/care-treatment-support/tb-hiv",
+                        },
+                        {
+                            title: "Viral Hepatitis and Co-infections",
+                            href: "/programme-areas/care-treatment-support/viral-hepatitis",
+                        },
+                        {
+                            title: "Integrated Management of NCDs in HIV",
+                            href: "/programme-areas/care-treatment-support/ncd-integration",
+                        },
+                        {
+                            title: "Integration of Mental Health Services",
+                            href: "/programme-areas/care-treatment-support/mental-health",
+                        },
+                    ],
                 },
                 {
                     title: "Monitoring & Evaluation",
                     href: "/programme-areas/monitoring-evaluation",
-                },
-                {
-                    title: "• HIV Research",
-                    href: "/programme-areas/monitoring-evaluation/research",
-                },
-                {
-                    title: "• HIV Surveillance",
-                    href: "/programme-areas/monitoring-evaluation/surveillance",
-                },
-                {
-                    title: "• Health Information Systems (HIS)",
-                    href: "/programme-areas/monitoring-evaluation/his",
+                    dropdown: [
+                        {
+                            title: "HIV Research",
+                            href: "/programme-areas/monitoring-evaluation/research",
+                        },
+                        {
+                            title: "HIV Surveillance",
+                            href: "/programme-areas/monitoring-evaluation/surveillance",
+                        },
+                        {
+                            title: "Health Information Systems (HIS)",
+                            href: "/programme-areas/monitoring-evaluation/his",
+                        },
+                    ],
                 },
                 {
                     title: "Pharmaceuticals & Laboratory Services",
                     href: "/programme-areas/pharmaceuticals-laboratory",
-                },
-                {
-                    title: "• Supply Chain Management and Rational",
-                    href: "/programme-areas/pharmaceuticals-laboratory/supply-chain",
-                },
-                {
-                    title: "• HIV and AIDS Laboratory Services",
-                    href: "/programme-areas/pharmaceuticals-laboratory/laboratory-services",
+                    dropdown: [
+                        {
+                            title: "Supply Chain Management and Rational",
+                            href: "/programme-areas/pharmaceuticals-laboratory/supply-chain",
+                        },
+                        {
+                            title: "HIV and AIDS Laboratory Services",
+                            href: "/programme-areas/pharmaceuticals-laboratory/laboratory-services",
+                        },
+                    ],
                 },
             ],
         },
@@ -532,6 +554,11 @@ const NASHCOPHeader: FC = () => {
 
     const toggleDropdown = (title: string) => {
         setActiveDropdown(activeDropdown === title ? null : title);
+        setActiveNestedDropdown(null); // Close nested when parent changes
+    };
+
+    const toggleNestedDropdown = (title: string) => {
+        setActiveNestedDropdown(activeNestedDropdown === title ? null : title);
     };
 
     const utilityLinks = [
@@ -852,36 +879,93 @@ const NASHCOPHeader: FC = () => {
                     </nav> */}
                         <nav className="hidden lg:flex items-center justify-center space-x-1 py-2">
                             {navigationItems.map((item) => (
-                                <div
-                                    key={item.title}
-                                    className="relative group"
-                                >
-                                    <a href={item.href || "#"}>
-                                        <Button
-                                            variant="ghost"
-                                            className="flex items-center space-x-1 px-3 py-2 text-blue-800 hover:text-blue-600 hover:bg-blue-50 text-sm font-medium"
-                                        >
-                                            {item.icon && (
-                                                <item.icon className="h-4 w-4" />
-                                            )}
-                                            {item.title}
-                                            {item.dropdown && (
-                                                <ChevronDown className="ml-1 h-4 w-4" />
-                                            )}
-                                        </Button>
-                                    </a>
-                                    {item.dropdown && (
-                                        <div className="absolute left-0 mt-2 w-64 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all text-sm">
-                                            {item.dropdown.map((sub) => (
-                                                <a
-                                                    key={sub.title}
-                                                    href={sub.href}
-                                                    className="block px-4 py-2 hover:bg-custom-red hover:text-white"
+                                <div key={item.title}>
+                                    {item.dropdown ? (
+                                        <DropdownMenu>
+                                            <DropdownMenuTrigger asChild>
+                                                <Button
+                                                    variant="ghost"
+                                                    className="flex items-center space-x-1 px-3 py-2 text-blue-800 hover:text-blue-600 hover:bg-blue-50 text-sm font-medium active:border-none hover:border-none selection:border-none focus:border-none focus:outline-none"
                                                 >
-                                                    {sub.title}
-                                                </a>
-                                            ))}
-                                        </div>
+                                                    {item.icon && (
+                                                        <item.icon className="h-4 w-4" />
+                                                    )}
+                                                    {item.title}
+                                                    <ChevronDown className="ml-1 h-4 w-4" />
+                                                </Button>
+                                            </DropdownMenuTrigger>
+                                            <DropdownMenuContent className="w-64">
+                                                {item.dropdown.map(
+                                                    (subItem) => (
+                                                        <div
+                                                            key={subItem.title}
+                                                        >
+                                                            {subItem.dropdown ? (
+                                                                <DropdownMenuSub>
+                                                                    <DropdownMenuSubTrigger>
+                                                                        {
+                                                                            subItem.title
+                                                                        }
+                                                                    </DropdownMenuSubTrigger>
+                                                                    <DropdownMenuSubContent className="w-64">
+                                                                        {subItem.dropdown.map(
+                                                                            (
+                                                                                nestedItem
+                                                                            ) => (
+                                                                                <DropdownMenuItem
+                                                                                    key={
+                                                                                        nestedItem.title
+                                                                                    }
+                                                                                    asChild
+                                                                                >
+                                                                                    <a
+                                                                                        href={
+                                                                                            nestedItem.href
+                                                                                        }
+                                                                                        className="w-full cursor-pointer"
+                                                                                    >
+                                                                                        {
+                                                                                            nestedItem.title
+                                                                                        }
+                                                                                    </a>
+                                                                                </DropdownMenuItem>
+                                                                            )
+                                                                        )}
+                                                                    </DropdownMenuSubContent>
+                                                                </DropdownMenuSub>
+                                                            ) : (
+                                                                <DropdownMenuItem
+                                                                    asChild
+                                                                >
+                                                                    <a
+                                                                        href={
+                                                                            subItem.href
+                                                                        }
+                                                                        className="w-full cursor-pointer"
+                                                                    >
+                                                                        {
+                                                                            subItem.title
+                                                                        }
+                                                                    </a>
+                                                                </DropdownMenuItem>
+                                                            )}
+                                                        </div>
+                                                    )
+                                                )}
+                                            </DropdownMenuContent>
+                                        </DropdownMenu>
+                                    ) : (
+                                        <a href={item.href || "#"}>
+                                            <Button
+                                                variant="ghost"
+                                                className="flex items-center space-x-1 px-3 py-2 text-blue-800 hover:text-blue-600 hover:bg-blue-50 text-sm font-medium"
+                                            >
+                                                {item.icon && (
+                                                    <item.icon className="h-4 w-4" />
+                                                )}
+                                                {item.title}
+                                            </Button>
+                                        </a>
                                     )}
                                 </div>
                             ))}
@@ -926,19 +1010,74 @@ const NASHCOPHeader: FC = () => {
                                                     <div className="ml-6 mt-2 space-y-1">
                                                         {item.dropdown.map(
                                                             (subItem) => (
-                                                                <a
+                                                                <div
                                                                     key={
                                                                         subItem.title
                                                                     }
-                                                                    href={
-                                                                        subItem.href
-                                                                    }
-                                                                    className="block py-2 text-sm text-blue-700 hover:text-blue-600 transition-colors"
                                                                 >
-                                                                    {
-                                                                        subItem.title
-                                                                    }
-                                                                </a>
+                                                                    {subItem.dropdown ? (
+                                                                        <div>
+                                                                            <Button
+                                                                                variant="ghost"
+                                                                                className="w-full justify-between text-left px-0 py-2 text-sm text-blue-700 hover:text-blue-600"
+                                                                                onClick={() =>
+                                                                                    toggleNestedDropdown(
+                                                                                        subItem.title
+                                                                                    )
+                                                                                }
+                                                                            >
+                                                                                <span>
+                                                                                    {
+                                                                                        subItem.title
+                                                                                    }
+                                                                                </span>
+                                                                                <ChevronDown
+                                                                                    className={`h-3 w-3 transition-transform ${
+                                                                                        activeNestedDropdown ===
+                                                                                        subItem.title
+                                                                                            ? "rotate-180"
+                                                                                            : ""
+                                                                                    }`}
+                                                                                />
+                                                                            </Button>
+                                                                            {activeNestedDropdown ===
+                                                                                subItem.title && (
+                                                                                <div className="ml-4 mt-1 space-y-1">
+                                                                                    {subItem.dropdown.map(
+                                                                                        (
+                                                                                            nestedItem
+                                                                                        ) => (
+                                                                                            <a
+                                                                                                key={
+                                                                                                    nestedItem.title
+                                                                                                }
+                                                                                                href={
+                                                                                                    nestedItem.href
+                                                                                                }
+                                                                                                className="block py-1 text-xs text-blue-600 hover:text-blue-500 transition-colors"
+                                                                                            >
+                                                                                                {
+                                                                                                    nestedItem.title
+                                                                                                }
+                                                                                            </a>
+                                                                                        )
+                                                                                    )}
+                                                                                </div>
+                                                                            )}
+                                                                        </div>
+                                                                    ) : (
+                                                                        <a
+                                                                            href={
+                                                                                subItem.href
+                                                                            }
+                                                                            className="block py-2 text-sm text-blue-700 hover:text-blue-600 transition-colors"
+                                                                        >
+                                                                            {
+                                                                                subItem.title
+                                                                            }
+                                                                        </a>
+                                                                    )}
+                                                                </div>
                                                             )
                                                         )}
                                                     </div>
@@ -948,48 +1087,6 @@ const NASHCOPHeader: FC = () => {
                                 </nav>
                             </div>
                         )}
-
-                        {/* Quick Access Bar - Only show when not scrolled */}
-                        {/* {!isScrolled && (
-            <div className="border-t border-blue-100 py-2 bg-yellow-50">
-              <div className="flex flex-wrap items-center justify-center space-x-4 text-sm">
-                <a
-                  href="/services/testing"
-                  className="text-blue-700 hover:text-blue-900 font-medium"
-                >
-                  🧪 HIV Testing Centers
-                </a>
-                <span className="text-blue-300">|</span>
-                <a
-                  href="/services/treatment"
-                  className="text-blue-700 hover:text-blue-900 font-medium"
-                >
-                  💊 ART Treatment
-                </a>
-                <span className="text-blue-300">|</span>
-                <a
-                  href="/services/prevention"
-                  className="text-blue-700 hover:text-blue-900 font-medium"
-                >
-                  🛡️ Prevention Programs
-                </a>
-                <span className="text-blue-300">|</span>
-                <a
-                  href="/publications/statistics"
-                  className="text-blue-700 hover:text-blue-900 font-medium"
-                >
-                  📊 HIV Statistics
-                </a>
-                <span className="text-blue-300">|</span>
-                <a
-                  href="/contact/help"
-                  className="text-red-600 hover:text-red-800 font-medium"
-                >
-                  🆘 Get Help Now
-                </a>
-              </div>
-            </div>
-          )} */}
                     </div>
                 </div>
             </div>
