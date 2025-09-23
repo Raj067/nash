@@ -102,7 +102,12 @@ Route::get('/news/{slug}', [BlogController::class, 'show'])->name('news.show');
 Route::get('/search', [BlogController::class, 'search'])->name('search');
 
 // Contact & Support
-Route::get('/contact', [PageController::class, 'contact'])->name('contact');
+// Route::get('/contact', [PageController::class, 'contact'])->name('contact');
+// redirect /contact to /contact/locations
+Route::get('/contact', function () {
+    return redirect()->route('contact.locations');
+})->name('contact');
+
 Route::get('/contact/locations', [PageController::class, 'locations'])->name('contact.locations');
 Route::get('/contact/info', [PageController::class, 'contactInfo'])->name('contact.info');
 Route::get('/contact/feedback', [PageController::class, 'feedback'])->name('contact.feedback');
