@@ -56,7 +56,7 @@ interface NavigationItem {
 }
 
 const NASHCOPHeader: FC = () => {
-    const { t } = useTranslation('common');
+    const { t } = useTranslation("common");
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
     const [activeNestedDropdown, setActiveNestedDropdown] = useState<
@@ -297,52 +297,55 @@ const NASHCOPHeader: FC = () => {
 
     const navigationItems: NavigationItem[] = [
         {
-            title: t('header.navigation.home'),
+            title: t("header.navigation.home"),
             href: "/",
         },
         {
-            title: t('header.navigation.about'),
+            title: t("header.navigation.about"),
             href: "/about/about-us",
             icon: Users,
             dropdown: [
                 {
-                    title: t('header.navigation.historical_background'),
+                    title: t("header.navigation.historical_background"),
                     href: "/about/about-us#historical-background",
                 },
                 {
-                    title: t('header.navigation.hiv_aids_tanzania'),
+                    title: t("header.navigation.hiv_aids_tanzania"),
                     href: "/about/hiv-aids-tanzania",
                 },
                 {
-                    title: t('header.navigation.programme_manager_statement'),
+                    title: t("header.navigation.programme_manager_statement"),
                     href: "/#programme-manager-statement",
                 },
                 {
-                    title: t('header.navigation.mission_vision'),
+                    title: t("header.navigation.mission_vision"),
                     href: "/about/about-us#mission-vision",
                 },
                 {
-                    title: t('header.navigation.goals_functions'),
+                    title: t("header.navigation.goals_functions"),
                     href: "/about/about-us#goals-functions",
                 },
-                { title: t('header.navigation.core_values'), href: "/about/about-us#core-values" },
                 {
-                    title: t('header.navigation.structure'),
+                    title: t("header.navigation.core_values"),
+                    href: "/about/about-us#core-values",
+                },
+                {
+                    title: t("header.navigation.structure"),
                     href: "/about/structure",
                 },
             ],
         },
         {
-            title: t('header.navigation.programme_areas'),
+            title: t("header.navigation.programme_areas"),
             href: "/programme-areas",
             icon: Heart,
             dropdown: [
                 {
-                    title: t('header.navigation.management_coordination'),
+                    title: t("header.navigation.management_coordination"),
                     href: "/programme-areas/management-coordination",
                 },
                 {
-                    title: t('header.navigation.prevention'),
+                    title: t("header.navigation.prevention"),
                     href: "/programme-areas/prevention",
                     dropdown: [
                         {
@@ -376,7 +379,7 @@ const NASHCOPHeader: FC = () => {
                     ],
                 },
                 {
-                    title: t('header.navigation.care_treatment_support'),
+                    title: t("header.navigation.care_treatment_support"),
                     href: "/programme-areas/care-treatment-support",
                     dropdown: [
                         {
@@ -402,7 +405,7 @@ const NASHCOPHeader: FC = () => {
                     ],
                 },
                 {
-                    title: t('header.navigation.monitoring_evaluation'),
+                    title: t("header.navigation.monitoring_evaluation"),
                     href: "/programme-areas/monitoring-evaluation",
                     dropdown: [
                         {
@@ -420,7 +423,7 @@ const NASHCOPHeader: FC = () => {
                     ],
                 },
                 {
-                    title: t('header.navigation.pharmaceuticals_laboratory'),
+                    title: t("header.navigation.pharmaceuticals_laboratory"),
                     href: "/programme-areas/pharmaceuticals-laboratory",
                     dropdown: [
                         {
@@ -436,7 +439,7 @@ const NASHCOPHeader: FC = () => {
             ],
         },
         {
-            title: t('header.navigation.resources'),
+            title: t("header.navigation.resources"),
             href: "/resources",
             icon: FileText,
             dropdown: [
@@ -459,7 +462,7 @@ const NASHCOPHeader: FC = () => {
             ],
         },
         {
-            title: t('header.navigation.media'),
+            title: t("header.navigation.media"),
             href: "/news",
             icon: Newspaper,
             dropdown: [
@@ -473,7 +476,7 @@ const NASHCOPHeader: FC = () => {
             ],
         },
         {
-            title: t('header.navigation.contact'),
+            title: t("header.navigation.contact"),
             href: "/contact/locations",
             icon: MessageCircle,
             dropdown: [
@@ -496,19 +499,19 @@ const NASHCOPHeader: FC = () => {
 
     const utilityLinks = [
         {
-            label: t('header.emergency_hotline'),
+            label: t("header.emergency_hotline"),
             href: "tel:117",
         },
         {
-            label: t('header.email_contact'),
+            label: t("header.email_contact"),
             href: "mailto:nacp@afya.go.tz",
         },
     ];
 
     return (
-        <div className="notranslate">
+        <>
             {
-                <div className="bg-blue-800 text-white text-xs sm:text-sm py-1">
+                <div className="bg-blue-800 text-white text-xs sm:text-sm py-1 notranslate">
                     <div className="container mx-auto px-4">
                         <div className="flex flex-col sm:flex-row sm:justify-between items-center space-y-1 sm:space-y-0">
                             <div className="hidden md:flex space-x-4">
@@ -549,7 +552,9 @@ const NASHCOPHeader: FC = () => {
                                         >
                                             <input
                                                 type="text"
-                                                placeholder={t('header.search_placeholder')}
+                                                placeholder={t(
+                                                    "header.search_placeholder"
+                                                )}
                                                 value={searchQuery}
                                                 onChange={(e) =>
                                                     setSearchQuery(
@@ -584,7 +589,7 @@ const NASHCOPHeader: FC = () => {
                                             onClick={() =>
                                                 setIsSearchOpen(true)
                                             }
-                                            aria-label={t('header.open_search')}
+                                            aria-label={t("header.open_search")}
                                         >
                                             <Search className="h-3 w-3" />
                                         </Button>
@@ -594,7 +599,7 @@ const NASHCOPHeader: FC = () => {
                                 {/* Donate Button */}
                                 <a
                                     href="/support-nacp"
-                                    aria-label={t('header.support_nacp')}
+                                    aria-label={t("header.support_nacp")}
                                 >
                                     <Button
                                         variant="default"
@@ -602,7 +607,9 @@ const NASHCOPHeader: FC = () => {
                                         className="bg-yellow-500 hover:bg-yellow-400 text-blue-900 font-semibold h-auto px-3 py-1.5 flex items-center space-x-1 shadow-md hover:shadow-lg transition-all duration-200"
                                     >
                                         <HandHeart className="h-3 w-3" />
-                                        <span className="text-xs">{t('header.donate')}</span>
+                                        <span className="text-xs">
+                                            {t("header.donate")}
+                                        </span>
                                     </Button>
                                 </a>
 
@@ -613,7 +620,9 @@ const NASHCOPHeader: FC = () => {
                                             variant="ghost"
                                             size="sm"
                                             className="text-white hover:text-yellow-300 hover:bg-blue-700 h-auto px-2 py-1 flex items-center space-x-1"
-                                            aria-label={t('header.select_language')}
+                                            aria-label={t(
+                                                "header.select_language"
+                                            )}
                                         >
                                             <span className="text-sm">
                                                 {
@@ -684,7 +693,7 @@ const NASHCOPHeader: FC = () => {
             }
 
             {/* Main Header with Background - Sticky */}
-            <div className="sticky top-0 z-50">
+            <div className="sticky top-0 z-50 notranslate">
                 <div
                     className="bg-cover bg-center bg-no-repeat h-36 sm:h-28"
                     style={{ backgroundImage: `url(/images/banner.jpg)` }}
@@ -707,13 +716,13 @@ const NASHCOPHeader: FC = () => {
                                 {/* Center content */}
                                 <div className="flex flex-col items-center text-center space-y-0">
                                     <h1 className="font-bold text-white leading-tight text-lg sm:text-lg">
-                                        {t('header.tanzania_republic')}
+                                        {t("header.tanzania_republic")}
                                     </h1>
                                     <p className="text-white/95 leading-tight max-w-md lg:max-w-none text-sm sm:text-base">
-                                        {t('header.ministry_health')}
+                                        {t("header.ministry_health")}
                                     </p>
                                     <p className="text-white/95 leading-tight max-w-md lg:max-w-none text-sm sm:text-base">
-                                        {t('header.nashcop_full')}
+                                        {t("header.nashcop_full")}
                                     </p>
                                 </div>
 
@@ -1028,7 +1037,7 @@ const NASHCOPHeader: FC = () => {
                 id="google_translate_element"
                 style={{ display: "none" }}
             ></div> */}
-        </div>
+        </>
     );
 };
 
