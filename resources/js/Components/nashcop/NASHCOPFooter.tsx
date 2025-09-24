@@ -20,7 +20,7 @@ import {
 } from "lucide-react";
 
 const NASHCOPFooter: FC = () => {
-    const { t } = useTranslation('common');
+    const { t } = useTranslation("common");
     const [email, setEmail] = useState("");
     const [isLoading, setIsLoading] = useState(false);
     const [message, setMessage] = useState<{
@@ -34,7 +34,7 @@ const NASHCOPFooter: FC = () => {
         if (!email.trim()) {
             setMessage({
                 type: "error",
-                text: t('footer.newsletter.email_required'),
+                text: t("footer.newsletter.email_required"),
             });
             return;
         }
@@ -67,7 +67,7 @@ const NASHCOPFooter: FC = () => {
         } catch (error) {
             setMessage({
                 type: "error",
-                text: t('footer.newsletter.network_error'),
+                text: t("footer.newsletter.network_error"),
             });
         } finally {
             setIsLoading(false);
@@ -76,22 +76,22 @@ const NASHCOPFooter: FC = () => {
 
     const quickLinks = [
         {
-            title: t('footer.services.hiv_testing'),
+            title: t("footer.services.hiv_testing"),
             href: "/interventions/hiv-testing-services-linkage",
             icon: Heart,
         },
         {
-            title: t('footer.services.care_treatment'),
+            title: t("footer.services.care_treatment"),
             href: "/services/care-treatment-and-support-unit",
             icon: Shield,
         },
         {
-            title: t('footer.services.prevention_programs'),
+            title: t("footer.services.prevention_programs"),
             href: "/interventions/prevention-new-hiv-infection",
             icon: Users,
         },
         {
-            title: t('footer.services.strategic_information'),
+            title: t("footer.services.strategic_information"),
             href: "/services/strategic-information-unit",
             icon: FileText,
         },
@@ -99,24 +99,24 @@ const NASHCOPFooter: FC = () => {
 
     const importantLinks = [
         {
-            title: t('footer.links.emergency_hotline'),
+            title: t("footer.links.emergency_hotline"),
             href: "tel:+177",
             phone: "+177",
         },
         {
-            title: t('footer.links.division_prevention'),
+            title: t("footer.links.division_prevention"),
             href: "/services/division-of-prevention",
         },
         {
-            title: t('footer.links.strategic_framework'),
+            title: t("footer.links.strategic_framework"),
             href: "/resources/strategic-framework",
         },
         {
-            title: t('footer.links.building_health_systems'),
+            title: t("footer.links.building_health_systems"),
             href: "/interventions/building-resilient-health-systems",
         },
         {
-            title: t('footer.links.nacp_roles'),
+            title: t("footer.links.nacp_roles"),
             href: "/services/nacp-roles-and-responsibilities",
         },
         // { title: "Contact Information", href: "/contact/info" },
@@ -166,13 +166,13 @@ const NASHCOPFooter: FC = () => {
                         <div className="flex items-center space-x-2">
                             <AlertCircle className="h-5 w-5 animate-pulse" />
                             <span className="font-bold text-lg">
-                                {t('footer.emergency_banner.hotline')}
+                                {t("footer.emergency_banner.hotline")}
                             </span>
                         </div>
                         <div className="flex items-center space-x-2">
                             <Clock className="h-5 w-5" />
                             <span className="font-medium">
-                                {t('footer.emergency_banner.availability')}
+                                {t("footer.emergency_banner.availability")}
                             </span>
                         </div>
                     </div>
@@ -186,22 +186,22 @@ const NASHCOPFooter: FC = () => {
                     <div className="lg:col-span-1">
                         <div className="flex items-center space-x-3 mb-6">
                             <img
-                                src="/images/nashcop.jpeg"
+                                src="/images/NASHCOP LOGO.png"
                                 alt="Tanzania Coat of Arms"
                                 className="h-12 w-12"
                             />
                             <div>
                                 <h3 className="text-xl font-bold text-yellow-400">
-                                    {t('footer.organization.name')}
+                                    {t("footer.organization.name")}
                                 </h3>
                                 <p className="text-sm text-blue-200">
-                                    {t('footer.organization.full_name')}
+                                    {t("footer.organization.full_name")}
                                 </p>
                             </div>
                         </div>
 
                         <p className="text-blue-100 text-sm mb-6 leading-relaxed">
-                            {t('footer.organization.description')}
+                            {t("footer.organization.description")}
                         </p>
 
                         {/* Contact Info */}
@@ -209,16 +209,16 @@ const NASHCOPFooter: FC = () => {
                             <div className="flex items-center space-x-3">
                                 <MapPin className="h-4 w-4 text-yellow-400 flex-shrink-0" />
                                 <div className="text-sm">
-                                    <p>{t('footer.organization.address')}</p>
+                                    <p>{t("footer.organization.address")}</p>
                                 </div>
                             </div>
 
                             <div className="flex items-center space-x-3">
                                 <Phone className="h-4 w-4 text-yellow-400 flex-shrink-0" />
                                 <div className="text-sm">
-                                    <p>{t('footer.organization.phone')}</p>
+                                    <p>{t("footer.organization.phone")}</p>
                                     <p className="text-gray-400">
-                                        {t('footer.organization.phone_hours')}
+                                        {t("footer.organization.phone_hours")}
                                     </p>
                                 </div>
                             </div>
@@ -226,9 +226,11 @@ const NASHCOPFooter: FC = () => {
                             <div className="flex items-center space-x-3">
                                 <Mail className="h-4 w-4 text-yellow-400 flex-shrink-0" />
                                 <div className="text-sm">
-                                    <p>{t('footer.organization.email')}</p>
+                                    <p>{t("footer.organization.email")}</p>
                                     <p className="text-gray-400">
-                                        {t('footer.organization.email_description')}
+                                        {t(
+                                            "footer.organization.email_description"
+                                        )}
                                     </p>
                                 </div>
                             </div>
@@ -238,7 +240,7 @@ const NASHCOPFooter: FC = () => {
                     {/* Quick Services */}
                     <div>
                         <h4 className="text-lg font-semibold mb-6 text-yellow-400 border-b border-yellow-400 pb-2">
-                            {t('footer.sections.quick_services')}
+                            {t("footer.sections.quick_services")}
                         </h4>
                         <div className="space-y-3">
                             {quickLinks.map((link) => (
@@ -256,7 +258,7 @@ const NASHCOPFooter: FC = () => {
                         </div>
 
                         <h5 className="text-md font-semibold mt-8 mb-4 text-blue-200">
-                            {t('footer.sections.important_links')}
+                            {t("footer.sections.important_links")}
                         </h5>
                         <div className="space-y-2">
                             {importantLinks.map((link) => (
@@ -279,7 +281,7 @@ const NASHCOPFooter: FC = () => {
                     {/* Government Links */}
                     <div>
                         <h4 className="text-lg font-semibold mb-6 text-yellow-400 border-b border-yellow-400 pb-2">
-                            {t('footer.sections.government')}
+                            {t("footer.sections.government")}
                         </h4>
                         <div className="space-y-2">
                             {governmentLinks.map((link) => (
@@ -310,7 +312,7 @@ const NASHCOPFooter: FC = () => {
                     {/* Partners & Social */}
                     <div>
                         <h4 className="text-lg font-semibold mb-6 text-yellow-400 border-b border-yellow-400 pb-2">
-                            {t('footer.sections.partners')}
+                            {t("footer.sections.partners")}
                         </h4>
                         <div className="space-y-2">
                             {partnerOrganizations.map((partner) => (
@@ -328,7 +330,7 @@ const NASHCOPFooter: FC = () => {
 
                         {/* Social Media */}
                         <h5 className="text-md font-semibold mt-8 mb-4 text-blue-200">
-                            {t('footer.sections.follow_us')}
+                            {t("footer.sections.follow_us")}
                         </h5>
                         <div className="flex space-x-4">
                             <a
@@ -336,7 +338,7 @@ const NASHCOPFooter: FC = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="p-2 bg-blue-800 rounded-full hover:bg-yellow-500 hover:text-blue-900 transition-colors shadow-lg"
-                                title={t('footer.social.facebook')}
+                                title={t("footer.social.facebook")}
                             >
                                 <Facebook className="h-4 w-4" />
                             </a>
@@ -345,7 +347,7 @@ const NASHCOPFooter: FC = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="p-2 bg-blue-800 rounded-full hover:bg-yellow-500 hover:text-blue-900 transition-colors shadow-lg"
-                                title={t('footer.social.twitter')}
+                                title={t("footer.social.twitter")}
                             >
                                 <Twitter className="h-4 w-4" />
                             </a>
@@ -354,7 +356,7 @@ const NASHCOPFooter: FC = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="p-2 bg-blue-800 rounded-full hover:bg-yellow-500 hover:text-blue-900 transition-colors shadow-lg"
-                                title={t('footer.social.instagram')}
+                                title={t("footer.social.instagram")}
                             >
                                 <Instagram className="h-4 w-4" />
                             </a>
@@ -363,7 +365,7 @@ const NASHCOPFooter: FC = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="p-2 bg-blue-800 rounded-full hover:bg-yellow-500 hover:text-blue-900 transition-colors shadow-lg"
-                                title={t('footer.social.youtube')}
+                                title={t("footer.social.youtube")}
                             >
                                 <Youtube className="h-4 w-4" />
                             </a>
@@ -372,7 +374,7 @@ const NASHCOPFooter: FC = () => {
                         {/* Newsletter Signup */}
                         <div className="mt-6">
                             <h5 className="text-sm font-semibold mb-3 text-blue-200">
-                                {t('footer.sections.stay_updated')}
+                                {t("footer.sections.stay_updated")}
                             </h5>
                             <form onSubmit={handleNewsletterSubmit}>
                                 <div className="flex">
@@ -382,7 +384,9 @@ const NASHCOPFooter: FC = () => {
                                         onChange={(e) =>
                                             setEmail(e.target.value)
                                         }
-                                        placeholder={t('footer.newsletter.email_placeholder')}
+                                        placeholder={t(
+                                            "footer.newsletter.email_placeholder"
+                                        )}
                                         disabled={isLoading}
                                         className="flex-1 px-3 py-2 text-sm bg-blue-800 border border-blue-600 rounded-l-md focus:outline-none focus:border-yellow-400 text-white placeholder-blue-300 disabled:opacity-50"
                                     />
@@ -394,7 +398,7 @@ const NASHCOPFooter: FC = () => {
                                         {isLoading ? (
                                             <Loader2 className="w-4 h-4 animate-spin" />
                                         ) : (
-                                            t('footer.newsletter.subscribe')
+                                            t("footer.newsletter.subscribe")
                                         )}
                                     </button>
                                 </div>
@@ -427,22 +431,20 @@ const NASHCOPFooter: FC = () => {
                 <div className="container mx-auto px-4 py-6">
                     <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
                         <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-6 text-sm text-blue-300">
-                            <p>
-                                {t('footer.copyright')}
-                            </p>
+                            <p>{t("footer.copyright")}</p>
                             <div className="flex items-center space-x-4">
                                 <a
                                     href="/legal/privacy"
                                     className="hover:text-yellow-400 transition-colors"
                                 >
-                                    {t('footer.legal.privacy_policy')}
+                                    {t("footer.legal.privacy_policy")}
                                 </a>
                                 <span>|</span>
                                 <a
                                     href="/legal/terms"
                                     className="hover:text-yellow-400 transition-colors"
                                 >
-                                    {t('footer.legal.terms_of_use')}
+                                    {t("footer.legal.terms_of_use")}
                                 </a>
                             </div>
                         </div>
@@ -451,7 +453,9 @@ const NASHCOPFooter: FC = () => {
                             <div className="flex items-center space-x-2">
                                 <Globe className="h-4 w-4" />
                                 <span>
-                                    {t('footer.last_updated', { date: new Date().toLocaleDateString() })}
+                                    {t("footer.last_updated", {
+                                        date: new Date().toLocaleDateString(),
+                                    })}
                                 </span>
                             </div>
                         </div>

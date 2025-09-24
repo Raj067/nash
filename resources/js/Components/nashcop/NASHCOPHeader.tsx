@@ -730,7 +730,7 @@ const NASHCOPHeader: FC = () => {
                                 <div className="hidden lg:block">
                                     <a href="/" className="">
                                         <img
-                                            src="/images/nashcop.jpeg"
+                                            src="/images/NASHCOP LOGO.png"
                                             alt="NASHCOP Logo"
                                             className="w-auto h-12 sm:h-16"
                                         />

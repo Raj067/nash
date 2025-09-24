@@ -104,7 +104,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                         >
                             <div className="flex aspect-square size-8 items-center justify-center rounded-lg ">
                                 <img
-                                    src="/images/nashcop.jpeg"
+                                    src="/images/NASHCOP LOGO.png"
                                     alt="NASHCOP Logo"
                                     className="size-8 rounded"
                                 />

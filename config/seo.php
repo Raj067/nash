@@ -16,7 +16,7 @@ return [
         'full_name' => 'National AIDS, STIs and Hepatitis Control Programme',
         'description' => 'The National AIDS, STIs and Hepatitis Control Programme (NASHCOP) is responsible for coordinating the national response to HIV/AIDS, STIs, and Hepatitis in Tanzania.',
         'url' => env('APP_URL', 'https://nashcop.go.tz'),
-        'logo' => '/images/nashcop.jpeg',
+        'logo' => '/images/NASHCOP LOGO.png',
         'favicon' => '/favicon.ico',
         'theme_color' => '#1e40af',
     ],

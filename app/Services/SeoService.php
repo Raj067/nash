@@ -60,7 +60,7 @@ class SeoService
             'name' => 'National AIDS, STIs and Hepatitis Control Programme',
             'alternateName' => 'NASHCOP',
             'url' => config('app.url'),
-            'logo' => asset('images/nashcop.jpeg'),
+            'logo' => asset('images/NASHCOP LOGO.png'),
             'description' => 'The National AIDS, STIs and Hepatitis Control Programme (NASHCOP) is responsible for coordinating the national response to HIV/AIDS, STIs, and Hepatitis in Tanzania.',
             'address' => [
                 '@type' => 'PostalAddress',
@@ -107,7 +107,7 @@ class SeoService
                 'name' => 'NASHCOP Tanzania',
                 'logo' => [
                     '@type' => 'ImageObject',
-                    'url' => asset('images/nashcop.jpeg'),
+                    'url' => asset('images/NASHCOP LOGO.png'),
                 ],
             ],
             'datePublished' => $blog->published_date,
@@ -214,7 +214,7 @@ class SeoService
             'publisher' => [
                 '@type' => 'Organization',
                 'name' => 'NASHCOP Tanzania',
-                'logo' => asset('images/nashcop.jpeg'),
+                'logo' => asset('images/NASHCOP LOGO.png'),
             ],
             'potentialAction' => [
                 '@type' => 'SearchAction',

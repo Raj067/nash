@@ -88,8 +88,8 @@ export default function SupportNacp() {
     ];
 
     return (
-        <PublicLayout title="Support NACP">
-            <Head title="Support NACP - NATIONAL AIDS, STIs AND HEPATITIS CONTROL PROGRAMME" />
+        <PublicLayout title="Support NASHCOP">
+            <Head title="Support NASHCOP - NATIONAL AIDS, STIs AND HEPATITIS CONTROL PROGRAMME" />
 
             <div className="min-h-screen">
                 {/* Hero Section */}
@@ -106,7 +106,7 @@ export default function SupportNacp() {
                                     <HandHeart className="w-10 h-10 text-white" />
                                 </div>
                                 <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white">
-                                    Support NACP
+                                    Support NASHCOP
                                 </h1>
                                 <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
                                     Join us in the fight against HIV/AIDS and
@@ -240,7 +240,7 @@ export default function SupportNacp() {
                             </h2>
                             <p className="text-blue-100 max-w-3xl mx-auto text-lg leading-relaxed">
                                 Contact us to learn more about how you can
-                                support NACP's mission to end HIV/AIDS in
+                                Support NASHCOP's mission to end HIV/AIDS in
                                 Tanzania
                             </p>
                         </div>
