@@ -614,72 +614,36 @@ const NASHCOPHeader: FC = () => {
                                 </a>
 
                                 {/* Language Selector */}
-                                <DropdownMenu>
-                                    <DropdownMenuTrigger asChild>
+                                <div className="flex items-center space-x-1">
+                                    {languages.map((language) => (
                                         <Button
+                                            key={language.code}
                                             variant="ghost"
                                             size="sm"
-                                            className="text-white hover:text-yellow-300 hover:bg-blue-700 h-auto px-2 py-1 flex items-center space-x-1"
-                                            aria-label={t(
+                                            onClick={() =>
+                                                handleLanguageChange(
+                                                    language.code as "en" | "sw"
+                                                )
+                                            }
+                                            className={`text-white hover:text-white hover:bg-blue-700 h-auto flex items-center space-x-[1px] transition-colors ${
+                                                currentLanguage ===
+                                                language.code
+                                                    ? "bg-blue-700 text-white"
+                                                    : ""
+                                            }`}
+                                            aria-label={`${t(
                                                 "header.select_language"
-                                            )}
+                                            )} - ${language.name}`}
                                         >
-                                            <span className="text-sm">
-                                                {
-                                                    languages.find(
-                                                        (lang) =>
-                                                            lang.code ===
-                                                            currentLanguage
-                                                    )?.flag
-                                                }
+                                            <span className="text-lg">
+                                                {language.flag}
                                             </span>
-                                            <span className="text-xs hidden sm:inline">
-                                                {languages
-                                                    .find(
-                                                        (lang) =>
-                                                            lang.code ===
-                                                            currentLanguage
-                                                    )
-                                                    ?.code.toUpperCase()}
+                                            <span className="text-xs font-medium">
+                                                {language.code.toUpperCase()}
                                             </span>
-                                            <ChevronDown className="h-3 w-3" />
                                         </Button>
-                                    </DropdownMenuTrigger>
-                                    <DropdownMenuContent
-                                        align="end"
-                                        className="min-w-[140px]"
-                                    >
-                                        {languages.map((language) => (
-                                            <DropdownMenuItem
-                                                key={language.code}
-                                                onClick={() =>
-                                                    handleLanguageChange(
-                                                        language.code as
-                                                            | "en"
-                                                            | "sw"
-                                                    )
-                                                }
-                                                className={`flex items-center space-x-2 cursor-pointer ${
-                                                    currentLanguage ===
-                                                    language.code
-                                                        ? "bg-blue-50 font-medium"
-                                                        : ""
-                                                }`}
-                                            >
-                                                <span className="text-lg">
-                                                    {language.flag}
-                                                </span>
-                                                <span className="text-sm">
-                                                    {language.name}
-                                                </span>
-                                                {currentLanguage ===
-                                                    language.code && (
-                                                    <div className="w-2 h-2 bg-blue-600 rounded-full ml-auto"></div>
-                                                )}
-                                            </DropdownMenuItem>
-                                        ))}
-                                    </DropdownMenuContent>
-                                </DropdownMenu>
+                                    ))}
+                                </div>
 
                                 {/* Hidden Google Translate Element */}
                                 <div
