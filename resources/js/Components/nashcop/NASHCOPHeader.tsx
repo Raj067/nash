@@ -349,31 +349,31 @@ const NASHCOPHeader: FC = () => {
                     href: "/programme-areas/prevention",
                     dropdown: [
                         {
-                            title: "HIV Testing Services",
+                            title: t("header.navigation.hiv_testing_services"),
                             href: "/interventions/hiv-testing-services-linkage",
                         },
                         {
-                            title: "Voluntary Medical Male Circumcision (VMMC)",
+                            title: t("header.navigation.vmmc"),
                             href: "/programme-areas/prevention/vmmc",
                         },
                         {
-                            title: "Social Behaviour Change Communication (SBCC)",
+                            title: t("header.navigation.sbcc"),
                             href: "/programme-areas/prevention/sbcc",
                         },
                         {
-                            title: "Condom Promotion and Distribution",
+                            title: t("header.navigation.condom_promotion"),
                             href: "/programme-areas/prevention/condoms",
                         },
                         {
-                            title: "Prevention of Vertical Transmission (PMTCT)",
+                            title: t("header.navigation.pmtct"),
                             href: "/programme-areas/prevention/pmtct",
                         },
                         {
-                            title: "Pre-Exposure Prophylaxis (PrEP)",
+                            title: t("header.navigation.prep"),
                             href: "/programme-areas/prevention/prep",
                         },
                         {
-                            title: "Key and Vulnerable Populations (KVP)",
+                            title: t("header.navigation.kvp"),
                             href: "/programme-areas/prevention/kvp",
                         },
                     ],
@@ -383,23 +383,23 @@ const NASHCOPHeader: FC = () => {
                     href: "/programme-areas/care-treatment-support",
                     dropdown: [
                         {
-                            title: "Community Based HIV and AIDS Services",
+                            title: t("header.navigation.community_services"),
                             href: "/programme-areas/care-treatment-support/community-services",
                         },
                         {
-                            title: "TB/HIV Co-infection",
+                            title: t("header.navigation.tb_hiv"),
                             href: "/programme-areas/care-treatment-support/tb-hiv",
                         },
                         {
-                            title: "Viral Hepatitis and Co-infections",
+                            title: t("header.navigation.viral_hepatitis"),
                             href: "/programme-areas/care-treatment-support/viral-hepatitis",
                         },
                         {
-                            title: "Integrated Management of NCDs in HIV",
+                            title: t("header.navigation.ncd_integration"),
                             href: "/programme-areas/care-treatment-support/ncd-integration",
                         },
                         {
-                            title: "Integration of Mental Health Services",
+                            title: t("header.navigation.mental_health"),
                             href: "/programme-areas/care-treatment-support/mental-health",
                         },
                     ],
@@ -409,15 +409,15 @@ const NASHCOPHeader: FC = () => {
                     href: "/programme-areas/monitoring-evaluation",
                     dropdown: [
                         {
-                            title: "HIV Research",
+                            title: t("header.navigation.research"),
                             href: "/programme-areas/monitoring-evaluation/research",
                         },
                         {
-                            title: "HIV Surveillance",
+                            title: t("header.navigation.surveillance"),
                             href: "/programme-areas/monitoring-evaluation/surveillance",
                         },
                         {
-                            title: "Health Information Systems (HIS)",
+                            title: t("header.navigation.his"),
                             href: "/programme-areas/monitoring-evaluation/his",
                         },
                     ],
@@ -427,11 +427,11 @@ const NASHCOPHeader: FC = () => {
                     href: "/programme-areas/pharmaceuticals-laboratory",
                     dropdown: [
                         {
-                            title: "Supply Chain Management and Rational",
+                            title: t("header.navigation.supply_chain"),
                             href: "/programme-areas/pharmaceuticals-laboratory/supply-chain",
                         },
                         {
-                            title: "HIV and AIDS Laboratory Services",
+                            title: t("header.navigation.laboratory_services"),
                             href: "/programme-areas/pharmaceuticals-laboratory/laboratory-services",
                         },
                     ],
@@ -444,21 +444,21 @@ const NASHCOPHeader: FC = () => {
             icon: FileText,
             dropdown: [
                 {
-                    title: "Strategic Framework & Policies",
+                    title: t("header.navigation.strategic_framework"),
                     href: "/resources/strategic-framework",
                 },
-                { title: "Guidelines", href: "/resources/guidelines" },
+                { title: t("header.navigation.guidelines"), href: "/resources/guidelines" },
                 {
-                    title: "Policy Documents",
+                    title: t("header.navigation.policy_documents"),
                     href: "/resources/policy-documents",
                 },
-                { title: "Reports", href: "/resources/reports" },
-                { title: "SOP & Manuals", href: "/resources/sop-manuals" },
+                { title: t("header.navigation.reports"), href: "/resources/reports" },
+                { title: t("header.navigation.sop_manuals"), href: "/resources/sop-manuals" },
                 {
-                    title: "IEC/SBC Materials",
+                    title: t("header.navigation.iec_materials"),
                     href: "/resources/iec-materials",
                 },
-                { title: "Databases", href: "/resources/databases" },
+                { title: t("header.navigation.databases"), href: "/resources/databases" },
             ],
         },
         {
@@ -466,13 +466,13 @@ const NASHCOPHeader: FC = () => {
             href: "/news",
             icon: Newspaper,
             dropdown: [
-                { title: "News", href: "/news" },
-                { title: "Press Releases", href: "/news/press-releases" },
-                { title: "Speeches", href: "/news/speeches" },
-                { title: "NASHCOP Events", href: "/news/events" },
-                { title: "Newsletter", href: "/news/newsletter" },
-                { title: "Photo Gallery", href: "/news/photo-gallery" },
-                { title: "Video Library", href: "/news/video-library" },
+                { title: t("header.navigation.news"), href: "/news" },
+                { title: t("header.navigation.press_releases"), href: "/news/press-releases" },
+                { title: t("header.navigation.speeches"), href: "/news/speeches" },
+                { title: t("header.navigation.events"), href: "/news/events" },
+                { title: t("header.navigation.newsletter"), href: "/news/newsletter" },
+                { title: t("header.navigation.photo_gallery"), href: "/news/photo-gallery" },
+                { title: t("header.navigation.video_library"), href: "/news/video-library" },
             ],
         },
         {
@@ -480,9 +480,9 @@ const NASHCOPHeader: FC = () => {
             href: "/contact/locations",
             icon: MessageCircle,
             dropdown: [
-                { title: "Office Locations", href: "/contact/locations" },
+                { title: t("header.navigation.office_locations"), href: "/contact/locations" },
                 // { title: "Contact Information", href: "/contact/info" },
-                { title: "Feedback & Complaints", href: "/contact/feedback" },
+                { title: t("header.navigation.feedback_complaints"), href: "/contact/feedback" },
                 // { title: "Help Desk", href: "/contact/help" },
             ],
         },

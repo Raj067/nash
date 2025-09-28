@@ -27,18 +27,6 @@ export default function SupportNacp() {
             ],
         },
         {
-            icon: Users,
-            title: "Volunteer Programs",
-            description:
-                "Join our community of volunteers to support HIV/AIDS awareness and prevention efforts.",
-            color: "from-green-600 to-emerald-600",
-            actions: [
-                "Community outreach programs",
-                "Peer education and counseling",
-                "Event organization and support",
-            ],
-        },
-        {
             icon: Heart,
             title: "Advocacy & Awareness",
             description:
@@ -50,38 +38,26 @@ export default function SupportNacp() {
                 "Stigma reduction initiatives",
             ],
         },
-        {
-            icon: Shield,
-            title: "Professional Services",
-            description:
-                "Contribute your professional skills to support our technical and operational needs.",
-            color: "from-purple-600 to-violet-600",
-            actions: [
-                "Medical and healthcare expertise",
-                "IT and digital solutions",
-                "Research and data analysis",
-            ],
-        },
     ];
 
     const impactStats = [
         {
-            number: "1.4M+",
+            number: "1.7M+",
             label: "People Living with HIV Supported",
             description: "Comprehensive care and treatment services",
         },
         {
-            number: "500+",
+            number: "8000+",
             label: "Health Facilities",
             description: "Providing HIV services across Tanzania",
         },
         {
-            number: "90%",
+            number: "98.9%",
             label: "Treatment Success Rate",
-            description: "Achieving UNAIDS 90-90-90 targets",
+            description: "Achieving UNAIDS 95-95-95 targets",
         },
         {
-            number: "25+",
+            number: "30+",
             label: "Years of Service",
             description: "Leading Tanzania's HIV response",
         },
