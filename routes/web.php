@@ -71,6 +71,13 @@ Route::get('/programme-areas/care-treatment-support/tb-hiv', [PageController::cl
 Route::get('/programme-areas/care-treatment-support/viral-hepatitis', [PageController::class, 'careViralHepatitis'])->name('programme-areas.care-treatment-support.viral-hepatitis');
 Route::get('/programme-areas/care-treatment-support/ncd-integration', [PageController::class, 'careNcdIntegration'])->name('programme-areas.care-treatment-support.ncd-integration');
 Route::get('/programme-areas/care-treatment-support/mental-health', [PageController::class, 'careMentalHealth'])->name('programme-areas.care-treatment-support.mental-health');
+Route::get('/programme-areas/care-treatment-support/paediatric-hiv', [PageController::class, 'carePaediatricHiv'])->name('programme-areas.care-treatment-support.paediatric-hiv');
+Route::get('/programme-areas/care-treatment-support/adolescent-hiv', [PageController::class, 'careAdolescentHiv'])->name('programme-areas.care-treatment-support.adolescent-hiv');
+Route::get('/programme-areas/care-treatment-support/viral-hepatitis-screening', [PageController::class, 'careViralHepatitisScreening'])->name('programme-areas.care-treatment-support.viral-hepatitis-screening');
+Route::get('/programme-areas/care-treatment-support/viral-hepatitis-care', [PageController::class, 'careViralHepatitisCare'])->name('programme-areas.care-treatment-support.viral-hepatitis-care');
+Route::get('/programme-areas/care-treatment-support/early-infant-diagnosis', [PageController::class, 'careEarlyInfantDiagnosis'])->name('programme-areas.care-treatment-support.early-infant-diagnosis');
+Route::get('/programme-areas/care-treatment-support/vulnerable-agyw', [PageController::class, 'careVulnerableAgyw'])->name('programme-areas.care-treatment-support.vulnerable-agyw');
+Route::get('/programme-areas/care-treatment-support/general-population', [PageController::class, 'careGeneralPopulation'])->name('programme-areas.care-treatment-support.general-population');
 
 // Programme Areas - Monitoring & Evaluation sub-pages
 Route::get('/programme-areas/monitoring-evaluation/research', [PageController::class, 'meResearch'])->name('programme-areas.monitoring-evaluation.research');

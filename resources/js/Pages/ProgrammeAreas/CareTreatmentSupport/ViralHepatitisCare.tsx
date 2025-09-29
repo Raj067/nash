@@ -1,52 +1,45 @@
 import { Head } from "@inertiajs/react";
 import PublicLayout from "@/Layouts/PublicLayout";
-import { Activity, ArrowRight, Heart } from "lucide-react";
+import {
+    HeartHandshake,
+    ArrowRight,
+    Heart,
+} from "lucide-react";
 import { Button } from "@/Components/ui/button";
 
-export default function NcdIntegration() {
-    const priorityStrategies = [
-        "Strengthen and improve integration of TB, HIV and other services such as Reproductive and Child Health at all levels",
-        "Increase access to integrated or linked NCDs (cardiovascular diseases, cervical cancer, mental health, diabetes diagnosis and treatment) with HIV services",
-        "Integrate the CTC2 database with other health data systems to achieve effective integrated health services for PLHIV",
-        "Adopt newer and safer ARVs, with lesser side effects that lead to the development of co-morbidities (such as PI, lipid and glucose metabolism)",
-        "Improve the identification and management of NCDs among PLHIV (diabetes, obesity)",
-        "Scale-up screening and vaccination for HPV to all eligible AGWLHIV",
-        "Scale-up cervical cancer prevention (CECAP) screening for eligible WLHIV (30-50 years of age)",
-        "Strengthen the management of WLHIV with pre-cancer or with invasive cancer",
-        "Expand viral hepatitis services in CTC settings as per the National Strategic Plan for Viral Hepatitis111; including enhancing capacities for health care providers on viral hepatitis diagnosis and management",
-        "Strengthen STI management services for PLHIV and PHR as part of the standard package of HIV prevention",
-        "Strengthen the integration and delivery of STI management into HIV care and treatment and PHR friendly services",
-        "Improve the quality of STI services in RMNCAH as part of the quality improvement approach",
-        "Mobilize resources to support STI management services",
-        "Strengthen STI M&E, research and surveillance services",
-        "Improve the integration of HBV interventions with PMTCT services",
+export default function ViralHepatitisCare() {
+    const keyStrategies = [
+        "Expand access to facility and community based viral hepatitis care, treatment and support services",
+        "Provide equitable access to viral hepatitis services in special settings, including humanitarian settings, and prisons and other closed settings",
+        "Strengthen integration and linkages with NCDs and other communicable diseases, including tuberculosis",
+        "Establish and develop guidance for linkage to involve key stakeholders in viral hepatitis care",
+        "Prepare protocol to guide stakeholders in linking suspected/ confirmed cases from other clinics (PWID, TB and HIV clinics, prisons, correctional centres) to viral hepatitis clinics",
+        "Promote disability-inclusive programming and ensure that viral hepatitis services are accessible to people with disabilities",
+        "Provide mental health care for people affected by and living with viral hepatitis",
+        "Promote integration of viral hepatitis services and their key co-infections and comorbidities into primary health care, including through decentralized and community-based service delivery",
+        "Engage private health care facilities in delivering viral hepatitis services",
+        "Provide differentiated viral hepatitis services through innovative approaches such as task sharing, modifying service delivery hours, and adapting frequency of clinic visits and medicine refills, leveraging technology- and community-based approaches, and to deliver high-quality people-centred services that are free of stigma and discrimination"
     ];
 
     return (
-        <PublicLayout title="HIV Integration with Other Diseases">
-            <Head title="HIV Integration with Other Diseases - Care, Treatment & Support" />
+        <PublicLayout title="Viral Hepatitis Care and Treatment">
+            <Head title="Viral Hepatitis Care and Treatment - Care, Treatment & Support" />
             <div className="min-h-screen">
                 {/* Hero Section */}
                 <div className="relative h-[400px] overflow-hidden">
-                    <div
-                        className="h-full bg-cover bg-center bg-no-repeat"
-                        style={{ backgroundImage: `url(/images/about.png)` }}
-                    >
+                    <div className="h-full bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(/images/about.png)` }}>
                         <div className="h-full bg-gradient-to-r from-black/80 to-black/60 flex items-center">
                             <div className="container mx-auto px-4">
                                 <div className="max-w-4xl">
                                     <div className="inline-flex items-center justify-center w-20 h-20 bg-white/10 backdrop-blur-sm rounded-full mb-6">
-                                        <Activity className="w-10 h-10 text-white" />
+                                        <HeartHandshake className="w-10 h-10 text-white" />
                                     </div>
                                     <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white">
-                                        HIV Integration with Other Diseases
+                                        Viral Hepatitis Care and Treatment
                                     </h1>
                                     <p className="text-xl md:text-2xl text-blue-100 max-w-3xl leading-relaxed">
-                                        Comprehensive integration of HIV
-                                        services with TB, NCDs, STIs, viral
-                                        hepatitis, and reproductive health to
-                                        provide holistic care for people living
-                                        with HIV.
+                                        Comprehensive viral hepatitis care, treatment, and support services 
+                                        integrated with primary healthcare and community-based delivery systems.
                                     </p>
                                 </div>
                             </div>
@@ -54,22 +47,21 @@ export default function NcdIntegration() {
                     </div>
                 </div>
 
-                {/* Priority Strategies Section */}
+                {/* Key Strategies Section */}
                 <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-purple-50">
                     <div className="container mx-auto px-4">
                         <div className="text-center mb-16">
                             <h2 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-6">
-                                Priority Strategies
+                                Key Strategies
                             </h2>
                             <p className="text-gray-600 max-w-3xl mx-auto text-lg leading-relaxed">
-                                Strategic priorities for strengthening HIV
-                                integration with other health services
+                                Strategic approaches for expanding viral hepatitis care, treatment, and support services across all settings
                             </p>
                         </div>
 
                         <div className="max-w-5xl mx-auto">
                             <div className="grid gap-6">
-                                {priorityStrategies.map((strategy, index) => (
+                                {keyStrategies.map((strategy, index) => (
                                     <div
                                         key={index}
                                         className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300"
@@ -93,11 +85,11 @@ export default function NcdIntegration() {
                 <section className="py-16 bg-gradient-to-r from-blue-600 to-purple-600">
                     <div className="container mx-auto px-4 text-center">
                         <h2 className="text-3xl font-bold text-white mb-4">
-                            Access Integrated Services
+                            Access Viral Hepatitis Care
                         </h2>
                         <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-                            Get comprehensive integrated HIV care with other
-                            health services at facilities across Tanzania.
+                            Get comprehensive viral hepatitis care, treatment, and support services 
+                            at health facilities and community centers across Tanzania.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <a href="/contact">
@@ -106,7 +98,7 @@ export default function NcdIntegration() {
                                     className="bg-white text-blue-600 hover:bg-blue-50 shadow-lg hover:shadow-xl transition-all duration-300"
                                 >
                                     <Heart className="mr-2 h-5 w-5" />
-                                    Find Integrated Services
+                                    Find Care Services
                                 </Button>
                             </a>
                             <a href="/programme-areas/care-treatment-support">

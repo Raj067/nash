@@ -349,6 +349,41 @@ class PageController extends Controller
         return Inertia::render('ProgrammeAreas/CareTreatmentSupport/MentalHealth');
     }
 
+    public function carePaediatricHiv()
+    {
+        return Inertia::render('ProgrammeAreas/CareTreatmentSupport/PaediatricHiv');
+    }
+
+    public function careAdolescentHiv()
+    {
+        return Inertia::render('ProgrammeAreas/CareTreatmentSupport/AdolescentHiv');
+    }
+
+    public function careViralHepatitisScreening()
+    {
+        return Inertia::render('ProgrammeAreas/CareTreatmentSupport/ViralHepatitisScreening');
+    }
+
+    public function careViralHepatitisCare()
+    {
+        return Inertia::render('ProgrammeAreas/CareTreatmentSupport/ViralHepatitisCare');
+    }
+
+    public function careEarlyInfantDiagnosis()
+    {
+        return Inertia::render('ProgrammeAreas/CareTreatmentSupport/EarlyInfantDiagnosis');
+    }
+
+    public function careVulnerableAgyw()
+    {
+        return Inertia::render('ProgrammeAreas/CareTreatmentSupport/VulnerableAgyw');
+    }
+
+    public function careGeneralPopulation()
+    {
+        return Inertia::render('ProgrammeAreas/CareTreatmentSupport/GeneralPopulation');
+    }
+
     // Programme Areas - Monitoring & Evaluation sub-pages
     public function meResearch()
     {

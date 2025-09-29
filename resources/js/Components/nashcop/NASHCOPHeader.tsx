@@ -414,6 +414,34 @@ const NASHCOPHeader: FC = () => {
                             title: t("header.navigation.mental_health"),
                             href: "/programme-areas/care-treatment-support/mental-health",
                         },
+                        {
+                            title: t("header.navigation.paediatric_hiv"),
+                            href: "/programme-areas/care-treatment-support/paediatric-hiv",
+                        },
+                        {
+                            title: t("header.navigation.adolescent_hiv"),
+                            href: "/programme-areas/care-treatment-support/adolescent-hiv",
+                        },
+                        {
+                            title: t("header.navigation.viral_hepatitis_screening"),
+                            href: "/programme-areas/care-treatment-support/viral-hepatitis-screening",
+                        },
+                        {
+                            title: t("header.navigation.viral_hepatitis_care"),
+                            href: "/programme-areas/care-treatment-support/viral-hepatitis-care",
+                        },
+                        {
+                            title: t("header.navigation.early_infant_diagnosis"),
+                            href: "/programme-areas/care-treatment-support/early-infant-diagnosis",
+                        },
+                        {
+                            title: t("header.navigation.vulnerable_agyw"),
+                            href: "/programme-areas/care-treatment-support/vulnerable-agyw",
+                        },
+                        {
+                            title: t("header.navigation.general_population"),
+                            href: "/programme-areas/care-treatment-support/general-population",
+                        },
                     ],
                 },
                 {

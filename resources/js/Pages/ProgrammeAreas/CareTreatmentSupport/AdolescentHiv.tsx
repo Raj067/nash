@@ -1,52 +1,47 @@
 import { Head } from "@inertiajs/react";
 import PublicLayout from "@/Layouts/PublicLayout";
-import { Activity, ArrowRight, Heart } from "lucide-react";
+import {
+    Users,
+    ArrowRight,
+    Heart,
+} from "lucide-react";
 import { Button } from "@/Components/ui/button";
 
-export default function NcdIntegration() {
+export default function AdolescentHiv() {
     const priorityStrategies = [
-        "Strengthen and improve integration of TB, HIV and other services such as Reproductive and Child Health at all levels",
-        "Increase access to integrated or linked NCDs (cardiovascular diseases, cervical cancer, mental health, diabetes diagnosis and treatment) with HIV services",
-        "Integrate the CTC2 database with other health data systems to achieve effective integrated health services for PLHIV",
-        "Adopt newer and safer ARVs, with lesser side effects that lead to the development of co-morbidities (such as PI, lipid and glucose metabolism)",
-        "Improve the identification and management of NCDs among PLHIV (diabetes, obesity)",
-        "Scale-up screening and vaccination for HPV to all eligible AGWLHIV",
-        "Scale-up cervical cancer prevention (CECAP) screening for eligible WLHIV (30-50 years of age)",
-        "Strengthen the management of WLHIV with pre-cancer or with invasive cancer",
-        "Expand viral hepatitis services in CTC settings as per the National Strategic Plan for Viral Hepatitis111; including enhancing capacities for health care providers on viral hepatitis diagnosis and management",
-        "Strengthen STI management services for PLHIV and PHR as part of the standard package of HIV prevention",
-        "Strengthen the integration and delivery of STI management into HIV care and treatment and PHR friendly services",
-        "Improve the quality of STI services in RMNCAH as part of the quality improvement approach",
-        "Mobilize resources to support STI management services",
-        "Strengthen STI M&E, research and surveillance services",
-        "Improve the integration of HBV interventions with PMTCT services",
+        "Promptly link A/YLHIV to DSDMs to provide peer support and motivation, build resilience, strengthen problem-solving skills, and overcome adherence challenges",
+        "Disseminate policies on the age of consent for HIV testing to stakeholders, including scale-up of self-testing",
+        "Strengthen index testing specifically testing sexual contacts of adolescents",
+        "Strengthen implementation of an adolescent transition package to provide HCWs with the required experience and tools to prepare ALHIV for transitioning to adult care",
+        "Strengthen community approaches to reach adolescents in formal and informal sectors",
+        "Intensify follow up of missed appointments before lost to follow up",
+        "Scale-up and fully utilise community led services (DSDM) in ART delivery",
+        "Routine screening and treatment of STIs and mental health for adolescents",
+        "Intensify comprehensive, integrated adolescent-friendly health and social services (NCDs, mental health and psychosocial support services, alcohol and substance abuse)",
+        "Intensify community linkage to social services through CBHSP/CHWs and Community Adolescent cluster leaders for peer support, addressing stigma and discrimination",
+        "Capacity building for HCWs on addressing the changing needs of ALHIV (psychosocial and medical)",
+        "Monitor early warning signs for drug resistance and conduct routine surveillance, and scale-up second and third line therapeutic network"
     ];
 
     return (
-        <PublicLayout title="HIV Integration with Other Diseases">
-            <Head title="HIV Integration with Other Diseases - Care, Treatment & Support" />
+        <PublicLayout title="Adolescent HIV Services">
+            <Head title="Adolescent HIV Services - Care, Treatment & Support" />
             <div className="min-h-screen">
                 {/* Hero Section */}
                 <div className="relative h-[400px] overflow-hidden">
-                    <div
-                        className="h-full bg-cover bg-center bg-no-repeat"
-                        style={{ backgroundImage: `url(/images/about.png)` }}
-                    >
+                    <div className="h-full bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(/images/about.png)` }}>
                         <div className="h-full bg-gradient-to-r from-black/80 to-black/60 flex items-center">
                             <div className="container mx-auto px-4">
                                 <div className="max-w-4xl">
                                     <div className="inline-flex items-center justify-center w-20 h-20 bg-white/10 backdrop-blur-sm rounded-full mb-6">
-                                        <Activity className="w-10 h-10 text-white" />
+                                        <Users className="w-10 h-10 text-white" />
                                     </div>
                                     <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white">
-                                        HIV Integration with Other Diseases
+                                        Adolescent HIV Services
                                     </h1>
                                     <p className="text-xl md:text-2xl text-blue-100 max-w-3xl leading-relaxed">
-                                        Comprehensive integration of HIV
-                                        services with TB, NCDs, STIs, viral
-                                        hepatitis, and reproductive health to
-                                        provide holistic care for people living
-                                        with HIV.
+                                        Specialized HIV care and treatment services for adolescents and young people, 
+                                        focusing on peer support, transition care, and comprehensive health services.
                                     </p>
                                 </div>
                             </div>
@@ -62,8 +57,7 @@ export default function NcdIntegration() {
                                 Priority Strategies
                             </h2>
                             <p className="text-gray-600 max-w-3xl mx-auto text-lg leading-relaxed">
-                                Strategic priorities for strengthening HIV
-                                integration with other health services
+                                Strategic priorities for strengthening adolescent HIV services and improving health outcomes for young people living with HIV
                             </p>
                         </div>
 
@@ -93,11 +87,11 @@ export default function NcdIntegration() {
                 <section className="py-16 bg-gradient-to-r from-blue-600 to-purple-600">
                     <div className="container mx-auto px-4 text-center">
                         <h2 className="text-3xl font-bold text-white mb-4">
-                            Access Integrated Services
+                            Access Adolescent HIV Services
                         </h2>
                         <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-                            Get comprehensive integrated HIV care with other
-                            health services at facilities across Tanzania.
+                            Get specialized HIV care and treatment services for adolescents and young people 
+                            at health facilities across Tanzania.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <a href="/contact">
@@ -106,7 +100,7 @@ export default function NcdIntegration() {
                                     className="bg-white text-blue-600 hover:bg-blue-50 shadow-lg hover:shadow-xl transition-all duration-300"
                                 >
                                     <Heart className="mr-2 h-5 w-5" />
-                                    Find Integrated Services
+                                    Find Adolescent Services
                                 </Button>
                             </a>
                             <a href="/programme-areas/care-treatment-support">
