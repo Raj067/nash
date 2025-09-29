@@ -232,6 +232,67 @@
       }
     }
   },
+  "whistleblowing": {
+    "title": "Whistleblowing & SEAH Reporting",
+    "subtitle": "Zero Tolerance Policy",
+    "description": "NASHCOP is committed to creating and maintaining a safe environment free from Sexual Exploitation, Abuse, and Harassment (SEAH). Report concerns confidentially and safely.",
+    "features": {
+      "confidential": "Confidential",
+      "anonymous": "Anonymous Options",
+      "professional": "Professional Handling"
+    },
+    "seah_types": {
+      "title": "Types of SEAH",
+      "sexual_abuse": {
+        "type": "Sexual Abuse",
+        "description": "Actual or threatened physical intrusion of a sexual nature, whether by force or under unequal or coercive conditions",
+        "examples": [
+          "Threatening a colleague or beneficiary with sexual acts",
+          "Rape or attempted rape",
+          "Any sexual activity with a child"
+        ]
+      },
+      "sexual_harassment": {
+        "type": "Sexual Harassment",
+        "description": "Unwelcome conduct of a sexual nature that might reasonably cause offense or humiliation",
+        "examples": [
+          "Displaying or sending unsolicited sexual images",
+          "Unwanted comments on appearance by healthcare workers",
+          "Unwanted grabbing, fondling, or touching"
+        ]
+      }
+    },
+    "reporting_channels": {
+      "title": "How to Report",
+      "online": {
+        "title": "Anonymous Online Report",
+        "description": "Submit a confidential report through our secure online form"
+      },
+      "email": {
+        "title": "Email Report",
+        "description": "Send detailed information to our administration unit"
+      },
+      "phone": {
+        "title": "Emergency Hotline",
+        "description": "Call our free toll number for immediate assistance"
+      }
+    },
+    "buttons": {
+      "report_now": "Report Now",
+      "show_details": "Show Details",
+      "hide_details": "Hide Details",
+      "learn_more": "Learn More About SEAH"
+    },
+    "commitment": {
+      "title": "Our Commitment",
+      "description": "We have zero tolerance for inaction and ensure that every concern, complaint, or report is addressed fairly and reasonably. All reports are treated with the utmost seriousness and confidentiality.",
+      "features": {
+        "safe_reporting": "Safe Reporting",
+        "confidential_process": "Confidential Process",
+        "professional_response": "Professional Response"
+      }
+    }
+  },
   "home": {
     "title": "Nash COP - Community Oriented Policing",
     "hero": {

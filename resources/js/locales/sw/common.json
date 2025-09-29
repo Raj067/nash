@@ -230,6 +230,67 @@
       }
     }
   },
+  "whistleblowing": {
+    "title": "Uripotiaji wa SEAH na Ufichuzi",
+    "subtitle": "Sera ya Kutovumilia Kabisa",
+    "description": "NASHCOP imejitolea kuunda na kudumisha mazingira salama yasiyokuwa na Unyanyasaji wa Kijinsia, Ubakaji na Uonevu (SEAH). Ripoti wasiwasi kwa njia ya siri na salama.",
+    "features": {
+      "confidential": "Ya Siri",
+      "anonymous": "Chaguo za Kutojulikana",
+      "professional": "Utunzaji wa Kitaalamu"
+    },
+    "seah_types": {
+      "title": "Aina za SEAH",
+      "sexual_abuse": {
+        "type": "Ubakaji wa Kijinsia",
+        "description": "Uvamizi wa kimwili wa kijinsia au vitisho vya namna hiyo, iwe kwa nguvu au chini ya hali zisizo sawa au za kulazimisha",
+        "examples": [
+          "Kumtishia mwenzako au mfaidika kwa vitendo vya kijinsia",
+          "Ubakaji au jaribio la ubakaji",
+          "Shughuli yoyote ya kijinsia na mtoto"
+        ]
+      },
+      "sexual_harassment": {
+        "type": "Uonevu wa Kijinsia",
+        "description": "Tabia isiyotarajiwa ya kijinsia ambayo inaweza kusababisha uchungu au aibu",
+        "examples": [
+          "Kuonyesha au kutuma picha za kijinsia bila idhini",
+          "Maoni yasiyotakiwa kuhusu mwonekano na wahudumu wa afya",
+          "Kugusa, kukumbatia au kushika bila idhini"
+        ]
+      }
+    },
+    "reporting_channels": {
+      "title": "Jinsi ya Kuripoti",
+      "online": {
+        "title": "Ripoti ya Mtandaoni Bila Kutambulika",
+        "description": "Wasilisha ripoti ya siri kupitia fomu yetu salama ya mtandaoni"
+      },
+      "email": {
+        "title": "Ripoti ya Barua Pepe",
+        "description": "Tuma maelezo ya kina kwa kitengo chetu cha utawala"
+      },
+      "phone": {
+        "title": "Simu ya Dharura",
+        "description": "Piga simu yetu ya bure kwa msaada wa haraka"
+      }
+    },
+    "buttons": {
+      "report_now": "Ripoti Sasa",
+      "show_details": "Onyesha Maelezo",
+      "hide_details": "Ficha Maelezo",
+      "learn_more": "Jifunze Zaidi Kuhusu SEAH"
+    },
+    "commitment": {
+      "title": "Ahadi Yetu",
+      "description": "Tuna sera ya kutovumilia kabisa kutokufanya kitu na tunahakikisha kuwa kila wasiwasi, malalamiko, au ripoti inashughulikiwa kwa uwazi na haki. Ripoti zote zinashughulikiwa kwa umakini mkubwa na kwa siri.",
+      "features": {
+        "safe_reporting": "Uripotiaji Salama",
+        "confidential_process": "Mchakato wa Siri",
+        "professional_response": "Majibu ya Kitaalamu"
+      }
+    }
+  },
   "home": {
     "title": "Nash COP - Uongozi wa Jamii",
     "hero": {
