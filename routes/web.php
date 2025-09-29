@@ -86,6 +86,7 @@ Route::get('/programme-areas/monitoring-evaluation/his', [PageController::class,
 
 // Programme Areas - Pharmaceuticals & Laboratory sub-pages
 Route::get('/programme-areas/pharmaceuticals-laboratory/supply-chain', [PageController::class, 'pharmaSupplyChain'])->name('programme-areas.pharmaceuticals-laboratory.supply-chain');
+Route::get('/programme-areas/pharmaceuticals-laboratory/rational-use', [PageController::class, 'pharmaRationalUse'])->name('programme-areas.pharmaceuticals-laboratory.rational-use');
 Route::get('/programme-areas/pharmaceuticals-laboratory/laboratory-services', [PageController::class, 'pharmaLaboratoryServices'])->name('programme-areas.pharmaceuticals-laboratory.laboratory-services');
 
 // Resources

@@ -475,6 +475,10 @@ const NASHCOPHeader: FC = () => {
                             href: "/programme-areas/pharmaceuticals-laboratory/supply-chain",
                         },
                         {
+                            title: t("header.navigation.rational_use_medicines"),
+                            href: "/programme-areas/pharmaceuticals-laboratory/rational-use",
+                        },
+                        {
                             title: t("header.navigation.laboratory_services"),
                             href: "/programme-areas/pharmaceuticals-laboratory/laboratory-services",
                         },

@@ -187,7 +187,7 @@ export default function LaboratoryServices() {
 
             <div className="min-h-screen">
                 {/* Hero Section */}
-                <div className="relative h-[400px] overflow-hidden">
+                <div className="relative h-[500px] overflow-hidden">
                     <div
                         className="h-full bg-cover bg-center bg-no-repeat"
                         style={{
@@ -195,23 +195,70 @@ export default function LaboratoryServices() {
                         }}
                     >
                         <div className="h-full bg-gradient-to-r from-black/80 to-black/60 flex items-center">
-                            <div className="container mx-auto px-4">
-                                <div className="max-w-4xl">
-                                    <div className="inline-flex items-center justify-center w-20 h-20 bg-white/10 backdrop-blur-sm rounded-full mb-6">
-                                        <TestTube className="w-10 h-10 text-white" />
-                                    </div>
-                                    <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white">
-                                        HIV Laboratory Services
-                                    </h1>
-                                    <p className="text-xl md:text-2xl text-blue-100 max-w-3xl leading-relaxed">
-                                        Comprehensive, quality-assured laboratory services for HIV diagnosis, 
-                                        treatment monitoring, and program evaluation across Tanzania.
-                                    </p>
+                            <div className="container mx-auto px-4 text-center">
+                                <div className="inline-flex items-center justify-center w-20 h-20 bg-white/10 backdrop-blur-sm rounded-full mb-6">
+                                    <Microscope className="w-10 h-10 text-white" />
                                 </div>
+                                <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white">
+                                    Laboratory Management Systems
+                                </h1>
+                                <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
+                                    Medical laboratories in Tanzania play an essential role in determining clinical decisions 
+                                    and providing clinicians with information that assists in preventing, diagnosing, treating, and managing diseases.
+                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                {/* Overview Section */}
+                <section className="py-20 bg-white">
+                    <div className="container mx-auto px-4">
+                        <div className="max-w-4xl mx-auto">
+                            <div className="text-center mb-12">
+                                <h2 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-6">
+                                    Laboratory Management Systems Overview
+                                </h2>
+                            </div>
+                            
+                            <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-8 mb-12">
+                                <p className="text-lg text-gray-700 leading-relaxed mb-6">
+                                    This has been made possible by the MoH implementing Laboratory Management Systems (LMS) 
+                                    to strengthen Laboratory Information Systems (LIS), Planned Preventive Maintenance (PPM), 
+                                    Quality Management Systems (QMS) and Sample transportation systems.
+                                </p>
+                                <p className="text-lg text-gray-700 leading-relaxed">
+                                    In line with the broader concept of Diagnostic Network Optimisation (DNO) a network analytics 
+                                    approach will continue to be used to improve and implement a patient-centred and cost-efficient 
+                                    diagnostic system that offers equitable diagnostic services to all.
+                                </p>
+                            </div>
+
+                            <div className="mb-12">
+                                <h3 className="text-2xl font-bold text-gray-800 mb-8">Priority Strategies</h3>
+                                <div className="grid grid-cols-1 gap-6">
+                                    {[
+                                        "Improve utilisation of LIS for CT management and decision-making at all levels (Information systems)",
+                                        "Strengthen the equipment PPM plans at POCT sites and testing laboratories (Equipment maintenance) through scaling up of the equipment placement model",
+                                        "Expand the implementation of the QMS for laboratory networks",
+                                        "Strengthen sample referral systems at POCT sites and testing laboratories (Sample management)",
+                                        "Improve access to HVL, HEID, Hepatis B and C testing and shorten TAT by scaling up geographical coverage of testing laboratories",
+                                        "Strengthen certification of non-laboratory testers to facilitate quality HTS at HF level",
+                                        "Strengthen stakeholder coordination and collaboration through regular joint meetings to enhance the sharing of critical inputs to laboratory commodities quantification",
+                                        "Regularly improve optimization of laboratory services and networks"
+                                    ].map((strategy, index) => (
+                                        <div key={index} className="flex items-start space-x-4 p-6 bg-white rounded-xl shadow-sm border border-gray-100">
+                                            <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
+                                                <span className="text-white font-bold text-sm">{index + 1}</span>
+                                            </div>
+                                            <p className="text-gray-700 leading-relaxed">{strategy}</p>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
                 {/* Statistics Section */}
                 <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-purple-50">
                     <div className="container mx-auto px-4">

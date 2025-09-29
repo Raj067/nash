@@ -406,6 +406,11 @@ class PageController extends Controller
         return Inertia::render('ProgrammeAreas/PharmaceuticalsLaboratory/SupplyChain');
     }
 
+    public function pharmaRationalUse()
+    {
+        return Inertia::render('ProgrammeAreas/PharmaceuticalsLaboratory/RationalUse');
+    }
+
     public function pharmaLaboratoryServices()
     {
         return Inertia::render('ProgrammeAreas/PharmaceuticalsLaboratory/LaboratoryServices');
