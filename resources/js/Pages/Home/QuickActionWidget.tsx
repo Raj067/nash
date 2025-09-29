@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/Components/ui/card";
 import { Play, Clock, ExternalLink } from "lucide-react";
 import React, { useState, useEffect } from "react";
 import { Link } from "@inertiajs/react";
+import { useTranslation } from "react-i18next";
 
 interface Video {
     id: number;
@@ -17,6 +18,7 @@ interface Video {
 }
 
 function QuickActionWidget() {
+    const { t } = useTranslation();
     const [videos, setVideos] = useState<Video[]>([]);
     const [loading, setLoading] = useState(true);
 
@@ -67,7 +69,7 @@ function QuickActionWidget() {
             <section className="py-16 bg-blue-900 text-white">
                 <div className="container mx-auto px-4">
                     <h2 className="text-3xl font-bold text-center mb-12">
-                        Maktaba ya Video - Video Library
+                        {t("video_library.title")} - Video Library
                     </h2>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         {[1, 2, 3].map((i) => (
@@ -94,10 +96,10 @@ function QuickActionWidget() {
             <div className="container mx-auto px-4">
                 <div className="text-center mb-12">
                     <h2 className="text-3xl font-bold mb-4">
-                        Maktaba ya Video - Video Library
+                        {t("video_library.title")} - Video Library
                     </h2>
                     <p className="text-blue-100 text-lg">
-                        Mafunzo na elimu kuhusu VVU na afya ya jamii
+                        {t("video_library.description")}
                     </p>
                 </div>
 
@@ -152,7 +154,7 @@ function QuickActionWidget() {
                                             className="flex items-center justify-center space-x-2"
                                         >
                                             <Play className="w-4 h-4" />
-                                            <span>Tazama</span>
+                                            <span>{t("video_library.watch_now")}</span>
                                         </a>
                                     </Button>
                                 </div>
@@ -171,7 +173,7 @@ function QuickActionWidget() {
                             className="flex items-center space-x-2"
                         >
                             <ExternalLink className="w-4 h-4" />
-                            <span>Tazama Video Zote - View All Videos</span>
+                            <span>{t("video_library.view_all")} - View All Videos</span>
                         </Link>
                     </Button>
                 </div>

@@ -196,6 +196,40 @@
     "download": "Pakua",
     "view_all": "Ona Nyaraka Zote"
   },
+  "video_library": {
+    "title": "Maktaba ya Video",
+    "description": "Mafunzo na elimu kuhusu VVU na afya ya jamii",
+    "watch_now": "Tazama Sasa",
+    "view_all": "Ona Video Zote"
+  },
+  "risk_assessment": {
+    "title": "Zana za Haraka za Tathmini ya Afya",
+    "description": "Pata tathmini za hatari za kiafya na mapendekezo ya kibinafsi. Zana hizi ni za faragha na zinatoa mwongozo wa haraka.",
+    "start_assessment": "Anza Tathmini",
+    "view_all": "Ona Zana Zote za Tathmini",
+    "tools": {
+      "hiv_risk": {
+        "title": "Hatari ya VVU",
+        "subtitle": "Tathmini",
+        "description": "Tathmini sababu za hatari ya VVU"
+      },
+      "tb_risk": {
+        "title": "Hatari ya Kifua Kikuu",
+        "subtitle": "Tathmini",
+        "description": "Angalia sababu za hatari ya kifua kikuu"
+      },
+      "prep": {
+        "title": "PrEP",
+        "subtitle": "Ustahiki",
+        "description": "Utayari wa dawa za kuzuia kabla ya kuambukizwa"
+      },
+      "pep": {
+        "title": "PEP",
+        "subtitle": "Haraka",
+        "description": "Tathmini ya dawa za kuzuia baada ya kuambukizwa"
+      }
+    }
+  },
   "home": {
     "title": "Nash COP - Uongozi wa Jamii",
     "hero": {

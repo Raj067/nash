@@ -11,8 +11,10 @@ import {
 } from "lucide-react";
 import { Button } from "@/Components/ui/button";
 import { Card, CardContent } from "@/Components/ui/card";
+import { useTranslation } from "react-i18next";
 
 const RiskAssessmentShortlinks = () => {
+    const { t } = useTranslation();
     const [isVisible, setIsVisible] = useState(true);
     const [isScrolled, setIsScrolled] = useState(false);
 
@@ -28,9 +30,9 @@ const RiskAssessmentShortlinks = () => {
 
     const assessmentTools = [
         {
-            title: "HIV Risk",
-            subtitle: "Assessment",
-            description: "Evaluate your HIV risk factors",
+            title: t("risk_assessment.tools.hiv_risk.title"),
+            subtitle: t("risk_assessment.tools.hiv_risk.subtitle"),
+            description: t("risk_assessment.tools.hiv_risk.description"),
             href: "/tools/hiv-risk-assessment",
             icon: Heart,
             color: "bg-red-50 border-red-200 hover:bg-red-100",
@@ -38,9 +40,9 @@ const RiskAssessmentShortlinks = () => {
             buttonColor: "bg-red-600 hover:bg-red-700",
         },
         {
-            title: "TB Risk",
-            subtitle: "Assessment",
-            description: "Check tuberculosis risk factors",
+            title: t("risk_assessment.tools.tb_risk.title"),
+            subtitle: t("risk_assessment.tools.tb_risk.subtitle"),
+            description: t("risk_assessment.tools.tb_risk.description"),
             href: "/tools/tb-risk-assessment",
             icon: Activity,
             color: "bg-blue-50 border-blue-200 hover:bg-blue-100",
@@ -48,9 +50,9 @@ const RiskAssessmentShortlinks = () => {
             buttonColor: "bg-blue-600 hover:bg-blue-700",
         },
         {
-            title: "PrEP",
-            subtitle: "Eligibility",
-            description: "Pre-exposure prophylaxis suitability",
+            title: t("risk_assessment.tools.prep.title"),
+            subtitle: t("risk_assessment.tools.prep.subtitle"),
+            description: t("risk_assessment.tools.prep.description"),
             href: "/tools/prep-assessment",
             icon: Shield,
             color: "bg-green-50 border-green-200 hover:bg-green-100",
@@ -58,9 +60,9 @@ const RiskAssessmentShortlinks = () => {
             buttonColor: "bg-green-600 hover:bg-green-700",
         },
         {
-            title: "PEP",
-            subtitle: "Urgency",
-            description: "Post-exposure prophylaxis evaluation",
+            title: t("risk_assessment.tools.pep.title"),
+            subtitle: t("risk_assessment.tools.pep.subtitle"),
+            description: t("risk_assessment.tools.pep.description"),
             href: "/tools/pep-assessment",
             icon: Zap,
             color: "bg-orange-50 border-orange-200 hover:bg-orange-100",
@@ -91,12 +93,10 @@ const RiskAssessmentShortlinks = () => {
                         <AlertTriangle className="w-6 h-6 text-orange-600" />
                     </div>
                     <h2 className="text-2xl font-bold text-gray-800 mb-2">
-                        Quick Health Assessment Tools
+                        {t("risk_assessment.title")}
                     </h2>
                     <p className="text-gray-600 max-w-2xl mx-auto">
-                        Get personalized health risk assessments and
-                        recommendations. These tools are anonymous and provide
-                        immediate guidance.
+                        {t("risk_assessment.description")}
                     </p>
                 </div>
 
@@ -133,7 +133,7 @@ const RiskAssessmentShortlinks = () => {
                                             size="sm"
                                             className={`${tool.buttonColor} text-white w-full group-hover:shadow-md transition-all`}
                                         >
-                                            Start Assessment
+                                            {t("risk_assessment.start_assessment")}
                                             <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                                         </Button>
                                     </Link>
@@ -150,7 +150,7 @@ const RiskAssessmentShortlinks = () => {
                             variant="outline"
                             className="bg-white/80 hover:bg-white"
                         >
-                            View All Assessment Tools
+                            {t("risk_assessment.view_all")}
                             <ArrowRight className="ml-2 h-4 w-4" />
                         </Button>
                     </Link>

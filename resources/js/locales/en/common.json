@@ -198,6 +198,40 @@
     "download": "Download",
     "view_all": "View All Documents"
   },
+  "video_library": {
+    "title": "Video Library",
+    "description": "Training and education about HIV and community health",
+    "watch_now": "Watch Now",
+    "view_all": "View All Videos"
+  },
+  "risk_assessment": {
+    "title": "Quick Health Assessment Tools",
+    "description": "Get personalized health risk assessments and recommendations. These tools are anonymous and provide immediate guidance.",
+    "start_assessment": "Start Assessment",
+    "view_all": "View All Assessment Tools",
+    "tools": {
+      "hiv_risk": {
+        "title": "HIV Risk",
+        "subtitle": "Assessment",
+        "description": "Evaluate your HIV risk factors"
+      },
+      "tb_risk": {
+        "title": "TB Risk",
+        "subtitle": "Assessment", 
+        "description": "Check tuberculosis risk factors"
+      },
+      "prep": {
+        "title": "PrEP",
+        "subtitle": "Eligibility",
+        "description": "Pre-exposure prophylaxis suitability"
+      },
+      "pep": {
+        "title": "PEP",
+        "subtitle": "Urgency",
+        "description": "Post-exposure prophylaxis evaluation"
+      }
+    }
+  },
   "home": {
     "title": "Nash COP - Community Oriented Policing",
     "hero": {
