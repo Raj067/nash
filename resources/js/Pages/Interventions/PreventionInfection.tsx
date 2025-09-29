@@ -366,7 +366,7 @@ export default function PreventionInfection() {
                                             Location
                                         </h3>
                                         <p className="text-gray-600 leading-relaxed">
-                                            Dar es Salaam, Tanzania
+                                            Dodoma, Tanzania
                                         </p>
                                     </div>
                                 </div>

@@ -24,9 +24,7 @@ function ContactInfoWidget() {
                     <div className="flex flex-col items-center">
                         <MapPin className="h-8 w-8 text-blue-600 mb-2" />
                         <h3 className="font-semibold mb-1">Makao Makuu</h3>
-                        <p className="text-gray-600">
-                            Wizara ya Afya, Dar es Salaam
-                        </p>
+                        <p className="text-gray-600">Wizara ya Afya, Dodoma</p>
                     </div>
                 </div>
             </div>

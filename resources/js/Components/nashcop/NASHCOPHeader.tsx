@@ -475,7 +475,9 @@ const NASHCOPHeader: FC = () => {
                             href: "/programme-areas/pharmaceuticals-laboratory/supply-chain",
                         },
                         {
-                            title: t("header.navigation.rational_use_medicines"),
+                            title: t(
+                                "header.navigation.rational_use_medicines"
+                            ),
                             href: "/programme-areas/pharmaceuticals-laboratory/rational-use",
                         },
                         {
@@ -809,7 +811,7 @@ const NASHCOPHeader: FC = () => {
                   </div>
                   <div className="flex items-center space-x-2">
                     <MapPin className="h-4 w-4" />
-                    <span>Dar es Salaam, Tanzania</span>
+                    <span>Dodoma, Tanzania</span>
                   </div>
                 </div>
               </div>

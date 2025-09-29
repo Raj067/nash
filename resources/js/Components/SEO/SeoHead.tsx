@@ -34,7 +34,11 @@ interface SeoHeadProps {
     }>;
 }
 
-export default function SeoHead({ meta, structuredData, additionalMeta }: SeoHeadProps) {
+export default function SeoHead({
+    meta,
+    structuredData,
+    additionalMeta,
+}: SeoHeadProps) {
     return (
         <Head>
             {/* Basic Meta Tags */}
@@ -68,13 +72,16 @@ export default function SeoHead({ meta, structuredData, additionalMeta }: SeoHea
             <meta name="application-name" content="NASHCOP Tanzania" />
             <meta name="apple-mobile-web-app-title" content="NASHCOP" />
             <meta name="apple-mobile-web-app-capable" content="yes" />
-            <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+            <meta
+                name="apple-mobile-web-app-status-bar-style"
+                content="default"
+            />
             <meta name="format-detection" content="telephone=no" />
 
             {/* Geo Tags for Tanzania */}
             <meta name="geo.region" content="TZ" />
             <meta name="geo.country" content="Tanzania" />
-            <meta name="geo.placename" content="Dar es Salaam" />
+            <meta name="geo.placename" content="Dodoma" />
             <meta name="ICBM" content="-6.7924,39.2083" />
 
             {/* Language and Content Tags */}

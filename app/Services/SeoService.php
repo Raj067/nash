@@ -65,7 +65,7 @@ class SeoService
             'address' => [
                 '@type' => 'PostalAddress',
                 'streetAddress' => 'Samora Avenue',
-                'addressLocality' => 'Dar es Salaam',
+                'addressLocality' => 'Dodoma',
                 'addressCountry' => 'Tanzania',
             ],
             'contactPoint' => [

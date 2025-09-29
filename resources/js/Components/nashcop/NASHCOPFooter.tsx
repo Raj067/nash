@@ -307,7 +307,7 @@ const NASHCOPFooter: FC = () => {
                             Regional Offices
                         </h5>
                         <div className="space-y-2 text-sm text-blue-100">
-                            <p>Dar es Salaam - Main Office</p>
+                            <p>Dodoma - Main Office</p>
                             <p>Mwanza - Lake Zone</p>
                             <p>Arusha - Northern Zone</p>
                             <p>Mbeya - Southern Highlands</p>

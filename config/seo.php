@@ -35,7 +35,7 @@ return [
         'email' => 'info@nashcop.go.tz',
         'address' => [
             'street' => 'Samora Avenue',
-            'city' => 'Dar es Salaam',
+            'city' => 'Dodoma',
             'country' => 'Tanzania',
             'postal_code' => '11478',
         ],

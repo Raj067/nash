@@ -20,10 +20,10 @@ class BlogSeeder extends Seeder
         $blogs = [
             // News
             [
-                'title' => 'NASHCOP Launches New Community Policing Initiative in Dar es Salaam',
+                'title' => 'NASHCOP Launches New Community Policing Initiative in Dodoma',
                 'slug' => 'nashcop-launches-new-community-policing-initiative-dar-es-salaam',
                 'excerpt' => 'A comprehensive community policing program aimed at strengthening police-community relationships and reducing crime rates in urban areas.',
-                'content' => '<p>The NATIONAL AIDS, STIs AND HEPATITIS CONTROL PROGRAMME (NASHCOP) has officially launched a groundbreaking community policing initiative in Dar es Salaam, marking a significant milestone in Tanzania\'s approach to community safety and HIV/AIDS prevention.</p>
+                'content' => '<p>The NATIONAL AIDS, STIs AND HEPATITIS CONTROL PROGRAMME (NASHCOP) has officially launched a groundbreaking community policing initiative in Dodoma, marking a significant milestone in Tanzania\'s approach to community safety and HIV/AIDS prevention.</p>
 
 <p>This innovative program brings together law enforcement officers, community leaders, and health workers to create a unified approach to addressing both security concerns and public health challenges in urban communities.</p>
 
@@ -36,14 +36,14 @@ class BlogSeeder extends Seeder
 <li>Women\'s safety initiatives in collaboration with local organizations</li>
 </ul>
 
-<p>The program is expected to reach over 50,000 residents across five districts in Dar es Salaam, with plans for expansion to other regions based on initial results.</p>
+<p>The program is expected to reach over 50,000 residents across five districts in Dodoma, with plans for expansion to other regions based on initial results.</p>
 
 <p>"This initiative represents a paradigm shift in how we approach community safety and public health," said Dr. Sarah Mwalimu, NASHCOP Director. "By integrating HIV prevention with community policing, we\'re addressing the root causes of both crime and disease transmission."</p>',
                 'category' => 'news',
                 'featured_image' => '/images/arvsImages.jpeg',
                 'author' => 'NASHCOP Communications Team',
                 'published_date' => Carbon::now()->subDays(2),
-                'tags' => ['community policing', 'Dar es Salaam', 'HIV prevention', 'public safety'],
+                'tags' => ['community policing', 'Dodoma', 'HIV prevention', 'public safety'],
                 'is_featured' => true,
                 'is_published' => true,
                 'sort_order' => 1,
@@ -121,7 +121,7 @@ class BlogSeeder extends Seeder
                 'title' => 'Annual NASHCOP Community Health Fair 2024',
                 'slug' => 'annual-nashcop-community-health-fair-2024',
                 'excerpt' => 'Join us for a three-day health fair featuring free HIV testing, health education, and community engagement activities.',
-                'content' => '<p>NASHCOP is proud to announce the Annual Community Health Fair 2024, scheduled for April 20-22, 2024, at the Uhuru Stadium in Dar es Salaam.</p>
+                'content' => '<p>NASHCOP is proud to announce the Annual Community Health Fair 2024, scheduled for April 20-22, 2024, at the Uhuru Stadium in Dodoma.</p>
 
 <h3>Event Highlights</h3>
 <p>This year\'s health fair will feature:</p>
@@ -179,7 +179,7 @@ class BlogSeeder extends Seeder
 
 <h3>Upcoming Events</h3>
 <ul>
-<li>April 20-22: Annual Community Health Fair, Dar es Salaam</li>
+<li>April 20-22: Annual Community Health Fair, Dodoma</li>
 <li>May 5: Regional Coordinators Meeting, Dodoma</li>
 <li>May 15: Youth Leadership Workshop, Mbeya</li>
 </ul>
