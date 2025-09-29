@@ -27,7 +27,7 @@
       "management_coordination": "Management & Coordination",
       "prevention": "Prevention",
       "care_treatment_support": "Care, Treatment & Support",
-      "monitoring_evaluation": "Monitoring & Evaluation",
+      "monitoring_evaluation": "Strateginc Information",
       "pharmaceuticals_laboratory": "Pharmaceuticals & Laboratory Services",
       "hiv_testing_services": "HIV Testing Services",
       "vmmc": "Voluntary Medical Male Circumcision (VMMC)",
@@ -163,7 +163,7 @@
     "follow_description": "Get the latest news about HIV program achievements and how you can participate in the fight against HIV",
     "categories": {
       "mafanikio": "Achievements",
-      "takwimu": "Statistics", 
+      "takwimu": "Statistics",
       "programu": "Programs"
     }
   },
