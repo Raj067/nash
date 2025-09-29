@@ -44,7 +44,8 @@ export default function NcdIntegration() {
     const ncdConditions = [
         {
             title: "Diabetes Mellitus",
-            description: "Screening, diagnosis, and management of diabetes in HIV patients",
+            description:
+                "Screening, diagnosis, and management of diabetes in HIV patients",
             prevalence: "8.2%",
             services: [
                 "Blood glucose monitoring",
@@ -55,7 +56,8 @@ export default function NcdIntegration() {
         },
         {
             title: "Hypertension",
-            description: "Blood pressure monitoring and cardiovascular risk management",
+            description:
+                "Blood pressure monitoring and cardiovascular risk management",
             prevalence: "22.5%",
             services: [
                 "Regular BP monitoring",
@@ -66,7 +68,8 @@ export default function NcdIntegration() {
         },
         {
             title: "Mental Health Disorders",
-            description: "Depression, anxiety, and other mental health conditions",
+            description:
+                "Depression, anxiety, and other mental health conditions",
             prevalence: "28.7%",
             services: [
                 "Mental health screening",
@@ -80,7 +83,8 @@ export default function NcdIntegration() {
     const integrationStrategies = [
         {
             title: "One-Stop Service Delivery",
-            description: "Providing HIV and NCD services at the same facility during the same visit",
+            description:
+                "Providing HIV and NCD services at the same facility during the same visit",
             benefits: [
                 "Reduced patient travel costs",
                 "Improved treatment adherence",
@@ -90,7 +94,8 @@ export default function NcdIntegration() {
         },
         {
             title: "Shared Care Models",
-            description: "Collaborative care between HIV specialists and NCD healthcare providers",
+            description:
+                "Collaborative care between HIV specialists and NCD healthcare providers",
             benefits: [
                 "Comprehensive patient care",
                 "Knowledge sharing",
@@ -120,7 +125,7 @@ export default function NcdIntegration() {
     ];
 
     return (
-        <PublicLayout title="Integrated Management of NCDs in HIV">
+        <PublicLayout title="HIV Integration with Other Diseases">
             <Head title="NCD Integration - Care, Treatment & Support" />
 
             <div className="min-h-screen">
@@ -139,11 +144,14 @@ export default function NcdIntegration() {
                                         <Activity className="w-10 h-10 text-white" />
                                     </div>
                                     <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white">
-                                        Integrated Management of NCDs in HIV
+                                        HIV Integration with Other Diseases
                                     </h1>
                                     <p className="text-xl md:text-2xl text-blue-100 max-w-3xl leading-relaxed">
-                                        Comprehensive integration of non-communicable disease services within HIV care 
-                                        to address the growing burden of comorbidities in people living with HIV.
+                                        Comprehensive integration of
+                                        non-communicable disease services within
+                                        HIV care to address the growing burden
+                                        of comorbidities in people living with
+                                        HIV.
                                     </p>
                                 </div>
                             </div>
@@ -159,7 +167,9 @@ export default function NcdIntegration() {
                                 NCD Integration Impact
                             </h2>
                             <p className="text-gray-600 max-w-3xl mx-auto text-lg leading-relaxed">
-                                Addressing the dual burden of HIV and non-communicable diseases through integrated care models
+                                Addressing the dual burden of HIV and
+                                non-communicable diseases through integrated
+                                care models
                             </p>
                         </div>
 
@@ -191,8 +201,10 @@ export default function NcdIntegration() {
                                 Comprehensive Care Approach
                             </h3>
                             <p className="text-gray-600 max-w-2xl mx-auto">
-                                Tanzania has pioneered integrated HIV-NCD care models, reducing healthcare fragmentation 
-                                and improving outcomes for people living with HIV who have comorbid conditions.
+                                Tanzania has pioneered integrated HIV-NCD care
+                                models, reducing healthcare fragmentation and
+                                improving outcomes for people living with HIV
+                                who have comorbid conditions.
                             </p>
                         </div>
                     </div>
@@ -206,7 +218,8 @@ export default function NcdIntegration() {
                                 Common NCDs in HIV Patients
                             </h2>
                             <p className="text-gray-600 max-w-3xl mx-auto text-lg leading-relaxed">
-                                Key non-communicable diseases addressed through integrated HIV care services
+                                Key non-communicable diseases addressed through
+                                integrated HIV care services
                             </p>
                         </div>
 
@@ -217,22 +230,37 @@ export default function NcdIntegration() {
                                     className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100"
                                 >
                                     <div className="text-center mb-6">
-                                        <h3 className="text-xl font-bold text-gray-800 mb-2">{condition.title}</h3>
+                                        <h3 className="text-xl font-bold text-gray-800 mb-2">
+                                            {condition.title}
+                                        </h3>
                                         <div className="text-2xl font-bold text-blue-600 mb-2">
                                             {condition.prevalence}
                                         </div>
-                                        <p className="text-gray-600 text-sm">Prevalence in HIV patients</p>
+                                        <p className="text-gray-600 text-sm">
+                                            Prevalence in HIV patients
+                                        </p>
                                     </div>
-                                    <p className="text-gray-600 leading-relaxed mb-6">{condition.description}</p>
+                                    <p className="text-gray-600 leading-relaxed mb-6">
+                                        {condition.description}
+                                    </p>
                                     <div>
-                                        <h4 className="font-semibold text-gray-800 mb-3">Integrated Services:</h4>
+                                        <h4 className="font-semibold text-gray-800 mb-3">
+                                            Integrated Services:
+                                        </h4>
                                         <ul className="space-y-2">
-                                            {condition.services.map((service, idx) => (
-                                                <li key={idx} className="flex items-start space-x-3">
-                                                    <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
-                                                    <span className="text-gray-700 text-sm">{service}</span>
-                                                </li>
-                                            ))}
+                                            {condition.services.map(
+                                                (service, idx) => (
+                                                    <li
+                                                        key={idx}
+                                                        className="flex items-start space-x-3"
+                                                    >
+                                                        <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                                                        <span className="text-gray-700 text-sm">
+                                                            {service}
+                                                        </span>
+                                                    </li>
+                                                )
+                                            )}
                                         </ul>
                                     </div>
                                 </div>
@@ -249,7 +277,8 @@ export default function NcdIntegration() {
                                 Integration Strategies
                             </h2>
                             <p className="text-gray-600 max-w-3xl mx-auto text-lg leading-relaxed">
-                                Evidence-based approaches to integrating NCD services within HIV care
+                                Evidence-based approaches to integrating NCD
+                                services within HIV care
                             </p>
                         </div>
 
@@ -259,17 +288,30 @@ export default function NcdIntegration() {
                                     key={index}
                                     className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300"
                                 >
-                                    <h3 className="text-xl font-bold text-gray-800 mb-4">{strategy.title}</h3>
-                                    <p className="text-gray-600 leading-relaxed mb-6">{strategy.description}</p>
+                                    <h3 className="text-xl font-bold text-gray-800 mb-4">
+                                        {strategy.title}
+                                    </h3>
+                                    <p className="text-gray-600 leading-relaxed mb-6">
+                                        {strategy.description}
+                                    </p>
                                     <div>
-                                        <h4 className="font-semibold text-gray-800 mb-3">Key Benefits:</h4>
+                                        <h4 className="font-semibold text-gray-800 mb-3">
+                                            Key Benefits:
+                                        </h4>
                                         <ul className="space-y-2">
-                                            {strategy.benefits.map((benefit, idx) => (
-                                                <li key={idx} className="flex items-start space-x-3">
-                                                    <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
-                                                    <span className="text-gray-700 text-sm">{benefit}</span>
-                                                </li>
-                                            ))}
+                                            {strategy.benefits.map(
+                                                (benefit, idx) => (
+                                                    <li
+                                                        key={idx}
+                                                        className="flex items-start space-x-3"
+                                                    >
+                                                        <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                                                        <span className="text-gray-700 text-sm">
+                                                            {benefit}
+                                                        </span>
+                                                    </li>
+                                                )
+                                            )}
                                         </ul>
                                     </div>
                                 </div>
@@ -287,7 +329,8 @@ export default function NcdIntegration() {
                                     Key Achievements
                                 </h2>
                                 <p className="text-gray-600 text-lg leading-relaxed">
-                                    Significant milestones in HIV-NCD integration in Tanzania
+                                    Significant milestones in HIV-NCD
+                                    integration in Tanzania
                                 </p>
                             </div>
 
@@ -298,7 +341,9 @@ export default function NcdIntegration() {
                                         className="flex items-start space-x-4 p-6 bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl"
                                     >
                                         <CheckCircle className="h-6 w-6 text-green-600 flex-shrink-0 mt-1" />
-                                        <p className="text-gray-700 leading-relaxed">{achievement}</p>
+                                        <p className="text-gray-700 leading-relaxed">
+                                            {achievement}
+                                        </p>
                                     </div>
                                 ))}
                             </div>
@@ -313,8 +358,9 @@ export default function NcdIntegration() {
                             Comprehensive HIV-NCD Care
                         </h2>
                         <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-                            Access integrated HIV and NCD services designed to provide holistic care 
-                            for people living with HIV and comorbid conditions.
+                            Access integrated HIV and NCD services designed to
+                            provide holistic care for people living with HIV and
+                            comorbid conditions.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <a href="/contact">
