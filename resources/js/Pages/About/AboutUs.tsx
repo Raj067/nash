@@ -1,4 +1,4 @@
-import { Head } from "@inertiajs/react";
+import { Head, Link } from "@inertiajs/react";
 import PublicLayout from "@/Layouts/PublicLayout";
 import {
     Users,
@@ -19,20 +19,25 @@ import {
     Mail,
     Phone,
     Target,
+    GraduationCap,
+    Baby,
+    Tablet,
+    Database,
+    Pill,
 } from "lucide-react";
 import { Button } from "@/Components/ui/button";
 
 export default function AboutUs() {
     const stats = [
         {
-            label: "People Living with HIV",
-            value: "1.7M+",
+            label: "People living with HIV (Adults)",
+            value: "1.5M+",
             icon: Users,
             color: "text-red-600",
         },
         {
             label: "HIV Prevalence Rate",
-            value: "4.7%",
+            value: "4.4%",
             icon: Activity,
             color: "text-orange-600",
         },
@@ -52,28 +57,60 @@ export default function AboutUs() {
 
     const achievements = [
         {
-            title: "50% Reduction in AIDS Deaths",
-            description: "From 64,000 in 2010 to 32,000 in 2020",
-            icon: TrendingUp,
-            color: "bg-green-100 text-green-600",
-        },
-        {
-            title: "88% HIV Status Awareness",
-            description: "Nearly achieved 90% target for HIV status awareness",
-            icon: Eye,
+            title: "Leadership and Governance",
+            description:
+                "The Ministry of Health, through NASHCoP, led coordinated national efforts involving the development and dissemination of updated policies, guidelines, and intervention strategies. National HIV response was aligned with global frameworks and prioritized integration, decentralization, and sustainability.",
+            icon: Users,
             color: "bg-blue-100 text-blue-600",
         },
         {
-            title: "97% Treatment Coverage",
-            description: "Of those who know their status are on HIV treatment",
+            title: "Health Workforce Development",
+            description:
+                "Over four years, significant investments were made in building the capacity of clinical, laboratory, and health information systems staff. Training programs enhanced competencies in HIV case management, advanced HIV disease (AHD), PrEP delivery, HIS data use, and digital systems.",
+            icon: GraduationCap,
+            color: "bg-green-100 text-green-600",
+        },
+        {
+            title: "Service Delivery Excellence",
+            description:
+                "The national integrated HIV, STI and Hepatitis program achieved significant progress toward UNAIDS 2025 95-95-95 targets. Tanzania HIV Impact Survey 2022-2023 revealed 82.7% of PLHIV knew their HIV status, 97.9% of those who knew their status were on ART, and 94.3% had viral load suppression.",
             icon: Stethoscope,
             color: "bg-purple-100 text-purple-600",
         },
         {
-            title: "95% Viral Suppression",
-            description: "Among those on ART treatment",
+            title: "HIV Testing & Prevention",
+            description:
+                "Targeted HIV testing modalities increased PLHIV who know their status from 79% in 2021 to 91% in 2024. HIV prevention package provided PrEP to 56% of eligible individuals, achieved 79% of VMMC targets, and improved condom distribution by 17% (male) and 41% (female).",
             icon: Shield,
+            color: "bg-red-100 text-red-600",
+        },
+        {
+            title: "Triple Elimination Strategy",
+            description:
+                "Decreased HIV vertical transmission from 10.9% in 2021 to 7.6% in 2024. Early infant diagnosis (EID) testing increased from 70% to 79.5%. Syphilis testing coverage increased from 64.1% to 83%, with hepatitis screening showing 97.3% acceptability in antenatal clinics.",
+            icon: Baby,
+            color: "bg-pink-100 text-pink-600",
+        },
+        {
+            title: "Treatment Success",
+            description:
+                "National ART coverage reached 90% in 2024. Viral load suppression impressively surpassed UNAIDS targets reaching 98%. Six-month ART dispensing increased from 45% to 73%, offering flexibility for recipients of care to engage in socio-economic activities.",
+            icon: TrendingUp,
             color: "bg-indigo-100 text-indigo-600",
+        },
+        {
+            title: "Medical Products & Technologies",
+            description:
+                "Transition to Dolutegravir-based regimens accelerated viral load suppression rates. The supply chain and national sample referral system were strengthened to ensure timely delivery of diagnostics and treatments across the country.",
+            icon: Tablet,
+            color: "bg-orange-100 text-orange-600",
+        },
+        {
+            title: "Health Information Systems",
+            description:
+                "Digitization significantly improved with 47% of ART facilities using CTC2 database, covering >95% of PLHIV in care. Biometric registration was introduced for unique patient identification. Integration with DHIS2, laboratory, and community systems enhanced interoperability.",
+            icon: Database,
+            color: "bg-teal-100 text-teal-600",
         },
     ];
 
@@ -168,7 +205,10 @@ export default function AboutUs() {
                 </div>
 
                 {/* Historical Background Section */}
-                <section id="historical-background" className="py-20 bg-white relative overflow-hidden">
+                <section
+                    id="historical-background"
+                    className="py-20 bg-white relative overflow-hidden"
+                >
                     <div className="container mx-auto px-4">
                         <div className="text-center mb-16">
                             <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-orange-600 to-red-600 rounded-full mb-6">
@@ -281,6 +321,21 @@ export default function AboutUs() {
                                             </p>
                                         </div>
                                     </div>
+                                    <div className="relative flex items-start">
+                                        <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg">
+                                            2024
+                                        </div>
+                                        <div className="ml-8 bg-white rounded-lg shadow-lg p-6 border-l-4 border-orange-500">
+                                            <h3 className="text-xl font-bold text-gray-800 mb-2">
+                                                NASHCoP
+                                            </h3>
+                                            <p className="text-gray-600">
+                                                NASHCoP established to control
+                                                of HIV/AIDS, hepatitis, and STIs
+                                                in the country.
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -306,7 +361,7 @@ export default function AboutUs() {
                             </h2>
                             <p className="text-gray-600 max-w-3xl mx-auto text-lg leading-relaxed">
                                 Key statistics about our impact and reach in
-                                Tanzania's fight against HIV/AIDS
+                                Tanzania's fight against HIV/AIDS 2022 - 2023
                             </p>
                         </div>
 
@@ -337,14 +392,17 @@ export default function AboutUs() {
                 </section>
 
                 {/* Mission, Vision, Values */}
-                <section id="mission-vision" className="py-20 bg-white relative overflow-hidden">
+                <section
+                    id="mission-vision"
+                    className="py-20 bg-white relative overflow-hidden"
+                >
                     <div className="container mx-auto px-4">
                         <div className="text-center mb-16">
                             <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-green-600 to-blue-600 rounded-full mb-6">
                                 <Target className="h-10 w-10 text-white" />
                             </div>
                             <h2 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-6">
-                                Our Foundation
+                                Our Programme
                             </h2>
                             <p className="text-gray-600 max-w-3xl mx-auto text-lg leading-relaxed">
                                 The mission, vision and values that guide our
@@ -375,15 +433,11 @@ export default function AboutUs() {
                                         Our Mission
                                     </h3>
                                     <p className="text-gray-600 leading-relaxed">
-                                        To provide a results-oriented framework
-                                        to lead and guide the decentralized
-                                        health sector HIV response in the
-                                        intensification, optimisation and
-                                        scaling up of quality evidence-based
-                                        interventions for HIV prevention, care,
-                                        treatment and support services for PLHIV
-                                        to facilitate the attainment of the
-                                        "triple 90" targets in Tanzania.
+                                        To provide high-quality, sustainable,
+                                        integrated HIV/AIDS, viral hepatitis,
+                                        and STI services that are
+                                        people-centered, equitable, accessible,
+                                        and free from financial barriers.
                                     </p>
                                 </div>
                             </div>
@@ -410,10 +464,10 @@ export default function AboutUs() {
                                         Our Vision
                                     </h3>
                                     <p className="text-gray-600 leading-relaxed">
-                                        An HIV-free society where new infections
-                                        are halted and people living with HIV or
-                                        affected by HIV and AIDS receive quality
-                                        services and support.
+                                        A healthy society free from HIV/AIDS,
+                                        viral hepatitis, and severe STIs,
+                                        contributing fully to individual
+                                        well-being and national development.
                                     </p>
                                 </div>
                             </div>
@@ -448,8 +502,11 @@ export default function AboutUs() {
                                         variant="outline"
                                         size="sm"
                                         className="border-purple-500/50 hover:bg-purple-500/10"
+                                        asChild
                                     >
-                                        View All Values
+                                        <Link href="#core-values">
+                                            View All Values
+                                        </Link>
                                     </Button>
                                 </div>
                             </div>
@@ -458,7 +515,10 @@ export default function AboutUs() {
                 </section>
 
                 {/* Goals Section */}
-                <section id="goals-functions" className="py-20 bg-gradient-to-br from-green-50 via-white to-blue-50 relative overflow-hidden">
+                <section
+                    id="goals-functions"
+                    className="py-20 bg-gradient-to-br from-green-50 via-white to-blue-50 relative overflow-hidden"
+                >
                     {/* Background Pattern */}
                     <div className="absolute inset-0 opacity-5">
                         <div className="absolute top-10 right-10 w-32 h-32 bg-green-500 rounded-full blur-3xl"></div>
@@ -474,120 +534,141 @@ export default function AboutUs() {
                             <h2 className="text-4xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent mb-6">
                                 Our Goals
                             </h2>
-                            <p className="text-gray-600 max-w-3xl mx-auto text-lg leading-relaxed">
-                                To increase coverage of HIV and AIDS services in
-                                the general population and sub-populations to
-                                ensure that by 2020
+                            <p className="text-gray-600 max-w-4xl mx-auto text-lg leading-relaxed">
+                                The overarching goal of the Programme is to
+                                reduce new HIV, STI, and Hepatitis infections,
+                                improve treatment outcomes, and strengthen
+                                national health systems to achieve epidemic
+                                control. This is being accomplished through a
+                                comprehensive approach focused on prevention,
+                                testing, treatment, co-morbidity management,
+                                surveillance, and innovation.
                             </p>
                         </div>
 
-                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
-                            {/* Goal 1 */}
-                            <div className="group hover:shadow-2xl transition-all duration-500 border-0 bg-white/80 backdrop-blur-sm hover:scale-105 hover:bg-white relative overflow-hidden rounded-2xl p-8 shadow-lg">
-                                <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <div className="max-w-5xl mx-auto">
+                            <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg p-8 border border-gray-100">
+                                <h3 className="text-2xl font-bold text-gray-800 mb-8 text-center">
+                                    Key Targets by 2025
+                                </h3>
 
-                                <div className="relative z-10">
-                                    <div className="flex items-start space-x-4 mb-6">
-                                        <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-green-500 to-blue-500 rounded-full flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                                            <Shield className="w-6 h-6 text-white" />
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    {/* Target 1 */}
+                                    <div className="flex items-start space-x-4 p-6 bg-gradient-to-r from-red-50 to-pink-50 rounded-xl border-l-4 border-red-500">
+                                        <div className="inline-flex items-center justify-center w-10 h-10 bg-red-500 rounded-full flex-shrink-0">
+                                            <span className="text-white font-bold text-sm">
+                                                85%
+                                            </span>
                                         </div>
-                                        <h3 className="text-xl font-bold text-gray-800 group-hover:text-green-600 transition-colors duration-300">
-                                            Universal Access to Prevention
-                                            Services
-                                        </h3>
-                                    </div>
-                                    <p className="text-gray-600 leading-relaxed">
-                                        There will be universal access to
-                                        combination prevention services designed
-                                        to reduce new HIV infections,
-                                        HIV-related mortality, stigma and
-                                        discrimination.
-                                    </p>
-                                </div>
-                            </div>
-
-                            {/* Goal 2 */}
-                            <div className="group hover:shadow-2xl transition-all duration-500 border-0 bg-white/80 backdrop-blur-sm hover:scale-105 hover:bg-white relative overflow-hidden rounded-2xl p-8 shadow-lg">
-                                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-                                <div className="relative z-10">
-                                    <div className="flex items-start space-x-4 mb-6">
-                                        <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                                            <Eye className="w-6 h-6 text-white" />
+                                        <div>
+                                            <h4 className="font-semibold text-gray-800 mb-2">
+                                                New HIV Infections Reduction
+                                            </h4>
+                                            <p className="text-gray-600 text-sm">
+                                                New HIV infections reduced by
+                                                85% by 2025 from the 2010
+                                                baseline (110,000)
+                                            </p>
                                         </div>
-                                        <h3 className="text-xl font-bold text-gray-800 group-hover:text-blue-600 transition-colors duration-300">
-                                            90% Know Their Status
-                                        </h3>
                                     </div>
-                                    <p className="text-gray-600 leading-relaxed">
-                                        90% of people living with HIV will know
-                                        their status through expanded testing
-                                        services and innovative approaches.
-                                    </p>
-                                </div>
-                            </div>
 
-                            {/* Goal 3 */}
-                            <div className="group hover:shadow-2xl transition-all duration-500 border-0 bg-white/80 backdrop-blur-sm hover:scale-105 hover:bg-white relative overflow-hidden rounded-2xl p-8 shadow-lg">
-                                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-                                <div className="relative z-10">
-                                    <div className="flex items-start space-x-4 mb-6">
-                                        <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                                            <Stethoscope className="w-6 h-6 text-white" />
+                                    {/* Target 2 */}
+                                    <div className="flex items-start space-x-4 p-6 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-xl border-l-4 border-blue-500">
+                                        <div className="inline-flex items-center justify-center w-10 h-10 bg-blue-500 rounded-full flex-shrink-0">
+                                            <span className="text-white font-bold text-sm">
+                                                ≤4%
+                                            </span>
                                         </div>
-                                        <h3 className="text-xl font-bold text-gray-800 group-hover:text-purple-600 transition-colors duration-300">
-                                            90% Receive Treatment
-                                        </h3>
-                                    </div>
-                                    <p className="text-gray-600 leading-relaxed">
-                                        90% of all people diagnosed with HIV are
-                                        enrolled, followed up and receive timely
-                                        and efficacious HAART.
-                                    </p>
-                                </div>
-                            </div>
-
-                            {/* Goal 4 */}
-                            <div className="group hover:shadow-2xl transition-all duration-500 border-0 bg-white/80 backdrop-blur-sm hover:scale-105 hover:bg-white relative overflow-hidden rounded-2xl p-8 shadow-lg">
-                                <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-red-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-                                <div className="relative z-10">
-                                    <div className="flex items-start space-x-4 mb-6">
-                                        <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                                            <TrendingUp className="w-6 h-6 text-white" />
+                                        <div>
+                                            <h4 className="font-semibold text-gray-800 mb-2">
+                                                Mother-to-Child Transmission
+                                            </h4>
+                                            <p className="text-gray-600 text-sm">
+                                                Mother-to-child transmission of
+                                                HIV and Viral Hepatitis reduced
+                                                to ≤4% by 2025
+                                            </p>
                                         </div>
-                                        <h3 className="text-xl font-bold text-gray-800 group-hover:text-orange-600 transition-colors duration-300">
-                                            90% Achieve Viral Suppression
-                                        </h3>
                                     </div>
-                                    <p className="text-gray-600 leading-relaxed">
-                                        90% of all people receiving ART will
-                                        attain sustainable viral suppression for
-                                        improved health outcomes.
-                                    </p>
-                                </div>
-                            </div>
 
-                            {/* Goal 5 - Health System Strengthening */}
-                            <div className="group hover:shadow-2xl transition-all duration-500 border-0 bg-white/80 backdrop-blur-sm hover:scale-105 hover:bg-white relative overflow-hidden rounded-2xl p-8 shadow-lg lg:col-span-2">
-                                <div className="absolute inset-0 bg-gradient-to-br from-teal-500/5 to-green-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-                                <div className="relative z-10">
-                                    <div className="flex items-start space-x-4 mb-6">
-                                        <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-teal-500 to-green-500 rounded-full flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                                            <Building className="w-6 h-6 text-white" />
+                                    {/* Target 3 */}
+                                    <div className="flex items-start space-x-4 p-6 bg-gradient-to-r from-purple-50 to-violet-50 rounded-xl border-l-4 border-purple-500">
+                                        <div className="inline-flex items-center justify-center w-10 h-10 bg-purple-500 rounded-full flex-shrink-0">
+                                            <span className="text-white font-bold text-sm">
+                                                80%
+                                            </span>
                                         </div>
-                                        <h3 className="text-xl font-bold text-gray-800 group-hover:text-teal-600 transition-colors duration-300">
-                                            Strengthened Health System Capacity
-                                        </h3>
+                                        <div>
+                                            <h4 className="font-semibold text-gray-800 mb-2">
+                                                AIDS-Related Deaths Reduction
+                                            </h4>
+                                            <p className="text-gray-600 text-sm">
+                                                AIDS related deaths reduced by
+                                                80% by 2025 from the 2010
+                                                baseline (64,000)
+                                            </p>
+                                        </div>
                                     </div>
-                                    <p className="text-gray-600 leading-relaxed">
-                                        The capacity of the health system is
-                                        strengthened to support quality HIV and
-                                        AIDS interventions and foster
-                                        integration within the health sector.
-                                    </p>
+
+                                    {/* Target 4 */}
+                                    <div className="flex items-start space-x-4 p-6 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl border-l-4 border-green-500">
+                                        <div className="inline-flex items-center justify-center w-10 h-10 bg-green-500 rounded-full flex-shrink-0">
+                                            <span className="text-white font-bold text-sm">
+                                                &lt;5%
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <h4 className="font-semibold text-gray-800 mb-2">
+                                                HIV-Related Stigma Reduction
+                                            </h4>
+                                            <p className="text-gray-600 text-sm">
+                                                HIV related stigma reduced to
+                                                &lt;5% by 2025 from the 2013
+                                                baseline of 28% for external
+                                                stigma and 20.5% for internal
+                                                stigma
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    {/* Target 5 */}
+                                    <div className="flex items-start space-x-4 p-6 bg-gradient-to-r from-orange-50 to-amber-50 rounded-xl border-l-4 border-orange-500">
+                                        <div className="inline-flex items-center justify-center w-10 h-10 bg-orange-500 rounded-full flex-shrink-0">
+                                            <span className="text-white font-bold text-sm">
+                                                40%
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <h4 className="font-semibold text-gray-800 mb-2">
+                                                Hepatitis B & C Infections
+                                            </h4>
+                                            <p className="text-gray-600 text-sm">
+                                                40% reduction in annual new
+                                                hepatitis B virus and hepatitis
+                                                C virus infections by 2025 (from
+                                                2023 baseline)
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    {/* Target 6 */}
+                                    <div className="flex items-start space-x-4 p-6 bg-gradient-to-r from-teal-50 to-cyan-50 rounded-xl border-l-4 border-teal-500">
+                                        <div className="inline-flex items-center justify-center w-10 h-10 bg-teal-500 rounded-full flex-shrink-0">
+                                            <span className="text-white font-bold text-sm">
+                                                40%
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <h4 className="font-semibold text-gray-800 mb-2">
+                                                Hepatitis B & C Deaths
+                                            </h4>
+                                            <p className="text-gray-600 text-sm">
+                                                40% reduction in annual
+                                                hepatitis B and C-related deaths
+                                                by 2025 (from 2023 baseline)
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -595,7 +676,10 @@ export default function AboutUs() {
                 </section>
 
                 {/* Core Values Detailed */}
-                <section id="core-values" className="py-20 bg-gradient-to-r from-blue-900 via-blue-800 to-purple-900 relative overflow-hidden">
+                <section
+                    id="core-values"
+                    className="py-20 bg-gradient-to-r from-blue-900 via-blue-800 to-purple-900 relative overflow-hidden"
+                >
                     {/* Background Graphics */}
                     <div className="absolute inset-0">
                         <div className="absolute top-0 left-0 w-full h-full opacity-20">
@@ -768,19 +852,19 @@ export default function AboutUs() {
                                 },
                                 {
                                     title: "Leadership",
-                                    href: "/about/leadership",
+                                    href: "/about/about-us#goals-functions",
                                     icon: Users,
                                     color: "from-green-500 to-green-600",
                                 },
                                 {
                                     title: "History & Mandate",
-                                    href: "/about/history",
+                                    href: "/about/about-us#historical-background",
                                     icon: FileText,
                                     color: "from-purple-500 to-purple-600",
                                 },
                                 {
                                     title: "Strategic Plans",
-                                    href: "/about/strategic-plans",
+                                    href: "/about/hiv-aids-tanzania",
                                     icon: Target,
                                     color: "from-orange-500 to-orange-600",
                                 },

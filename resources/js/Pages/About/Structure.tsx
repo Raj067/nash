@@ -63,7 +63,7 @@ export default function Structure() {
                             <Building className="h-10 w-10 text-white" />
                         </div>
                         <h2 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-6">
-                            NACP Organization Structure
+                            NASHCOP Organization Structure
                         </h2>
                         <p className="text-gray-600 max-w-3xl mx-auto text-lg leading-relaxed">
                             Hierarchical structure ensuring effective
@@ -84,8 +84,7 @@ export default function Structure() {
                                     Permanent Secretary
                                 </h3>
                                 <p className="text-sm text-gray-600">
-                                    Ministry of Health, Community Development,
-                                    Gender, Elderly and Children
+                                    Ministry of Health
                                 </p>
                             </div>
                         </div>
@@ -105,16 +104,38 @@ export default function Structure() {
                                     <Shield className="h-8 w-8 text-white" />
                                 </div>
                                 <h3 className="text-xl font-bold text-gray-800 mb-2 group-hover:text-green-600 transition-colors duration-300">
-                                    Directorate of Preventive Services
+                                    Chief Medical Office (CMO)
                                 </h3>
                                 <p className="text-sm text-gray-600">
-                                    Overseeing preventive health services
-                                    including HIV/AIDS
+                                    Oversee all directive in the Ministry of
+                                    Health
                                 </p>
                             </div>
                         </div>
                     </div>
+                    {/* Connecting Line */}
+                    <div className="flex justify-center mb-8">
+                        <div className="w-1 h-12 bg-gradient-to-b from-green-400 to-orange-400 rounded-full"></div>
+                    </div>
 
+                    {/* Third Level - Program Manager */}
+                    <div className="flex justify-center mb-12">
+                        <div className="group hover:shadow-2xl transition-all duration-500 border-0 bg-white/80 backdrop-blur-sm hover:scale-105 hover:bg-white relative overflow-hidden rounded-2xl p-6 shadow-lg max-w-md">
+                            <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-red-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            <div className="text-center relative z-10">
+                                <div className="inline-flex p-4 bg-gradient-to-r from-orange-500 to-red-600 rounded-2xl shadow-lg mb-4 group-hover:scale-110 transition-transform duration-300">
+                                    <Activity className="h-8 w-8 text-white" />
+                                </div>
+                                <h3 className="text-xl font-bold text-gray-800 mb-2 group-hover:text-orange-600 transition-colors duration-300">
+                                    Head of Programme (HOP)
+                                </h3>
+                                <p className="text-sm text-gray-600">
+                                    Oversee all programmes in the Ministry of
+                                    health include NASHCOP
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                     {/* Connecting Line */}
                     <div className="flex justify-center mb-8">
                         <div className="w-1 h-12 bg-gradient-to-b from-green-400 to-orange-400 rounded-full"></div>

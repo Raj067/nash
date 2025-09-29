@@ -21,7 +21,7 @@
       "hiv_aids_tanzania": "VVU/UKIMWI Tanzania",
       "programme_manager_statement": "Taarifa kutoka kwa Meneja wa Mpango",
       "mission_vision": "Dhamira na Maono",
-      "goals_functions": "Malengo Makuu na Kazi za NASHCOP",
+      "goals_functions": "Kazi za Msingi za NASHCOP",
       "core_values": "Maadili Muhimu",
       "structure": "Muundo wa NASHCOP",
       "management_coordination": "Uongozi na Uratibu",
@@ -140,6 +140,36 @@
     "last_updated": "Imesasishwa mwisho: {{date}}"
   },
   "home": {
-    "title": "Nash COP - Uongozi wa Jamii"
+    "title": "Nash COP - Uongozi wa Jamii",
+    "hero": {
+      "slides": {
+        "slide1": {
+          "title": "Karibu NASHCOP",
+          "subtitle": "Mpango wa Kitaifa wa Kudhibiti VVU, Magonjwa ya Zinaa na Hepatitis",
+          "description": "Jukwaa la kuongeza ufikiaji wa habari kuhusu VVU, UKIMWI, magonjwa ya zinaa na Hepatitis Tanzania"
+        },
+        "slide2": {
+          "title": "Mafanikio ya 95-95-95",
+          "subtitle": "Tanzania: 91% - 99% - 98%",
+          "description": "Maendeleo makubwa katika kupambana na VVU - Wanajua hali yao, wanapata matibabu, na virusi vimepungua"
+        },
+        "slide3": {
+          "title": "Huduma Kamili za Afya",
+          "subtitle": "VVU, Magonjwa ya Zinaa na Hepatitis",
+          "description": "Huduma za upimaji, matibabu na kuzuia kwa VVU, magonjwa ya zinaa na Hepatitis kwa wote"
+        }
+      },
+      "language_selector": {
+        "current_language": "Kiswahili",
+        "swahili": "Kiswahili",
+        "english": "English"
+      }
+    },
+    "welcome_message": {
+      "title": "Karibu Tovuti Rasmi ya NASHCOP Tanzania",
+      "message": "Karibu wote, kwenye tovuti rasmi ya Mpango wa Kitaifa wa Kudhibiti VVU, Magonjwa ya Zinaa na Hepatitis (NASHCOP) Tanzania. Tovuti hii ni jukwaa la kuongeza ufikiaji wa kila mtu wa habari kuhusu VVU, UKIMWI, magonjwa ya zinaa na Hepatitis, yanayozalishwa Tanzania. Tovuti hii inalenga kushiriki habari na nyenzo za VVU, UKIMWI, magonjwa ya zinaa na Hepatitis kwa umma mkuu ndani na nje ya nchi.",
+      "author": "Meneja wa Mpango - NASHCOP",
+      "manager_name": "Dr. Prosper Faustine Njau"
+    }
   }
 }

@@ -80,6 +80,11 @@ class PageController extends Controller
         return Inertia::render('About/AboutUs');
     }
 
+    public function coreFunctions()
+    {
+        return Inertia::render('About/CoreFunctions');
+    }
+
     public function hivAidsTanzania()
     {
         return Inertia::render('About/HivAidsTanzania');
@@ -301,6 +306,21 @@ class PageController extends Controller
     public function preventionKvp()
     {
         return Inertia::render('ProgrammeAreas/Prevention/Kvp');
+    }
+
+    public function preventionPep()
+    {
+        return Inertia::render('ProgrammeAreas/Prevention/Pep');
+    }
+
+    public function preventionStis()
+    {
+        return Inertia::render('ProgrammeAreas/Prevention/Stis');
+    }
+
+    public function preventionGbv()
+    {
+        return Inertia::render('ProgrammeAreas/Prevention/Gbv');
     }
 
     // Programme Areas - Care, Treatment & Support sub-pages

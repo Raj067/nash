@@ -25,6 +25,7 @@ Route::get('/', [PageController::class, 'index'])->name('home');
 // Who We Are
 Route::get('/about', [PageController::class, 'about'])->name('about');
 Route::get('/about/about-us', [PageController::class, 'aboutUs'])->name('about.about-us');
+Route::get('/about/core-functions', [PageController::class, 'coreFunctions'])->name('about.core-functions');
 Route::get('/about/hiv-aids-tanzania', [PageController::class, 'hivAidsTanzania'])->name('about.hiv-aids-tanzania');
 Route::get('/about/structure', [PageController::class, 'structure'])->name('about.structure');
 
@@ -60,6 +61,9 @@ Route::get('/programme-areas/prevention/condoms', [PageController::class, 'preve
 Route::get('/programme-areas/prevention/pmtct', [PageController::class, 'preventionPmtct'])->name('programme-areas.prevention.pmtct');
 Route::get('/programme-areas/prevention/prep', [PageController::class, 'preventionPrep'])->name('programme-areas.prevention.prep');
 Route::get('/programme-areas/prevention/kvp', [PageController::class, 'preventionKvp'])->name('programme-areas.prevention.kvp');
+Route::get('/programme-areas/prevention/pep', [PageController::class, 'preventionPep'])->name('programme-areas.prevention.pep');
+Route::get('/programme-areas/prevention/stis', [PageController::class, 'preventionStis'])->name('programme-areas.prevention.stis');
+Route::get('/programme-areas/prevention/gbv', [PageController::class, 'preventionGbv'])->name('programme-areas.prevention.gbv');
 
 // Programme Areas - Care, Treatment & Support sub-pages
 Route::get('/programme-areas/care-treatment-support/community-services', [PageController::class, 'careCommunityServices'])->name('programme-areas.care-treatment-support.community-services');

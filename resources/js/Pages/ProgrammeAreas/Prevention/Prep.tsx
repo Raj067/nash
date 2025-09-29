@@ -4,24 +4,28 @@ import {
     Pill,
     ArrowRight,
     Heart,
-    CheckCircle,
-    Users,
-    Target,
-    Award,
-    Shield,
-    TrendingUp,
-    Activity,
-    UserCheck,
-    Calendar,
-    Stethoscope,
 } from "lucide-react";
 import { Button } from "@/Components/ui/button";
 
 export default function Prep() {
+    const priorityStrategies = [
+        "Enhance PrEP accessibility, acceptability and effective use among PrEP users",
+        "Capacity building of healthcare providers nationwide (improve HRH for PrEP)",
+        "Strengthen the quantification, forecasting, and procurement of PrEP commodities (laboratory reagents and medications)",
+        "Scale-up facility-based and facility-led community-based quality PrEP services nationwide in alignment with the approved implementation framework",
+        "Strengthen pharmacovigilance for PrEP",
+        "Strengthen PrEP M&E systems (including the capability for registering transfer outs), enhance data used for programming and develop PrEP research and learning agenda to inform programme improvement and quality assurance",
+        "Establish a proactive mechanism for reviewing evidence, assessing acceptance, approval, registration, transitioning and scale-up of the newer PrEP options",
+        "Enhance the integration of PrEP into HIV combination prevention services (with special emphasis on comprehensive condom programming)",
+        "Build the capacity of CSOs in PrEP service design, planning, delivery, and monitoring (Community-Led Monitoring)",
+        "Engage multi-stakeholders at the national, regional and council levels to foster ownership and sustainability (including R/CHMT, CSOs, etc.)"
+    ];
+
     return (
-        <PublicLayout title="Pre-Exposure Prophylaxis">
+        <PublicLayout title="Pre-Exposure Prophylaxis (PrEP)">
             <Head title="PrEP - Prevention Programme" />
             <div className="min-h-screen">
+                {/* Hero Section */}
                 <div className="relative h-[400px] overflow-hidden">
                     <div className="h-full bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(/images/about.png)` }}>
                         <div className="h-full bg-gradient-to-r from-black/80 to-black/60 flex items-center">
@@ -30,87 +34,48 @@ export default function Prep() {
                                     <div className="inline-flex items-center justify-center w-20 h-20 bg-white/10 backdrop-blur-sm rounded-full mb-6">
                                         <Pill className="w-10 h-10 text-white" />
                                     </div>
-                                    <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white">Pre-Exposure Prophylaxis</h1>
+                                    <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white">
+                                        Pre-Exposure Prophylaxis (PrEP)
+                                    </h1>
                                     <p className="text-xl md:text-2xl text-blue-100 max-w-3xl leading-relaxed">
-                        Pre-Exposure Prophylaxis (PrEP) - highly effective HIV prevention medication 
-                        for high-risk individuals, reducing HIV acquisition risk by up to 99%.
-                    </p>
+                                        Highly effective HIV prevention medication for high-risk individuals, 
+                                        reducing HIV acquisition risk by up to 99%.
+                                    </p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                {/* Statistics Section */}
+                {/* Priority Strategies Section */}
                 <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-purple-50">
                     <div className="container mx-auto px-4">
                         <div className="text-center mb-16">
                             <h2 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-6">
-                                PrEP Program Impact
+                                Priority Strategies
                             </h2>
                             <p className="text-gray-600 max-w-3xl mx-auto text-lg leading-relaxed">
-                                Highly effective HIV prevention through Pre-Exposure Prophylaxis for high-risk populations
+                                Strategic priorities for scaling up and improving PrEP services across Tanzania
                             </p>
                         </div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-                            <div className="group hover:shadow-2xl transition-all duration-500 border-0 bg-white/80 backdrop-blur-sm hover:scale-105 hover:bg-white relative overflow-hidden rounded-2xl p-6 shadow-lg text-center">
-                                <div className="mx-auto mb-6 p-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl w-20 h-20 flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300">
-                                    <Users className="h-10 w-10 text-white" />
-                                </div>
-                                <div className="text-3xl font-bold text-gray-800 mb-2 group-hover:text-blue-600 transition-colors duration-300">
-                                    45,000+
-                                </div>
-                                <div className="text-sm text-gray-600 font-medium">
-                                    People on PrEP
-                                </div>
+                        <div className="max-w-5xl mx-auto">
+                            <div className="grid gap-6">
+                                {priorityStrategies.map((strategy, index) => (
+                                    <div
+                                        key={index}
+                                        className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300"
+                                    >
+                                        <div className="flex items-start space-x-4">
+                                            <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-sm">
+                                                {index + 1}
+                                            </div>
+                                            <p className="text-gray-700 leading-relaxed flex-1">
+                                                {strategy}
+                                            </p>
+                                        </div>
+                                    </div>
+                                ))}
                             </div>
-                            <div className="group hover:shadow-2xl transition-all duration-500 border-0 bg-white/80 backdrop-blur-sm hover:scale-105 hover:bg-white relative overflow-hidden rounded-2xl p-6 shadow-lg text-center">
-                                <div className="mx-auto mb-6 p-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl w-20 h-20 flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300">
-                                    <Stethoscope className="h-10 w-10 text-white" />
-                                </div>
-                                <div className="text-3xl font-bold text-gray-800 mb-2 group-hover:text-blue-600 transition-colors duration-300">
-                                    850+
-                                </div>
-                                <div className="text-sm text-gray-600 font-medium">
-                                    PrEP Service Sites
-                                </div>
-                            </div>
-                            <div className="group hover:shadow-2xl transition-all duration-500 border-0 bg-white/80 backdrop-blur-sm hover:scale-105 hover:bg-white relative overflow-hidden rounded-2xl p-6 shadow-lg text-center">
-                                <div className="mx-auto mb-6 p-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl w-20 h-20 flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300">
-                                    <Shield className="h-10 w-10 text-white" />
-                                </div>
-                                <div className="text-3xl font-bold text-gray-800 mb-2 group-hover:text-blue-600 transition-colors duration-300">
-                                    99%
-                                </div>
-                                <div className="text-sm text-gray-600 font-medium">
-                                    Prevention Effectiveness
-                                </div>
-                            </div>
-                            <div className="group hover:shadow-2xl transition-all duration-500 border-0 bg-white/80 backdrop-blur-sm hover:scale-105 hover:bg-white relative overflow-hidden rounded-2xl p-6 shadow-lg text-center">
-                                <div className="mx-auto mb-6 p-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl w-20 h-20 flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300">
-                                    <UserCheck className="h-10 w-10 text-white" />
-                                </div>
-                                <div className="text-3xl font-bold text-gray-800 mb-2 group-hover:text-blue-600 transition-colors duration-300">
-                                    88%
-                                </div>
-                                <div className="text-sm text-gray-600 font-medium">
-                                    Adherence Rate
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Achievement Highlight */}
-                        <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-2xl p-8 text-center">
-                            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-green-500 to-blue-500 rounded-full mb-6">
-                                <Award className="h-8 w-8 text-white" />
-                            </div>
-                            <h3 className="text-2xl font-bold text-gray-800 mb-4">
-                                PrEP Scale-Up Success
-                            </h3>
-                            <p className="text-gray-600 max-w-2xl mx-auto">
-                                Tanzania has successfully scaled up PrEP services to 45,000+ high-risk individuals 
-                                across 850+ service sites, achieving 99% prevention effectiveness.
-                            </p>
                         </div>
                     </div>
                 </section>
@@ -122,8 +87,8 @@ export default function Prep() {
                             Access PrEP Services
                         </h2>
                         <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-                            Get assessed for PrEP eligibility and access free Pre-Exposure Prophylaxis 
-                            services at healthcare facilities across Tanzania.
+                            Get comprehensive PrEP services at health facilities across Tanzania. 
+                            Protect yourself with highly effective HIV prevention.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <a href="/contact">
@@ -131,8 +96,8 @@ export default function Prep() {
                                     size="lg"
                                     className="bg-white text-blue-600 hover:bg-blue-50 shadow-lg hover:shadow-xl transition-all duration-300"
                                 >
-                                    <Calendar className="mr-2 h-5 w-5" />
-                                    Book PrEP Consultation
+                                    <Heart className="mr-2 h-5 w-5" />
+                                    Find PrEP Services
                                 </Button>
                             </a>
                             <a href="/programme-areas/prevention">

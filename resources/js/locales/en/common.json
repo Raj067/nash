@@ -21,7 +21,7 @@
       "hiv_aids_tanzania": "HIV/AIDS in Tanzania",
       "programme_manager_statement": "Statement from Programme Manager",
       "mission_vision": "Mission & Vision",
-      "goals_functions": "NASHCOP Main Goals & Functions",
+      "goals_functions": "Core functions of NASHCOP ",
       "core_values": "Core Values",
       "structure": "NASHCOP Structure",
       "management_coordination": "Management & Coordination",
@@ -33,9 +33,12 @@
       "vmmc": "Voluntary Medical Male Circumcision (VMMC)",
       "sbcc": "Social Behaviour Change Communication (SBCC)",
       "condom_promotion": "Condom Promotion and Distribution",
-      "pmtct": "Prevention of Vertical Transmission (PMTCT)",
+      "pmtct": "Prevention of Mother to Child Transmission of HIV and Viral Hepatitis",
       "prep": "Pre-Exposure Prophylaxis (PrEP)",
-      "kvp": "Key and Vulnerable Populations (KVP)",
+      "pep": "Post-Exposure Prophylaxis (PEP)",
+      "stis": "Sexually Transmitted Infections (STIs)",
+      "gbv": "Gender-Based Violence and Violence against Women and Children",
+      "kvp": "Populations at High Risks (PHR)",
       "community_services": "Community Based HIV and AIDS Services",
       "tb_hiv": "TB/HIV Co-infection",
       "viral_hepatitis": "Viral Hepatitis and Co-infections",
@@ -140,6 +143,36 @@
     "last_updated": "Last updated: {{date}}"
   },
   "home": {
-    "title": "Nash COP - Community Oriented Policing"
+    "title": "Nash COP - Community Oriented Policing",
+    "hero": {
+      "slides": {
+        "slide1": {
+          "title": "Welcome to NASHCOP",
+          "subtitle": "National AIDS, STIs and Hepatitis Control Programme",
+          "description": "Platform for enhancing access to information about HIV, AIDS, STIs and Hepatitis in Tanzania"
+        },
+        "slide2": {
+          "title": "95-95-95 Achievements",
+          "subtitle": "Tanzania: 91% - 99% - 98%",
+          "description": "Significant progress in fighting HIV - They know their status, receive treatment, and viruses are suppressed"
+        },
+        "slide3": {
+          "title": "Comprehensive Health Services",
+          "subtitle": "HIV, STIs and Hepatitis",
+          "description": "Testing, treatment and prevention services for HIV, STIs and Hepatitis for everyone"
+        }
+      },
+      "language_selector": {
+        "current_language": "English",
+        "swahili": "Kiswahili",
+        "english": "English"
+      }
+    },
+    "welcome_message": {
+      "title": "Welcome to NASHCOP Tanzania Official Website",
+      "message": "Welcome all, to the Tanzanian National AIDS, STIs and Hepatitis Control Programme (NASHCOP) official website. The website is a platform for enhancing everyone's access to information on HIV, AIDS, STIs and Hepatitis, generated in Tanzania. This website aims on sharing HIV, AIDS, STI and Hepatitis information and materials to the general public within and outside the country.",
+      "author": "Programme Manager - NASHCOP",
+      "manager_name": "Dr. Prosper Faustine Njau"
+    }
   }
 }

@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
+import i18n from "@/i18n";
 import { Button } from "@/Components/ui/button";
 import { Input } from "@/Components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/Components/ui/card";
@@ -25,8 +27,17 @@ import {
 } from "lucide-react";
 
 function Herosection() {
+    const { t } = useTranslation("common");
     const [currentSlide, setCurrentSlide] = useState(0);
-    const [language, setLanguage] = useState<"sw" | "en">("sw");
+    const [currentLanguage, setCurrentLanguage] = useState<"en" | "sw">(() => {
+        // Get saved language preference or default to 'sw' (Swahili)
+        if (typeof window !== "undefined") {
+            return (
+                (localStorage.getItem("nacp_language") as "en" | "sw") || "sw"
+            );
+        }
+        return "sw";
+    });
     const [isAutoPlaying, setIsAutoPlaying] = useState(true);
     const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -34,42 +45,85 @@ function Herosection() {
         {
             id: 1,
             image: "/images/arvsImages.jpeg",
-            title: "Karibu NASHCOP",
-            subtitle: "National AIDS, STIs and Hepatitis Control Programme",
-            description:
-                "Jukwaa la kuongeza ufikiaji wa habari kuhusu VVU, UKIMWI, magonjwa ya zinaa na Hepatitis Tanzania",
+            title: t("home.hero.slides.slide1.title"),
+            subtitle: t("home.hero.slides.slide1.subtitle"),
+            description: t("home.hero.slides.slide1.description"),
         },
         {
             id: 2,
             image: "/images/hiv/arvs.jpg",
-            title: "Mafanikio ya 95-95-95",
-            subtitle: "Tanzania: 88% - 98% - 96%",
-            description:
-                "Maendeleo makubwa katika kupambana na VVU - Wanajua hali yao, wanapata matibabu, na virusi vimepungua",
+            title: t("home.hero.slides.slide2.title"),
+            subtitle: t("home.hero.slides.slide2.subtitle"),
+            description: t("home.hero.slides.slide2.description"),
         },
         {
             id: 3,
             image: "/images/home/home3.jpg",
-            title: "Huduma Kamili za Afya",
-            subtitle: "VVU, Magonjwa ya Zinaa na Hepatitis",
-            description:
-                "Huduma za upimaji, matibabu na kuzuia kwa VVU, magonjwa ya zinaa na Hepatitis kwa wote",
+            title: t("home.hero.slides.slide3.title"),
+            subtitle: t("home.hero.slides.slide3.subtitle"),
+            description: t("home.hero.slides.slide3.description"),
         },
     ];
 
-    const welcomeMessage = {
-        sw: {
-            title: "Karibu Tovuti Rasmi ya NASHCOP Tanzania",
-            message:
-                "Karibu wote, kwenye tovuti rasmi ya Mpango wa Kitaifa wa Kudhibiti VVU, Magonjwa ya Zinaa na Hepatitis (NASHCOP) Tanzania. Tovuti hii ni jukwaa la kuongeza ufikiaji wa kila mtu wa habari kuhusu VVU, UKIMWI, magonjwa ya zinaa na Hepatitis, yanayozalishwa Tanzania. Tovuti hii inalenga kushiriki habari na nyenzo za VVU, UKIMWI, magonjwa ya zinaa na Hepatitis kwa umma mkuu ndani na nje ya nchi.",
-            author: "Managing Director",
-        },
-        en: {
-            title: "Welcome to NASHCOP Tanzania Official Website",
-            message:
-                "Welcome all, to the Tanzanian National AIDS, STIs and Hepatitis Control Programme (NASHCOP) official website. The website is a platform for enhancing everyone's access to information on HIV, AIDS, STIs and Hepatitis, generated in Tanzania. This website aims on sharing HIV, AIDS, STI and Hepatitis information and materials to the general public within and outside the country.",
-            author: "Prime Minister of Tanzania",
-        },
+    // Function to trigger Google Translate programmatically
+    const triggerGoogleTranslate = (langCode: string) => {
+        // Method 1: Try to find and trigger the Google Translate dropdown
+        const checkForTranslateElements = () => {
+            // ...
+            const combo = document.querySelector(
+                ".goog-te-combo"
+            ) as HTMLSelectElement;
+            if (combo) {
+                combo.value = langCode;
+                combo.dispatchEvent(new Event("change", { bubbles: true }));
+                return true;
+            }
+            const menuItems = document.querySelectorAll(".goog-te-menu2-item");
+            for (let item of menuItems) {
+                const span = item.querySelector("span.text");
+                if (span) {
+                    const text = span.textContent?.toLowerCase();
+                    if (
+                        (langCode === "sw" &&
+                            (text?.includes("swahili") ||
+                                text?.includes("kiswahili"))) ||
+                        (langCode === "en" && text?.includes("english"))
+                    ) {
+                        (item as HTMLElement).click();
+                        return true;
+                    }
+                }
+            }
+            return false;
+        };
+
+        // Try multiple times to find the translation elements
+        let attempts = 0;
+        const tryTranslate = () => {
+            if (checkForTranslateElements() || attempts > 20) {
+                return;
+            }
+            attempts++;
+            setTimeout(tryTranslate, 200);
+        };
+
+        tryTranslate();
+    };
+
+    const handleLanguageChange = (newLanguage: "en" | "sw") => {
+        setCurrentLanguage(newLanguage);
+        localStorage.setItem("nacp_language", newLanguage);
+
+        // Trigger Google Translate
+        triggerGoogleTranslate(newLanguage);
+
+        // Add visual feedback during translation
+        document.body.style.transition = "opacity 0.3s ease";
+        document.body.style.opacity = "0.8";
+
+        setTimeout(() => {
+            document.body.style.opacity = "1";
+        }, 500);
     };
 
     // Auto-scroll functionality
@@ -87,6 +141,9 @@ function Herosection() {
         }
     };
 
+    // Get current slides based on language
+    const currentSlides = slides;
+
     // Start auto-play on component mount
     useEffect(() => {
         if (isAutoPlaying) {
@@ -96,11 +153,11 @@ function Herosection() {
         }
 
         return () => stopAutoPlay(); // Cleanup on unmount
-    }, [isAutoPlaying, slides.length]);
+    }, [isAutoPlaying, currentSlides.length]);
 
     // Navigation functions
     const nextSlide = () => {
-        setCurrentSlide((prev) => (prev + 1) % slides.length);
+        setCurrentSlide((prev) => (prev + 1) % currentSlides.length);
         // Restart auto-play timer when manually navigating
         if (isAutoPlaying) {
             startAutoPlay();
@@ -108,7 +165,9 @@ function Herosection() {
     };
 
     const prevSlide = () => {
-        setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+        setCurrentSlide(
+            (prev) => (prev - 1 + currentSlides.length) % currentSlides.length
+        );
         // Restart auto-play timer when manually navigating
         if (isAutoPlaying) {
             startAutoPlay();
@@ -127,7 +186,7 @@ function Herosection() {
         <div className="relative">
             {/* Hero Slider */}
             <div className="relative h-[600px] overflow-hidden">
-                {slides.map((slide, index) => (
+                {currentSlides.map((slide, index) => (
                     <div
                         key={slide.id}
                         className={`absolute inset-0 transition-transform duration-500 ease-in-out ${
@@ -186,7 +245,7 @@ function Herosection() {
 
                 {/* Slide Indicators */}
                 <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-2">
-                    {slides.map((_, index) => (
+                    {currentSlides.map((_, index) => (
                         <button
                             key={index}
                             className={`w-3 h-3 rounded-full transition-colors ${
@@ -246,7 +305,9 @@ function Herosection() {
                                                 Dr. Prosper Faustine Njau
                                             </h3>
                                             <p className="text-blue-100 text-sm lg:text-base font-medium">
-                                                Programme Manager - NASHCOP
+                                                {t(
+                                                    "home.welcome_message.author"
+                                                )}
                                             </p>
                                         </div>
                                     </div>
@@ -259,22 +320,20 @@ function Herosection() {
                                             <MessageCircle className="h-6 w-6 text-white" />
                                         </div>
                                         <h2 className="text-2xl lg:text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-4">
-                                            {welcomeMessage[language].title}
+                                            {t("home.welcome_message.title")}
                                         </h2>
                                     </div>
-
                                     <blockquote className="text-gray-700 leading-relaxed text-lg lg:text-xl italic relative">
                                         <div className="absolute -top-4 -left-2 text-6xl text-blue-200 font-serif">
                                             "
                                         </div>
                                         <div className="relative z-10 pl-6">
-                                            {welcomeMessage[language].message}
+                                            {t("home.welcome_message.message")}
                                         </div>
                                         <div className="absolute -bottom-8 -right-2 text-6xl text-blue-200 font-serif">
                                             "
                                         </div>
                                     </blockquote>
-
                                     {/* Call to Action */}
                                     {/* <div className="mt-8 pt-6 border-t border-gray-200">
                     <div className="flex flex-wrap gap-4">

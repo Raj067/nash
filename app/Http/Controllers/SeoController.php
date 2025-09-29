@@ -70,6 +70,12 @@ class SeoController extends Controller
                 'priority' => '0.7',
             ],
             [
+                'loc' => route('about.core-functions'),
+                'lastmod' => now()->toISOString(),
+                'changefreq' => 'monthly',
+                'priority' => '0.7',
+            ],
+            [
                 'loc' => route('services.index'),
                 'lastmod' => now()->toISOString(),
                 'changefreq' => 'weekly',

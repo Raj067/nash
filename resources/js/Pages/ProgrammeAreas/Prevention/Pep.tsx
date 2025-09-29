@@ -1,28 +1,26 @@
 import { Head } from "@inertiajs/react";
 import PublicLayout from "@/Layouts/PublicLayout";
 import {
-    Target,
+    Shield,
     ArrowRight,
     Heart,
-    Users,
 } from "lucide-react";
 import { Button } from "@/Components/ui/button";
 
-export default function Kvp() {
+export default function Pep() {
     const priorityStrategies = [
-        "Strengthen the use of local epidemiological data to inform robust data-driven PHR programming (i.e., PHR profiling/characterisation, size estimates, geographical mapping, and granularized target setting). This will include expanding combination prevention services to other unreached PHR (including sexual partners and children of PHR) as described in the earlier section",
-        "Scale-up the provision of client-centred, quality, safe, comprehensive HIV combination prevention, care and support services tailored to the vulnerability and needs of PHR, including DSD models such as moonlight testing and community ART services",
-        "Improve resource allocation and accountability of PHR programme implementation at all levels",
-        "Improve the current PHR M&E system, research and learning agenda (RLA) to be able to cater to programme needs and shifts, inform policy makers and programme implementers, and track interventions for PHR",
-        "Strengthen community systems and PPP to foster sustainability of PHR interventions (This will include fostering the engagement of PHR and capacity building of CSOs to meaningfully engage in the design, implementation and monitoring of PHR interventions)",
-        "Improve access to viral hepatitis screening, testing, linkage to care and treatment for PWID attending harm reduction services and/or in MAT clinics as part of a comprehensive package for harm reduction",
-        "Enhance access to viral hepatitis preventive services among key and vulnerable groups e.g., people who inject drugs",
-        "Scale-up community-led monitoring (CLM) to improve quality PHR services (use of community scorecard)"
+        "Improve community and healthcare worker awareness of HIV and VH PEP, including specific community sensitization on post-violence care for GBV/VAWC and sexually assaulted victims. This strategy will also include dissemination of job aids for providers and SBCC materials for the community",
+        "Strengthen efforts to prevent accidental exposure in healthcare, community settings and other sectors",
+        "Build the capacity of HCPs in PEP service provision",
+        "Build the capacity of law enforcers and legal officers in PEP to enable them to facilitate timely access to PEP (particularly for cases of sexual assault/rape)",
+        "Strengthen the integration of HIV PEP in workplace programming",
+        "Strengthen oversight of PEP services at the central and local level",
+        "Improve PEP reporting M&E system and tools"
     ];
 
     return (
-        <PublicLayout title="Populations at High Risks (PHR)">
-            <Head title="PHR - Prevention Programme" />
+        <PublicLayout title="Post-Exposure Prophylaxis (PEP)">
+            <Head title="PEP - Prevention Programme" />
             <div className="min-h-screen">
                 {/* Hero Section */}
                 <div className="relative h-[400px] overflow-hidden">
@@ -31,51 +29,30 @@ export default function Kvp() {
                             <div className="container mx-auto px-4">
                                 <div className="max-w-4xl">
                                     <div className="inline-flex items-center justify-center w-20 h-20 bg-white/10 backdrop-blur-sm rounded-full mb-6">
-                                        <Users className="w-10 h-10 text-white" />
+                                        <Shield className="w-10 h-10 text-white" />
                                     </div>
                                     <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white">
-                                        Populations at High Risks (PHR)
+                                        Post-Exposure Prophylaxis (PEP)
                                     </h1>
                                     <p className="text-xl md:text-2xl text-blue-100 max-w-3xl leading-relaxed">
-                                        Vulnerability-tailored and client-centred combination prevention interventions 
-                                        for populations at high risk of HIV transmission.
+                                        Emergency HIV prevention treatment taken after potential exposure to HIV, 
+                                        including occupational exposure and sexual assault cases.
                                     </p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                {/* Program Overview Section */}
-                <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-purple-50">
-                    <div className="container mx-auto px-4">
-                        <div className="max-w-4xl mx-auto">
-                            <div className="text-center mb-12">
-                                <h2 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-6">
-                                    Program Overview
-                                </h2>
-                            </div>
-                            
-                            <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8 mb-8">
-                                <p className="text-gray-700 leading-relaxed text-lg">
-                                    The NASHCoP SP aims to identify, segment, map, reach and saturate all PHR in all geographical 
-                                    sub-units with vulnerability-tailored and client-centred combination prevention interventions. 
-                                    Outlined below are key strategies to maintain the current gains and further intensify prevention 
-                                    efforts in this group.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
 
                 {/* Priority Strategies Section */}
-                <section className="py-20 bg-white">
+                <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-purple-50">
                     <div className="container mx-auto px-4">
                         <div className="text-center mb-16">
                             <h2 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-6">
                                 Priority Strategies
                             </h2>
                             <p className="text-gray-600 max-w-3xl mx-auto text-lg leading-relaxed">
-                                Strategic priorities for comprehensive PHR programming across Tanzania
+                                Strategic priorities for improving PEP services and emergency HIV prevention across Tanzania
                             </p>
                         </div>
 
@@ -84,7 +61,7 @@ export default function Kvp() {
                                 {priorityStrategies.map((strategy, index) => (
                                     <div
                                         key={index}
-                                        className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300"
+                                        className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300"
                                     >
                                         <div className="flex items-start space-x-4">
                                             <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-sm">
@@ -105,11 +82,11 @@ export default function Kvp() {
                 <section className="py-16 bg-gradient-to-r from-blue-600 to-purple-600">
                     <div className="container mx-auto px-4 text-center">
                         <h2 className="text-3xl font-bold text-white mb-4">
-                            Access PHR Services
+                            Access PEP Services
                         </h2>
                         <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-                            Get confidential, non-judgmental HIV prevention and care services 
-                            tailored to your needs.
+                            Get emergency PEP treatment within 72 hours of potential HIV exposure. 
+                            Available at health facilities across Tanzania.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <a href="/contact">
@@ -118,7 +95,7 @@ export default function Kvp() {
                                     className="bg-white text-blue-600 hover:bg-blue-50 shadow-lg hover:shadow-xl transition-all duration-300"
                                 >
                                     <Heart className="mr-2 h-5 w-5" />
-                                    Find Services
+                                    Find PEP Services
                                 </Button>
                             </a>
                             <a href="/programme-areas/prevention">

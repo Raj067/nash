@@ -1,28 +1,32 @@
 import { Head } from "@inertiajs/react";
 import PublicLayout from "@/Layouts/PublicLayout";
 import {
-    Target,
+    Activity,
     ArrowRight,
     Heart,
-    Users,
 } from "lucide-react";
 import { Button } from "@/Components/ui/button";
 
-export default function Kvp() {
+export default function Stis() {
     const priorityStrategies = [
-        "Strengthen the use of local epidemiological data to inform robust data-driven PHR programming (i.e., PHR profiling/characterisation, size estimates, geographical mapping, and granularized target setting). This will include expanding combination prevention services to other unreached PHR (including sexual partners and children of PHR) as described in the earlier section",
-        "Scale-up the provision of client-centred, quality, safe, comprehensive HIV combination prevention, care and support services tailored to the vulnerability and needs of PHR, including DSD models such as moonlight testing and community ART services",
-        "Improve resource allocation and accountability of PHR programme implementation at all levels",
-        "Improve the current PHR M&E system, research and learning agenda (RLA) to be able to cater to programme needs and shifts, inform policy makers and programme implementers, and track interventions for PHR",
-        "Strengthen community systems and PPP to foster sustainability of PHR interventions (This will include fostering the engagement of PHR and capacity building of CSOs to meaningfully engage in the design, implementation and monitoring of PHR interventions)",
-        "Improve access to viral hepatitis screening, testing, linkage to care and treatment for PWID attending harm reduction services and/or in MAT clinics as part of a comprehensive package for harm reduction",
-        "Enhance access to viral hepatitis preventive services among key and vulnerable groups e.g., people who inject drugs",
-        "Scale-up community-led monitoring (CLM) to improve quality PHR services (use of community scorecard)"
+        "Increase community awareness about STIs (including promotion of HPV vaccination for those eligible)",
+        "Strengthen STI management services for PLHIV and PHR as part of the standard package of HIV prevention",
+        "Strengthen the integration of STI management into combination prevention services, namely; PLHIV care, and treatment services, and other SRH services",
+        "Improve STI contact tracing",
+        "Revitalise regular antimicrobial resistance AMR surveillance of STIs to determine if current regimens are still effective and to guide the selection of appropriate treatment regimens",
+        "Improve the quality of STI services (in all service delivery platforms) as part of the quality assurance and quality improvement strategy",
+        "Develop an e-learning system and facility-based training package for the management of STI/RTI",
+        "Improve availability of STI commodities at facility level (including medicines and laboratory reagents)",
+        "Scale-up dual HIV/Syphilis testing for pregnant women attending ANC and appropriately manage those who are infected",
+        "Strengthen multi-sectoral approach on comprehensive HIV prevention modalities to meet community demand",
+        "Strengthen the M&E system for the improvement of data collection and reporting from the source of STI management",
+        "Mobilise resources for supporting capacity building of HCWs on STI diagnosis and management, procurement of STI medicines and laboratory commodities, STI surveillance, and research",
+        "Enhance engagement of the private sector (health facilities/ pharmacies) in the STI/RTI syndromic case management approach"
     ];
 
     return (
-        <PublicLayout title="Populations at High Risks (PHR)">
-            <Head title="PHR - Prevention Programme" />
+        <PublicLayout title="Sexually Transmitted Infections (STIs)">
+            <Head title="STIs - Prevention Programme" />
             <div className="min-h-screen">
                 {/* Hero Section */}
                 <div className="relative h-[400px] overflow-hidden">
@@ -31,20 +35,21 @@ export default function Kvp() {
                             <div className="container mx-auto px-4">
                                 <div className="max-w-4xl">
                                     <div className="inline-flex items-center justify-center w-20 h-20 bg-white/10 backdrop-blur-sm rounded-full mb-6">
-                                        <Users className="w-10 h-10 text-white" />
+                                        <Activity className="w-10 h-10 text-white" />
                                     </div>
                                     <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white">
-                                        Populations at High Risks (PHR)
+                                        Sexually Transmitted Infections (STIs)
                                     </h1>
                                     <p className="text-xl md:text-2xl text-blue-100 max-w-3xl leading-relaxed">
-                                        Vulnerability-tailored and client-centred combination prevention interventions 
-                                        for populations at high risk of HIV transmission.
+                                        Comprehensive STI prevention, diagnosis, and treatment services integrated 
+                                        with HIV prevention and care programs.
                                     </p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
                 {/* Program Overview Section */}
                 <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-purple-50">
                     <div className="container mx-auto px-4">
@@ -57,10 +62,9 @@ export default function Kvp() {
                             
                             <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8 mb-8">
                                 <p className="text-gray-700 leading-relaxed text-lg">
-                                    The NASHCoP SP aims to identify, segment, map, reach and saturate all PHR in all geographical 
-                                    sub-units with vulnerability-tailored and client-centred combination prevention interventions. 
-                                    Outlined below are key strategies to maintain the current gains and further intensify prevention 
-                                    efforts in this group.
+                                    The NASHCoP SP will maintain the gains achieved during the previous implementation period 
+                                    and further strengthen program fidelity. The strategies focus on comprehensive STI management 
+                                    integrated with HIV prevention and care services to reduce transmission and improve health outcomes.
                                 </p>
                             </div>
                         </div>
@@ -75,7 +79,7 @@ export default function Kvp() {
                                 Priority Strategies
                             </h2>
                             <p className="text-gray-600 max-w-3xl mx-auto text-lg leading-relaxed">
-                                Strategic priorities for comprehensive PHR programming across Tanzania
+                                Strategic priorities for strengthening STI prevention, diagnosis, and treatment services
                             </p>
                         </div>
 
@@ -105,11 +109,11 @@ export default function Kvp() {
                 <section className="py-16 bg-gradient-to-r from-blue-600 to-purple-600">
                     <div className="container mx-auto px-4 text-center">
                         <h2 className="text-3xl font-bold text-white mb-4">
-                            Access PHR Services
+                            Access STI Services
                         </h2>
                         <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-                            Get confidential, non-judgmental HIV prevention and care services 
-                            tailored to your needs.
+                            Get comprehensive STI testing, treatment, and prevention services 
+                            at health facilities across Tanzania.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <a href="/contact">
@@ -118,7 +122,7 @@ export default function Kvp() {
                                     className="bg-white text-blue-600 hover:bg-blue-50 shadow-lg hover:shadow-xl transition-all duration-300"
                                 >
                                     <Heart className="mr-2 h-5 w-5" />
-                                    Find Services
+                                    Find STI Services
                                 </Button>
                             </a>
                             <a href="/programme-areas/prevention">

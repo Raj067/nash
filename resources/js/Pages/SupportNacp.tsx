@@ -9,6 +9,9 @@ import {
     Phone,
     Mail,
     MapPin,
+    Smartphone,
+    Building2,
+    CreditCard,
 } from "lucide-react";
 import { Button } from "@/Components/ui/button";
 
@@ -63,6 +66,27 @@ export default function SupportNacp() {
         },
     ];
 
+    const donationMethods = [
+        {
+            icon: Smartphone,
+            title: "Mobile Money Donation",
+            method: "1st Method",
+            description:
+                "You can donate any amount to ATF through the following mobile number",
+            details: "0684 90 90 90",
+            color: "from-green-600 to-emerald-600",
+        },
+        {
+            icon: Building2,
+            title: "Bank Transfer",
+            method: "2nd Method",
+            description:
+                "You can donate any amount to ATF through the following Bank Account number",
+            details: "20101100104 NMB Bank",
+            color: "from-blue-600 to-indigo-600",
+        },
+    ];
+
     return (
         <PublicLayout title="Support NASHCOP">
             <Head title="Support NASHCOP - NATIONAL AIDS, STIs AND HEPATITIS CONTROL PROGRAMME" />
@@ -82,7 +106,7 @@ export default function SupportNacp() {
                                     <HandHeart className="w-10 h-10 text-white" />
                                 </div>
                                 <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white">
-                                    Support NASHCOP
+                                    Support AIDS Trust Fund - Tanzania (ATF)
                                 </h1>
                                 <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
                                     Join us in the fight against HIV/AIDS and
@@ -199,6 +223,100 @@ export default function SupportNacp() {
                     </div>
                 </section>
 
+                {/* How to Donate */}
+                <section className="py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50 relative overflow-hidden">
+                    <div className="absolute inset-0 opacity-5">
+                        <div className="absolute top-10 right-10 w-32 h-32 bg-green-500 rounded-full blur-3xl"></div>
+                        <div className="absolute bottom-20 left-20 w-40 h-40 bg-blue-500 rounded-full blur-3xl"></div>
+                    </div>
+
+                    <div className="container mx-auto px-4 relative z-10">
+                        <div className="text-center mb-16">
+                            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-green-600 to-blue-600 rounded-full mb-6">
+                                <CreditCard className="w-8 h-8 text-white" />
+                            </div>
+                            <h2 className="text-4xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent mb-6">
+                                How to Donate
+                            </h2>
+                            <p className="text-gray-600 max-w-3xl mx-auto text-lg leading-relaxed">
+                                Please donate to support HIV and AIDS
+                                interventions in Tanzania through the following
+                                methods
+                            </p>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                            {donationMethods.map((method, index) => (
+                                <div
+                                    key={index}
+                                    className="group hover:shadow-2xl transition-all duration-500 border-0 bg-white hover:scale-105 relative overflow-hidden rounded-2xl shadow-lg"
+                                >
+                                    <div
+                                        className={`bg-gradient-to-r ${method.color} text-white p-8`}
+                                    >
+                                        <div className="text-center">
+                                            <div className="inline-flex items-center justify-center w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full mb-4 shadow-lg">
+                                                <method.icon className="w-10 h-10" />
+                                            </div>
+                                            <div className="bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2 mb-4 inline-block">
+                                                <span className="text-sm font-semibold">
+                                                    {method.method}
+                                                </span>
+                                            </div>
+                                            <h3 className="text-2xl font-bold mb-4">
+                                                {method.title}
+                                            </h3>
+                                            <p className="text-white/90 leading-relaxed mb-6">
+                                                {method.description}
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div className="p-8 text-center">
+                                        <div className="bg-gray-50 rounded-xl p-6 border-2 border-dashed border-gray-200">
+                                            <div className="text-2xl font-bold text-gray-800 mb-2">
+                                                {method.details}
+                                            </div>
+                                            <p className="text-gray-600 text-sm">
+                                                {method.title ===
+                                                "Mobile Money Donation"
+                                                    ? "Mobile Number"
+                                                    : "Bank Account Details"}
+                                            </p>
+                                        </div>
+
+                                        {/* <div className="mt-6">
+                                            <Button
+                                                className={`bg-gradient-to-r ${method.color} hover:opacity-90 text-white font-semibold px-6 py-3 shadow-lg hover:shadow-xl transition-all duration-200`}
+                                            >
+                                                <HandHeart className="w-4 h-4 mr-2" />
+                                                Donate Now
+                                            </Button>
+                                        </div> */}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+
+                        <div className="text-center mt-12">
+                            <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-6 max-w-2xl mx-auto">
+                                <div className="flex items-center justify-center mb-4">
+                                    <div className="w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center">
+                                        <span className="text-white font-bold text-sm">
+                                            !
+                                        </span>
+                                    </div>
+                                </div>
+                                <p className="text-yellow-800 font-medium">
+                                    All donations go directly to supporting HIV
+                                    and AIDS interventions in Tanzania through
+                                    the AIDS Trust Fund (ATF)
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
                 {/* Contact for Support */}
                 <section className="py-20 bg-gradient-to-r from-blue-900 via-blue-800 to-purple-900 relative overflow-hidden">
                     <div className="absolute inset-0">
@@ -229,7 +347,9 @@ export default function SupportNacp() {
                                 <h3 className="text-xl font-semibold text-white mb-2">
                                     Call Us
                                 </h3>
-                                <p className="text-blue-100">+255-22-2120270</p>
+                                <p className="text-blue-100">
+                                    +255 (0) 262060148
+                                </p>
                             </div>
 
                             <div className="text-center">
@@ -239,9 +359,7 @@ export default function SupportNacp() {
                                 <h3 className="text-xl font-semibold text-white mb-2">
                                     Email Us
                                 </h3>
-                                <p className="text-blue-100">
-                                    support@nacp.go.tz
-                                </p>
+                                <p className="text-blue-100">nacp@afya.go.tz</p>
                             </div>
 
                             <div className="text-center">
@@ -252,7 +370,7 @@ export default function SupportNacp() {
                                     Visit Us
                                 </h3>
                                 <p className="text-blue-100">
-                                    Dar es Salaam, Tanzania
+                                    Dodoma, Tanzania
                                 </p>
                             </div>
                         </div>

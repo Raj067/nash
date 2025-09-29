@@ -242,389 +242,308 @@ export default function HivAidsTanzania() {
                     </div>
                 </section>
 
-                {/* Positive Trends */}
+                {/* Background */}
                 <section className="py-20 bg-white relative overflow-hidden">
                     <div className="container mx-auto px-4">
                         <div className="text-center mb-16">
-                            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-green-600 to-blue-600 rounded-full mb-6">
-                                <TrendingUp className="h-10 w-10 text-white" />
+                            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-blue-600 to-green-600 rounded-full mb-6">
+                                <Globe className="h-10 w-10 text-white" />
                             </div>
-                            <h2 className="text-4xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent mb-6">
-                                Positive Trends
+                            <h2 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent mb-6">
+                                Background
                             </h2>
-                            <p className="text-gray-600 max-w-3xl mx-auto text-lg leading-relaxed">
-                                Progress in Tanzania's fight against HIV/AIDS
-                                showing encouraging improvements
-                            </p>
                         </div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                            {trends.map((trend, index) => (
-                                <div
-                                    key={index}
-                                    className="group hover:shadow-2xl transition-all duration-500 border-0 bg-white/80 backdrop-blur-sm hover:scale-105 hover:bg-white relative overflow-hidden rounded-2xl p-6 shadow-lg"
-                                >
-                                    {/* Card Background Gradient */}
-                                    <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <div className="max-w-6xl mx-auto">
+                            <div className="bg-gradient-to-br from-blue-50 to-green-50 rounded-2xl p-8 mb-8 shadow-lg">
+                                <p className="text-gray-700 text-lg leading-relaxed mb-6">
+                                    Tanzania has made substantial progress in
+                                    the fight against HIV, STIs, and Hepatitis
+                                    through the implementation of its National
+                                    Care, Treatment, and Prevention Program.
+                                    This effort is aligned with national
+                                    priorities and global targets including the
+                                    UNAIDS 95-95-95 goals and the Sustainable
+                                    Development Goals (SDGs). Adult HIV
+                                    prevalence stands at <strong>4.4%</strong>{" "}
+                                    (THIS 2022–2023), with gains in ART coverage
+                                    and viral suppression.
+                                </p>
+                                <p className="text-gray-700 text-lg leading-relaxed mb-6">
+                                    However, the burden remains high in specific
+                                    populations and geographic regions, calling
+                                    for sustained, data-driven, and
+                                    equity-focused interventions. This
+                                    comprehensive overview of the
+                                    implementation, progress, and outcomes of
+                                    the National HIV, STI, and Hepatitis Care,
+                                    Treatment, and Prevention Program outlines
+                                    key interventions across priority areas,
+                                    including case finding, prevention, care and
+                                    treatment in addition to screening and
+                                    management of co-morbidities.
+                                </p>
+                            </div>
 
-                                    <div className="text-center relative z-10">
-                                        <div className="mx-auto mb-6 p-4 bg-gradient-to-r from-green-500 to-blue-600 rounded-2xl w-20 h-20 flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300">
-                                            <trend.icon className="h-10 w-10 text-white" />
-                                        </div>
-                                        <div className="text-3xl font-bold text-gray-800 mb-2 group-hover:text-green-600 transition-colors duration-300">
-                                            {trend.value}
-                                        </div>
-                                        <h4 className="text-lg font-bold text-gray-800 mb-2 group-hover:text-blue-600 transition-colors duration-300">
-                                            {trend.title}
-                                        </h4>
-                                        <p className="text-sm text-gray-600 leading-relaxed">
-                                            {trend.description}
-                                        </p>
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                                <div className="bg-white rounded-xl p-6 shadow-lg border-l-4 border-blue-500">
+                                    <div className="text-3xl font-bold text-blue-600 mb-2">
+                                        91%
+                                    </div>
+                                    <div className="text-gray-800 font-semibold mb-2">
+                                        HIV Status Awareness
+                                    </div>
+                                    <div className="text-sm text-gray-600">
+                                        PLHIV who know their status (2024)
                                     </div>
                                 </div>
-                            ))}
+                                <div className="bg-white rounded-xl p-6 shadow-lg border-l-4 border-green-500">
+                                    <div className="text-3xl font-bold text-green-600 mb-2">
+                                        99%
+                                    </div>
+                                    <div className="text-gray-800 font-semibold mb-2">
+                                        On Treatment
+                                    </div>
+                                    <div className="text-sm text-gray-600">
+                                        Diagnosed with HIV on ART
+                                    </div>
+                                </div>
+                                <div className="bg-white rounded-xl p-6 shadow-lg border-l-4 border-purple-500">
+                                    <div className="text-3xl font-bold text-purple-600 mb-2">
+                                        98%
+                                    </div>
+                                    <div className="text-gray-800 font-semibold mb-2">
+                                        Viral Suppression
+                                    </div>
+                                    <div className="text-sm text-gray-600">
+                                        People on ART with suppressed viral load
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </section>
 
-                {/* HIV Transmission Routes */}
-                <section className="py-20 bg-gradient-to-br from-red-50 via-white to-orange-50 relative overflow-hidden">
-                    {/* Background Pattern */}
+                {/* Program Overview */}
+                <section className="py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50 relative overflow-hidden">
                     <div className="absolute inset-0 opacity-5">
-                        <div className="absolute top-10 right-10 w-32 h-32 bg-red-500 rounded-full blur-3xl"></div>
-                        <div className="absolute bottom-20 left-20 w-40 h-40 bg-orange-500 rounded-full blur-3xl"></div>
-                        <div className="absolute top-1/2 right-1/3 w-24 h-24 bg-purple-500 rounded-full blur-2xl"></div>
+                        <div className="absolute top-10 right-10 w-32 h-32 bg-blue-500 rounded-full blur-3xl"></div>
+                        <div className="absolute bottom-20 left-20 w-40 h-40 bg-green-500 rounded-full blur-3xl"></div>
                     </div>
 
                     <div className="container mx-auto px-4 relative z-10">
                         <div className="text-center mb-16">
-                            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-red-600 to-orange-600 rounded-full mb-6">
-                                <Heart className="h-10 w-10 text-white" />
+                            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-green-600 to-blue-600 rounded-full mb-6">
+                                <Target className="h-10 w-10 text-white" />
                             </div>
-                            <h2 className="text-4xl font-bold bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent mb-6">
-                                HIV Transmission Routes
+                            <h2 className="text-4xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent mb-6">
+                                Overview of HIV, STI, and Hepatitis Programming
                             </h2>
-                            <p className="text-gray-600 max-w-3xl mx-auto text-lg leading-relaxed">
-                                Understanding how HIV is transmitted in Tanzania
-                                mainland
-                            </p>
                         </div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                            {transmissionData.map((item, index) => (
-                                <div
-                                    key={index}
-                                    className="group hover:shadow-2xl transition-all duration-500 border-0 bg-white/80 backdrop-blur-sm hover:scale-105 hover:bg-white relative overflow-hidden rounded-2xl p-8 shadow-lg text-center"
-                                >
-                                    <div className="absolute inset-0 bg-gradient-to-br from-red-500/5 to-orange-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-                                    <div className="relative z-10">
-                                        <div
-                                            className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r ${item.color} rounded-full mb-6 group-hover:scale-110 transition-transform duration-300`}
-                                        >
-                                            <item.icon className="w-8 h-8 text-white" />
-                                        </div>
-                                        <h3 className="text-xl font-bold text-gray-800 mb-2">
-                                            {item.route}
-                                        </h3>
-                                        <div className="text-3xl font-bold text-red-600 mb-4">
-                                            {item.percentage}
-                                        </div>
-                                        <p className="text-gray-600 leading-relaxed">
-                                            {item.description}
-                                        </p>
-                                    </div>
-                                </div>
-                            ))}
+                        <div className="max-w-5xl mx-auto">
+                            <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg p-8 mb-8">
+                                <p className="text-gray-700 text-lg leading-relaxed mb-6">
+                                    The health sector HIV, STI, and Hepatitis
+                                    response in Tanzania is guided by the{" "}
+                                    <strong>
+                                        HIV, STI, and Hepatitis Strategic Plan I
+                                        (2022-2026)
+                                    </strong>
+                                    . This five-year plan is reviewed
+                                    periodically to integrate new evidence-based
+                                    approaches, emerging technologies, and
+                                    innovations aimed at enhancing the national
+                                    HIV, STI, and Hepatitis response.
+                                </p>
+                                <p className="text-gray-700 text-lg leading-relaxed">
+                                    The current implementation phase focuses on
+                                    reducing new HIV, STI, and Hepatitis
+                                    infections across all population groups,
+                                    delivering high-quality HIV care and
+                                    treatment to People Living with HIV (PLHIV),
+                                    and achieving epidemic control in alignment
+                                    with the UNAIDS 95-95-95 targets by 2025.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </section>
 
-                {/* Age Group Analysis */}
+                {/* Key Program Areas */}
                 <section className="py-20 bg-white relative overflow-hidden">
                     <div className="container mx-auto px-4">
                         <div className="text-center mb-16">
                             <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full mb-6">
-                                <Baby className="h-10 w-10 text-white" />
+                                <Stethoscope className="h-10 w-10 text-white" />
                             </div>
                             <h2 className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-6">
-                                Age Group Analysis
+                                Key Program Areas (2021-2024)
                             </h2>
-                            <p className="text-gray-600 max-w-3xl mx-auto text-lg leading-relaxed">
-                                HIV prevalence patterns across different age
-                                groups showing gender disparities
-                            </p>
                         </div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                            {ageGroupData.map((item, index) => (
-                                <div
-                                    key={index}
-                                    className="group hover:shadow-2xl transition-all duration-500 border-0 bg-white/80 backdrop-blur-sm hover:scale-105 hover:bg-white relative overflow-hidden rounded-2xl p-8 shadow-lg"
-                                >
-                                    <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-                                    <div className="relative z-10">
-                                        <div className="flex items-start space-x-4 mb-6">
-                                            <div
-                                                className={`inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r ${item.color} rounded-full flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}
-                                            >
-                                                <item.icon className="w-6 h-6 text-white" />
-                                            </div>
-                                            <div>
-                                                <h3 className="text-lg font-bold text-gray-800 mb-2">
-                                                    {item.group}
-                                                </h3>
-                                                <div className="text-2xl font-bold text-purple-600 mb-2">
-                                                    {item.prevalence}
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <p className="text-gray-600 leading-relaxed">
-                                            {item.details}
-                                        </p>
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                            {/* Testing and Case Identification */}
+                            <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-6 shadow-lg">
+                                <div className="flex items-center mb-4">
+                                    <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center mr-4">
+                                        <Eye className="w-6 h-6 text-white" />
                                     </div>
+                                    <h3 className="text-xl font-bold text-gray-800">
+                                        Testing & Case Identification
+                                    </h3>
                                 </div>
-                            ))}
-                        </div>
-                    </div>
-                </section>
-
-                {/* Key Populations */}
-                <section className="py-20 bg-gradient-to-r from-red-900 via-red-800 to-orange-900 relative overflow-hidden">
-                    {/* Background Graphics */}
-                    <div className="absolute inset-0">
-                        <div className="absolute top-0 left-0 w-full h-full opacity-20">
-                            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent"></div>
-                        </div>
-                        <div className="absolute top-20 right-20 w-64 h-64 bg-red-400 rounded-full blur-3xl opacity-10"></div>
-                        <div className="absolute bottom-20 left-20 w-48 h-48 bg-orange-400 rounded-full blur-3xl opacity-10"></div>
-                        <div className="absolute top-1/2 left-1/3 w-32 h-32 bg-pink-400 rounded-full blur-2xl opacity-10"></div>
-                    </div>
-
-                    <div className="container mx-auto px-4 relative z-10">
-                        <div className="text-center mb-16">
-                            <div className="inline-flex items-center justify-center w-24 h-24 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full mb-6">
-                                <Users className="h-12 w-12 text-white" />
+                                <ul className="space-y-2 text-gray-700">
+                                    <li>
+                                        • Index testing for partners and
+                                        children
+                                    </li>
+                                    <li>• Provider-Initiated Testing (PITC)</li>
+                                    <li>• Social Network Strategy (SNS)</li>
+                                    <li>• HIV self-testing expansion</li>
+                                    <li>• Lowered testing age to 15 years</li>
+                                </ul>
                             </div>
-                            <h2 className="text-4xl font-bold text-white mb-6">
-                                Key Populations at Risk
-                            </h2>
-                            <p className="text-red-100 max-w-3xl mx-auto text-lg">
-                                Populations at higher risk of HIV infection
-                                requiring targeted interventions and support
-                                <br />
-                                <span className="text-sm text-red-200 mt-2 block">
-                                    Source: Tanzania HIV Impact Survey 2020
-                                </span>
-                            </p>
-                        </div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                            {keyPopulations.map((population, index) => (
-                                <div
-                                    key={index}
-                                    className="group bg-white/10 backdrop-blur-md rounded-2xl p-8 hover:bg-white/20 transition-all duration-500 hover:scale-105 border border-white/20"
-                                >
-                                    <div className="flex items-start space-x-6">
-                                        <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full mb-6 group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
-                                            <population.icon className="h-8 w-8 text-white" />
-                                        </div>
-                                        <div className="flex-1">
-                                            <h4 className="text-xl font-bold text-white mb-2 group-hover:text-yellow-300 transition-colors duration-300">
-                                                {population.title}
-                                            </h4>
-                                            <div className="flex items-center space-x-4 mb-3">
-                                                <div className="text-3xl font-bold text-white group-hover:text-yellow-300 transition-colors duration-300">
-                                                    {population.prevalence}
-                                                </div>
-                                                <div className="text-sm text-red-200 font-medium">
-                                                    ({population.population}{" "}
-                                                    people)
-                                                </div>
-                                            </div>
-                                            <p className="text-red-100 leading-relaxed mb-4">
-                                                {population.description}
-                                            </p>
-
-                                            {/* Progress Bar */}
-                                            <div className="mt-4">
-                                                <div className="w-full bg-white/20 rounded-full h-2">
-                                                    <div
-                                                        className="bg-gradient-to-r from-yellow-400 to-orange-500 h-2 rounded-full transition-all duration-1000 ease-out"
-                                                        style={{
-                                                            width: population.prevalence,
-                                                        }}
-                                                    ></div>
-                                                </div>
-                                            </div>
-                                        </div>
+                            {/* PMTCT */}
+                            <div className="bg-gradient-to-br from-pink-50 to-rose-50 rounded-2xl p-6 shadow-lg">
+                                <div className="flex items-center mb-4">
+                                    <div className="w-12 h-12 bg-pink-500 rounded-full flex items-center justify-center mr-4">
+                                        <Baby className="w-6 h-6 text-white" />
                                     </div>
+                                    <h3 className="text-xl font-bold text-gray-800">
+                                        PMTCT
+                                    </h3>
                                 </div>
-                            ))}
-                        </div>
-                    </div>
-                </section>
-
-                {/* Key Context Summary */}
-                <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-purple-50 relative overflow-hidden">
-                    <div className="container mx-auto px-4">
-                        <div className="text-center mb-16">
-                            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full mb-6">
-                                <Globe className="h-10 w-10 text-white" />
+                                <ul className="space-y-2 text-gray-700">
+                                    <li>
+                                        • HIV transmission rate: 8.1% (2024)
+                                    </li>
+                                    <li>• Target: &lt;4% by 2025</li>
+                                    <li>• Improved ANC quality</li>
+                                    <li>• Enhanced EID services</li>
+                                    <li>• Mother-baby pair monitoring</li>
+                                </ul>
                             </div>
-                            <h2 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-6">
-                                HIV Epidemic Context
-                            </h2>
-                            <p className="text-gray-600 max-w-3xl mx-auto text-lg leading-relaxed">
-                                Understanding Tanzania's HIV epidemic
-                                characteristics and progress towards ending AIDS
-                                by 2030
-                            </p>
-                        </div>
 
-                        <div className="max-w-4xl mx-auto">
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                                <div className="group hover:shadow-2xl transition-all duration-500 border-0 bg-white/80 backdrop-blur-sm hover:scale-105 hover:bg-white relative overflow-hidden rounded-2xl p-8 shadow-lg">
-                                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-                                    <div className="relative z-10">
-                                        <div className="flex items-start space-x-4 mb-6">
-                                            <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                                                <MapPin className="w-6 h-6 text-white" />
-                                            </div>
-                                            <h3 className="text-xl font-bold text-gray-800 group-hover:text-blue-600 transition-colors duration-300">
-                                                Generalised Epidemic
-                                            </h3>
-                                        </div>
-                                        <p className="text-gray-600 leading-relaxed">
-                                            Tanzania mainland experiences a
-                                            generalised HIV epidemic with
-                                            significant heterogeneity across
-                                            age, gender, socioeconomic status,
-                                            and geographic location, implying
-                                            differentials in the risk of
-                                            transmission.
-                                        </p>
+                            {/* Population at High Risk */}
+                            <div className="bg-gradient-to-br from-orange-50 to-amber-50 rounded-2xl p-6 shadow-lg">
+                                <div className="flex items-center mb-4">
+                                    <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center mr-4">
+                                        <Users className="w-6 h-6 text-white" />
                                     </div>
+                                    <h3 className="text-xl font-bold text-gray-800">
+                                        High-Risk Populations
+                                    </h3>
                                 </div>
+                                <ul className="space-y-2 text-gray-700">
+                                    <li>• Pre-Exposure Prophylaxis (PrEP)</li>
+                                    <li>• Methadone Assisted Treatment</li>
+                                    <li>• AGYW social protection</li>
+                                    <li>• Integrated SRH services</li>
+                                    <li>• Stigma reduction programs</li>
+                                </ul>
+                            </div>
 
-                                <div className="group hover:shadow-2xl transition-all duration-500 border-0 bg-white/80 backdrop-blur-sm hover:scale-105 hover:bg-white relative overflow-hidden rounded-2xl p-8 shadow-lg">
-                                    <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-                                    <div className="relative z-10">
-                                        <div className="flex items-start space-x-4 mb-6">
-                                            <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-green-500 to-blue-500 rounded-full flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                                                <Target className="w-6 h-6 text-white" />
-                                            </div>
-                                            <h3 className="text-xl font-bold text-gray-800 group-hover:text-green-600 transition-colors duration-300">
-                                                90-90-90 Target Impact
-                                            </h3>
-                                        </div>
-                                        <p className="text-gray-600 leading-relaxed">
-                                            Attainment of global 90-90-90
-                                            targets will lead to reduction of
-                                            new HIV infections by 90%, providing
-                                            an opportunity for ending the AIDS
-                                            epidemic by 2030.
-                                        </p>
+                            {/* VMMC */}
+                            <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-6 shadow-lg">
+                                <div className="flex items-center mb-4">
+                                    <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mr-4">
+                                        <Shield className="w-6 h-6 text-white" />
                                     </div>
+                                    <h3 className="text-xl font-bold text-gray-800">
+                                        VMMC Program
+                                    </h3>
                                 </div>
+                                <ul className="space-y-2 text-gray-700">
+                                    <li>• 60% HIV risk reduction</li>
+                                    <li>• 17 regions coverage</li>
+                                    <li>• 90% circumcision target</li>
+                                    <li>• Multiple service delivery models</li>
+                                    <li>• Cultural integration approach</li>
+                                </ul>
+                            </div>
 
-                                <div className="group hover:shadow-2xl transition-all duration-500 border-0 bg-white/80 backdrop-blur-sm hover:scale-105 hover:bg-white relative overflow-hidden rounded-2xl p-8 shadow-lg">
-                                    <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-                                    <div className="relative z-10">
-                                        <div className="flex items-start space-x-4 mb-6">
-                                            <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                                                <TrendingDown className="w-6 h-6 text-white" />
-                                            </div>
-                                            <h3 className="text-xl font-bold text-gray-800 group-hover:text-purple-600 transition-colors duration-300">
-                                                Incidence Goal Achievement
-                                            </h3>
-                                        </div>
-                                        <p className="text-gray-600 leading-relaxed">
-                                            The country's goal was to reduce HIV
-                                            incidence in the general population
-                                            to less than 0.16% by 2017, with
-                                            significant progress made through
-                                            scaled-up prevention and treatment
-                                            services.
-                                        </p>
+                            {/* Blood Safety */}
+                            <div className="bg-gradient-to-br from-red-50 to-pink-50 rounded-2xl p-6 shadow-lg">
+                                <div className="flex items-center mb-4">
+                                    <div className="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center mr-4">
+                                        <Heart className="w-6 h-6 text-white" />
                                     </div>
+                                    <h3 className="text-xl font-bold text-gray-800">
+                                        Blood Safety
+                                    </h3>
                                 </div>
+                                <ul className="space-y-2 text-gray-700">
+                                    <li>• Multi-stage screening process</li>
+                                    <li>• Pre-donation counselling</li>
+                                    <li>• TTI screening (HIV, HBV, HCV)</li>
+                                    <li>• Standardized questionnaires</li>
+                                    <li>• Risk behavior assessment</li>
+                                </ul>
+                            </div>
 
-                                <div className="group hover:shadow-2xl transition-all duration-500 border-0 bg-white/80 backdrop-blur-sm hover:scale-105 hover:bg-white relative overflow-hidden rounded-2xl p-8 shadow-lg">
-                                    <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-red-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-                                    <div className="relative z-10">
-                                        <div className="flex items-start space-x-4 mb-6">
-                                            <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                                                <Users className="w-6 h-6 text-white" />
-                                            </div>
-                                            <h3 className="text-xl font-bold text-gray-800 group-hover:text-orange-600 transition-colors duration-300">
-                                                Gender Disparities
-                                            </h3>
-                                        </div>
-                                        <p className="text-gray-600 leading-relaxed">
-                                            Women are disproportionally more
-                                            affected, with HIV prevalence of
-                                            6.3% versus 3.9% among men, with
-                                            particularly high rates among young
-                                            women aged 20-24 (4.4% vs 1.7% for
-                                            men).
-                                        </p>
+                            {/* HIV Care & Treatment */}
+                            <div className="bg-gradient-to-br from-purple-50 to-violet-50 rounded-2xl p-6 shadow-lg">
+                                <div className="flex items-center mb-4">
+                                    <div className="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center mr-4">
+                                        <Stethoscope className="w-6 h-6 text-white" />
                                     </div>
+                                    <h3 className="text-xl font-bold text-gray-800">
+                                        Care & Treatment
+                                    </h3>
                                 </div>
+                                <ul className="space-y-2 text-gray-700">
+                                    <li>• 7,450 ART service points</li>
+                                    <li>• 1.53M people on ART (2024)</li>
+                                    <li>• 93% linked to care</li>
+                                    <li>
+                                        • 99% initiated on ART within 7 days
+                                    </li>
+                                    <li>• 98% viral suppression rate</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
                 </section>
 
                 {/* Call to Action */}
-                <section className="py-20 bg-gradient-to-br from-red-50 via-white to-orange-50 relative overflow-hidden">
-                    {/* Background Pattern */}
-                    <div className="absolute inset-0 opacity-5">
-                        <div className="absolute top-10 left-10 w-32 h-32 bg-red-500 rounded-full blur-3xl"></div>
-                        <div className="absolute bottom-20 right-20 w-40 h-40 bg-orange-500 rounded-full blur-3xl"></div>
-                        <div className="absolute top-1/2 left-1/3 w-24 h-24 bg-purple-500 rounded-full blur-2xl"></div>
+                <section className="py-20 bg-gradient-to-r from-blue-900 via-blue-800 to-purple-900 relative overflow-hidden">
+                    <div className="absolute inset-0">
+                        <div className="absolute top-0 left-0 w-full h-full opacity-20">
+                            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent"></div>
+                        </div>
+                        <div className="absolute top-20 right-20 w-64 h-64 bg-blue-400 rounded-full blur-3xl opacity-10"></div>
+                        <div className="absolute bottom-20 left-20 w-48 h-48 bg-purple-400 rounded-full blur-3xl opacity-10"></div>
                     </div>
 
-                    <div className="container mx-auto px-4 relative z-10">
-                        <div className="group hover:shadow-2xl transition-all duration-500 border-0 bg-white/80 backdrop-blur-sm hover:scale-105 hover:bg-white relative overflow-hidden rounded-2xl p-12 shadow-lg text-center max-w-4xl mx-auto">
-                            {/* Card Background Gradient */}
-                            <div className="absolute inset-0 bg-gradient-to-br from-red-500/5 to-orange-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-                            <div className="relative z-10">
-                                <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-red-500 to-orange-600 rounded-full mb-6">
-                                    <Heart className="h-10 w-10 text-white" />
-                                </div>
-                                <h2 className="text-3xl font-bold text-gray-800 mb-4 group-hover:text-red-600 transition-colors duration-300">
-                                    Together We Can End HIV/AIDS
-                                </h2>
-                                <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
-                                    Learn more about our interventions and how
-                                    you can contribute to Tanzania's HIV/AIDS
-                                    response
-                                </p>
-                                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                                    <Button
-                                        size="lg"
-                                        className="bg-gradient-to-r from-red-500 to-orange-600 hover:from-red-600 hover:to-orange-700 text-white shadow-lg hover:shadow-xl transition-all duration-300"
-                                    >
-                                        <Target className="mr-2 h-5 w-5" />
-                                        View Interventions
-                                    </Button>
-                                    <Button
-                                        variant="outline"
-                                        size="lg"
-                                        className="border-2 border-red-500/50 hover:bg-red-500/10 backdrop-blur-sm"
-                                    >
-                                        <Globe className="mr-2 h-5 w-5" />
-                                        Get Involved
-                                    </Button>
-                                </div>
-                            </div>
+                    <div className="container mx-auto px-4 text-center relative z-10">
+                        <div className="inline-flex items-center justify-center w-20 h-20 bg-white/10 backdrop-blur-sm rounded-full mb-6">
+                            <Heart className="w-10 h-10 text-white" />
+                        </div>
+                        <h2 className="text-4xl font-bold text-white mb-6">
+                            Achieving 95-95-95 Targets by 2025
+                        </h2>
+                        <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-8 leading-relaxed">
+                            Tanzania remains strongly committed to achieving
+                            epidemic control through comprehensive,
+                            evidence-based interventions and sustained
+                            partnerships.
+                        </p>
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                            <Button
+                                size="lg"
+                                className="bg-white text-blue-900 hover:bg-blue-50 font-semibold px-8 py-3 shadow-lg hover:shadow-xl transition-all duration-200"
+                            >
+                                Learn More About Our Programs
+                            </Button>
+                            <Button
+                                size="lg"
+                                variant="outline"
+                                className="border-white text-white hover:bg-white hover:text-blue-900 font-semibold px-8 py-3 shadow-lg hover:shadow-xl transition-all duration-200"
+                            >
+                                Get Involved
+                            </Button>
                         </div>
                     </div>
                 </section>

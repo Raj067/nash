@@ -323,7 +323,7 @@ const NASHCOPHeader: FC = () => {
                 },
                 {
                     title: t("header.navigation.goals_functions"),
-                    href: "/about/about-us#goals-functions",
+                    href: "/about/core-functions",
                 },
                 {
                     title: t("header.navigation.core_values"),
@@ -375,6 +375,18 @@ const NASHCOPHeader: FC = () => {
                         {
                             title: t("header.navigation.kvp"),
                             href: "/programme-areas/prevention/kvp",
+                        },
+                        {
+                            title: t("header.navigation.pep"),
+                            href: "/programme-areas/prevention/pep",
+                        },
+                        {
+                            title: t("header.navigation.stis"),
+                            href: "/programme-areas/prevention/stis",
+                        },
+                        {
+                            title: t("header.navigation.gbv"),
+                            href: "/programme-areas/prevention/gbv",
                         },
                     ],
                 },

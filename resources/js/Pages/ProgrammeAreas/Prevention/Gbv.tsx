@@ -1,28 +1,27 @@
 import { Head } from "@inertiajs/react";
 import PublicLayout from "@/Layouts/PublicLayout";
 import {
-    Target,
+    HandHeart,
     ArrowRight,
     Heart,
-    Users,
 } from "lucide-react";
 import { Button } from "@/Components/ui/button";
 
-export default function Kvp() {
+export default function Gbv() {
     const priorityStrategies = [
-        "Strengthen the use of local epidemiological data to inform robust data-driven PHR programming (i.e., PHR profiling/characterisation, size estimates, geographical mapping, and granularized target setting). This will include expanding combination prevention services to other unreached PHR (including sexual partners and children of PHR) as described in the earlier section",
-        "Scale-up the provision of client-centred, quality, safe, comprehensive HIV combination prevention, care and support services tailored to the vulnerability and needs of PHR, including DSD models such as moonlight testing and community ART services",
-        "Improve resource allocation and accountability of PHR programme implementation at all levels",
-        "Improve the current PHR M&E system, research and learning agenda (RLA) to be able to cater to programme needs and shifts, inform policy makers and programme implementers, and track interventions for PHR",
-        "Strengthen community systems and PPP to foster sustainability of PHR interventions (This will include fostering the engagement of PHR and capacity building of CSOs to meaningfully engage in the design, implementation and monitoring of PHR interventions)",
-        "Improve access to viral hepatitis screening, testing, linkage to care and treatment for PWID attending harm reduction services and/or in MAT clinics as part of a comprehensive package for harm reduction",
-        "Enhance access to viral hepatitis preventive services among key and vulnerable groups e.g., people who inject drugs",
-        "Scale-up community-led monitoring (CLM) to improve quality PHR services (use of community scorecard)"
+        "Increase community awareness of GBV/VAWC (prevalence, link with HIV and other poor SRH outcomes, importance of reporting, and available services and support)",
+        "Increase awareness on GBV/VAWC at workplaces and academic institutions",
+        "Strengthen the integration of GBV/VAWC/VAM prevention and response in HIV combination prevention programmes for all populations",
+        "Mainstream HIV, VH and STIs and specifically GBV/VAWC in inter and cross-sectoral national policies, guidelines and programs",
+        "Scale-up the implementation of gender-transformative interventions to address root causes of GBV",
+        "Advocate for the amendment of legislation that increases the risk of HIV, VH and STIs transmission among women and girls",
+        "Strengthen M&E systems to collect, analyse and produce data that are gender-responsive",
+        "Advocate for increased investment in comprehensive combination prevention programs that have integrated GBV for all populations"
     ];
 
     return (
-        <PublicLayout title="Populations at High Risks (PHR)">
-            <Head title="PHR - Prevention Programme" />
+        <PublicLayout title="Gender-Based Violence and Violence against Women and Children">
+            <Head title="GBV/VAWC - Prevention Programme" />
             <div className="min-h-screen">
                 {/* Hero Section */}
                 <div className="relative h-[400px] overflow-hidden">
@@ -31,20 +30,21 @@ export default function Kvp() {
                             <div className="container mx-auto px-4">
                                 <div className="max-w-4xl">
                                     <div className="inline-flex items-center justify-center w-20 h-20 bg-white/10 backdrop-blur-sm rounded-full mb-6">
-                                        <Users className="w-10 h-10 text-white" />
+                                        <HandHeart className="w-10 h-10 text-white" />
                                     </div>
                                     <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white">
-                                        Populations at High Risks (PHR)
+                                        Gender-Based Violence and Violence against Women and Children
                                     </h1>
                                     <p className="text-xl md:text-2xl text-blue-100 max-w-3xl leading-relaxed">
-                                        Vulnerability-tailored and client-centred combination prevention interventions 
-                                        for populations at high risk of HIV transmission.
+                                        Addressing gender inequalities and violence that shape the HIV epidemic 
+                                        and disproportionately affect women and girls.
                                     </p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
                 {/* Program Overview Section */}
                 <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-purple-50">
                     <div className="container mx-auto px-4">
@@ -57,10 +57,11 @@ export default function Kvp() {
                             
                             <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8 mb-8">
                                 <p className="text-gray-700 leading-relaxed text-lg">
-                                    The NASHCoP SP aims to identify, segment, map, reach and saturate all PHR in all geographical 
-                                    sub-units with vulnerability-tailored and client-centred combination prevention interventions. 
-                                    Outlined below are key strategies to maintain the current gains and further intensify prevention 
-                                    efforts in this group.
+                                    Gender inequalities, which include GBV, VAWC, and other intersecting socio-economic, 
+                                    political and environmental factors, inherently characterize and shape the HIV epidemic 
+                                    and the disproportionate burden of disease borne by women and girls. Of particular 
+                                    interest is GBV and VAWC or men because they can be both the cause and consequence 
+                                    of HIV and viral hepatitis.
                                 </p>
                             </div>
                         </div>
@@ -75,7 +76,7 @@ export default function Kvp() {
                                 Priority Strategies
                             </h2>
                             <p className="text-gray-600 max-w-3xl mx-auto text-lg leading-relaxed">
-                                Strategic priorities for comprehensive PHR programming across Tanzania
+                                Strategic priorities for addressing gender-based violence and its intersection with HIV prevention
                             </p>
                         </div>
 
@@ -105,11 +106,11 @@ export default function Kvp() {
                 <section className="py-16 bg-gradient-to-r from-blue-600 to-purple-600">
                     <div className="container mx-auto px-4 text-center">
                         <h2 className="text-3xl font-bold text-white mb-4">
-                            Access PHR Services
+                            Support and Services
                         </h2>
                         <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-                            Get confidential, non-judgmental HIV prevention and care services 
-                            tailored to your needs.
+                            Access support services for GBV/VAWC survivors and learn about 
+                            prevention programs across Tanzania.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <a href="/contact">
@@ -118,7 +119,7 @@ export default function Kvp() {
                                     className="bg-white text-blue-600 hover:bg-blue-50 shadow-lg hover:shadow-xl transition-all duration-300"
                                 >
                                     <Heart className="mr-2 h-5 w-5" />
-                                    Find Services
+                                    Find Support Services
                                 </Button>
                             </a>
                             <a href="/programme-areas/prevention">
