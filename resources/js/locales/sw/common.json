@@ -149,6 +149,21 @@
     },
     "last_updated": "Imesasishwa mwisho: {{date}}"
   },
+  "recent_news": {
+    "title": "Habari za Hivi Karibuni",
+    "subtitle": "Mafanikio na maendeleo ya programu za VVU nchini Tanzania",
+    "view_all": "Habari Zote",
+    "featured_badge": "MUHIMU",
+    "read_more": "Soma Zaidi",
+    "by_author": "Na {{author}}",
+    "follow_progress": "Fuata Maendeleo Yetu",
+    "follow_description": "Pata habari za hivi karibuni kuhusu mafanikio ya programu za VVU na jinsi unavyoweza kushiriki katika vita dhidi ya VVU",
+    "categories": {
+      "mafanikio": "Mafanikio",
+      "takwimu": "Takwimu",
+      "programu": "Programu"
+    }
+  },
   "home": {
     "title": "Nash COP - Uongozi wa Jamii",
     "hero": {

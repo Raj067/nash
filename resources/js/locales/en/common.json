@@ -149,6 +149,21 @@
     },
     "last_updated": "Last updated: {{date}}"
   },
+  "recent_news": {
+    "title": "Recent News",
+    "subtitle": "Achievements and progress of HIV programs in Tanzania",
+    "view_all": "All News",
+    "featured_badge": "FEATURED",
+    "read_more": "Read More",
+    "by_author": "By {{author}}",
+    "follow_progress": "Follow Our Progress",
+    "follow_description": "Get the latest news about HIV program achievements and how you can participate in the fight against HIV",
+    "categories": {
+      "mafanikio": "Achievements",
+      "takwimu": "Statistics", 
+      "programu": "Programs"
+    }
+  },
   "home": {
     "title": "Nash COP - Community Oriented Policing",
     "hero": {

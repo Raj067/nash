@@ -89,11 +89,11 @@ export default function Home({
     featuredDocuments,
     featuredBlogs,
 }: HomeProps) {
-    const { t } = useTranslation('common');
-    
+    const { t } = useTranslation("common");
+
     console.log(featuredBlogs.length);
     return (
-        <PublicLayout title={t('home.title')}>
+        <PublicLayout title={t("home.title")}>
             <Head title="Home" />
             <div className="notranslate">
                 <Herosection />
@@ -101,9 +101,11 @@ export default function Home({
                 <RiskAssessmentShortlinks />
                 <WhistleblowingModule />
                 <HomeStatisticsPage />
-                <FeaturedServiceWidget />
+                {/* <FeaturedServiceWidget /> */}
                 <FaqsWidgets />
-                <ImportantDocumentsWidgets featuredDocuments={featuredDocuments} />
+                <ImportantDocumentsWidgets
+                    featuredDocuments={featuredDocuments}
+                />
                 <QuickActionWidget />
                 <ContactInfoWidget />
             </div>

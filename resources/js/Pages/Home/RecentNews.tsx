@@ -7,10 +7,12 @@ import {
     Award,
     TrendingUp,
     Newspaper,
+    ChevronRight,
 } from "lucide-react";
 import { Card, CardContent } from "@/Components/ui/card";
 import { Button } from "@/Components/ui/button";
 import { Link } from "@inertiajs/react";
+import { useTranslation } from "react-i18next";
 
 interface NewsItem {
     id: number;
@@ -47,6 +49,8 @@ interface RecentNewsProps {
 }
 
 const RecentNews: React.FC<RecentNewsProps> = ({ featuredBlogs }) => {
+    const { t } = useTranslation("common");
+    
     // Return early if no featured blogs
     if (!featuredBlogs || featuredBlogs.length === 0) {
         return null;
@@ -114,146 +118,161 @@ const RecentNews: React.FC<RecentNewsProps> = ({ featuredBlogs }) => {
                         <Newspaper className="h-12 w-12 text-white" />
                     </div>
                     <h2 className="text-4xl font-bold text-white mb-6">
-                        Habari za Hivi Karibuni
+                        {t("recent_news.title")}
                     </h2>
                     <p className="text-blue-100 max-w-3xl mx-auto text-lg mb-8">
-                        Mafanikio na maendeleo ya programu za VVU nchini
-                        Tanzania
+                        {t("recent_news.subtitle")}
                     </p>
                     <Button
                         className="bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 transition-all duration-300"
                         asChild
                     >
                         <Link href="/news">
-                            Habari Zote <ArrowRight className="h-4 w-4 ml-2" />
+                            {t("recent_news.view_all")} <ArrowRight className="h-4 w-4 ml-2" />
                         </Link>
                     </Button>
                 </div>
 
                 {/* News Grid */}
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
                     {/* Featured News - Large Card */}
                     {featuredNews && (
-                        <div className="lg:col-span-2">
-                            <Card className="group overflow-hidden bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 transition-all duration-500 hover:scale-105">
+                        <div className="lg:col-span-8">
+                            <Card className="group overflow-hidden bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/15 transition-all duration-500 hover:scale-[1.02] shadow-2xl">
                                 <div className="relative">
-                                    <img
-                                        src={featuredNews.image}
-                                        alt={featuredNews.title}
-                                        className="w-full h-64 md:h-80 object-cover"
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                                    <div className="absolute top-4 left-4">
+                                    <div className="aspect-video overflow-hidden">
+                                        <img
+                                            src={featuredNews.image}
+                                            alt={featuredNews.title}
+                                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                                        />
+                                    </div>
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+
+                                    {/* Category Badge */}
+                                    <div className="absolute top-6 left-6">
                                         <span
-                                            className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gradient-to-r ${getCategoryColor(
+                                            className={`inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold bg-gradient-to-r ${getCategoryColor(
                                                 featuredNews.category
-                                            )} text-white shadow-lg`}
+                                            )} text-white shadow-xl backdrop-blur-sm`}
                                         >
                                             {React.createElement(
                                                 getCategoryIcon(
                                                     featuredNews.category
                                                 ),
-                                                { className: "h-4 w-4 mr-1" }
+                                                { className: "h-4 w-4 mr-2" }
                                             )}
                                             {featuredNews.category}
                                         </span>
                                     </div>
-                                    <div className="absolute top-4 right-4 bg-gradient-to-r from-red-500 to-pink-600 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">
-                                        MUHIMU
-                                    </div>
-                                </div>
-                                <CardContent className="p-6 text-white">
-                                    <div className="flex items-center text-sm text-blue-200 mb-3">
-                                        <Calendar className="h-4 w-4 mr-1" />
-                                        <span className="mr-4">
-                                            {new Date(
-                                                featuredNews.date
-                                            ).toLocaleDateString("sw-TZ")}
+
+                                    {/* Featured Badge */}
+                                    <div className="absolute top-6 right-6">
+                                        <span className="bg-gradient-to-r from-red-500 to-pink-600 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-xl backdrop-blur-sm">
+                                            {t("recent_news.featured_badge")}
                                         </span>
-                                        <Clock className="h-4 w-4 mr-1" />
-                                        <span className="mr-4">
-                                            {featuredNews.readTime}
-                                        </span>
-                                        <span>Na {featuredNews.author}</span>
                                     </div>
-                                    <Link href={`/news/${featuredNews.slug}`}>
-                                        <h3 className="text-xl md:text-2xl font-bold text-white mb-3 group-hover:text-yellow-300 cursor-pointer transition-colors">
-                                            {featuredNews.title}
-                                        </h3>
-                                    </Link>
-                                    <p className="text-blue-100 mb-4 leading-relaxed">
-                                        {featuredNews.summary}
-                                    </p>
-                                    <Button
-                                        asChild
-                                        className="bg-gradient-to-r from-orange-400 to-red-500 hover:from-orange-500 hover:to-red-600 text-white border-0 shadow-lg"
-                                    >
+
+                                    {/* Content Overlay */}
+                                    <div className="absolute bottom-0 left-0 right-0 p-8">
+                                        <div className="flex items-center text-sm text-blue-200 mb-4">
+                                            <Calendar className="h-4 w-4 mr-2" />
+                                            <span className="mr-4">
+                                                {new Date(
+                                                    featuredNews.date
+                                                ).toLocaleDateString("sw-TZ")}
+                                            </span>
+                                            <Clock className="h-4 w-4 mr-2" />
+                                            <span className="mr-4">
+                                                {featuredNews.readTime}
+                                            </span>
+                                            <span>
+                                                {t("recent_news.by_author", { author: featuredNews.author })}
+                                            </span>
+                                        </div>
                                         <Link
                                             href={`/news/${featuredNews.slug}`}
                                         >
-                                            Soma Zaidi{" "}
-                                            <ArrowRight className="h-4 w-4 ml-2" />
+                                            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 group-hover:text-yellow-300 cursor-pointer transition-colors leading-tight">
+                                                {featuredNews.title}
+                                            </h3>
                                         </Link>
-                                    </Button>
-                                </CardContent>
+                                        <p className="text-gray-200 text-base md:text-lg mb-6 line-clamp-2 leading-relaxed">
+                                            {featuredNews.summary}
+                                        </p>
+                                        <Button
+                                            asChild
+                                            className="bg-gradient-to-r from-orange-400 to-red-500 hover:from-orange-500 hover:to-red-600 text-white border-0 shadow-lg"
+                                        >
+                                            <Link
+                                                href={`/news/${featuredNews.slug}`}
+                                            >
+                                                {t("recent_news.read_more")}{" "}
+                                                <ArrowRight className="h-4 w-4 ml-2" />
+                                            </Link>
+                                        </Button>
+                                    </div>
+                                </div>
                             </Card>
                         </div>
                     )}
 
                     {/* Regular News - Smaller Cards */}
-                    <div className="space-y-6">
+                    <div className="lg:col-span-4 space-y-6 lg:items-center lg:justify-between lg:flex lg:flex-col">
                         {regularNews.slice(0, 3).map((news) => (
                             <Card
                                 key={news.id}
-                                className="group overflow-hidden bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 transition-all duration-500 hover:scale-105"
+                                className="group overflow-hidden bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/15 transition-all duration-300 hover:scale-[1.02] shadow-xl"
                             >
-                                <div className="flex">
-                                    <div className="w-24 h-24 flex-shrink-0 relative">
+                                <div className="flex h-32">
+                                    <div className="relative w-32 flex-shrink-0 overflow-hidden">
                                         <img
                                             src={news.image}
                                             alt={news.title}
-                                            className="w-full h-full object-cover"
+                                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                                         />
-                                        <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent"></div>
+                                        <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black/20"></div>
                                     </div>
-                                    <CardContent className="flex-1 p-4 text-white">
-                                        <div className="flex items-center mb-2">
-                                            <span
-                                                className={`inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-gradient-to-r ${getCategoryColor(
-                                                    news.category
-                                                )} text-white shadow-md`}
-                                            >
-                                                {React.createElement(
-                                                    getCategoryIcon(
+                                    <div className="flex-1 p-4 flex flex-col justify-between">
+                                        <div>
+                                            <div className="mb-2">
+                                                <span
+                                                    className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-gradient-to-r ${getCategoryColor(
                                                         news.category
-                                                    ),
-                                                    {
-                                                        className:
-                                                            "h-3 w-3 mr-1",
-                                                    }
-                                                )}
-                                                {news.category}
-                                            </span>
+                                                    )} text-white shadow-md`}
+                                                >
+                                                    {React.createElement(
+                                                        getCategoryIcon(
+                                                            news.category
+                                                        ),
+                                                        {
+                                                            className:
+                                                                "h-3 w-3 mr-1",
+                                                        }
+                                                    )}
+                                                    {news.category}
+                                                </span>
+                                            </div>
+                                            <Link href={`/news/${news.slug}`}>
+                                                <h4 className="font-semibold text-white text-sm mb-2 group-hover:text-yellow-300 cursor-pointer transition-colors line-clamp-2 leading-tight">
+                                                    {news.title}
+                                                </h4>
+                                            </Link>
                                         </div>
-                                        <Link href={`/news/${news.slug}`}>
-                                            <h4 className="font-semibold text-white mb-2 group-hover:text-yellow-300 cursor-pointer transition-colors line-clamp-2">
-                                                {news.title}
-                                            </h4>
-                                        </Link>
-                                        <p className="text-sm text-blue-100 mb-2 line-clamp-2">
-                                            {news.summary}
-                                        </p>
-                                        <div className="flex items-center text-xs text-blue-200">
-                                            <Calendar className="h-3 w-3 mr-1" />
-                                            <span className="mr-3">
-                                                {new Date(
-                                                    news.date
-                                                ).toLocaleDateString("sw-TZ")}
-                                            </span>
-                                            <Clock className="h-3 w-3 mr-1" />
-                                            <span>{news.readTime}</span>
+                                        <div className="flex items-center justify-between">
+                                            <div className="flex items-center text-xs text-blue-200">
+                                                <Calendar className="h-3 w-3 mr-1" />
+                                                <span>
+                                                    {new Date(
+                                                        news.date
+                                                    ).toLocaleDateString(
+                                                        "sw-TZ"
+                                                    )}
+                                                </span>
+                                            </div>
+                                            <ChevronRight className="h-4 w-4 text-gray-300 group-hover:text-white group-hover:translate-x-1 transition-all duration-300" />
                                         </div>
-                                    </CardContent>
+                                    </div>
                                 </div>
                             </Card>
                         ))}
@@ -264,12 +283,10 @@ const RecentNews: React.FC<RecentNewsProps> = ({ featuredBlogs }) => {
                 <div className="text-center mt-16">
                     <div className="bg-white/10 backdrop-blur-md border border-white/20 text-white p-8 rounded-2xl">
                         <h3 className="text-2xl font-bold mb-4">
-                            Fuata Maendeleo Yetu
+                            {t("recent_news.follow_progress")}
                         </h3>
                         <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-                            Pata habari za hivi karibuni kuhusu mafanikio ya
-                            programu za VVU na jinsi unavyoweza kushiriki katika
-                            vita dhidi ya VVU
+                            {t("recent_news.follow_description")}
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <div className="flex flex-wrap gap-3 justify-center">
