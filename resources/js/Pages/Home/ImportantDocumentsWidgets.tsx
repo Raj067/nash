@@ -2,6 +2,7 @@ import { Button } from "@/Components/ui/button";
 import { Card, CardContent } from "@/Components/ui/card";
 import { Calendar, Download, FileText } from "lucide-react";
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 interface Document {
     id: number;
@@ -29,6 +30,7 @@ interface ImportantDocumentsWidgetsProps {
 function ImportantDocumentsWidgets({
     featuredDocuments,
 }: ImportantDocumentsWidgetsProps) {
+    const { t } = useTranslation();
     return (
         <section className="py-20 bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50 relative overflow-hidden">
             {/* Background Elements */}
@@ -44,15 +46,14 @@ function ImportantDocumentsWidgets({
                             <FileText className="h-10 w-10 text-white" />
                         </div>
                         <h2 className="text-4xl font-bold bg-gradient-to-r from-gray-800 to-blue-600 bg-clip-text text-transparent mb-6">
-                            Nyaraka Muhimu za NASHCOP
+                            {t("documents.title")}
                         </h2>
                         <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                            Pakua nyaraka za kiufundi na sera za programu za
-                            VVU, STI na Hepatitis
+                            {t("documents.description")}
                         </p>
                         {featuredDocuments.length === 0 && (
                             <p className="text-sm text-gray-500 mt-4">
-                                Hakuna nyaraka za msingi zilizopo kwa sasa
+                                {t("documents.no_documents")}
                             </p>
                         )}
                     </div>
@@ -114,7 +115,7 @@ function ImportantDocumentsWidgets({
                                             rel="noopener noreferrer"
                                         >
                                             <Download className="h-4 w-4 mr-2 group-hover:animate-bounce" />
-                                            Pakua
+                                            {t("documents.download")}
                                         </a>
                                     </Button>
 

@@ -6,6 +6,7 @@ import {
 } from "@/Components/ui/accordion";
 import { HelpCircle } from "lucide-react";
 import React, { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
 interface FAQItem {
     id: number;
@@ -15,6 +16,7 @@ interface FAQItem {
 }
 
 function FaqsWidgets() {
+    const { t } = useTranslation();
     const [faqData, setFaqData] = useState<FAQItem[]>([]);
     const [loading, setLoading] = useState(true);
 
@@ -42,12 +44,11 @@ function FaqsWidgets() {
                         <div className="flex items-center justify-center mb-4">
                             <HelpCircle className="h-8 w-8 text-blue-600 mr-3" />
                             <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-                                Maswali Yanayoulizwa Mara kwa Mara
+                                {t("faqs.title")}
                             </h2>
                         </div>
                         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                            Pata majibu ya maswali muhimu kuhusu VVU na huduma
-                            zetu
+                            {t("faqs.description")}
                         </p>
                     </div>
                     <div className="max-w-4xl mx-auto">
@@ -75,11 +76,11 @@ function FaqsWidgets() {
                     <div className="flex items-center justify-center mb-4">
                         <HelpCircle className="h-8 w-8 text-blue-600 mr-3" />
                         <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-                            Maswali Yanayoulizwa Mara kwa Mara
+                            {t("faqs.title")}
                         </h2>
                     </div>
                     <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                        Pata majibu ya maswali muhimu kuhusu VVU na huduma zetu
+                        {t("faqs.description")}
                     </p>
                 </div>
 

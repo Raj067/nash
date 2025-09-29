@@ -167,6 +167,37 @@
       "programu": "Programs"
     }
   },
+  "statistics": {
+    "title": "Tanzania's 95-95-95 Statistics",
+    "description": "Tanzania's progress towards achieving UNAIDS 95-95-95 targets",
+    "source": "Source: DHIS2 September 2021",
+    "progress_chart_title": "95-95-95 System: Tanzania's Progress",
+    "target": "Target",
+    "achieved": "Achieved",
+    "stats": {
+      "people_with_hiv": "People with HIV",
+      "know_status": "Know Their Status",
+      "receiving_treatment": "Receiving Treatment",
+      "viral_suppression": "Viral Suppression"
+    },
+    "values": {
+      "people_with_hiv": "1.7M",
+      "know_status": "88%",
+      "receiving_treatment": "98%",
+      "viral_suppression": "96%"
+    }
+  },
+  "faqs": {
+    "title": "Frequently Asked Questions",
+    "description": "Get answers to important questions about HIV and our services"
+  },
+  "documents": {
+    "title": "Important NASHCOP Documents",
+    "description": "Download technical documents and policies for HIV, STI and Hepatitis programs",
+    "no_documents": "No featured documents available at the moment",
+    "download": "Download",
+    "view_all": "View All Documents"
+  },
   "home": {
     "title": "Nash COP - Community Oriented Policing",
     "hero": {

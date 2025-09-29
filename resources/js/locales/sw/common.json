@@ -165,6 +165,37 @@
       "programu": "Programu"
     }
   },
+  "statistics": {
+    "title": "Takwimu za 95-95-95 Tanzania",
+    "description": "Maendeleo ya Tanzania katika kufikia malengo ya UNAIDS ya 95-95-95",
+    "source": "Chanzo: DHIS2 September 2021",
+    "progress_chart_title": "Mfumo wa 95-95-95: Maendeleo ya Tanzania",
+    "target": "Lengo",
+    "achieved": "Limefikwa",
+    "stats": {
+      "people_with_hiv": "Watu Wenye VVU",
+      "know_status": "Wanajua Hali Yao",
+      "receiving_treatment": "Wanapata Matibabu",
+      "viral_suppression": "Virusi Vimepungua"
+    },
+    "values": {
+      "people_with_hiv": "1.7M",
+      "know_status": "88%",
+      "receiving_treatment": "98%",
+      "viral_suppression": "96%"
+    }
+  },
+  "faqs": {
+    "title": "Maswali Yanayoulizwa Mara kwa Mara",
+    "description": "Pata majibu ya maswali muhimu kuhusu VVU na huduma zetu"
+  },
+  "documents": {
+    "title": "Nyaraka Muhimu za NASHCOP",
+    "description": "Pakua nyaraka za kiufundi na sera za programu za VVU, STI na Hepatitis",
+    "no_documents": "Hakuna nyaraka za msingi zilizopo kwa sasa",
+    "download": "Pakua",
+    "view_all": "Ona Nyaraka Zote"
+  },
   "home": {
     "title": "Nash COP - Uongozi wa Jamii",
     "hero": {

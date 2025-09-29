@@ -1,14 +1,36 @@
 import { Activity, Award, BarChart3, Target, Users } from "lucide-react";
 import React from "react";
-
-const quickStats = [
-    { label: "Watu Wenye VVU", value: "1.7M", icon: Users },
-    { label: "Wanajua Hali Yao", value: "88%", icon: Target },
-    { label: "Wanapata Matibabu", value: "98%", icon: Activity },
-    { label: "Virusi Vimepungua", value: "96%", icon: Award },
-];
+import { useTranslation } from "react-i18next";
 
 function HomeStatisticsPage() {
+    const { t } = useTranslation();
+
+    const quickStats = [
+        { 
+            key: "people_with_hiv",
+            label: t("statistics.stats.people_with_hiv"), 
+            value: t("statistics.values.people_with_hiv"), 
+            icon: Users 
+        },
+        { 
+            key: "know_status",
+            label: t("statistics.stats.know_status"), 
+            value: t("statistics.values.know_status"), 
+            icon: Target 
+        },
+        { 
+            key: "receiving_treatment",
+            label: t("statistics.stats.receiving_treatment"), 
+            value: t("statistics.values.receiving_treatment"), 
+            icon: Activity 
+        },
+        { 
+            key: "viral_suppression",
+            label: t("statistics.stats.viral_suppression"), 
+            value: t("statistics.values.viral_suppression"), 
+            icon: Award 
+        },
+    ];
     return (
         <section className="py-20 bg-gradient-to-r from-blue-900 via-blue-800 to-purple-900 relative overflow-hidden">
             {/* Background Graphics */}
@@ -26,14 +48,13 @@ function HomeStatisticsPage() {
                         <BarChart3 className="h-12 w-12 text-white" />
                     </div>
                     <h2 className="text-4xl font-bold text-white mb-6">
-                        Takwimu za 95-95-95 Tanzania
+                        {t("statistics.title")}
                     </h2>
                     <p className="text-blue-100 max-w-3xl mx-auto text-lg">
-                        Maendeleo ya Tanzania katika kufikia malengo ya UNAIDS
-                        ya 95-95-95
+                        {t("statistics.description")}
                         <br />
                         <span className="text-sm text-blue-200 mt-2 block">
-                            Chanzo: DHIS2 September 2021
+                            {t("statistics.source")}
                         </span>
                     </p>
                 </div>
