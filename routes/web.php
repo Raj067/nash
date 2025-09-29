@@ -90,13 +90,14 @@ Route::get('/programme-areas/pharmaceuticals-laboratory/laboratory-services', [P
 
 // Resources
 Route::get('/resources', [DocumentController::class, 'resources'])->name('resources');
-Route::get('/resources/strategic-framework', [DocumentController::class, 'strategicFramework'])->name('resources.strategic-framework');
-Route::get('/resources/guidelines', [DocumentController::class, 'guidelines'])->name('resources.guidelines');
-Route::get('/resources/databases', [DocumentController::class, 'databases'])->name('resources.databases');
-Route::get('/resources/sop-manuals', [DocumentController::class, 'sopManuals'])->name('resources.sop-manuals');
+Route::get('/resources/plans-strategic', [DocumentController::class, 'plansStrategic'])->name('resources.plans-strategic');
 Route::get('/resources/policy-documents', [DocumentController::class, 'policyDocuments'])->name('resources.policy-documents');
+Route::get('/resources/guidelines', [DocumentController::class, 'guidelines'])->name('resources.guidelines');
 Route::get('/resources/reports', [DocumentController::class, 'reports'])->name('resources.reports');
+Route::get('/resources/sop-manuals', [DocumentController::class, 'sopManuals'])->name('resources.sop-manuals');
+Route::get('/resources/frameworks', [DocumentController::class, 'frameworks'])->name('resources.frameworks');
 Route::get('/resources/iec-materials', [DocumentController::class, 'iecMaterials'])->name('resources.iec-materials');
+Route::get('/resources/databases', [DocumentController::class, 'databases'])->name('resources.databases');
 
 // News & Media
 Route::get('/news', [BlogController::class, 'index'])->name('news');

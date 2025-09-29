@@ -423,7 +423,9 @@ const NASHCOPHeader: FC = () => {
                             href: "/programme-areas/care-treatment-support/adolescent-hiv",
                         },
                         {
-                            title: t("header.navigation.viral_hepatitis_screening"),
+                            title: t(
+                                "header.navigation.viral_hepatitis_screening"
+                            ),
                             href: "/programme-areas/care-treatment-support/viral-hepatitis-screening",
                         },
                         {
@@ -431,7 +433,9 @@ const NASHCOPHeader: FC = () => {
                             href: "/programme-areas/care-treatment-support/viral-hepatitis-care",
                         },
                         {
-                            title: t("header.navigation.early_infant_diagnosis"),
+                            title: t(
+                                "header.navigation.early_infant_diagnosis"
+                            ),
                             href: "/programme-areas/care-treatment-support/early-infant-diagnosis",
                         },
                         {
@@ -484,21 +488,37 @@ const NASHCOPHeader: FC = () => {
             icon: FileText,
             dropdown: [
                 {
-                    title: t("header.navigation.strategic_framework"),
-                    href: "/resources/strategic-framework",
+                    title: t("header.navigation.plans_strategic"),
+                    href: "/resources/plans-strategic",
                 },
-                { title: t("header.navigation.guidelines"), href: "/resources/guidelines" },
                 {
                     title: t("header.navigation.policy_documents"),
                     href: "/resources/policy-documents",
                 },
-                { title: t("header.navigation.reports"), href: "/resources/reports" },
-                { title: t("header.navigation.sop_manuals"), href: "/resources/sop-manuals" },
+                {
+                    title: t("header.navigation.guidelines"),
+                    href: "/resources/guidelines",
+                },
+                {
+                    title: t("header.navigation.reports"),
+                    href: "/resources/reports",
+                },
+                {
+                    title: t("header.navigation.sop_manuals"),
+                    href: "/resources/sop-manuals",
+                },
+                {
+                    title: t("header.navigation.frameworks"),
+                    href: "/resources/frameworks",
+                },
                 {
                     title: t("header.navigation.iec_materials"),
                     href: "/resources/iec-materials",
                 },
-                { title: t("header.navigation.databases"), href: "/resources/databases" },
+                {
+                    title: t("header.navigation.databases"),
+                    href: "/resources/databases",
+                },
             ],
         },
         {
@@ -507,12 +527,21 @@ const NASHCOPHeader: FC = () => {
             icon: Newspaper,
             dropdown: [
                 { title: t("header.navigation.news"), href: "/news" },
-                { title: t("header.navigation.press_releases"), href: "/news/press-releases" },
-                { title: t("header.navigation.speeches"), href: "/news/speeches" },
+                {
+                    title: t("header.navigation.press_releases"),
+                    href: "/news/press-releases",
+                },
+                {
+                    title: t("header.navigation.speeches"),
+                    href: "/news/speeches",
+                },
                 { title: t("header.navigation.events"), href: "/news/events" },
-                { title: t("header.navigation.newsletter"), href: "/news/newsletter" },
-                { title: t("header.navigation.photo_gallery"), href: "/news/photo-gallery" },
-                { title: t("header.navigation.video_library"), href: "/news/video-library" },
+                {
+                    title: t("header.navigation.newsletter"),
+                    href: "/news/newsletter",
+                },
+                // { title: t("header.navigation.photo_gallery"), href: "/news/photo-gallery" },
+                // { title: t("header.navigation.video_library"), href: "/news/video-library" },
             ],
         },
         {
@@ -520,9 +549,15 @@ const NASHCOPHeader: FC = () => {
             href: "/contact/locations",
             icon: MessageCircle,
             dropdown: [
-                { title: t("header.navigation.office_locations"), href: "/contact/locations" },
+                {
+                    title: t("header.navigation.office_locations"),
+                    href: "/contact/locations",
+                },
                 // { title: "Contact Information", href: "/contact/info" },
-                { title: t("header.navigation.feedback_complaints"), href: "/contact/feedback" },
+                {
+                    title: t("header.navigation.feedback_complaints"),
+                    href: "/contact/feedback",
+                },
                 // { title: "Help Desk", href: "/contact/help" },
             ],
         },

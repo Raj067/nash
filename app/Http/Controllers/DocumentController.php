@@ -374,4 +374,66 @@ class DocumentController extends Controller
             'documents' => $documents
         ]);
     }
+
+    public function plansStrategic()
+    {
+        $documents = Document::active()
+            ->where('category', 'plans_strategic')
+            ->ordered()
+            ->get()
+            ->map(function ($document) {
+                return [
+                    'id' => $document->id,
+                    'title' => $document->title,
+                    'description' => $document->description,
+                    'category' => $document->category,
+                    'category_display' => Document::getCategoryDisplayName($document->category),
+                    'file_type' => $document->file_type,
+                    'file_path' => $document->file_path,
+                    'file_url' => $document->file_url,
+                    'formatted_file_size' => $document->formatted_file_size,
+                    'file_icon' => $document->file_icon,
+                    'published_date' => $document->published_date?->format('Y-m-d'),
+                    'author' => $document->author,
+                    'version' => $document->version,
+                    'tags' => $document->tags,
+                    'is_featured' => $document->is_featured,
+                ];
+            });
+
+        return Inertia::render('Resources/PlansStrategic', [
+            'documents' => $documents
+        ]);
+    }
+
+    public function frameworks()
+    {
+        $documents = Document::active()
+            ->where('category', 'frameworks')
+            ->ordered()
+            ->get()
+            ->map(function ($document) {
+                return [
+                    'id' => $document->id,
+                    'title' => $document->title,
+                    'description' => $document->description,
+                    'category' => $document->category,
+                    'category_display' => Document::getCategoryDisplayName($document->category),
+                    'file_type' => $document->file_type,
+                    'file_path' => $document->file_path,
+                    'file_url' => $document->file_url,
+                    'formatted_file_size' => $document->formatted_file_size,
+                    'file_icon' => $document->file_icon,
+                    'published_date' => $document->published_date?->format('Y-m-d'),
+                    'author' => $document->author,
+                    'version' => $document->version,
+                    'tags' => $document->tags,
+                    'is_featured' => $document->is_featured,
+                ];
+            });
+
+        return Inertia::render('Resources/Frameworks', [
+            'documents' => $documents
+        ]);
+    }
 }

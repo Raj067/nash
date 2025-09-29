@@ -76,48 +76,59 @@ const NASHCOPFooter: FC = () => {
 
     const quickLinks = [
         {
-            title: t("footer.services.hiv_testing"),
-            href: "/interventions/hiv-testing-services-linkage",
-            icon: Heart,
-        },
-        {
-            title: t("footer.services.care_treatment"),
-            href: "/services/care-treatment-and-support-unit",
+            title: t("header.navigation.prevention"),
+            href: "/programme-areas/prevention",
             icon: Shield,
         },
         {
-            title: t("footer.services.prevention_programs"),
-            href: "/interventions/prevention-new-hiv-infection",
-            icon: Users,
+            title: t("header.navigation.care_treatment_support"),
+            href: "/programme-areas/care-treatment-support",
+            icon: Heart,
         },
         {
-            title: t("footer.services.strategic_information"),
-            href: "/services/strategic-information-unit",
+            title: t("header.navigation.monitoring_evaluation"),
+            href: "/programme-areas/monitoring-evaluation",
             icon: FileText,
+        },
+        {
+            title: t("header.navigation.pharmaceuticals_laboratory"),
+            href: "/programme-areas/pharmaceuticals-laboratory",
+            icon: Users,
         },
     ];
 
     const importantLinks = [
         {
-            title: t("footer.links.emergency_hotline"),
-            href: "tel:+177",
-            phone: "+177",
+            title: t("header.navigation.plans_strategic"),
+            href: "/resources/plans-strategic",
         },
         {
-            title: t("footer.links.division_prevention"),
-            href: "/services/division-of-prevention",
+            title: t("header.navigation.policy_documents"),
+            href: "/resources/policy-documents",
         },
         {
-            title: t("footer.links.strategic_framework"),
-            href: "/resources/strategic-framework",
+            title: t("header.navigation.guidelines"),
+            href: "/resources/guidelines",
         },
         {
-            title: t("footer.links.building_health_systems"),
-            href: "/interventions/building-resilient-health-systems",
+            title: t("header.navigation.reports"),
+            href: "/resources/reports",
         },
         {
-            title: t("footer.links.nacp_roles"),
-            href: "/services/nacp-roles-and-responsibilities",
+            title: t("header.navigation.sop_manuals"),
+            href: "/resources/sop-manuals",
+        },
+        {
+            title: t("header.navigation.frameworks"),
+            href: "/resources/frameworks",
+        },
+        {
+            title: t("header.navigation.iec_materials"),
+            href: "/resources/iec-materials",
+        },
+        {
+            title: t("header.navigation.databases"),
+            href: "/resources/databases",
         },
         // { title: "Contact Information", href: "/contact/info" },
     ];
@@ -268,11 +279,6 @@ const NASHCOPFooter: FC = () => {
                                     className="block text-sm text-blue-100 hover:text-yellow-400 transition-colors"
                                 >
                                     {link.title}
-                                    {link.phone && (
-                                        <span className="ml-2 text-yellow-400 font-semibold">
-                                            ({link.phone})
-                                        </span>
-                                    )}
                                 </a>
                             ))}
                         </div>

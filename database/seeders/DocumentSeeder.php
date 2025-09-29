@@ -20,6 +20,7 @@ class DocumentSeeder extends Seeder
         
         echo "Starting document seeding...\n";
         $this->seedActualDocuments();
+        $this->seedSampleDocuments();
         echo "Document seeding completed.\n";
     }
     
@@ -43,10 +44,14 @@ class DocumentSeeder extends Seeder
         }
         
         $categories = [
-            'databases' => 'Databases',
-            'guidelines' => 'Guidelines', 
+            'plans_strategic' => 'Plans & Strategic Documents',
+            'policy' => 'Policy Documents',
+            'guidelines' => 'Guidelines',
+            'reports' => 'Reports',
             'manuals_sops' => 'Manuals, Forms, Tools and SOPs',
-            'news' => 'Reports'
+            'frameworks' => 'Frameworks',
+            'iec_sbc' => 'IEC/SBC Materials',
+            'databases' => 'Databases'
         ];
         
         $sortOrder = 1;
@@ -268,12 +273,142 @@ class DocumentSeeder extends Seeder
     private function mapCategory($categoryKey)
     {
         $categoryMap = [
-            'databases' => 'databases',
-            'guidelines' => 'guidelines', 
+            'plans_strategic' => 'plans_strategic',
+            'policy' => 'policy',
+            'guidelines' => 'guidelines',
+            'reports' => 'reports',
             'manuals_sops' => 'manuals_sops',
-            'news' => 'reports' // Map news folder to reports category
+            'frameworks' => 'frameworks',
+            'iec_sbc' => 'iec_sbc',
+            'databases' => 'databases',
+            'news' => 'reports' // Map news folder to reports category for backward compatibility
         ];
         
         return $categoryMap[$categoryKey] ?? 'guidelines';
     }
-}
+
+    private function seedSampleDocuments()
+    {
+        echo "Seeding sample documents for missing categories...\n";
+        
+        $sampleDocuments = [
+            // Plans & Strategic Documents
+            [
+                'title' => 'National Strategic Plan for HIV/AIDS 2023-2028',
+                'description' => 'Comprehensive strategic plan outlining Tanzania\'s national response to HIV/AIDS for the period 2023-2028, including prevention, treatment, and care strategies.',
+                'category' => 'plans_strategic',
+                'file_type' => 'pdf',
+                'file_url' => 'https://www.tacaids.go.tz/uploads/NSP_2023_2028.pdf',
+                'published_date' => Carbon::create(2023, 6, 15),
+                'author' => 'Tanzania Commission for AIDS (TACAIDS)',
+                'version' => '1.0',
+                'tags' => ['strategic plan', 'HIV', 'AIDS', 'national response', 'prevention', 'treatment'],
+                'is_featured' => true,
+                'sort_order' => 1,
+            ],
+            [
+                'title' => 'Health Sector Strategic Plan IV (2015-2020)',
+                'description' => 'Fourth Health Sector Strategic Plan providing framework for health sector development including HIV/AIDS program implementation.',
+                'category' => 'plans_strategic',
+                'file_type' => 'pdf',
+                'file_url' => 'https://www.moh.go.tz/uploads/HSSP_IV.pdf',
+                'published_date' => Carbon::create(2015, 7, 1),
+                'author' => 'Ministry of Health, Community Development, Gender, Elderly and Children',
+                'version' => '1.0',
+                'tags' => ['health sector', 'strategic plan', 'development', 'framework'],
+                'is_featured' => true,
+                'sort_order' => 2,
+            ],
+            
+            // Policy Documents
+            [
+                'title' => 'National HIV/AIDS Policy (2022)',
+                'description' => 'Updated national policy framework for HIV/AIDS prevention, treatment, care and support in Tanzania.',
+                'category' => 'policy',
+                'file_type' => 'pdf',
+                'file_url' => 'https://www.tacaids.go.tz/uploads/HIV_AIDS_Policy_2022.pdf',
+                'published_date' => Carbon::create(2022, 3, 10),
+                'author' => 'Ministry of Health, Community Development, Gender, Elderly and Children',
+                'version' => '2.0',
+                'tags' => ['policy', 'HIV', 'AIDS', 'prevention', 'treatment', 'care'],
+                'is_featured' => true,
+                'sort_order' => 3,
+            ],
+            [
+                'title' => 'TB/HIV Collaborative Activities Policy',
+                'description' => 'National policy guidelines for TB/HIV collaborative activities and integrated service delivery.',
+                'category' => 'policy',
+                'file_type' => 'pdf',
+                'file_url' => 'https://www.moh.go.tz/uploads/TB_HIV_Policy.pdf',
+                'published_date' => Carbon::create(2021, 9, 20),
+                'author' => 'National Tuberculosis and Leprosy Programme',
+                'version' => '1.0',
+                'tags' => ['TB', 'HIV', 'collaborative', 'policy', 'integrated services'],
+                'is_featured' => false,
+                'sort_order' => 4,
+            ],
+            
+            // Frameworks
+            [
+                'title' => 'National HIV Testing Services Framework',
+                'description' => 'Comprehensive framework for implementing HIV testing services across Tanzania, including provider-initiated and client-initiated testing.',
+                'category' => 'frameworks',
+                'file_type' => 'pdf',
+                'file_url' => 'https://www.moh.go.tz/uploads/HTS_Framework.pdf',
+                'published_date' => Carbon::create(2023, 1, 15),
+                'author' => 'NATIONAL AIDS, STIs AND HEPATITIS CONTROL PROGRAMME (NACP)',
+                'version' => '2.0',
+                'tags' => ['HIV testing', 'framework', 'provider-initiated', 'client-initiated'],
+                'is_featured' => true,
+                'sort_order' => 5,
+            ],
+            [
+                'title' => 'Quality Improvement Framework for HIV Services',
+                'description' => 'Framework for continuous quality improvement in HIV prevention, treatment, and care services.',
+                'category' => 'frameworks',
+                'file_type' => 'pdf',
+                'file_url' => 'https://www.moh.go.tz/uploads/QI_Framework_HIV.pdf',
+                'published_date' => Carbon::create(2022, 11, 30),
+                'author' => 'NATIONAL AIDS, STIs AND HEPATITIS CONTROL PROGRAMME (NACP)',
+                'version' => '1.0',
+                'tags' => ['quality improvement', 'HIV services', 'framework', 'continuous improvement'],
+                'is_featured' => false,
+                'sort_order' => 6,
+            ],
+            
+            // IEC/SBC Materials
+            [
+                'title' => 'HIV Prevention Communication Strategy',
+                'description' => 'Strategic communication plan for HIV prevention campaigns and behavior change interventions.',
+                'category' => 'iec_sbc',
+                'file_type' => 'pdf',
+                'file_url' => 'https://www.tacaids.go.tz/uploads/Communication_Strategy.pdf',
+                'published_date' => Carbon::create(2023, 4, 20),
+                'author' => 'Tanzania Commission for AIDS (TACAIDS)',
+                'version' => '1.0',
+                'tags' => ['communication', 'prevention', 'behavior change', 'strategy'],
+                'is_featured' => true,
+                'sort_order' => 7,
+            ],
+            [
+                'title' => 'Youth HIV Prevention Materials Package',
+                'description' => 'Comprehensive package of educational materials for HIV prevention among young people.',
+                'category' => 'iec_sbc',
+                'file_type' => 'pdf',
+                'file_url' => 'https://www.tacaids.go.tz/uploads/Youth_Materials.pdf',
+                'published_date' => Carbon::create(2023, 2, 14),
+                'author' => 'NATIONAL AIDS, STIs AND HEPATITIS CONTROL PROGRAMME (NACP)',
+                'version' => '1.0',
+                'tags' => ['youth', 'prevention', 'education', 'materials'],
+                'is_featured' => false,
+                'sort_order' => 8,
+            ],
+        ];
+
+        foreach ($sampleDocuments as $document) {
+            Document::create($document);
+            echo "✅ Created sample document: {$document['title']}\n";
+        }
+        
+        echo "📊 Sample documents seeded successfully.\n";
+    }
