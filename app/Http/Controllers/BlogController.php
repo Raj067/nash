@@ -172,7 +172,7 @@ class BlogController extends Controller
             'article' => SeoService::generateArticleStructuredData($blog),
             'breadcrumb' => SeoService::generateBreadcrumbStructuredData([
                 ['name' => 'Home', 'url' => route('home')],
-                ['name' => 'News & Updates', 'url' => route('news.index')],
+                ['name' => 'News & Updates', 'url' => route('news')],
                 ['name' => $blog->title, 'url' => route('news.show', $blog->slug)],
             ]),
         ];

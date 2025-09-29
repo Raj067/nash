@@ -73,7 +73,7 @@ class SeoMiddleware
                 ]);
                 break;
 
-            case 'news.index':
+            case 'news':
                 $seoData['meta'] = SeoService::generateMetaTags([
                     'title' => 'News & Updates - NASHCOP Tanzania',
                     'description' => 'Stay updated with the latest news, press releases, events, and developments in HIV/AIDS, STIs, and Hepatitis control in Tanzania.',

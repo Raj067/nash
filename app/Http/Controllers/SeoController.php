@@ -112,7 +112,7 @@ class SeoController extends Controller
                 'priority' => '0.8',
             ],
             [
-                'loc' => route('news.index'),
+                'loc' => route('news'),
                 'lastmod' => now()->toISOString(),
                 'changefreq' => 'daily',
                 'priority' => '0.9',
