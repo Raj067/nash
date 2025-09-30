@@ -335,7 +335,7 @@ export default function Privacy() {
                                             <MapPin className="h-5 w-5 text-blue-600" />
                                             <div>
                                                 <p className="font-medium text-gray-800">Address</p>
-                                                <p className="text-blue-600">Dar es Salaam, Tanzania</p>
+                                                <p className="text-blue-600">Dodoma, Tanzania</p>
                                             </div>
                                         </div>
                                     </div>

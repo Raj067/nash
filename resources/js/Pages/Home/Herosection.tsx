@@ -44,7 +44,7 @@ function Herosection() {
     const slides = [
         {
             id: 1,
-            image: "/images/arvsImages.jpeg",
+            image: "/images/20250930_080029.JPG",
             title: t("home.hero.slides.slide1.title"),
             subtitle: t("home.hero.slides.slide1.subtitle"),
             description: t("home.hero.slides.slide1.description"),
