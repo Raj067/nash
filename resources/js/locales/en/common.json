@@ -170,7 +170,7 @@
   "statistics": {
     "title": "Tanzania's 95-95-95 Statistics",
     "description": "Tanzania's progress towards achieving UNAIDS 95-95-95 targets",
-    "source": "Source: DHIS2 September 2021",
+    "source": "Source: DHIS2 July 2025",
     "progress_chart_title": "95-95-95 System: Tanzania's Progress",
     "target": "Target",
     "achieved": "Achieved",
@@ -182,9 +182,9 @@
     },
     "values": {
       "people_with_hiv": "1.7M",
-      "know_status": "88%",
-      "receiving_treatment": "98%",
-      "viral_suppression": "96%"
+      "know_status": "92%",
+      "receiving_treatment": "98.9%",
+      "viral_suppression": "98.1%"
     }
   },
   "faqs": {
@@ -217,7 +217,7 @@
       },
       "tb_risk": {
         "title": "TB Risk",
-        "subtitle": "Assessment", 
+        "subtitle": "Assessment",
         "description": "Check tuberculosis risk factors"
       },
       "prep": {

@@ -168,7 +168,7 @@
   "statistics": {
     "title": "Takwimu za 95-95-95 Tanzania",
     "description": "Maendeleo ya Tanzania katika kufikia malengo ya UNAIDS ya 95-95-95",
-    "source": "Chanzo: DHIS2 September 2021",
+    "source": "Chanzo: DHIS2 July 2025",
     "progress_chart_title": "Mfumo wa 95-95-95: Maendeleo ya Tanzania",
     "target": "Lengo",
     "achieved": "Limefikwa",
@@ -180,9 +180,9 @@
     },
     "values": {
       "people_with_hiv": "1.7M",
-      "know_status": "88%",
-      "receiving_treatment": "98%",
-      "viral_suppression": "96%"
+      "know_status": "92%",
+      "receiving_treatment": "98.9%",
+      "viral_suppression": "98.1%"
     }
   },
   "faqs": {

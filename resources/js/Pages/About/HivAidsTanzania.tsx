@@ -21,29 +21,29 @@ import {
 export default function HivAidsTanzania() {
     const keyStatistics = [
         {
-            label: "People Living with HIV (2017)",
-            value: "1.4M",
+            label: "Adults Living with HIV",
+            value: "1.548M",
             trend: "stable",
             icon: Users,
             color: "text-red-600",
         },
         {
             label: "Adult HIV Prevalence",
-            value: "4.7%",
+            value: "4.4%",
             trend: "down",
             icon: Activity,
             color: "text-orange-600",
         },
         {
             label: "Women HIV Prevalence",
-            value: "6.3%",
+            value: "5.6%",
             trend: "stable",
             icon: UserCheck,
             color: "text-pink-600",
         },
         {
             label: "Men HIV Prevalence",
-            value: "3.9%",
+            value: "3.0%",
             trend: "stable",
             icon: Users,
             color: "text-blue-600",

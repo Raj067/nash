@@ -24,34 +24,35 @@ import {
     Tablet,
     Database,
     Pill,
+    UserCheck,
 } from "lucide-react";
 import { Button } from "@/Components/ui/button";
 
 export default function AboutUs() {
     const stats = [
         {
-            label: "People living with HIV (Adults)",
-            value: "1.5M+",
+            label: "Adults Living with HIV",
+            value: "1.548M",
             icon: Users,
             color: "text-red-600",
         },
         {
-            label: "HIV Prevalence Rate",
+            label: "Adult HIV Prevalence",
             value: "4.4%",
             icon: Activity,
             color: "text-orange-600",
         },
         {
-            label: "Regions Covered",
-            value: "31",
-            icon: MapPin,
-            color: "text-blue-600",
+            label: "Women HIV Prevalence",
+            value: "5.6%",
+            icon: UserCheck,
+            color: "text-pink-600",
         },
         {
-            label: "Years of Service",
-            value: "30+",
-            icon: Calendar,
-            color: "text-green-600",
+            label: "Men HIV Prevalence",
+            value: "3.0%",
+            icon: Users,
+            color: "text-blue-600",
         },
     ];
 
