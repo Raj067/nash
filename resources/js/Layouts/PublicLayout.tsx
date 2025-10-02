@@ -1,6 +1,7 @@
 import { Navigation } from "@/Components/Navigation";
 import NASHCOPFooter from "@/Components/nashcop/NASHCOPFooter";
 import NASHCOPHeader from "@/Components/nashcop/NASHCOPHeader";
+import ElectionBanner from "@/Components/ElectionBanner";
 import { Head, Link, usePage } from "@inertiajs/react";
 import { PropsWithChildren, ReactNode } from "react";
 import GoogleAnalytics from "@/Components/SEO/GoogleAnalytics";
@@ -47,6 +48,9 @@ export default function PublicLayout({
             <main className="flex-1">{children}</main>
 
             <NASHCOPFooter />
+            
+            {/* Government Election Banner - Fixed position */}
+            <ElectionBanner />
         </div>
     );
 }
