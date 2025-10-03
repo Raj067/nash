@@ -242,7 +242,7 @@ export default function NacpRoles() {
                                     <div className="flex items-center space-x-2">
                                         <Phone className="w-5 h-5 text-blue-600" />
                                         <span className="text-gray-700 font-medium">
-                                            +255 (0) 262060148
+                                            +255-26-2960148
                                         </span>
                                     </div>
                                     <div className="flex items-center space-x-2">

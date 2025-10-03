@@ -22,17 +22,16 @@ import { Button } from "@/Components/ui/button";
 
 export default function Locations() {
     const office = {
-        name: "NACP/NTLP Office",
-        name_sw: "Ofisi ya NACP/NTLP",
+        name: "NASHCOP Office",
+        name_sw: "Ofisi ya NASHCOP",
         type: "National Office",
         type_sw: "Ofisi ya Kitaifa",
         address: "Programme Manager",
-        address_detail:
-            "NATIONAL AIDS, STIs AND HEPATITIS CONTROL PROGRAMME-NACP",
-        location: "Kilimani Area, NACP/NTLP Building",
+        address_detail: "NATIONAL AIDS, STIs AND HEPATITIS CONTROL PROGRAMME",
+        location: "Kilimani Area, NASHCOP Building",
         city: "Dodoma, Tanzania",
         postal: "P O Box 784, Dodoma, Tanzania",
-        phone: "+255 (0) 262060148",
+        phone: "+255-26-2960148",
         email: "nacp@afya.go.tz",
         hours: "Jumatatu - Ijumaa: 7:30 Asubuhi - 3:30 Mchana",
         hours_en: "Monday - Friday: 7:30 AM - 3:30 PM",
@@ -53,7 +52,7 @@ export default function Locations() {
             "Healthcare Professional Training",
         ],
         coordinates: { lat: -6.1983108, lng: 35.7457656 },
-        mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3973.4234567890123!2d35.7457656!3d-6.1983108!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x184dfba29cc8b17d%3A0x691b513ff23f67e7!2sMOHCDGEC%20NACP%20%2FNTLP%20Office!5e0!3m2!1sen!2stz!4v1234567890123!5m2!1sen!2stz",
+        mapUrl: "https://maps.app.goo.gl/ppt3qnzss2C6MATF9",
     };
 
     return (
@@ -243,13 +242,12 @@ export default function Locations() {
                                         </h3>
                                     </div>
                                     <p className="text-gray-600 mb-6">
-                                        Kilimani Area, NACP/NTLP Building,
-                                        Dodoma
+                                        Kilimani Area, NASHCOP Building, Dodoma
                                     </p>
 
                                     <div className="w-full h-96 rounded-lg overflow-hidden mb-6">
                                         <iframe
-                                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3973.423456789!2d35.745422!3d-6.198699!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x184dfba29cc8b17d%3A0x691b513ff23f67e7!2sMOHCDGEC%20NACP%20%2FNTLP%20Office!5e0!3m2!1ssw!2stz!4v1694789012345!5m2!1ssw!2stz"
+                                            src="https://maps.google.com/maps?width=600&height=400&hl=en&q=nashcop&t=&z=14&ie=UTF8&iwloc=B&output=embed"
                                             width="100%"
                                             height="100%"
                                             style={{ border: 0 }}
@@ -258,6 +256,9 @@ export default function Locations() {
                                             referrerPolicy="no-referrer-when-downgrade"
                                             title="NACP Office Location"
                                         ></iframe>
+                                        {/* <div class="embed-map-fixed"><div class="embed-map-container">
+                                            <iframe class="embed-map-frame" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+                                                src="https://maps.google.com/maps?width=600&height=400&hl=en&q=nashcop&t=&z=14&ie=UTF8&iwloc=B&output=embed"></iframe><a href="https://map-embed.org" style="font-size:2px!important;color:gray!important;position:absolute;bottom:0;left:0;z-index:1;max-height:10px;overflow:hidden">google maps generator</a><a href="https://nailartsy.net" style="font-size:2px!important;color:gray!important;position:absolute;bottom:0;left:0;z-index:1;max-height:10px;overflow:hidden">Nail Designs</a><a href="https://cartoongames.io" style="font-size:2px!important;color:gray!important;position:absolute;bottom:0;left:0;z-index:1;max-height:10px;overflow:hidden">Cartoon Games</a></div><style>.embed-map-fixed{position:relative;text-align:right;width:600px;height:400px;}.embed-map-container{overflow:hidden;background:none!important;width:600px;height:400px;}.embed-map-frame{width:600px!important;height:400px!important;}</style></div> */}
                                     </div>
 
                                     <div className="flex items-center justify-between">
@@ -275,7 +276,7 @@ export default function Locations() {
                                             size="sm"
                                             onClick={() =>
                                                 window.open(
-                                                    "https://www.google.com/maps/place/MOHCDGEC+NACP+%2FNTLP+Office/@-6.198699,35.745422,17z/data=!4m6!3m5!1s0x184dfba29cc8b17d:0x691b513ff23f67e7!8m2!3d-6.1983108!4d35.7457656!16s%2Fg%2F11gzmybb2_?hl=sw&entry=ttu&g_ep=EgoyMDI1MDkxMC4wIKXMDSoASAFQAw%3D%3D",
+                                                    "https://maps.app.goo.gl/ppt3qnzss2C6MATF9",
                                                     "_blank"
                                                 )
                                             }
@@ -360,8 +361,8 @@ export default function Locations() {
                                         <strong className="text-gray-900">
                                             Headquarters:
                                         </strong>{" "}
-                                        Kilimani Area, NACP/NTLP Building,
-                                        Dodoma, Tanzania
+                                        Kilimani Area, NASHCOP Building, Dodoma,
+                                        Tanzania
                                     </p>
                                 </div>
                             </div>

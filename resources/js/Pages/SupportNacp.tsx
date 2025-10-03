@@ -347,9 +347,7 @@ export default function SupportNacp() {
                                 <h3 className="text-xl font-semibold text-white mb-2">
                                     Call Us
                                 </h3>
-                                <p className="text-blue-100">
-                                    +255 (0) 262060148
-                                </p>
+                                <p className="text-blue-100">+255-26-2960148</p>
                             </div>
 
                             <div className="text-center">

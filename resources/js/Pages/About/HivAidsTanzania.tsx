@@ -195,11 +195,11 @@ export default function HivAidsTanzania() {
                                 <Activity className="h-10 w-10 text-white" />
                             </div>
                             <h2 className="text-4xl font-bold bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent mb-6">
-                                Key Statistics (2020)
+                                Key Statistics 2022 - 2023
                             </h2>
                             <p className="text-gray-600 max-w-3xl mx-auto text-lg leading-relaxed">
                                 Key statistics showing HIV prevalence and
-                                demographic patterns (THMIS 2011-12)
+                                demographic patterns (THIS 2022 - 2023)
                             </p>
                         </div>
 

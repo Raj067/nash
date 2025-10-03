@@ -1,1 +1,189 @@
-NASHCOP Website Development1. It should be a corporate website with theme colours navy blue, yellow - gold, white and red2. Both language Kiswahili and English3. Needed a nice and current template for developing website. It can be free or costed template/framework4. The website can be designed based with multiple devices such as mobile/tablet and laptops/Pcs5. Redesign the programme logo (addition of girl/boy) ÐCurrent it has a girl.  6. 7.  Primary Color Red Color Values: C : M : Y : K 1 : 99 : 97 : 0 R : G : B 235 : 33 : 39 Secondary Colors Blue Color Values: C : M : Y : K 91 : 68 : 4 : 0 R : G : B 36 : 94 : 166 Tertiary Colors yellow gold Color Values: C : M : Y : K 2 : 25 : 100 : 0 R : G : B 297 : 191 : 218. Please consult NASHCoP Brand Guideline. Available9. Annual Events Almanac10. Risk Assessment tools:HIV riskTB RiskPrEP UsePEP Use11. WhistleBlowerSexual Exploitation, Abuse and Harassment (SEAH)The Malaysian AIDS Council and Malaysian AIDS Foundation are committed to creating and maintaining a safe environment free from Sexual Exploitation, Abuse, and Harassment (SEAH). We will implement appropriate measures to protect the communities we serve through a comprehensive framework for preventing and responding to SEAH.We are dedicated to ensuring that all concerns, suspicions, or incidents of SEAH are treated with the utmost seriousness. We have zero tolerance for inaction and will ensure that every concern, complaint, or report is addressed fairly and reasonably.Sexual AbuseIs the actual or threatened physical intrusion or a sexual nature, whether by force or under unequal or coercive conditions.Examples? Threatening a colleague or a beneficiary with sex act? Rape or attempted rape? Any sexual activity with a childSexual HarassmentIs any unwelcome conduct of a sexual nature that might reasonably be expected or perceived to cause offence of humiliation. May involve any conduct of a verbal, non-verbal or physical nature, including written and electronic communicationsExamples? Displaying or sending unsolicited images of a sexual nature.? A healthcare worker who comments on a patientÕs appearance, where such comment is unwanted.? Grabbing, fondling, or petting, where such touch is unwanted.12. Integrated with social media pages i.e. Facebook, Instagram and X.? https://www.instagram.com/nashcoptanzania?igsh=MTN6OXg4NHRrcG95cA== (Instagram)? https://youtube.com/@nacptanzania2010?si=1Uv-p3UBBhjBow0a (Youtube)? https://www.facebook.com/share/p/16uuGAn8UL/  facebook? 117  Free Toll? NASHCOP Tanzania - X, Furaha Yangu Pages13. Integrated with other analytical tools such as google analytics and maps, for tracking number of hits and location of accessibility14. Website hosting and storage addition (Current 10GB) hosted at NIDC (This can be added)15. SSL certificates for website16. Domain registration for new name NASHCOP (government agency) recommended www.nashcop.go.tz, can be updated from current one www.nacp.go.tz17. Any useful plugins and themes for website features can be added for better performance and scalability18. Feedback Module/Contact Us (1), form format that can enable viewers to share anything related to HIV/AIDS and NASHCOP services. It can also give an option for uploading audio, attachment or video (2) Whistleblowing module for NASHCOP staffs Ð where information should be redirected to administration unit (receiving email Ð nacp@afya.go.tz) (3) Subscribe to email updates -  receiving email Ð nacp@afya.go.tz) change emailContact include: MoH and PM contact and physical address19. MOH has Toll free call for afya customer care 199,can be designed like this below, HIV and AIDS Free Toll 117(recommended banners)(Hiki ni cha sasa)20. Inserting useful links for systems and other websites        https://www.moh.go.tz/        https://mail.afya.go.tz        https://dhis.moh.go.tz/        https://eoffice.gov.go.tz/       https://www.tacaids.go.tz/       https://www.atf.go.tz/      https://www.tamisemi.go.tz/21. Media Desk - This is the module that will enable journalists and other media groups for requesting any related information from the NASHCOP (Blinking/Flashing Functionality) (https)://sanac.org.za/contactus/) map,form,general inqueries, media inqueries and proposals/reports)Queries ( Normal and Media Houses)22. Multimedia Visualization - The module that will visualize videos on the home page/linked with YouTube page. (SA AIDS Commission - https://sanac.org.za/)Latest news(Footer)23. This is module that will display data sheet on the website. Example https://swaziaidsprogram.org/index/). 95% 95% 95%24. https://www.hiv.gov/# - For framework in this website for main menu and Drop Menu. Can this adopted? recommended by some of staffs25. Button for Donate AIDS Trust funds, Example in Nigeria           https://www.atf.go.tz/  (Tanzania link - ATF)26. Module that will be need on the Main menu e.g ? Home? About NASHCOP (There is document that have all information of ach sections or on current website)o Historical Backgroundo HIV&AIDS in Tanzaniao Statement from Programme Manager (eGA website)o Mission & Visiono NASHCOP Main Goals & Functionso Core Valueso NASHCOP Structure? Programme Areas (each area will have a summary of each components)o Management & Coordinationo Prevention? HIV Testing Services? Voluntary Medical male Circumcisions (VMMC)? Social Behaviour Change Communication (SBBC)? Condom promotion and distribution? Prevention of vertical transmission of HIV, syphilis and hepatitis B) ? ? Pre-Exposure Prophylaxis ? Key and Vulnerable Populations (KVP)o Care, Treatment & Support? Community based HIV and AIDS services? TB/HIV co-infection? Viral Hepatitis and Co-infections? Integrated management of non-communicable diseases (NCD) in hiv? Integration of mental health services in HIV and AIDS careo Monitoring & Evaluation? HIV researches? HIV surveillances? Health Information Systems (HIS)o Pharmaceuticals & Laboratory services? Supply Chain Management and Rational? HIV and AIDS laboratory services? Resource Center (For access documents, users will be downloading)o Plans & Strategic Documentso Policy Documentso Guidelineso Reports (Semi Annual and Annual Reports etc)o Manuals, Forms, Tools and SOPso Frameworkso IEC/SBC Materials? Media Centero Newso Press Releaseso Speecheso NASHCOP Eventso NewsletterLink to social media News? Contact Us ? Include address, P.O.Box? Registration Forms eg. É? Search Engine within the web? Pop up eg: https://www.tmda.go.tz/pages/approved-product-information27. Needed a mobile phone number for communication and inquiriesÕ 28. SOP for updating or managing website29. Privacy policy /disclaimer30. List of partners in Tanzania (https://uac.go.ug/)The slide on home page (https://sanac.org.za/)   recommended. Or if the is other slide show it fine.Product Section:Jipime, Condoms, ARVsChatbot SectionDonate for Hepatitis Case Identification and treatment(Special Insert Account Number and Mobile Number)Contacts and Pictures:Regional and District CoordinatorsImportant Links sectionOurServicesApproval and Engagement Process eg. introducing new project, MoU, Approval of IEC/SBC materials, New product like condom, ARV nd test kits (detailed process for each)Testimonies/what our clients saySite Policy : sampleThank you for visiting the website of the Japan International Cooperation Agency (JICA). This site is managed for the purpose of providing information about JICA in accordance with the site management policy indicated below. Those who access and use this site are regarded as having agreed to this policy.The policy is subject to change without notice. Any changes made will be announced on the site. Users are regarded as having agreed to the changes when they access and use this site for the first time following such an announcement.1. CopyrightJICA owns the copyright (or other intellectual property rights) to all data uploaded on this site (such as text, figures, photos, and images), unless otherwise specified.The reuse or reproduction of any or all data on this site for purposes other than personal use is prohibited.Such data may be quoted, however, for educational or other legally recognized purposes. In such cases, credit should be clearly indicated by identifying JICA as the copyright holder or as the information source, as shown below:Copyright by JICA Source: JICATo use photos or images portraying specific individuals, such as JICA Volunteers and JICA experts, though, their permission must be sought to protect their private rights. To acquire such permission, please contact the Media and Public Relations Department at email: mptpr@jica.go.jpData on this website cannot be used for commercial purposes, such as product advertisement and marketing. However, it may be used in some cases for commemorative items, subject to JICA approval. Such approval does not indicate JICAÕs endorsement or recommendation of the product, nor will it be conferred on an exclusive basis.2. DisclaimerWhile every effort is made to provide accurate information and to ensure security, JICA does not guarantee that there will be no errors in the contents of this website, nor does it preclude the possibility of cyber-attacks that result in the altering of the content. JICA disclaims any liability for errors and omissions or for any damages accruing from the use of this site or its contents.The site also includes contents, links, other information, and translated material provided by third-parties for which JICA claims no responsibility.The maps on this site is only for illustrative purposes and does not imply any opinion of JICA on the legal status of any country or territory, the borderline of any country or territory or its demarcation, or the geographic names.
+NASHCOP Website Developmentnacp@afya.go.tznacp@afya.go.tz
+1. It should be a corporate website with theme colours navy blue, yellow - gold, white and red
+2. Both language Kiswahili and English
+3. Needed a nice and current template for developing website. It can be free or costed template/framework
+4. The website can be designed based with multiple devices such as mobile/tablet and laptops/Pcs
+5. Redesign the programme logo (addition of girl/boy) ï¿½Current it has a girl.  
+6. 
+7.  Primary Color Red Color Values: C : M : Y : K 1 : 99 : 97 : 0 R : G : B 235 : 33 : 39 Secondary Colors Blue Color Values: C : M : Y : K 91 : 68 : 4 : 0 R : G : B 36 : 94 : 166 Tertiary Colors yellow gold Color Values: C : M : Y : K 2 : 25 : 100 : 0 R : G : B 297 : 191 : 21
+8. Please consult NASHCoP Brand Guideline. Available
+9. Annual Events Almanac
+10. Risk Assessment tools:
+HIV risk
+TB Risk
+PrEP Use
+PEP Use
+
+11. WhistleBlower
+Sexual Exploitation, Abuse and Harassment (SEAH)
+The Malaysian AIDS Council and Malaysian AIDS Foundation are committed to creating and maintaining a safe environment free from Sexual Exploitation, Abuse, and Harassment (SEAH). We will implement appropriate measures to protect the communities we serve through a comprehensive framework for preventing and responding to SEAH.
+We are dedicated to ensuring that all concerns, suspicions, or incidents of SEAH are treated with the utmost seriousness. We have zero tolerance for inaction and will ensure that every concern, complaint, or report is addressed fairly and reasonably.
+Sexual Abuse
+Is the actual or threatened physical intrusion or a sexual nature, whether by force or under unequal or coercive conditions.
+Examples
+? Threatening a colleague or a beneficiary with sex act
+? Rape or attempted rape
+? Any sexual activity with a child
+Sexual Harassment
+Is any unwelcome conduct of a sexual nature that might reasonably be expected or perceived to cause offence of humiliation. May involve any conduct of a verbal, non-verbal or physical nature, including written and electronic communications
+Examples
+? Displaying or sending unsolicited images of a sexual nature.
+? A healthcare worker who comments on a patientï¿½s appearance, where such comment is unwanted.
+? Grabbing, fondling, or petting, where such touch is unwanted.
+
+
+
+
+
+12. Integrated with social media pages i.e. Facebook, Instagram and X.
+? https://www.instagram.com/nashcoptanzania?igsh=MTN6OXg4NHRrcG95cA== (Instagram)
+? https://youtube.com/@nacptanzania2010?si=1Uv-p3UBBhjBow0a (Youtube)
+? https://www.facebook.com/share/p/16uuGAn8UL/  facebook
+? 117  Free Toll
+? NASHCOP Tanzania - X, Furaha Yangu Pages
+13. Integrated with other analytical tools such as google analytics and maps, for tracking number of hits and location of accessibility
+14. Website hosting and storage addition (Current 10GB) hosted at NIDC (This can be added)
+15. SSL certificates for website
+16. Domain registration for new name NASHCOP (government agency) recommended www.nashcop.go.tz, can be updated from current one www.nacp.go.tz
+17. Any useful plugins and themes for website features can be added for better performance and scalability
+18. Feedback Module/Contact Us (1), form format that can enable viewers to share anything related to HIV/AIDS and NASHCOP services. It can also give an option for uploading audio, attachment or video (2) Whistleblowing module for NASHCOP staffs ï¿½ where information should be redirected to administration unit (receiving email ï¿½ nacp@afya.go.tz) (3) Subscribe to email updates -  receiving email ï¿½ nacp@afya.go.tz) change email
+
+Contact include: MoH and PM contact and physical address
+
+19. MOH has Toll free call for afya customer care 199,can be designed like this below, HIV and AIDS Free Toll 117
+
+
+(recommended banners)
+(Hiki ni cha sasa)
+20. Inserting useful links for systems and other websites
+        https://www.moh.go.tz/
+        https://mail.afya.go.tz
+        https://dhis.moh.go.tz/
+        https://eoffice.gov.go.tz/
+       https://www.tacaids.go.tz/
+       https://www.atf.go.tz/
+      https://www.tamisemi.go.tz/
+
+
+21. Media Desk - This is the module that will enable journalists and other media groups for requesting any related information from the NASHCOP (Blinking/Flashing Functionality) (https)://sanac.org.za/contactus/) map,form,general inqueries, media inqueries and proposals/reports)
+
+
+Queries ( Normal and Media Houses)
+22. Multimedia Visualization - The module that will visualize videos on the home page/linked with YouTube page. (SA AIDS Commission - https://sanac.org.za/)
+
+Latest news
+
+(Footer)
+23. This is module that will display data sheet on the website. Example https://swaziaidsprogram.org/index/). 95% 95% 95%
+
+24. https://www.hiv.gov/# - For framework in this website for main menu and Drop Menu. Can this adopted? recommended by some of staffs
+25. Button for Donate AIDS Trust funds, Example in Nigeria
+          
+ https://www.atf.go.tz/  (Tanzania link - ATF)
+
+
+26. Module that will be need on the Main menu e.g 
+? Home
+? About NASHCOP (There is document that have all information of ach sections or on current website)
+o Historical Background
+o HIV&AIDS in Tanzania
+o Statement from Programme Manager (eGA website)
+
+o Mission & Vision
+o NASHCOP Main Goals & Functions
+o Core Values
+o NASHCOP Structure
+? Programme Areas (each area will have a summary of each components)
+o Management & Coordination
+o Prevention
+? HIV Testing Services
+? Voluntary Medical male Circumcisions (VMMC)
+? Social Behaviour Change Communication (SBBC)
+? Condom promotion and distribution
+? Prevention of vertical transmission of HIV, syphilis and hepatitis B) 
+? 
+? Pre-Exposure Prophylaxis 
+? Key and Vulnerable Populations (KVP)
+o Care, Treatment & Support
+? Community based HIV and AIDS services
+? TB/HIV co-infection
+? Viral Hepatitis and Co-infections
+? Integrated management of non-communicable diseases (NCD) in hiv
+? Integration of mental health services in HIV and AIDS care
+o Monitoring & Evaluation
+? HIV researches
+? HIV surveillances
+? Health Information Systems (HIS)
+o Pharmaceuticals & Laboratory services
+? Supply Chain Management and Rational
+? HIV and AIDS laboratory services
+? Resource Center (For access documents, users will be downloading)
+o Plans & Strategic Documents
+o Policy Documents
+o Guidelines
+o Reports (Semi Annual and Annual Reports etc)
+o Manuals, Forms, Tools and SOPs
+o Frameworks
+o IEC/SBC Materials
+? Media Center
+o News
+o Press Releases
+o Speeches
+o NASHCOP Events
+o Newsletter
+Link to social media News
+? Contact Us 
+? Include address, P.O.Box
+? Registration Forms eg. ï¿½
+? Search Engine within the web
+? Pop up eg: https://www.tmda.go.tz/pages/approved-product-information
+
+27. Needed a mobile phone number for communication and inquiriesï¿½ 
+28. SOP for updating or managing website
+29. Privacy policy /disclaimer
+30. List of partners in Tanzania (https://uac.go.ug/)
+
+
+
+The slide on home page (https://sanac.org.za/)   recommended. 
+Or if the is other slide show it fine.
+Product Section:
+Jipime, Condoms, ARVs
+
+Chatbot Section
+Donate for Hepatitis Case Identification and treatment
+(Special Insert Account Number and Mobile Number)
+Contacts and Pictures:
+Regional and District Coordinators
+
+Important Links section
+
+OurServices
+
+Approval and Engagement Process eg. introducing new project, MoU, Approval of IEC/SBC materials, New product like condom, ARV nd test kits (detailed process for each)
+
+Testimonies/what our clients say
+
+Site Policy : sample
+Thank you for visiting the website of the Japan International Cooperation Agency (JICA). This site is managed for the purpose of providing information about JICA in accordance with the site management policy indicated below. Those who access and use this site are regarded as having agreed to this policy.
+
+The policy is subject to change without notice. Any changes made will be announced on the site. Users are regarded as having agreed to the changes when they access and use this site for the first time following such an announcement.
+
+1. Copyright
+JICA owns the copyright (or other intellectual property rights) to all data uploaded on this site (such as text, figures, photos, and images), unless otherwise specified.
+The reuse or reproduction of any or all data on this site for purposes other than personal use is prohibited.
+Such data may be quoted, however, for educational or other legally recognized purposes. In such cases, credit should be clearly indicated by identifying JICA as the copyright holder or as the information source, as shown below:
+Copyright by JICA Source: JICA
+
+To use photos or images portraying specific individuals, such as JICA Volunteers and JICA experts, though, their permission must be sought to protect their private rights. To acquire such permission, please contact the Media and Public Relations Department at email: mptpr@jica.go.jp
+
+Data on this website cannot be used for commercial purposes, such as product advertisement and marketing. However, it may be used in some cases for commemorative items, subject to JICA approval. Such approval does not indicate JICAï¿½s endorsement or recommendation of the product, nor will it be conferred on an exclusive basis.
+
+2. Disclaimer
+While every effort is made to provide accurate information and to ensure security, JICA does not guarantee that there will be no errors in the contents of this website, nor does it preclude the possibility of cyber-attacks that result in the altering of the content. JICA disclaims any liability for errors and omissions or for any damages accruing from the use of this site or its contents.
+
+The site also includes contents, links, other information, and translated material provided by third-parties for which JICA claims no responsibility.
+
+The maps on this site is only for illustrative purposes and does not imply any opinion of JICA on the legal status of any country or territory, the borderline of any country or territory or its demarcation, or the geographic names.
+
+

@@ -570,7 +570,7 @@ export default function Feedback() {
                                             Call Us
                                         </h4>
                                         <p className="text-gray-600 mb-1">
-                                            +255-22-2120276
+                                            +255-26-2960148
                                         </p>
                                         <p className="text-xs text-gray-500">
                                             Mon-Fri: 8AM-5PM
@@ -584,7 +584,7 @@ export default function Feedback() {
                                             Email Us
                                         </h4>
                                         <p className="text-gray-600 mb-1">
-                                            feedback@nacp.go.tz
+                                            nacp@afya.go.tz
                                         </p>
                                         <p className="text-xs text-gray-500">
                                             Response within 24hrs
@@ -598,7 +598,7 @@ export default function Feedback() {
                                             WhatsApp
                                         </h4>
                                         <p className="text-gray-600 mb-1">
-                                            +255-754-500-900
+                                            +255-26-2960148
                                         </p>
                                         <p className="text-xs text-gray-500">
                                             Quick responses
