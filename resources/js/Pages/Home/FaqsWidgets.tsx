@@ -5,8 +5,9 @@ import {
     AccordionTrigger,
 } from "@/Components/ui/accordion";
 import { HelpCircle } from "lucide-react";
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useTranslation } from "react-i18next";
+import { useManualTranslate } from "@/hooks/useManualTranslate";
 
 interface FAQItem {
     id: number;
@@ -15,26 +16,17 @@ interface FAQItem {
     category: string;
 }
 
-function FaqsWidgets() {
+interface FaqsWidgetsProps {
+    featuredFaqs: FAQItem[];
+}
+
+function FaqsWidgets({ featuredFaqs }: FaqsWidgetsProps) {
     const { t } = useTranslation();
-    const [faqData, setFaqData] = useState<FAQItem[]>([]);
-    const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-        fetchFaqs();
-    }, []);
-
-    const fetchFaqs = async () => {
-        try {
-            const response = await fetch("/api/faqs");
-            const data = await response.json();
-            setFaqData(data);
-        } catch (error) {
-            console.error("Error fetching FAQs:", error);
-        } finally {
-            setLoading(false);
-        }
-    };
+    const faqData = featuredFaqs || [];
+    const loading = false; // No loading since data comes as props
+    
+    // Trigger manual translation when FAQ data is available
+    useManualTranslate([faqData]);
 
     if (loading) {
         return (
@@ -94,12 +86,12 @@ function FaqsWidgets() {
                                 className="border border-gray-200 rounded-lg mb-4 overflow-hidden"
                             >
                                 <AccordionTrigger className="px-6 py-4 text-left hover:bg-gray-50 hover:no-underline">
-                                    <span className="text-lg font-semibold text-gray-900 pr-4">
+                                    <span className="text-lg font-semibold text-gray-900 pr-4" data-translate="true">
                                         {item.question}
                                     </span>
                                 </AccordionTrigger>
                                 <AccordionContent className="px-6 pb-4 border-t border-gray-100">
-                                    <p className="text-gray-700 leading-relaxed pt-4">
+                                    <p className="text-gray-700 leading-relaxed pt-4" data-translate="true">
                                         {item.answer}
                                     </p>
                                 </AccordionContent>

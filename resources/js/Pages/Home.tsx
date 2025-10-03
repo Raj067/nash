@@ -58,6 +58,13 @@ interface Blog {
     views_count: number;
 }
 
+interface FAQ {
+    id: number;
+    question: string;
+    answer: string;
+    category: string;
+}
+
 interface HomeProps {
     hero: {
         title: string;
@@ -74,6 +81,7 @@ interface HomeProps {
     }>;
     featuredDocuments: Document[];
     featuredBlogs: Blog[];
+    featuredFaqs: FAQ[];
 }
 
 const iconMap = {
@@ -88,6 +96,7 @@ export default function Home({
     quickLinks,
     featuredDocuments,
     featuredBlogs,
+    featuredFaqs,
 }: HomeProps) {
     const { t } = useTranslation("common");
 
@@ -102,7 +111,7 @@ export default function Home({
                 <WhistleblowingModule />
                 <HomeStatisticsPage />
                 {/* <FeaturedServiceWidget /> */}
-                <FaqsWidgets />
+                <FaqsWidgets featuredFaqs={featuredFaqs} />
                 <ImportantDocumentsWidgets
                     featuredDocuments={featuredDocuments}
                 />

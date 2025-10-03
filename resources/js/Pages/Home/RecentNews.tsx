@@ -13,6 +13,7 @@ import { Card, CardContent } from "@/Components/ui/card";
 import { Button } from "@/Components/ui/button";
 import { Link } from "@inertiajs/react";
 import { useTranslation } from "react-i18next";
+import { useManualTranslate } from "@/hooks/useManualTranslate";
 
 interface NewsItem {
     id: number;
@@ -55,6 +56,9 @@ const RecentNews: React.FC<RecentNewsProps> = ({ featuredBlogs }) => {
     if (!featuredBlogs || featuredBlogs.length === 0) {
         return null;
     }
+    
+    // Trigger manual translation when blog data is available
+    useManualTranslate([featuredBlogs]);
 
     // Use only featured blogs from database
     const newsData = featuredBlogs.slice(0, 4).map((blog) => ({
@@ -193,11 +197,11 @@ const RecentNews: React.FC<RecentNewsProps> = ({ featuredBlogs }) => {
                                         <Link
                                             href={`/news/${featuredNews.slug}`}
                                         >
-                                            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 group-hover:text-yellow-300 cursor-pointer transition-colors leading-tight">
+                                            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 group-hover:text-yellow-300 cursor-pointer transition-colors leading-tight" data-translate="true">
                                                 {featuredNews.title}
                                             </h3>
                                         </Link>
-                                        <p className="text-gray-200 text-base md:text-lg mb-6 line-clamp-2 leading-relaxed">
+                                        <p className="text-gray-200 text-base md:text-lg mb-6 line-clamp-2 leading-relaxed" data-translate="true">
                                             {featuredNews.summary}
                                         </p>
                                         <Button
@@ -254,7 +258,7 @@ const RecentNews: React.FC<RecentNewsProps> = ({ featuredBlogs }) => {
                                                 </span>
                                             </div>
                                             <Link href={`/news/${news.slug}`}>
-                                                <h4 className="font-semibold text-white text-sm mb-2 group-hover:text-yellow-300 cursor-pointer transition-colors line-clamp-2 leading-tight">
+                                                <h4 className="font-semibold text-white text-sm mb-2 group-hover:text-yellow-300 cursor-pointer transition-colors line-clamp-2 leading-tight" data-translate="true">
                                                     {news.title}
                                                 </h4>
                                             </Link>

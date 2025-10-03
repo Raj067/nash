@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Models\Document;
 use App\Models\Blog;
+use App\Models\Faq;
 
 class PageController extends Controller
 {
@@ -63,9 +64,24 @@ class PageController extends Controller
                 ];
             });
 
+        // Fetch featured FAQs for the home page
+        $featuredFaqs = Faq::active()
+            ->ordered()
+            ->limit(5)
+            ->get()
+            ->map(function ($faq) {
+                return [
+                    'id' => $faq->id,
+                    'question' => $faq->question,
+                    'answer' => $faq->answer,
+                    'category' => $faq->category,
+                ];
+            });
+
         return Inertia::render('Home', [
             'featuredDocuments' => $featuredDocuments,
             'featuredBlogs' => $featuredBlogs,
+            'featuredFaqs' => $featuredFaqs,
         ]);
     }
 

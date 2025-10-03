@@ -17,6 +17,7 @@ declare global {
             };
         };
         googleTranslateElementInit?: () => void;
+        retriggerGoogleTranslate?: () => void;
     }
 }
 import { Button } from "@/Components/ui/button";
@@ -154,6 +155,20 @@ const NASHCOPHeader: FC = () => {
                 { pageLanguage: "en", includedLanguages: "en,sw" },
                 "google_translate_element"
             );
+        };
+        
+        // Global function to retrigger translation for dynamic content
+        window.retriggerGoogleTranslate = () => {
+            const currentLang = localStorage.getItem("nacp_language") || "sw";
+            if (currentLang === "sw") {
+                setTimeout(() => {
+                    const combo = document.querySelector(".goog-te-combo") as HTMLSelectElement;
+                    if (combo && combo.value !== "sw") {
+                        combo.value = "sw";
+                        combo.dispatchEvent(new Event("change"));
+                    }
+                }, 500);
+            }
         };
         
         // Clean up observer when component unmounts
