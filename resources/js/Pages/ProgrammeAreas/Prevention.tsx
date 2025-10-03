@@ -19,49 +19,56 @@ export default function Prevention() {
     const preventionServices = [
         {
             title: "HIV Testing Services",
-            description: "Comprehensive HIV testing and counseling services including rapid testing, self-testing, and partner testing",
+            description:
+                "Comprehensive HIV testing and counseling services including rapid testing, self-testing, and partner testing",
             icon: TestTube,
             color: "from-blue-500 to-blue-600",
             href: "/interventions/hiv-testing-services-linkage",
         },
         {
             title: "Voluntary Medical Male Circumcision (VMMC)",
-            description: "Safe medical male circumcision services to reduce HIV transmission risk by up to 60%",
+            description:
+                "Safe medical male circumcision services to reduce HIV transmission risk by up to 60%",
             icon: Shield,
             color: "from-green-500 to-green-600",
             href: "/programme-areas/prevention/vmmc",
         },
         {
             title: "Social Behaviour Change Communication (SBCC)",
-            description: "Evidence-based communication strategies to promote HIV prevention behaviors and reduce stigma",
+            description:
+                "Evidence-based communication strategies to promote HIV prevention behaviors and reduce stigma",
             icon: MessageCircle,
             color: "from-purple-500 to-purple-600",
             href: "/programme-areas/prevention/sbcc",
         },
         {
             title: "Condom Promotion and Distribution",
-            description: "Ensuring availability and accessibility of male and female condoms nationwide",
+            description:
+                "Ensuring availability and accessibility of male and female condoms nationwide",
             icon: Heart,
             color: "from-red-500 to-red-600",
             href: "/programme-areas/prevention/condoms",
         },
         {
             title: "Prevention of Vertical Transmission",
-            description: "Comprehensive PMTCT services to prevent mother-to-child transmission of HIV, syphilis, and hepatitis B",
+            description:
+                "Comprehensive PMTCT services to prevent mother-to-child transmission of HIV, syphilis, and hepatitis B",
             icon: Users,
             color: "from-pink-500 to-pink-600",
             href: "/programme-areas/prevention/pmtct",
         },
         {
             title: "Pre-Exposure Prophylaxis (PrEP)",
-            description: "Preventive medication for high-risk individuals to reduce HIV acquisition risk",
+            description:
+                "Preventive medication for high-risk individuals to reduce HIV acquisition risk",
             icon: Pill,
             color: "from-orange-500 to-orange-600",
             href: "/programme-areas/prevention/prep",
         },
         {
-            title: "Key and Vulnerable Populations (KVP)",
-            description: "Targeted prevention services for sex workers, MSM, PWID, and other vulnerable groups",
+            title: "Key and Vulnerable Populations (PHR)",
+            description:
+                "Targeted prevention services for sex workers, MSM, PWID, and other vulnerable groups",
             icon: Target,
             color: "from-teal-500 to-teal-600",
             href: "/programme-areas/prevention/kvp",
@@ -118,8 +125,10 @@ export default function Prevention() {
                                         Prevention
                                     </h1>
                                     <p className="text-xl md:text-2xl text-blue-100 max-w-3xl leading-relaxed">
-                                        Comprehensive HIV prevention services designed to reduce new infections 
-                                        and protect vulnerable populations across Tanzania.
+                                        Comprehensive HIV prevention services
+                                        designed to reduce new infections and
+                                        protect vulnerable populations across
+                                        Tanzania.
                                     </p>
                                 </div>
                             </div>
@@ -135,7 +144,8 @@ export default function Prevention() {
                                 Prevention Impact
                             </h2>
                             <p className="text-gray-600 max-w-3xl mx-auto text-lg leading-relaxed">
-                                Our prevention efforts have significantly reduced new HIV infections across Tanzania
+                                Our prevention efforts have significantly
+                                reduced new HIV infections across Tanzania
                             </p>
                         </div>
 
@@ -167,9 +177,10 @@ export default function Prevention() {
                                 23% Reduction in New HIV Infections (2019-2023)
                             </h3>
                             <p className="text-gray-600 max-w-2xl mx-auto">
-                                Tanzania has achieved a significant 23% decline in new HIV infections through 
-                                comprehensive prevention strategies including VMMC, PrEP, and targeted interventions 
-                                for key populations.
+                                Tanzania has achieved a significant 23% decline
+                                in new HIV infections through comprehensive
+                                prevention strategies including VMMC, PrEP, and
+                                targeted interventions for key populations.
                             </p>
                         </div>
                     </div>
@@ -183,7 +194,8 @@ export default function Prevention() {
                                 Prevention Services
                             </h2>
                             <p className="text-gray-600 max-w-3xl mx-auto text-lg leading-relaxed">
-                                Comprehensive prevention interventions targeting different populations and transmission routes
+                                Comprehensive prevention interventions targeting
+                                different populations and transmission routes
                             </p>
                         </div>
 
@@ -196,7 +208,9 @@ export default function Prevention() {
                                 >
                                     <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 h-full">
                                         <div className="text-center">
-                                            <div className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r ${service.color} rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                                            <div
+                                                className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r ${service.color} rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300`}
+                                            >
                                                 <service.icon className="h-8 w-8 text-white" />
                                             </div>
                                             <h3 className="text-xl font-bold text-gray-800 mb-4 group-hover:text-blue-600 transition-colors duration-300">
@@ -206,7 +220,9 @@ export default function Prevention() {
                                                 {service.description}
                                             </p>
                                             <div className="flex items-center justify-center space-x-2 text-blue-600 group-hover:text-blue-700 transition-colors duration-300">
-                                                <span className="font-medium">Learn More</span>
+                                                <span className="font-medium">
+                                                    Learn More
+                                                </span>
                                                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
                                             </div>
                                         </div>
@@ -226,51 +242,72 @@ export default function Prevention() {
                                     Prevention Strategies
                                 </h2>
                                 <p className="text-gray-600 text-lg leading-relaxed">
-                                    Our evidence-based approach to HIV prevention
+                                    Our evidence-based approach to HIV
+                                    prevention
                                 </p>
                             </div>
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                 <div className="bg-white rounded-2xl p-8 shadow-lg">
-                                    <h3 className="text-xl font-bold text-gray-800 mb-4">Combination Prevention</h3>
+                                    <h3 className="text-xl font-bold text-gray-800 mb-4">
+                                        Combination Prevention
+                                    </h3>
                                     <p className="text-gray-600 leading-relaxed mb-4">
-                                        Implementing multiple prevention interventions simultaneously to maximize impact 
-                                        and address different transmission routes and risk factors.
+                                        Implementing multiple prevention
+                                        interventions simultaneously to maximize
+                                        impact and address different
+                                        transmission routes and risk factors.
                                     </p>
                                     <ul className="space-y-2">
                                         <li className="flex items-center space-x-3">
                                             <CheckCircle className="h-5 w-5 text-green-600" />
-                                            <span className="text-gray-700">Biomedical interventions</span>
+                                            <span className="text-gray-700">
+                                                Biomedical interventions
+                                            </span>
                                         </li>
                                         <li className="flex items-center space-x-3">
                                             <CheckCircle className="h-5 w-5 text-green-600" />
-                                            <span className="text-gray-700">Behavioral interventions</span>
+                                            <span className="text-gray-700">
+                                                Behavioral interventions
+                                            </span>
                                         </li>
                                         <li className="flex items-center space-x-3">
                                             <CheckCircle className="h-5 w-5 text-green-600" />
-                                            <span className="text-gray-700">Structural interventions</span>
+                                            <span className="text-gray-700">
+                                                Structural interventions
+                                            </span>
                                         </li>
                                     </ul>
                                 </div>
 
                                 <div className="bg-white rounded-2xl p-8 shadow-lg">
-                                    <h3 className="text-xl font-bold text-gray-800 mb-4">Targeted Approaches</h3>
+                                    <h3 className="text-xl font-bold text-gray-800 mb-4">
+                                        Targeted Approaches
+                                    </h3>
                                     <p className="text-gray-600 leading-relaxed mb-4">
-                                        Tailoring prevention services to specific populations based on risk profiles, 
-                                        geographic location, and demographic characteristics.
+                                        Tailoring prevention services to
+                                        specific populations based on risk
+                                        profiles, geographic location, and
+                                        demographic characteristics.
                                     </p>
                                     <ul className="space-y-2">
                                         <li className="flex items-center space-x-3">
                                             <CheckCircle className="h-5 w-5 text-green-600" />
-                                            <span className="text-gray-700">Key populations focus</span>
+                                            <span className="text-gray-700">
+                                                Key populations focus
+                                            </span>
                                         </li>
                                         <li className="flex items-center space-x-3">
                                             <CheckCircle className="h-5 w-5 text-green-600" />
-                                            <span className="text-gray-700">Geographic prioritization</span>
+                                            <span className="text-gray-700">
+                                                Geographic prioritization
+                                            </span>
                                         </li>
                                         <li className="flex items-center space-x-3">
                                             <CheckCircle className="h-5 w-5 text-green-600" />
-                                            <span className="text-gray-700">Age-specific interventions</span>
+                                            <span className="text-gray-700">
+                                                Age-specific interventions
+                                            </span>
                                         </li>
                                     </ul>
                                 </div>
@@ -286,7 +323,8 @@ export default function Prevention() {
                             Prevention Saves Lives
                         </h2>
                         <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-                            Join our prevention efforts and help us achieve zero new HIV infections in Tanzania.
+                            Join our prevention efforts and help us achieve zero
+                            new HIV infections in Tanzania.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Button

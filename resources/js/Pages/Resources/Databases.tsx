@@ -44,7 +44,7 @@ export default function Databases({ documents }: DatabasesProps) {
 
     return (
         <PublicLayout title="Databases">
-            <Head title="Databases - Hifadhidata" />
+            <Head title="Databases - Kanzidata" />
 
             <div className="min-h-screen">
                 {/* Hero Section */}
@@ -84,7 +84,7 @@ export default function Databases({ documents }: DatabasesProps) {
                                     <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
                                     <input
                                         type="text"
-                                        placeholder="Tafuta hifadhidata... / Search databases..."
+                                        placeholder="Tafuta Kanzidata..."
                                         value={searchTerm}
                                         onChange={(e) =>
                                             setSearchTerm(e.target.value)
@@ -233,7 +233,7 @@ export default function Databases({ documents }: DatabasesProps) {
                             <div className="text-center py-16">
                                 <Database className="w-16 h-16 text-gray-400 mx-auto mb-4" />
                                 <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                                    Hakuna Hifadhidata Iliyopatikana
+                                    Hakuna Kanzidata Iliyopatikana
                                 </h3>
                                 <p className="text-lg text-gray-600 mb-2">
                                     No databases found matching your search

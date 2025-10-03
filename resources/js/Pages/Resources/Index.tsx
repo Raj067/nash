@@ -80,7 +80,7 @@ export default function Resources({ documents }: ResourcesProps) {
             case "iec_sbc":
                 return "Nyenzo za Elimu - IEC/SBC Materials";
             case "databases":
-                return "Hifadhidata - Databases";
+                return "Kanzidata - Databases";
             default:
                 return category.charAt(0).toUpperCase() + category.slice(1);
         }

@@ -38,7 +38,7 @@
       "pep": "Dawa za Kuzuia Baada ya Kuambukizwa (PEP)",
       "stis": "Magonjwa ya Zinaa (STIs)",
       "gbv": "Unyanyasaji wa Kijinsia na Unyanyasaji dhidi ya Wanawake na Watoto",
-      "kvp": "Vikundi vya Muhimu na Hatarini (KVP)",
+      "kvp": "Vikundi vya Muhimu na Hatarini (PHR)",
       "community_services": "Huduma za VVU na UKIMWI za Kijamii",
       "tb_hiv": "Maambukizi ya Kifua Kikuu/VVU",
       "viral_hepatitis": "Hepatitis ya Virusi na Maambukizi Mengine",
@@ -63,7 +63,7 @@
       "policy_documents": "Hati za Sera",
       "sop_manuals": "Miongozo ya SOP",
       "iec_materials": "Nyenzo za IEC/SBC",
-      "databases": "Hifadhidata",
+      "databases": "Kanzidata",
       "news": "Habari",
       "press_releases": "Taarifa za Vyombo vya Habari",
       "speeches": "Hotuba",
@@ -143,7 +143,7 @@
       "email_required": "Tafadhali ingiza anwani yako ya barua pepe.",
       "network_error": "Hitilafu ya mtandao. Tafadhali jaribu tena baadaye."
     },
-    "copyright": "© 2025 MPANGO WA KITAIFA WA KUDHIBITI VVU, MAGONJWA YA ZINAA NA HEPATITIS, Tanzania. Haki zote zimehifadhiwa.",
+    "copyright": "© 2025 MPANGO WA TAIFA WA KUDHIBITI UKIMWI, MAGONJWA YA NGONO NA HOMA YA INI, Tanzania. Haki zote zimehifadhiwa.",
     "legal": {
       "privacy_policy": "Sera ya Faragha",
       "terms_of_use": "Masharti ya Matumizi"
@@ -297,7 +297,7 @@
       "slides": {
         "slide1": {
           "title": "Karibu NASHCOP",
-          "subtitle": "Mpango wa Kitaifa wa Kudhibiti VVU, Magonjwa ya Zinaa na Hepatitis",
+          "subtitle": "MPANGO WA TAIFA WA KUDHIBITI UKIMWI, MAGONJWA YA NGONO NA HOMA YA INI",
           "description": "Jukwaa la kuongeza ufikiaji wa habari kuhusu VVU, UKIMWI, magonjwa ya zinaa na Hepatitis Tanzania"
         },
         "slide2": {
@@ -308,7 +308,7 @@
         "slide3": {
           "title": "Huduma Kamili za Afya",
           "subtitle": "VVU, Magonjwa ya Zinaa na Hepatitis",
-          "description": "Huduma za upimaji, matibabu na kuzuia kwa VVU, magonjwa ya zinaa na Hepatitis kwa wote"
+          "description": "Huduma za upimaji, matibabu na kuzuia kwa VVU, magonjwa ya zinaa na ini kwa wote"
         }
       },
       "language_selector": {
@@ -319,7 +319,7 @@
     },
     "welcome_message": {
       "title": "Karibu Tovuti Rasmi ya NASHCOP Tanzania",
-      "message": "Karibu wote, kwenye tovuti rasmi ya Mpango wa Kitaifa wa Kudhibiti VVU, Magonjwa ya Zinaa na Hepatitis (NASHCOP) Tanzania. Tovuti hii ni jukwaa la kuongeza ufikiaji wa kila mtu wa habari kuhusu VVU, UKIMWI, magonjwa ya zinaa na Hepatitis, yanayozalishwa Tanzania. Tovuti hii inalenga kushiriki habari na nyenzo za VVU, UKIMWI, magonjwa ya zinaa na Hepatitis kwa umma mkuu ndani na nje ya nchi.",
+      "message": "Karibu wote, kwenye tovuti rasmi ya Mpango wa Kitaifa wa Kudhibiti VVU, Magonjwa ya Zinaa na Ini (NASHCOP) Tanzania. Tovuti hii ni jukwaa la kuongeza ufikiaji wa kila mtu wa habari kuhusu VVU, UKIMWI, magonjwa ya zinaa na Hepatitis, yanayozalishwa Tanzania. Tovuti hii inalenga kushiriki habari na nyenzo za VVU, UKIMWI, magonjwa ya zinaa na Hepatitis kwa umma mkuu ndani na nje ya nchi.",
       "author": "Meneja wa Mpango - NASHCOP",
       "manager_name": "Dr. Prosper Faustine Njau"
     }
