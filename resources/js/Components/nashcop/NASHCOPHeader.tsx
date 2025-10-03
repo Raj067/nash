@@ -54,7 +54,6 @@ interface NavigationItem {
     icon?: LucideIcon;
     dropdown?: NavigationItem[];
 }
-
 const NASHCOPHeader: FC = () => {
     const { t } = useTranslation("common");
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -76,51 +75,90 @@ const NASHCOPHeader: FC = () => {
 
     const [searchQuery, setSearchQuery] = useState("");
 
-    // Function to trigger Google Translate programmatically
-    const triggerGoogleTranslate = (langCode: string) => {
-        // Method 1: Try to find and trigger the Google Translate dropdown
-        const checkForTranslateElements = () => {
-            const combo = document.querySelector(
-                ".goog-te-combo"
-            ) as HTMLSelectElement;
-            if (combo) {
-                combo.value = langCode;
-                combo.dispatchEvent(new Event("change", { bubbles: true }));
-                return true;
-            }
+    // Simple Google Translate initialization (based on working minimal example)
+    useEffect(() => {
+        if (document.getElementById("google-translate-script")) return;
 
-            // Method 2: Try to find Google Translate menu items
-            const menuItems = document.querySelectorAll(".goog-te-menu2-item");
-            for (let item of menuItems) {
-                const span = item.querySelector("span.text");
-                if (span) {
-                    const text = span.textContent?.toLowerCase();
-                    if (
-                        (langCode === "sw" &&
-                            (text?.includes("swahili") ||
-                                text?.includes("kiswahili"))) ||
-                        (langCode === "en" && text?.includes("english"))
-                    ) {
-                        (item as HTMLElement).click();
-                        return true;
+        // Add comprehensive CSS to hide ALL Google Translate UI elements
+        const style = document.createElement("style");
+        style.textContent = `
+            /* Hide Google Translate banner */
+            .goog-te-banner-frame { display: none !important; }
+            .goog-te-banner-frame.skiptranslate { display: none !important; }
+            body { top: 0px !important; }
+            
+            /* Hide all Google Translate UI elements */
+            .goog-te-balloon-frame { display: none !important; }
+            .goog-te-ftab { display: none !important; }
+            #google_translate_element { display: none !important; }
+            .goog-te-combo { display: none !important; }
+            .goog-te-menu-value { display: none !important; }
+            .goog-te-gadget { display: none !important; }
+            .goog-te-gadget-simple { display: none !important; }
+            .goog-te-menu-frame { display: none !important; }
+            .goog-te-menu2 { display: none !important; }
+            .goog-te-menu2-item { display: none !important; }
+            .goog-te-menu2-item-selected { display: none !important; }
+            
+            /* Hide any iframe that Google Translate creates */
+            iframe[src*="translate.google.com"] { display: none !important; }
+            iframe[name="goog-te-banner-frame"] { display: none !important; }
+            
+            /* Additional selectors to catch all variations */
+            [id^="goog-te-"] { display: none !important; }
+            [class^="goog-te-"] { display: none !important; }
+            
+            /* Force hide the banner container */
+            body > .skiptranslate { display: none !important; }
+            .skiptranslate { display: none !important; }
+        `;
+        document.head.appendChild(style);
+        
+        // Also add a mutation observer to catch dynamically added elements
+        const observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+                mutation.addedNodes.forEach((node) => {
+                    if (node.nodeType === 1) { // Element node
+                        const element = node as Element;
+                        // Hide any Google Translate elements that get added
+                        if (element.classList?.contains('goog-te-banner-frame') ||
+                            element.classList?.contains('skiptranslate') ||
+                            element.id?.startsWith('goog-te-') ||
+                            element.tagName === 'IFRAME' && element.getAttribute('src')?.includes('translate.google.com')) {
+                            (element as HTMLElement).style.display = 'none';
+                        }
+                        // Also check child elements
+                        const googleElements = element.querySelectorAll('[class*="goog-te-"], [id*="goog-te-"], .skiptranslate');
+                        googleElements.forEach((el) => {
+                            (el as HTMLElement).style.display = 'none';
+                        });
                     }
-                }
-            }
-            return false;
-        };
+                });
+            });
+        });
+        
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true
+        });
+        
+        const script = document.createElement("script");
+        script.id = "google-translate-script";
+        script.src =
+            "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+        script.async = true;
+        document.body.appendChild(script);
 
-        // Try multiple times to find the translation elements
-        let attempts = 0;
-        const tryTranslate = () => {
-            if (checkForTranslateElements() || attempts > 20) {
-                return;
-            }
-            attempts++;
-            setTimeout(tryTranslate, 200);
+        window.googleTranslateElementInit = () => {
+            new window.google.translate.TranslateElement(
+                { pageLanguage: "en", includedLanguages: "en,sw" },
+                "google_translate_element"
+            );
         };
-
-        tryTranslate();
-    };
+        
+        // Clean up observer when component unmounts
+        return () => observer.disconnect();
+    }, []);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -129,113 +167,6 @@ const NASHCOPHeader: FC = () => {
 
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
-
-    // Initialize Google Translate
-    useEffect(() => {
-        const initializeGoogleTranslate = () => {
-            // Remove existing Google Translate elements
-            const existingScript = document.querySelector(
-                'script[src*="translate.google.com"]'
-            );
-            if (existingScript) {
-                existingScript.remove();
-            }
-
-            // Add CSS to hide Google Translate UI elements
-            const style = document.createElement("style");
-            style.textContent = `
-                .goog-te-banner-frame.skiptranslate { display: none !important; }
-                body { top: 0px !important; }
-                .goog-te-balloon-frame { display: none !important; }
-                .goog-te-ftab { display: none !important; }
-                #google_translate_element { display: none !important; }
-                .goog-te-combo { display: none !important; }
-                .goog-te-menu-value { display: none !important; }
-                .goog-te-gadget { display: none !important; }
-                .goog-te-gadget-simple { display: none !important; }
-                .goog-te-menu-frame { display: none !important; }
-            `;
-            document.head.appendChild(style);
-
-            // Add Google Translate script
-            const script = document.createElement("script");
-            script.src =
-                "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
-            script.async = true;
-            document.head.appendChild(script);
-
-            // Initialize Google Translate
-            window.googleTranslateElementInit = () => {
-                if (window.google?.translate) {
-                    new window.google.translate.TranslateElement(
-                        {
-                            pageLanguage: "en",
-                            includedLanguages: "en,sw",
-                            layout: window.google.translate.TranslateElement
-                                .InlineLayout.SIMPLE,
-                            autoDisplay: false,
-                            multilanguagePage: true,
-                        },
-                        "google_translate_element"
-                    );
-
-                    // Auto-translate to Swahili on load if that's the current language
-                    setTimeout(() => {
-                        if (currentLanguage === "sw") {
-                            triggerGoogleTranslate("sw");
-                        }
-                    }, 1000);
-                }
-            };
-        };
-
-        // Delay initialization to ensure DOM is ready
-        setTimeout(initializeGoogleTranslate, 1000);
-    }, []);
-
-    // Apply language changes
-    useEffect(() => {
-        // Update document language
-        document.documentElement.lang = currentLanguage;
-
-        // Trigger custom event for other components to listen to
-        window.dispatchEvent(
-            new CustomEvent("languageChanged", {
-                detail: { language: currentLanguage },
-            })
-        );
-
-        // Store language context globally
-        (window as any).translationContext = {
-            currentLanguage,
-            setLanguage: handleLanguageChange,
-        };
-    }, [currentLanguage]);
-
-    // Apply saved language on page load and auto-translate
-    useEffect(() => {
-        const savedLang = localStorage.getItem("nacp_language") as "en" | "sw";
-        if (savedLang && savedLang !== currentLanguage) {
-            setCurrentLanguage(savedLang);
-        }
-
-        // Auto-translate to current language after Google Translate loads
-        const autoTranslate = () => {
-            if (currentLanguage === "sw") {
-                setTimeout(() => {
-                    triggerGoogleTranslate("sw");
-                }, 2000);
-            }
-        };
-
-        // Wait for Google Translate to be ready
-        if (window.google?.translate) {
-            autoTranslate();
-        } else {
-            // Wait for Google Translate to load
-            setTimeout(autoTranslate, 3000);
-        }
     }, []);
 
     const languages = [
@@ -253,36 +184,19 @@ const NASHCOPHeader: FC = () => {
 
     const handleLanguageChange = (langCode: "en" | "sw") => {
         setCurrentLanguage(langCode);
-
-        // Store language preference
         localStorage.setItem("nacp_language", langCode);
 
         // Change i18next language
         i18n.changeLanguage(langCode);
 
-        // Smooth transition effect
-        document.body.style.transition = "opacity 0.3s ease";
-        document.body.style.opacity = "0.9";
-
-        // Use Google Translate to translate the entire page
-        setTimeout(() => {
-            const googleTranslateCombo = document.querySelector(
-                ".goog-te-combo"
-            ) as HTMLSelectElement;
-            if (googleTranslateCombo) {
-                googleTranslateCombo.value = langCode;
-                googleTranslateCombo.dispatchEvent(
-                    new Event("change", { bubbles: true })
-                );
-            } else {
-                // Fallback: Try to trigger translation via Google Translate API
-                triggerGoogleTranslate(langCode);
-            }
-
-            setTimeout(() => {
-                document.body.style.opacity = "1";
-            }, 500);
-        }, 300);
+        // Simple Google Translate trigger (based on working minimal example)
+        const combo = document.querySelector(
+            ".goog-te-combo"
+        ) as HTMLSelectElement;
+        if (combo) {
+            combo.value = langCode;
+            combo.dispatchEvent(new Event("change"));
+        }
     };
 
     const handleSearch = (e: React.FormEvent) => {
@@ -729,7 +643,7 @@ const NASHCOPHeader: FC = () => {
                                 {/* Hidden Google Translate Element */}
                                 <div
                                     id="google_translate_element"
-                                    className="hidden"
+                                    style={{ display: "none" }}
                                 ></div>
                             </div>
                         </div>
@@ -1078,10 +992,7 @@ const NASHCOPHeader: FC = () => {
             </div>
 
             {/* Hidden Google Translate Element */}
-            {/* <div
-                id="google_translate_element"
-                style={{ display: "none" }}
-            ></div> */}
+            <div id="google_translate_element"></div>
         </>
     );
 };
