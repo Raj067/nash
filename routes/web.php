@@ -233,6 +233,9 @@ Route::middleware('auth')->group(function () {
         Route::patch('users/{user}/unverify-email', [AdminUserController::class, 'unverifyEmail'])->name('users.unverify-email');
         Route::post('users/bulk-action', [AdminUserController::class, 'bulkAction'])->name('users.bulk-action');
         Route::get('users-export', [AdminUserController::class, 'export'])->name('users.export');
+        
+        // System Information for debugging
+        Route::get('system-info', [\App\Http\Controllers\Admin\SystemInfoController::class, 'getUploadInfo'])->name('system.info');
     });
 });
 

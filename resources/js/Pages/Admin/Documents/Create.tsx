@@ -45,6 +45,14 @@ export default function Create({ categories }: Props) {
 
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0] || null;
+        
+        // Check file size (10MB = 10 * 1024 * 1024 bytes)
+        if (file && file.size > 10 * 1024 * 1024) {
+            alert(`File size (${formatFileSize(file.size)}) exceeds the 10MB limit. Please choose a smaller file or contact your administrator to increase server limits.`);
+            e.target.value = ''; // Clear the input
+            return;
+        }
+        
         setData("file", file);
 
         // Auto-fill title if empty

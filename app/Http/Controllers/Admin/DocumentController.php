@@ -102,68 +102,171 @@ class DocumentController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'title' => 'required|string|max:255',
-            'description' => 'required|string',
-            'category' => 'required|string|in:' . implode(',', array_keys(Document::getCategories())),
-            'file' => 'nullable|file|mimes:pdf,doc,docx,xls,xlsx,ppt,pptx,zip,rar,jpg,jpeg,png,gif|max:10240', // 10MB
-            'file_url' => 'nullable|url',
-            'published_date' => 'required|date',
-            'author' => 'required|string|max:255',
-            'version' => 'nullable|string|max:50',
-            'tags' => 'nullable|string',
-            'is_featured' => 'boolean',
-            'is_active' => 'boolean',
-            'sort_order' => 'nullable|integer|min:0',
-        ]);
+        try {
+            // Check if file upload is enabled
+            if (!ini_get('file_uploads')) {
+                return back()->withErrors(['file' => 'File uploads are disabled on this server.']);
+            }
 
-        // Validate that either file or file_url is provided
-        if (!$request->hasFile('file') && !$request->filled('file_url')) {
-            return back()->withErrors(['file' => 'Either upload a file or provide a file URL.']);
+            // Check for upload errors first
+            if ($request->hasFile('file')) {
+                $file = $request->file('file');
+                
+                // Check for upload errors
+                if (!$file->isValid()) {
+                    $error = $this->getUploadErrorMessage($file->getError());
+                    return back()->withErrors(['file' => $error]);
+                }
+
+                // Check file size before validation
+                $maxSize = $this->getMaxUploadSize();
+                if ($file->getSize() > $maxSize) {
+                    $maxSizeMB = round($maxSize / 1024 / 1024, 2);
+                    return back()->withErrors(['file' => "File size exceeds server limit of {$maxSizeMB}MB."]);
+                }
+            }
+
+            $validated = $request->validate([
+                'title' => 'required|string|max:255',
+                'description' => 'required|string',
+                'category' => 'required|string|in:' . implode(',', array_keys(Document::getCategories())),
+                'file' => 'nullable|file|mimes:pdf,doc,docx,xls,xlsx,ppt,pptx,zip,rar,jpg,jpeg,png,gif|max:10240', // 10MB
+                'file_url' => 'nullable|url',
+                'published_date' => 'required|date',
+                'author' => 'required|string|max:255',
+                'version' => 'nullable|string|max:50',
+                'tags' => 'nullable|string',
+                'is_featured' => 'boolean',
+                'is_active' => 'boolean',
+                'sort_order' => 'nullable|integer|min:0',
+            ]);
+
+            // Validate that either file or file_url is provided
+            if (!$request->hasFile('file') && !$request->filled('file_url')) {
+                return back()->withErrors(['file' => 'Either upload a file or provide a file URL.']);
+            }
+
+            // Handle file upload
+            if ($request->hasFile('file')) {
+                $file = $request->file('file');
+                
+                // Ensure storage directory exists and is writable
+                $uploadDir = storage_path('app/public/documents/uploads');
+                if (!is_dir($uploadDir)) {
+                    mkdir($uploadDir, 0755, true);
+                }
+                
+                if (!is_writable($uploadDir)) {
+                    return back()->withErrors(['file' => 'Upload directory is not writable. Please contact administrator.']);
+                }
+
+                // Generate unique filename
+                $fileName = time() . '_' . uniqid() . '_' . $file->getClientOriginalName();
+                
+                try {
+                    $filePath = $file->storeAs('documents/uploads', $fileName, 'public');
+                    
+                    if (!$filePath) {
+                        return back()->withErrors(['file' => 'Failed to store file. Please try again.']);
+                    }
+                    
+                    $validated['file_path'] = $filePath;
+                    $validated['file_type'] = strtolower($file->getClientOriginalExtension());
+                    $validated['file_size'] = $file->getSize();
+                    $validated['file_url'] = null;
+                } catch (\Exception $e) {
+                    \Log::error('File upload error: ' . $e->getMessage());
+                    return back()->withErrors(['file' => 'File upload failed: ' . $e->getMessage()]);
+                }
+            } else {
+                // Using external URL
+                $validated['file_path'] = null;
+                $validated['file_type'] = 'url';
+                $validated['file_size'] = null;
+            }
+
+            // Process tags
+            if ($validated['tags']) {
+                $validated['tags'] = array_map('trim', explode(',', $validated['tags']));
+            } else {
+                $validated['tags'] = [];
+            }
+
+            // Set defaults
+            if (!isset($validated['is_active'])) {
+                $validated['is_active'] = true;
+            }
+            if (!isset($validated['is_featured'])) {
+                $validated['is_featured'] = false;
+            }
+            if (!isset($validated['sort_order'])) {
+                $validated['sort_order'] = Document::max('sort_order') + 1;
+            }
+
+            // Initialize download count
+            $validated['download_count'] = 0;
+
+            Document::create($validated);
+
+            return redirect()->route('admin.documents.index')
+                            ->with('success', 'Document created successfully.');
+                            
+        } catch (\Exception $e) {
+            \Log::error('Document creation error: ' . $e->getMessage());
+            return back()->withErrors(['file' => 'An error occurred while creating the document. Please try again.']);
         }
+    }
 
-        // Handle file upload
-        if ($request->hasFile('file')) {
-            $file = $request->file('file');
-            $fileName = time() . '_' . $file->getClientOriginalName();
-            $filePath = $file->storeAs('documents/uploads', $fileName, 'public');
-            
-            $validated['file_path'] = $filePath;
-            $validated['file_type'] = strtolower($file->getClientOriginalExtension());
-            $validated['file_size'] = $file->getSize();
-            $validated['file_url'] = null;
-        } else {
-            // Using external URL
-            $validated['file_path'] = null;
-            $validated['file_type'] = 'url';
-            $validated['file_size'] = null;
+    /**
+     * Get upload error message based on PHP upload error code
+     */
+    private function getUploadErrorMessage($errorCode)
+    {
+        switch ($errorCode) {
+            case UPLOAD_ERR_INI_SIZE:
+                return 'File size exceeds server upload_max_filesize limit.';
+            case UPLOAD_ERR_FORM_SIZE:
+                return 'File size exceeds form MAX_FILE_SIZE limit.';
+            case UPLOAD_ERR_PARTIAL:
+                return 'File was only partially uploaded. Please try again.';
+            case UPLOAD_ERR_NO_FILE:
+                return 'No file was uploaded.';
+            case UPLOAD_ERR_NO_TMP_DIR:
+                return 'Missing temporary upload directory.';
+            case UPLOAD_ERR_CANT_WRITE:
+                return 'Failed to write file to disk.';
+            case UPLOAD_ERR_EXTENSION:
+                return 'File upload stopped by PHP extension.';
+            default:
+                return 'Unknown upload error occurred.';
         }
+    }
 
-        // Process tags
-        if ($validated['tags']) {
-            $validated['tags'] = array_map('trim', explode(',', $validated['tags']));
-        } else {
-            $validated['tags'] = [];
+    /**
+     * Get maximum upload size in bytes
+     */
+    private function getMaxUploadSize()
+    {
+        $maxUpload = $this->parseSize(ini_get('upload_max_filesize'));
+        $maxPost = $this->parseSize(ini_get('post_max_size'));
+        $memoryLimit = $this->parseSize(ini_get('memory_limit'));
+        
+        return min($maxUpload, $maxPost, $memoryLimit);
+    }
+
+    /**
+     * Parse size string to bytes
+     */
+    private function parseSize($size)
+    {
+        $unit = preg_replace('/[^bkmgtpezy]/i', '', $size);
+        $size = preg_replace('/[^0-9\.]/', '', $size);
+        
+        if ($unit) {
+            return round($size * pow(1024, stripos('bkmgtpezy', $unit[0])));
         }
-
-        // Set defaults
-        if (!isset($validated['is_active'])) {
-            $validated['is_active'] = true;
-        }
-        if (!isset($validated['is_featured'])) {
-            $validated['is_featured'] = false;
-        }
-        if (!isset($validated['sort_order'])) {
-            $validated['sort_order'] = Document::max('sort_order') + 1;
-        }
-
-        // Initialize download count
-        $validated['download_count'] = 0;
-
-        Document::create($validated);
-
-        return redirect()->route('admin.documents.index')
-                        ->with('success', 'Document created successfully.');
+        
+        return round($size);
     }
 
     /**
