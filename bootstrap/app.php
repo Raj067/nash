@@ -18,6 +18,11 @@ return Application::configure(basePath: dirname(__DIR__))
             \App\Http\Middleware\SeoMiddleware::class,
         ]);
 
+        // Ensure CSRF protection is enabled
+        $middleware->validateCsrfTokens(except: [
+            // Add any routes that should be excluded from CSRF verification
+        ]);
+
         //
     })
     ->withExceptions(function (Exceptions $exceptions): void {

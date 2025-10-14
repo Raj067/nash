@@ -10,9 +10,11 @@ import {
     CardTitle,
 } from "@/Components/ui/card";
 import { Alert, AlertDescription } from "@/Components/ui/alert";
-import { Head, Link, useForm } from "@inertiajs/react";
-import { FormEventHandler, useState } from "react";
+import { Head, Link, useForm, usePage, router } from "@inertiajs/react";
+import { FormEventHandler, useState, useEffect } from "react";
 import { Eye, EyeOff, Shield, User, Lock } from "lucide-react";
+import { debugCSRF } from "@/csrf-debug";
+import { getCsrfToken } from "@/utils/csrf";
 
 export default function Login({
     status,
@@ -22,17 +24,46 @@ export default function Login({
     canResetPassword: boolean;
 }) {
     const [showPassword, setShowPassword] = useState(false);
+    const { props } = usePage();
+    
     const { data, setData, post, processing, errors, reset } = useForm({
         email: "",
         password: "",
         remember: false as boolean,
     });
 
+    // Debug CSRF on component mount
+    useEffect(() => {
+        console.log('Login Page Props:', props);
+        console.log('CSRF Token from props:', (props as any).csrf_token);
+        console.log('CSRF Token from utility:', getCsrfToken());
+        debugCSRF();
+    }, [props]);
+
     const submit: FormEventHandler = (e) => {
         e.preventDefault();
 
-        post(route("login"), {
+        // Get CSRF token
+        const csrfToken = getCsrfToken() || (props as any).csrf_token;
+        console.log('CSRF Token:', csrfToken);
+        console.log('Form data before submission:', data);
+
+        // Create form data with CSRF token
+        const formData = new FormData();
+        formData.append('email', data.email);
+        formData.append('password', data.password);
+        formData.append('remember', data.remember.toString());
+        if (csrfToken) {
+            formData.append('_token', csrfToken);
+        }
+
+        // Use router.post directly with FormData
+        router.post(route("login"), formData, {
             onFinish: () => reset("password"),
+            onError: (errors) => {
+                console.log('Login errors:', errors);
+                debugCSRF();
+            }
         });
     };
 
