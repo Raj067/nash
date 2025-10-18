@@ -46,9 +46,9 @@ export default function Create({ categories }: Props) {
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0] || null;
         
-        // Check file size (10MB = 10 * 1024 * 1024 bytes)
-        if (file && file.size > 10 * 1024 * 1024) {
-            alert(`File size (${formatFileSize(file.size)}) exceeds the 10MB limit. Please choose a smaller file or contact your administrator to increase server limits.`);
+        // Check file size (500MB = 500 * 1024 * 1024 bytes)
+        if (file && file.size > 500 * 1024 * 1024) {
+            alert(`File size (${formatFileSize(file.size)}) exceeds the 500MB limit. Please choose a smaller file or contact your administrator to increase server limits.`);
             e.target.value = ''; // Clear the input
             return;
         }
@@ -218,7 +218,7 @@ export default function Create({ categories }: Props) {
                                                     </div>
                                                     <div className="text-sm text-gray-500">
                                                         PDF, DOC, XLS, PPT, ZIP,
-                                                        Images (Max 10MB)
+                                                        Images (Max 500MB)
                                                     </div>
                                                 </div>
                                             )}
@@ -634,7 +634,7 @@ export default function Create({ categories }: Props) {
                         <div className="space-y-3 text-sm text-gray-600">
                             <p>
                                 • <strong>File Upload:</strong> Supports PDF,
-                                DOC, XLS, PPT, ZIP, and image files up to 10MB
+                                DOC, XLS, PPT, ZIP, and image files up to 500MB
                             </p>
                             <p>
                                 • <strong>External URL:</strong> Link to

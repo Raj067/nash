@@ -493,7 +493,7 @@ class PageController extends Controller
             'consent_investigation' => 'boolean',
             'consent_contact' => 'boolean',
             'additional_support' => 'nullable|string',
-            'attachments.*' => 'nullable|file|max:10240|mimes:pdf,doc,docx,jpg,jpeg,png,mp3,mp4,wav'
+            'attachments.*' => 'nullable|file|max:512000|mimes:pdf,doc,docx,jpg,jpeg,png,mp3,mp4,wav'
         ]);
 
         // Handle file uploads

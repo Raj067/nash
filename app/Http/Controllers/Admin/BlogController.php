@@ -110,7 +110,7 @@ class BlogController extends Controller
             'excerpt' => 'nullable|string|max:500',
             'content' => 'required|string',
             'category' => 'required|string|in:' . implode(',', array_keys(Blog::getCategories())),
-            'featured_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:5120', // 5MB
+            'featured_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:512000', // 500MB
             'author' => 'required|string|max:255',
             'published_date' => 'required|date',
             'tags' => 'nullable|string',
@@ -212,7 +212,7 @@ class BlogController extends Controller
                 'excerpt' => 'nullable|string|max:500',
                 'content' => 'required|string',
                 'category' => 'required|string|in:' . implode(',', array_keys(Blog::getCategories())),
-                'featured_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:5120', // 5MB
+                'featured_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:512000', // 500MB
                 'author' => 'required|string|max:255',
                 'published_date' => 'required|date',
                 'tags' => 'nullable|string',
@@ -387,7 +387,7 @@ class BlogController extends Controller
     public function uploadImage(Request $request)
     {
         $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:5120', // 5MB
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:512000', // 500MB
         ]);
 
         if ($request->hasFile('image')) {

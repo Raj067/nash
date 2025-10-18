@@ -130,7 +130,7 @@ class DocumentController extends Controller
                 'title' => 'required|string|max:255',
                 'description' => 'required|string',
                 'category' => 'required|string|in:' . implode(',', array_keys(Document::getCategories())),
-                'file' => 'nullable|file|mimes:pdf,doc,docx,xls,xlsx,ppt,pptx,zip,rar,jpg,jpeg,png,gif|max:10240', // 10MB
+                'file' => 'nullable|file|mimes:pdf,doc,docx,xls,xlsx,ppt,pptx,zip,rar,jpg,jpeg,png,gif|max:512000', // 500MB
                 'file_url' => 'nullable|url',
                 'published_date' => 'required|date',
                 'author' => 'required|string|max:255',
@@ -301,7 +301,7 @@ class DocumentController extends Controller
             'title' => 'required|string|max:255',
             'description' => 'required|string',
             'category' => 'required|string|in:' . implode(',', array_keys(Document::getCategories())),
-            'file' => 'nullable|file|mimes:pdf,doc,docx,xls,xlsx,ppt,pptx,zip,rar,jpg,jpeg,png,gif|max:10240', // 10MB
+            'file' => 'nullable|file|mimes:pdf,doc,docx,xls,xlsx,ppt,pptx,zip,rar,jpg,jpeg,png,gif|max:512000', // 500MB
             'file_url' => 'nullable|url',
             'published_date' => 'required|date',
             'author' => 'required|string|max:255',

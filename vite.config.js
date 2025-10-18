@@ -11,4 +11,22 @@ export default defineConfig({
         }),
         react(),
     ],
+    resolve: {
+        alias: {
+            '@': '/resources/js',
+        },
+    },
+    optimizeDeps: {
+        include: [
+            '@react-aria/utils',
+            '@react-aria/focus',
+            '@react-aria/interactions',
+            '@headlessui/react',
+        ],
+    },
+    build: {
+        commonjsOptions: {
+            include: [/node_modules/],
+        },
+    },
 });
