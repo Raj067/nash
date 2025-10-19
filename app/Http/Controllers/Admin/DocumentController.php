@@ -130,7 +130,7 @@ class DocumentController extends Controller
                 'title' => 'required|string|max:255',
                 'description' => 'required|string',
                 'category' => 'required|string|in:' . implode(',', array_keys(Document::getCategories())),
-                'file' => 'nullable|file|mimes:pdf,doc,docx,xls,xlsx,ppt,pptx,zip,rar,jpg,jpeg,png,gif|max:512000', // 500MB
+                'file' => 'nullable|file|mimes:pdf,doc,docx,xls,xlsx,ppt,pptx,zip,rar,7z,tar,gz,jpg,jpeg,png,gif,bmp,webp,svg,tiff,ico,mp4,avi,mov,wmv,flv,mkv,mp3,wav,ogg,flac,aac,txt,rtf,csv,xml,json,html,css,js,ts,py,java,cpp,c,h,php,sql,exe,msi,dmg,deb,rpm,apk,ipa,iso,bin,img|max:512000', // 500MB
                 'file_url' => 'nullable|url',
                 'published_date' => 'required|date',
                 'author' => 'required|string|max:255',
@@ -301,7 +301,7 @@ class DocumentController extends Controller
             'title' => 'required|string|max:255',
             'description' => 'required|string',
             'category' => 'required|string|in:' . implode(',', array_keys(Document::getCategories())),
-            'file' => 'nullable|file|mimes:pdf,doc,docx,xls,xlsx,ppt,pptx,zip,rar,jpg,jpeg,png,gif|max:512000', // 500MB
+            'file' => 'nullable|file|mimes:pdf,doc,docx,xls,xlsx,ppt,pptx,zip,rar,7z,tar,gz,jpg,jpeg,png,gif,bmp,webp,svg,tiff,ico,mp4,avi,mov,wmv,flv,mkv,mp3,wav,ogg,flac,aac,txt,rtf,csv,xml,json,html,css,js,ts,py,java,cpp,c,h,php,sql,exe,msi,dmg,deb,rpm,apk,ipa,iso,bin,img|max:512000', // 500MB
             'file_url' => 'nullable|url',
             'published_date' => 'required|date',
             'author' => 'required|string|max:255',

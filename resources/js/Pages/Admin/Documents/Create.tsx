@@ -66,6 +66,7 @@ export default function Create({ categories }: Props) {
         if (!file) return "📁";
         const extension = file.name.split(".").pop()?.toLowerCase();
         switch (extension) {
+            // Documents
             case "pdf":
                 return "📄";
             case "doc":
@@ -73,18 +74,90 @@ export default function Create({ categories }: Props) {
                 return "📝";
             case "xls":
             case "xlsx":
+            case "csv":
                 return "📊";
             case "ppt":
             case "pptx":
                 return "📋";
+            case "txt":
+            case "rtf":
+                return "📃";
+            
+            // Archives
             case "zip":
             case "rar":
+            case "7z":
+            case "tar":
+            case "gz":
                 return "📦";
+            
+            // Images
             case "jpg":
             case "jpeg":
             case "png":
             case "gif":
+            case "bmp":
+            case "webp":
+            case "svg":
+            case "tiff":
+            case "ico":
                 return "🖼️";
+            
+            // Videos
+            case "mp4":
+            case "avi":
+            case "mov":
+            case "wmv":
+            case "flv":
+            case "mkv":
+                return "🎥";
+            
+            // Audio
+            case "mp3":
+            case "wav":
+            case "ogg":
+            case "flac":
+            case "aac":
+                return "🎵";
+            
+            // Code files
+            case "html":
+            case "css":
+            case "js":
+            case "ts":
+            case "json":
+            case "xml":
+                return "💻";
+            case "py":
+            case "java":
+            case "cpp":
+            case "c":
+            case "h":
+            case "php":
+            case "sql":
+                return "⚙️";
+            
+            // Executables & Installers
+            case "exe":
+            case "msi":
+                return "⚡";
+            case "dmg":
+            case "pkg":
+                return "🍎";
+            case "deb":
+            case "rpm":
+                return "🐧";
+            case "apk":
+                return "🤖";
+            case "ipa":
+                return "📱";
+            
+            // Disk images
+            case "iso":
+            case "bin":
+            case "img":
+                return "💿";
+            
             default:
                 return "📁";
         }
@@ -180,7 +253,7 @@ export default function Create({ categories }: Props) {
                                             id="file"
                                             type="file"
                                             onChange={handleFileChange}
-                                            accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.zip,.rar,.jpg,.jpeg,.png,.gif"
+                                            accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.zip,.rar,.7z,.tar,.gz,.jpg,.jpeg,.png,.gif,.bmp,.webp,.svg,.tiff,.ico,.mp4,.avi,.mov,.wmv,.flv,.mkv,.mp3,.wav,.ogg,.flac,.aac,.txt,.rtf,.csv,.xml,.json,.html,.css,.js,.ts,.py,.java,.cpp,.c,.h,.php,.sql,.exe,.msi,.dmg,.deb,.rpm,.apk,.ipa,.iso,.bin,.img"
                                             className="hidden"
                                         />
                                         <label
@@ -217,8 +290,7 @@ export default function Create({ categories }: Props) {
                                                         Click to upload a file
                                                     </div>
                                                     <div className="text-sm text-gray-500">
-                                                        PDF, DOC, XLS, PPT, ZIP,
-                                                        Images (Max 500MB)
+                                                        Documents, Archives, Images, Videos, Audio, Code, Executables (Max 500MB)
                                                     </div>
                                                 </div>
                                             )}
