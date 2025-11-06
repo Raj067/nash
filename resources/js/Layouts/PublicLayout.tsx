@@ -24,7 +24,7 @@ export default function PublicLayout({
         <div className="bg-background">
             {/* Google Analytics - Load first for better tracking */}
             <GoogleAnalytics trackingId="G-YGTFBTY44B" />
-            
+
             {/* SEO Meta Tags and Structured Data */}
             {seoData ? (
                 <SeoHead
@@ -48,9 +48,9 @@ export default function PublicLayout({
             <main className="flex-1">{children}</main>
 
             <NASHCOPFooter />
-            
+
             {/* Government Election Banner - Fixed position */}
-            <ElectionBanner />
+            {/* <ElectionBanner /> */}
         </div>
     );
 }
