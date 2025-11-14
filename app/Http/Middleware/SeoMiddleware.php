@@ -51,39 +51,39 @@ class SeoMiddleware
         switch ($routeName) {
             case 'home':
                 $seoData['meta'] = SeoService::generateMetaTags([
-                    'title' => 'NASHCOP Tanzania - National AIDS, STIs and Hepatitis Control Programme',
-                    'description' => 'Official website of NASHCOP Tanzania. Leading the national response to HIV/AIDS, STIs, and Hepatitis through prevention, treatment, care, and support services.',
-                    'keywords' => 'NASHCOP, HIV AIDS Tanzania, STIs prevention, Hepatitis control, national health programme, HIV testing, treatment, care support',
+                    'title' => 'NACP Tanzania - National AIDS, STIs and Hepatitis Control Programme',
+                    'description' => 'Official website of NACP Tanzania. Leading the national response to HIV/AIDS, STIs, and Hepatitis through prevention, treatment, care, and support services.',
+                    'keywords' => 'NACP, HIV AIDS Tanzania, STIs prevention, Hepatitis control, national health programme, HIV testing, treatment, care support',
                 ]);
                 break;
 
             case 'about.index':
                 $seoData['meta'] = SeoService::generateMetaTags([
-                    'title' => 'About NASHCOP - National AIDS, STIs and Hepatitis Control Programme',
-                    'description' => 'Learn about NASHCOP Tanzania, our mission, vision, and commitment to combating HIV/AIDS, STIs, and Hepatitis in Tanzania.',
-                    'keywords' => 'about NASHCOP, mission vision, HIV AIDS control Tanzania, health organization',
+                    'title' => 'About NACP - National AIDS, STIs and Hepatitis Control Programme',
+                    'description' => 'Learn about NACP Tanzania, our mission, vision, and commitment to combating HIV/AIDS, STIs, and Hepatitis in Tanzania.',
+                    'keywords' => 'about NACP, mission vision, HIV AIDS control Tanzania, health organization',
                 ]);
                 break;
 
             case 'services.index':
                 $seoData['meta'] = SeoService::generateMetaTags([
-                    'title' => 'Our Services - NASHCOP Tanzania',
-                    'description' => 'Discover NASHCOP\'s comprehensive services including HIV testing, prevention programs, treatment, care, and support services across Tanzania.',
+                    'title' => 'Our Services - NACP Tanzania',
+                    'description' => 'Discover NACP\'s comprehensive services including HIV testing, prevention programs, treatment, care, and support services across Tanzania.',
                     'keywords' => 'HIV services Tanzania, AIDS prevention, testing services, treatment programs, healthcare services',
                 ]);
                 break;
 
             case 'news':
                 $seoData['meta'] = SeoService::generateMetaTags([
-                    'title' => 'News & Updates - NASHCOP Tanzania',
+                    'title' => 'News & Updates - NACP Tanzania',
                     'description' => 'Stay updated with the latest news, press releases, events, and developments in HIV/AIDS, STIs, and Hepatitis control in Tanzania.',
-                    'keywords' => 'HIV news Tanzania, AIDS updates, health news, NASHCOP announcements, press releases',
+                    'keywords' => 'HIV news Tanzania, AIDS updates, health news, NACP announcements, press releases',
                 ]);
                 break;
 
             case 'resources.index':
                 $seoData['meta'] = SeoService::generateMetaTags([
-                    'title' => 'Resources & Documents - NASHCOP Tanzania',
+                    'title' => 'Resources & Documents - NACP Tanzania',
                     'description' => 'Access comprehensive resources including guidelines, policies, reports, manuals, and educational materials on HIV/AIDS, STIs, and Hepatitis.',
                     'keywords' => 'HIV guidelines Tanzania, AIDS resources, health documents, policy papers, educational materials',
                 ]);
@@ -91,9 +91,9 @@ class SeoMiddleware
 
             case 'contact.locations':
                 $seoData['meta'] = SeoService::generateMetaTags([
-                    'title' => 'Contact Us - NASHCOP Tanzania Office Locations',
-                    'description' => 'Find NASHCOP office locations, contact information, and get in touch with our team for HIV/AIDS, STIs, and Hepatitis related inquiries.',
-                    'keywords' => 'NASHCOP contact, office locations Tanzania, HIV AIDS support contact, health services contact',
+                    'title' => 'Contact Us - NACP Tanzania Office Locations',
+                    'description' => 'Find NACP office locations, contact information, and get in touch with our team for HIV/AIDS, STIs, and Hepatitis related inquiries.',
+                    'keywords' => 'NACP contact, office locations Tanzania, HIV AIDS support contact, health services contact',
                 ]);
                 break;
         }
