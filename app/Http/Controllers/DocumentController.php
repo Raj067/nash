@@ -120,8 +120,16 @@ class DocumentController extends Controller
         if ($document->file_url) {
             return redirect($document->file_url);
         } else {
-            // For actual file downloads, you would implement file serving logic here
-            return response()->download(public_path($document->file_path));
+            // Get the full path to the file in storage
+            $filePath = storage_path('app/public/' . $document->file_path);
+            
+            // Check if file exists
+            if (!file_exists($filePath)) {
+                abort(404, 'File not found');
+            }
+            
+            // Return file download with proper headers
+            return response()->download($filePath, basename($document->file_path));
         }
     }
 
