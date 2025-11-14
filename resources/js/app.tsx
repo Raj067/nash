@@ -11,7 +11,8 @@ const appName =
     "NATIONAL AIDS, STIs AND HEPATITIS CONTROL PROGRAMME";
 
 createInertiaApp({
-    title: (title) => `${title} - ${appName}`,
+    title: (title) =>
+        `${title} | NATIONAL AIDS, STIs AND HEPATITIS CONTROL PROGRAMME`,
     resolve: (name) =>
         resolvePageComponent(
             `./Pages/${name}.tsx`,
