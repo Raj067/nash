@@ -43,25 +43,25 @@ function Herosection() {
 
     const slides = [
         {
-            id: 1,
-            image: "/images/20250930_080029.JPG",
-            title: t("home.hero.slides.slide1.title"),
-            subtitle: t("home.hero.slides.slide1.subtitle"),
-            description: t("home.hero.slides.slide1.description"),
-        },
-        {
             id: 2,
-            image: "/images/hiv/arvs.jpg",
+            image: "/images/img1.jpeg",
             title: t("home.hero.slides.slide2.title"),
             subtitle: t("home.hero.slides.slide2.subtitle"),
             description: t("home.hero.slides.slide2.description"),
         },
         {
             id: 3,
-            image: "/images/home/home3.jpg",
+            image: "/images/img2.jpeg",
             title: t("home.hero.slides.slide3.title"),
             subtitle: t("home.hero.slides.slide3.subtitle"),
             description: t("home.hero.slides.slide3.description"),
+        },
+        {
+            id: 1,
+            image: "/images/20250930_080029.JPG",
+            title: t("home.hero.slides.slide1.title"),
+            subtitle: t("home.hero.slides.slide1.subtitle"),
+            description: t("home.hero.slides.slide1.description"),
         },
     ];
 
@@ -71,7 +71,7 @@ function Herosection() {
         const checkForTranslateElements = () => {
             // ...
             const combo = document.querySelector(
-                ".goog-te-combo"
+                ".goog-te-combo",
             ) as HTMLSelectElement;
             if (combo) {
                 combo.value = langCode;
@@ -166,7 +166,7 @@ function Herosection() {
 
     const prevSlide = () => {
         setCurrentSlide(
-            (prev) => (prev - 1 + currentSlides.length) % currentSlides.length
+            (prev) => (prev - 1 + currentSlides.length) % currentSlides.length,
         );
         // Restart auto-play timer when manually navigating
         if (isAutoPlaying) {
@@ -193,8 +193,8 @@ function Herosection() {
                             index === currentSlide
                                 ? "translate-x-0"
                                 : index < currentSlide
-                                ? "-translate-x-full"
-                                : "translate-x-full"
+                                  ? "-translate-x-full"
+                                  : "translate-x-full"
                         }`}
                     >
                         <div
@@ -207,13 +207,13 @@ function Herosection() {
                                         {/* <Badge className="mb-4 bg-yellow-500 text-blue-900 hover:bg-yellow-400">
                                             NASHCOP Tanzania
                                         </Badge> */}
-                                        <h1 className="text-5xl md:text-6xl font-bold mb-4 leading-tight">
+                                        <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
                                             {slide.title}
                                         </h1>
-                                        <h2 className="text-2xl md:text-3xl mb-6 text-blue-100">
+                                        {/* <h2 className="text-2xl md:text-3xl mb-6 text-blue-100">
                                             {slide.subtitle}
-                                        </h2>
-                                        <p className="text-xl mb-8 text-blue-50 leading-relaxed">
+                                        </h2> */}
+                                        <p className="text-lg mb-8 text-blue-50 leading-relaxed">
                                             {slide.description}
                                         </p>
 
@@ -306,7 +306,7 @@ function Herosection() {
                                             </h3>
                                             <p className="text-blue-100 text-sm lg:text-base font-medium">
                                                 {t(
-                                                    "home.welcome_message.author"
+                                                    "home.welcome_message.author",
                                                 )}
                                             </p>
                                         </div>

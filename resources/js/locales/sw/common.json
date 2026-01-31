@@ -301,14 +301,14 @@
           "description": "Jukwaa la kuongeza ufikiaji wa habari kuhusu VVU, UKIMWI, magonjwa ya zinaa na Hepatitis Tanzania"
         },
         "slide2": {
-          "title": "Mafanikio ya 95-95-95",
+          "title": "Maandalizi ya Mpango Mkakati wa Pili wa UKIMWI, Magonjwa ya Ngono na Homa ya Ini awamu ya kwanza yakamika.",
           "subtitle": "Tanzania: 91% - 99% - 98%",
-          "description": "Maendeleo makubwa katika kupambana na VVU - Wanajua hali yao, wanapata matibabu, na virusi vimepungua"
+          "description": "Wizara ya Afya kupitia NASHCoP kwa kushirikiana na wadau mbalimbali leo tarehe 23.01.2026, Mkoani Morogoro imekamisha awamu ya kwanza ya Kikao Kazi cha maandaliza ya Mkakati wa Pili wa Sekta ya Afya wa UKIMWI, Magonjwa ya Ngono na Homa ya Ini (2027 hadi 2031) ambao utakuwa mkakati mkuu wa udhibiti wa magonjwa hayo. Kikao kazi hiki cha kwanza kimekutanisha wadau ili kufanya upembuzi yakinifu wa hali halisi ya utekelezaji wa Mpango Mkakati wa Kwanza."
         },
         "slide3": {
-          "title": "Huduma Kamili za Afya",
+          "title": "Bima ya afya kwa wote huleta haki na usawa kwenye huduma za afya nchini -  Waziri Mchengerwa.",
           "subtitle": "VVU, Magonjwa ya Zinaa na Hepatitis",
-          "description": "Huduma za upimaji, matibabu na kuzuia kwa VVU, magonjwa ya zinaa na ini kwa wote"
+          "description": "Waziri wa Afya Mhe. Mohamed Mchengerwa Januari 23, 2026 amesema uzinduzi wa kihistoria wa bima ya afya kwa wote utabadilisha dhana ya haki ya huduma za afya nchini Tanzania na kuweka msingi mpya wa ulinzi wa afya nchini. Waziri Mchengerwa amesema hayo kwenye kikao kazi cha kujadili kuhusu utekelezaji wa mpango wa bima ya afya kwa wote jijini Dodoma"
         }
       },
       "language_selector": {
@@ -319,7 +319,7 @@
     },
     "welcome_message": {
       "title": "Karibu Tovuti Rasmi ya NASHCOP Tanzania",
-      "message": "Karibu wote, kwenye tovuti rasmi ya Mpango wa Kitaifa wa Kudhibiti VVU, Magonjwa ya Zinaa na Ini (NASHCOP) Tanzania. Tovuti hii ni jukwaa la kuongeza ufikiaji wa kila mtu wa habari kuhusu VVU, UKIMWI, magonjwa ya zinaa na Hepatitis, yanayozalishwa Tanzania. Tovuti hii inalenga kushiriki habari na nyenzo za VVU, UKIMWI, magonjwa ya zinaa na Hepatitis kwa umma mkuu ndani na nje ya nchi.",
+      "message": "Karibu wote, kwenye tovuti rasmi ya Mpango wa Kitaifa wa Kudhibiti VVU, Magonjwa ya Ngono na Ini (NASHCOP) Tanzania. Tovuti hii ni jukwaa la kuongeza ufikiaji wa kila mtu wa habari kuhusu VVU, UKIMWI, magonjwa ya zinaa na Hepatitis, yanayozalishwa Tanzania. Tovuti hii inalenga kushiriki habari na nyenzo za VVU, UKIMWI, magonjwa ya zinaa na Hepatitis kwa umma mkuu ndani na nje ya nchi.",
       "author": "Meneja wa Mpango - NASHCOP",
       "manager_name": "Dr. Prosper Faustine Njau"
     }
