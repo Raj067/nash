@@ -42,6 +42,14 @@ function Herosection() {
     const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
     const slides = [
+        // new content
+        {
+            id: 4,
+            image: "/images/image0.jpg",
+            title: t("home.hero.slides.slide4.title"),
+            subtitle: t("home.hero.slides.slide4.subtitle"),
+            description: t("home.hero.slides.slide4.description"),
+        },
         {
             id: 2,
             image: "/images/img1.jpeg",
