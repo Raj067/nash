@@ -129,7 +129,9 @@ class DocumentController extends Controller
             }
             
             // Return file download with proper headers
-            return response()->download($filePath, basename($document->file_path));
+            return response()->file($filePath, [
+                'Content-Disposition' => 'inline; filename="' . basename($document->file_path) . '"',
+            ]);
         }
     }
 

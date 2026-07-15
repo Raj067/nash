@@ -23,9 +23,9 @@ class DocumentController extends Controller
             $search = $request->get('search');
             $query->where(function ($q) use ($search) {
                 $q->where('title', 'like', "%{$search}%")
-                  ->orWhere('description', 'like', "%{$search}%")
-                  ->orWhere('author', 'like', "%{$search}%")
-                  ->orWhere('tags', 'like', "%{$search}%");
+                    ->orWhere('description', 'like', "%{$search}%")
+                    ->orWhere('author', 'like', "%{$search}%")
+                    ->orWhere('tags', 'like', "%{$search}%");
             });
         }
 
@@ -53,18 +53,18 @@ class DocumentController extends Controller
 
         // Order by sort_order and published_date
         $documents = $query->orderBy('sort_order')
-                          ->orderBy('published_date', 'desc')
-                          ->orderBy('id', 'desc')
-                          ->paginate(12)
-                          ->withQueryString();
+            ->orderBy('published_date', 'desc')
+            ->orderBy('id', 'desc')
+            ->paginate(12)
+            ->withQueryString();
 
         // Get unique categories and file types for filters
         $categories = Document::getCategories();
         $fileTypes = Document::distinct()
-                            ->pluck('file_type')
-                            ->filter()
-                            ->sort()
-                            ->values();
+            ->pluck('file_type')
+            ->filter()
+            ->sort()
+            ->values();
 
         // Get statistics
         $stats = [
@@ -111,7 +111,7 @@ class DocumentController extends Controller
             // Check for upload errors first
             if ($request->hasFile('file')) {
                 $file = $request->file('file');
-                
+
                 // Check for upload errors
                 if (!$file->isValid()) {
                     $error = $this->getUploadErrorMessage($file->getError());
@@ -149,33 +149,33 @@ class DocumentController extends Controller
             // Handle file upload
             if ($request->hasFile('file')) {
                 $file = $request->file('file');
-                
+
                 // Ensure storage directory exists and is writable
                 $uploadDir = storage_path('app/public/documents/uploads');
                 if (!is_dir($uploadDir)) {
                     mkdir($uploadDir, 0755, true);
                 }
-                
+
                 if (!is_writable($uploadDir)) {
                     return back()->withErrors(['file' => 'Upload directory is not writable. Please contact administrator.']);
                 }
 
                 // Generate unique filename
                 $fileName = time() . '_' . uniqid() . '_' . $file->getClientOriginalName();
-                
+
                 try {
                     $filePath = $file->storeAs('documents/uploads', $fileName, 'public');
-                    
+
                     if (!$filePath) {
                         return back()->withErrors(['file' => 'Failed to store file. Please try again.']);
                     }
-                    
+
                     $validated['file_path'] = $filePath;
                     $validated['file_type'] = strtolower($file->getClientOriginalExtension());
                     $validated['file_size'] = $file->getSize();
                     $validated['file_url'] = null;
                 } catch (\Exception $e) {
-                    \Log::error('File upload error: ' . $e->getMessage());
+                    // \Log::error('File upload error: ' . $e->getMessage());
                     return back()->withErrors(['file' => 'File upload failed: ' . $e->getMessage()]);
                 }
             } else {
@@ -209,10 +209,9 @@ class DocumentController extends Controller
             Document::create($validated);
 
             return redirect()->route('admin.documents.index')
-                            ->with('success', 'Document created successfully.');
-                            
+                ->with('success', 'Document created successfully.');
         } catch (\Exception $e) {
-            \Log::error('Document creation error: ' . $e->getMessage());
+            // \Log::error('Document creation error: ' . $e->getMessage());
             return back()->withErrors(['file' => 'An error occurred while creating the document. Please try again.']);
         }
     }
@@ -250,7 +249,7 @@ class DocumentController extends Controller
         $maxUpload = $this->parseSize(ini_get('upload_max_filesize'));
         $maxPost = $this->parseSize(ini_get('post_max_size'));
         $memoryLimit = $this->parseSize(ini_get('memory_limit'));
-        
+
         return min($maxUpload, $maxPost, $memoryLimit);
     }
 
@@ -261,11 +260,11 @@ class DocumentController extends Controller
     {
         $unit = preg_replace('/[^bkmgtpezy]/i', '', $size);
         $size = preg_replace('/[^0-9\.]/', '', $size);
-        
+
         if ($unit) {
             return round($size * pow(1024, stripos('bkmgtpezy', $unit[0])));
         }
-        
+
         return round($size);
     }
 
@@ -322,7 +321,7 @@ class DocumentController extends Controller
             $file = $request->file('file');
             $fileName = time() . '_' . $file->getClientOriginalName();
             $filePath = $file->storeAs('documents/uploads', $fileName, 'public');
-            
+
             $validated['file_path'] = $filePath;
             $validated['file_type'] = strtolower($file->getClientOriginalExtension());
             $validated['file_size'] = $file->getSize();
@@ -332,7 +331,7 @@ class DocumentController extends Controller
             if ($document->file_path && Storage::disk('public')->exists($document->file_path)) {
                 Storage::disk('public')->delete($document->file_path);
             }
-            
+
             $validated['file_path'] = null;
             $validated['file_type'] = 'url';
             $validated['file_size'] = null;
@@ -356,7 +355,7 @@ class DocumentController extends Controller
         $document->update($validated);
 
         return redirect()->route('admin.documents.index')
-                        ->with('success', 'Document updated successfully.');
+            ->with('success', 'Document updated successfully.');
     }
 
     /**
@@ -372,7 +371,7 @@ class DocumentController extends Controller
         $document->delete();
 
         return redirect()->route('admin.documents.index')
-                        ->with('success', 'Document deleted successfully.');
+            ->with('success', 'Document deleted successfully.');
     }
 
     /**
@@ -385,9 +384,9 @@ class DocumentController extends Controller
         ]);
 
         $status = $document->is_active ? 'activated' : 'deactivated';
-        
+
         return redirect()->back()
-                        ->with('success', "Document {$status} successfully.");
+            ->with('success', "Document {$status} successfully.");
     }
 
     /**
@@ -400,9 +399,9 @@ class DocumentController extends Controller
         ]);
 
         $status = $document->is_featured ? 'featured' : 'unfeatured';
-        
+
         return redirect()->back()
-                        ->with('success', "Document {$status} successfully.");
+            ->with('success', "Document {$status} successfully.");
     }
 
     /**
@@ -468,29 +467,35 @@ class DocumentController extends Controller
 
         // Try different storage locations for seeded files
         $filePath = $document->file_path;
-        
+
         // Check if it's a seeded file (starts with /documents/seeds/)
         if (str_starts_with($filePath, '/documents/seeds/')) {
             // This is a seeded file in public directory
             $publicPath = public_path(ltrim($filePath, '/'));
-            
+
             if (file_exists($publicPath)) {
                 $document->increment('download_count');
-                return response()->download($publicPath, $document->title . '.' . $document->file_type);
+                return response()->file($publicPath, [
+                    'Content-Disposition' => 'inline; filename="' . basename($publicPath) . '"',
+                ]);
             }
         }
-        
+
         // Check if it's an uploaded file in storage
         if (Storage::disk('public')->exists($filePath)) {
             $document->increment('download_count');
-            return Storage::disk('public')->download($filePath, $document->title . '.' . $document->file_type);
+            return response()->file(Storage::disk('public')->path($filePath), [
+                'Content-Disposition' => 'inline; filename="' . basename($filePath) . '"',
+            ]);
         }
-        
+
         // Try without leading slash for storage files
         $cleanPath = ltrim($filePath, '/');
         if (Storage::disk('public')->exists($cleanPath)) {
             $document->increment('download_count');
-            return Storage::disk('public')->download($cleanPath, $document->title . '.' . $document->file_type);
+            return response()->file(Storage::disk('public')->path($cleanPath), [
+                'Content-Disposition' => 'inline; filename="' . basename($cleanPath) . '"',
+            ]);
         }
 
         return redirect()->back()->with('error', 'File not found on server. Path: ' . $filePath);

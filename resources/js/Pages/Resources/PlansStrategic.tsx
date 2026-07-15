@@ -59,13 +59,8 @@ const PlansStrategic: React.FC<PlansStrategicProps> = ({ documents }) => {
         }
     };
 
-    const handleDownload = (document: Document) => {
-        if (document.file_url) {
-            window.open(document.file_url, "_blank");
-        } else {
-            window.location.href = `/documents/download/${document.id}`;
-        }
-    };
+    const documentHref = (document: Document) =>
+        document.file_url || `/documents/download/${document.id}`;
 
     const featuredDocuments = filteredDocuments.filter((doc) => doc.is_featured);
     const regularDocuments = filteredDocuments.filter((doc) => !doc.is_featured);
@@ -179,12 +174,14 @@ const PlansStrategic: React.FC<PlansStrategicProps> = ({ documents }) => {
                                                     {document.file_type.toUpperCase()} • {document.formatted_file_size}
                                                 </span>
                                                 <Button
+                                                    asChild
                                                     size="sm"
-                                                    onClick={() => handleDownload(document)}
                                                     className="bg-blue-600 hover:bg-blue-700"
                                                 >
-                                                    <Download className="h-4 w-4 mr-1" />
-                                                    Download
+                                                    <a href={documentHref(document)} target="_blank" rel="noopener noreferrer">
+                                                        <Download className="h-4 w-4 mr-1" />
+                                                        Preview / Download
+                                                    </a>
                                                 </Button>
                                             </div>
                                         </CardContent>
@@ -238,12 +235,14 @@ const PlansStrategic: React.FC<PlansStrategicProps> = ({ documents }) => {
                                                     {document.formatted_file_size}
                                                 </span>
                                                 <Button
+                                                    asChild
                                                     size="sm"
                                                     variant="outline"
-                                                    onClick={() => handleDownload(document)}
                                                 >
-                                                    <Download className="h-4 w-4 mr-1" />
-                                                    Download
+                                                    <a href={documentHref(document)} target="_blank" rel="noopener noreferrer">
+                                                        <Download className="h-4 w-4 mr-1" />
+                                                        Preview / Download
+                                                    </a>
                                                 </Button>
                                             </div>
                                         </CardContent>

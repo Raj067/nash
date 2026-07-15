@@ -71,13 +71,9 @@ export default function Show({ document }: Props) {
         router.patch(route("admin.documents.toggle-featured", document.id));
     };
 
-    const handleDownload = () => {
-        if (document.file_path) {
-            window.open(route("admin.documents.download", document.id));
-        } else if (document.file_url) {
-            window.open(document.file_url, "_blank");
-        }
-    };
+    const documentHref = document.file_path
+        ? route("admin.documents.download", document.id)
+        : document.file_url;
 
     const getFileTypeIcon = (fileType: string) => {
         switch (fileType.toLowerCase()) {
@@ -155,14 +151,18 @@ export default function Show({ document }: Props) {
                         </div>
                     </div>
                     <div className="flex items-center gap-2">
-                        <Button onClick={handleDownload}>
-                            {document.file_path ? (
-                                <Download className="h-4 w-4 mr-2" />
-                            ) : (
-                                <ExternalLink className="h-4 w-4 mr-2" />
-                            )}
-                            {document.file_path ? "Download" : "Open URL"}
-                        </Button>
+                        {documentHref && (
+                            <Button asChild>
+                                <a href={documentHref} target="_blank" rel="noopener noreferrer">
+                                    {document.file_path ? (
+                                        <Download className="h-4 w-4 mr-2" />
+                                    ) : (
+                                        <ExternalLink className="h-4 w-4 mr-2" />
+                                    )}
+                                    {document.file_path ? "Preview / Download" : "Open URL"}
+                                </a>
+                            </Button>
+                        )}
                         <Link href={route("admin.documents.edit", document.id)}>
                             <Button>
                                 <Edit className="h-4 w-4 mr-2" />

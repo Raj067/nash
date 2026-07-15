@@ -231,10 +231,6 @@ export default function Index({
         router.patch(route("admin.documents.toggle-featured", docId));
     };
 
-    const handleDownload = (docId: number) => {
-        window.open(route("admin.documents.download", docId));
-    };
-
     const truncateText = (text: string, length: number = 100) => {
         return text.length > length ? text.substring(0, length) + "..." : text;
     };
@@ -783,15 +779,15 @@ export default function Index({
                                                         </Link>
                                                     </DropdownMenuItem>
                                                     {document.file_path && (
-                                                        <DropdownMenuItem
-                                                            onClick={() =>
-                                                                handleDownload(
-                                                                    document.id
-                                                                )
-                                                            }
-                                                        >
-                                                            <Download className="h-4 w-4 mr-2" />
-                                                            Download
+                                                        <DropdownMenuItem asChild>
+                                                            <a
+                                                                href={route("admin.documents.download", document.id)}
+                                                                target="_blank"
+                                                                rel="noopener noreferrer"
+                                                            >
+                                                                <Download className="h-4 w-4 mr-2" />
+                                                                Preview / Download
+                                                            </a>
                                                         </DropdownMenuItem>
                                                     )}
                                                     <DropdownMenuItem
