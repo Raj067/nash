@@ -454,6 +454,10 @@ const NASHCOPHeader: FC = () => {
                     title: t("header.navigation.databases"),
                     href: "/resources/databases",
                 },
+                {
+                    title: t("header.navigation.global_fund_cycle_8_documents"),
+                    href: "https://drive.google.com/drive/folders/1mZnFyLbPH2CrlCyWdb7HwCpJc8vzISWE",
+                },
             ],
         },
         {
@@ -856,6 +860,20 @@ const NASHCOPHeader: FC = () => {
                                                                         href={
                                                                             subItem.href
                                                                         }
+                                                                        target={
+                                                                            subItem.href?.startsWith(
+                                                                                "http"
+                                                                            )
+                                                                                ? "_blank"
+                                                                                : undefined
+                                                                        }
+                                                                        rel={
+                                                                            subItem.href?.startsWith(
+                                                                                "http"
+                                                                            )
+                                                                                ? "noopener noreferrer"
+                                                                                : undefined
+                                                                        }
                                                                         className="w-full cursor-pointer"
                                                                     >
                                                                         {
@@ -984,6 +1002,20 @@ const NASHCOPHeader: FC = () => {
                                                                         <a
                                                                             href={
                                                                                 subItem.href
+                                                                            }
+                                                                            target={
+                                                                                subItem.href?.startsWith(
+                                                                                    "http"
+                                                                                )
+                                                                                    ? "_blank"
+                                                                                    : undefined
+                                                                            }
+                                                                            rel={
+                                                                                subItem.href?.startsWith(
+                                                                                    "http"
+                                                                                )
+                                                                                    ? "noopener noreferrer"
+                                                                                    : undefined
                                                                             }
                                                                             className="block py-2 text-sm text-blue-700 hover:text-blue-600 transition-colors"
                                                                         >
