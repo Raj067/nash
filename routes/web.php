@@ -99,6 +99,7 @@ Route::get('/resources/sop-manuals', [DocumentController::class, 'sopManuals'])-
 Route::get('/resources/frameworks', [DocumentController::class, 'frameworks'])->name('resources.frameworks');
 Route::get('/resources/iec-materials', [DocumentController::class, 'iecMaterials'])->name('resources.iec-materials');
 Route::get('/resources/databases', [DocumentController::class, 'databases'])->name('resources.databases');
+Route::get('/resources/research-protocol', [DocumentController::class, 'researchProtocol'])->name('resources.research-protocol');
 
 // News & Media
 Route::get('/news', [BlogController::class, 'index'])->name('news');

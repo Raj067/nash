@@ -106,6 +106,7 @@ export default function Show({ document }: Props) {
     const getCategoryDisplayName = (category: string) => {
         const categories: { [key: string]: string } = {
             plans_strategic: "Plans & Strategic Documents",
+            research_protocol: "Research and Protocol",
             policy: "Policy Documents",
             guidelines: "Guidelines",
             reports: "Reports (Semi Annual and Annual Reports etc)",

@@ -323,6 +323,35 @@ class DocumentController extends Controller
         ]);
     }
 
+    public function researchProtocol()
+    {
+        $documents = Document::active()
+            ->where('category', 'research_protocol')
+            ->ordered()
+            ->get()
+            ->map(function ($document) {
+                return [
+                    'id' => $document->id,
+                    'title' => $document->title,
+                    'description' => $document->description,
+                    'category' => $document->category,
+                    'category_display' => Document::getCategoryDisplayName($document->category),
+                    'file_type' => $document->file_type,
+                    'formatted_file_size' => $document->formatted_file_size,
+                    'file_icon' => $document->file_icon,
+                    'published_date' => $document->published_date?->format('Y-m-d'),
+                    'author' => $document->author,
+                    'version' => $document->version,
+                    'tags' => $document->tags,
+                    'is_featured' => $document->is_featured,
+                ];
+            });
+
+        return Inertia::render('Resources/ResearchProtocol', [
+            'documents' => $documents,
+        ]);
+    }
+
     public function reports()
     {
         $documents = Document::active()

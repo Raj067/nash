@@ -111,6 +111,7 @@ class Document extends Model
             'frameworks' => 'Frameworks',
             'iec_sbc' => 'IEC/SBC Materials',
             'databases' => 'Databases',
+            'research_protocol' => 'Research and Protocol',
         ];
 
         return $categories[$category] ?? ucfirst(str_replace('_', ' ', $category));
@@ -128,6 +129,7 @@ class Document extends Model
             'frameworks' => 'Frameworks',
             'iec_sbc' => 'IEC/SBC Materials',
             'databases' => 'Databases',
+            'research_protocol' => 'Research and Protocol',
         ];
     }
 }

@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
 
         // Run all seeders
         $this->call([
+            AdminUserSeeder::class,
             BlogSeeder::class,
             DocumentSeeder::class,
             VideoSeeder::class,

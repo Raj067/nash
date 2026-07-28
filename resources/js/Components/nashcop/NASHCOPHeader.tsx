@@ -114,35 +114,45 @@ const NASHCOPHeader: FC = () => {
             .skiptranslate { display: none !important; }
         `;
         document.head.appendChild(style);
-        
+
         // Also add a mutation observer to catch dynamically added elements
         const observer = new MutationObserver((mutations) => {
             mutations.forEach((mutation) => {
                 mutation.addedNodes.forEach((node) => {
-                    if (node.nodeType === 1) { // Element node
+                    if (node.nodeType === 1) {
+                        // Element node
                         const element = node as Element;
                         // Hide any Google Translate elements that get added
-                        if (element.classList?.contains('goog-te-banner-frame') ||
-                            element.classList?.contains('skiptranslate') ||
-                            element.id?.startsWith('goog-te-') ||
-                            element.tagName === 'IFRAME' && element.getAttribute('src')?.includes('translate.google.com')) {
-                            (element as HTMLElement).style.display = 'none';
+                        if (
+                            element.classList?.contains(
+                                "goog-te-banner-frame",
+                            ) ||
+                            element.classList?.contains("skiptranslate") ||
+                            element.id?.startsWith("goog-te-") ||
+                            (element.tagName === "IFRAME" &&
+                                element
+                                    .getAttribute("src")
+                                    ?.includes("translate.google.com"))
+                        ) {
+                            (element as HTMLElement).style.display = "none";
                         }
                         // Also check child elements
-                        const googleElements = element.querySelectorAll('[class*="goog-te-"], [id*="goog-te-"], .skiptranslate');
+                        const googleElements = element.querySelectorAll(
+                            '[class*="goog-te-"], [id*="goog-te-"], .skiptranslate',
+                        );
                         googleElements.forEach((el) => {
-                            (el as HTMLElement).style.display = 'none';
+                            (el as HTMLElement).style.display = "none";
                         });
                     }
                 });
             });
         });
-        
+
         observer.observe(document.body, {
             childList: true,
-            subtree: true
+            subtree: true,
         });
-        
+
         const script = document.createElement("script");
         script.id = "google-translate-script";
         script.src =
@@ -153,16 +163,18 @@ const NASHCOPHeader: FC = () => {
         window.googleTranslateElementInit = () => {
             new window.google.translate.TranslateElement(
                 { pageLanguage: "en", includedLanguages: "en,sw" },
-                "google_translate_element"
+                "google_translate_element",
             );
         };
-        
+
         // Global function to retrigger translation for dynamic content
         window.retriggerGoogleTranslate = () => {
             const currentLang = localStorage.getItem("nacp_language") || "sw";
             if (currentLang === "sw") {
                 setTimeout(() => {
-                    const combo = document.querySelector(".goog-te-combo") as HTMLSelectElement;
+                    const combo = document.querySelector(
+                        ".goog-te-combo",
+                    ) as HTMLSelectElement;
                     if (combo && combo.value !== "sw") {
                         combo.value = "sw";
                         combo.dispatchEvent(new Event("change"));
@@ -170,7 +182,7 @@ const NASHCOPHeader: FC = () => {
                 }, 500);
             }
         };
-        
+
         // Clean up observer when component unmounts
         return () => observer.disconnect();
     }, []);
@@ -206,7 +218,7 @@ const NASHCOPHeader: FC = () => {
 
         // Simple Google Translate trigger (based on working minimal example)
         const combo = document.querySelector(
-            ".goog-te-combo"
+            ".goog-te-combo",
         ) as HTMLSelectElement;
         if (combo) {
             combo.value = langCode;
@@ -219,7 +231,7 @@ const NASHCOPHeader: FC = () => {
         if (searchQuery.trim()) {
             // Redirect to search results page
             window.location.href = `/search?q=${encodeURIComponent(
-                searchQuery.trim()
+                searchQuery.trim(),
             )}`;
         }
     };
@@ -353,7 +365,7 @@ const NASHCOPHeader: FC = () => {
                         },
                         {
                             title: t(
-                                "header.navigation.viral_hepatitis_screening"
+                                "header.navigation.viral_hepatitis_screening",
                             ),
                             href: "/programme-areas/care-treatment-support/viral-hepatitis-screening",
                         },
@@ -363,7 +375,7 @@ const NASHCOPHeader: FC = () => {
                         },
                         {
                             title: t(
-                                "header.navigation.early_infant_diagnosis"
+                                "header.navigation.early_infant_diagnosis",
                             ),
                             href: "/programme-areas/care-treatment-support/early-infant-diagnosis",
                         },
@@ -405,7 +417,7 @@ const NASHCOPHeader: FC = () => {
                         },
                         {
                             title: t(
-                                "header.navigation.rational_use_medicines"
+                                "header.navigation.rational_use_medicines",
                             ),
                             href: "/programme-areas/pharmaceuticals-laboratory/rational-use",
                         },
@@ -453,6 +465,10 @@ const NASHCOPHeader: FC = () => {
                 {
                     title: t("header.navigation.databases"),
                     href: "/resources/databases",
+                },
+                {
+                    title: t("header.navigation.research_protocol"),
+                    href: "/resources/research-protocol",
                 },
                 {
                     title: t("header.navigation.global_fund_cycle_8_documents"),
@@ -540,10 +556,11 @@ const NASHCOPHeader: FC = () => {
                                                       "Emergency Hotline",
                                               }
                                             : link.href.startsWith("mailto:")
-                                            ? {
-                                                  "aria-label": "Email Contact",
-                                              }
-                                            : {})}
+                                              ? {
+                                                    "aria-label":
+                                                        "Email Contact",
+                                                }
+                                              : {})}
                                     >
                                         {link.href.startsWith("tel:") && (
                                             <Phone className="h-3 w-3" />
@@ -567,12 +584,12 @@ const NASHCOPHeader: FC = () => {
                                             <input
                                                 type="text"
                                                 placeholder={t(
-                                                    "header.search_placeholder"
+                                                    "header.search_placeholder",
                                                 )}
                                                 value={searchQuery}
                                                 onChange={(e) =>
                                                     setSearchQuery(
-                                                        e.target.value
+                                                        e.target.value,
                                                     )
                                                 }
                                                 className="bg-transparent text-white placeholder-white/70 text-xs w-32 focus:outline-none focus:w-40 transition-all duration-200"
@@ -582,9 +599,9 @@ const NASHCOPHeader: FC = () => {
                                                     setTimeout(
                                                         () =>
                                                             setIsSearchOpen(
-                                                                false
+                                                                false,
                                                             ),
-                                                        150
+                                                        150,
                                                     );
                                                 }}
                                             />
@@ -636,7 +653,9 @@ const NASHCOPHeader: FC = () => {
                                             size="sm"
                                             onClick={() =>
                                                 handleLanguageChange(
-                                                    language.code as "en" | "sw"
+                                                    language.code as
+                                                        | "en"
+                                                        | "sw",
                                                 )
                                             }
                                             className={`text-white hover:text-white hover:bg-blue-700 h-auto flex items-center space-x-[1px] transition-colors ${
@@ -646,7 +665,7 @@ const NASHCOPHeader: FC = () => {
                                                     : ""
                                             }`}
                                             aria-label={`${t(
-                                                "header.select_language"
+                                                "header.select_language",
                                             )} - ${language.name}`}
                                         >
                                             <span className="text-lg">
@@ -829,7 +848,7 @@ const NASHCOPHeader: FC = () => {
                                                                     <DropdownMenuSubContent className="w-64">
                                                                         {subItem.dropdown.map(
                                                                             (
-                                                                                nestedItem
+                                                                                nestedItem,
                                                                             ) => (
                                                                                 <DropdownMenuItem
                                                                                     key={
@@ -848,7 +867,7 @@ const NASHCOPHeader: FC = () => {
                                                                                         }
                                                                                     </a>
                                                                                 </DropdownMenuItem>
-                                                                            )
+                                                                            ),
                                                                         )}
                                                                     </DropdownMenuSubContent>
                                                                 </DropdownMenuSub>
@@ -862,14 +881,14 @@ const NASHCOPHeader: FC = () => {
                                                                         }
                                                                         target={
                                                                             subItem.href?.startsWith(
-                                                                                "http"
+                                                                                "http",
                                                                             )
                                                                                 ? "_blank"
                                                                                 : undefined
                                                                         }
                                                                         rel={
                                                                             subItem.href?.startsWith(
-                                                                                "http"
+                                                                                "http",
                                                                             )
                                                                                 ? "noopener noreferrer"
                                                                                 : undefined
@@ -883,7 +902,7 @@ const NASHCOPHeader: FC = () => {
                                                                 </DropdownMenuItem>
                                                             )}
                                                         </div>
-                                                    )
+                                                    ),
                                                 )}
                                             </DropdownMenuContent>
                                         </DropdownMenu>
@@ -955,7 +974,7 @@ const NASHCOPHeader: FC = () => {
                                                                                 className="w-full justify-between text-left px-0 py-2 text-sm text-blue-700 hover:text-blue-600"
                                                                                 onClick={() =>
                                                                                     toggleNestedDropdown(
-                                                                                        subItem.title
+                                                                                        subItem.title,
                                                                                     )
                                                                                 }
                                                                             >
@@ -978,7 +997,7 @@ const NASHCOPHeader: FC = () => {
                                                                                 <div className="ml-4 mt-1 space-y-1">
                                                                                     {subItem.dropdown.map(
                                                                                         (
-                                                                                            nestedItem
+                                                                                            nestedItem,
                                                                                         ) => (
                                                                                             <a
                                                                                                 key={
@@ -993,7 +1012,7 @@ const NASHCOPHeader: FC = () => {
                                                                                                     nestedItem.title
                                                                                                 }
                                                                                             </a>
-                                                                                        )
+                                                                                        ),
                                                                                     )}
                                                                                 </div>
                                                                             )}
@@ -1005,14 +1024,14 @@ const NASHCOPHeader: FC = () => {
                                                                             }
                                                                             target={
                                                                                 subItem.href?.startsWith(
-                                                                                    "http"
+                                                                                    "http",
                                                                                 )
                                                                                     ? "_blank"
                                                                                     : undefined
                                                                             }
                                                                             rel={
                                                                                 subItem.href?.startsWith(
-                                                                                    "http"
+                                                                                    "http",
                                                                                 )
                                                                                     ? "noopener noreferrer"
                                                                                     : undefined
@@ -1025,7 +1044,7 @@ const NASHCOPHeader: FC = () => {
                                                                         </a>
                                                                     )}
                                                                 </div>
-                                                            )
+                                                            ),
                                                         )}
                                                     </div>
                                                 )}
