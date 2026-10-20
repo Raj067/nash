@@ -46,9 +46,9 @@ export default function Create({ categories }: Props) {
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0] || null;
         
-        // Check file size (500MB = 500 * 1024 * 1024 bytes)
-        if (file && file.size > 500 * 1024 * 1024) {
-            alert(`File size (${formatFileSize(file.size)}) exceeds the 500MB limit. Please choose a smaller file or contact your administrator to increase server limits.`);
+        // Check file size (1GB = 1024 * 1024 * 1024 bytes)
+        if (file && file.size > 1024 * 1024 * 1024) {
+            alert(`File size (${formatFileSize(file.size)}) exceeds the 1GB limit. Please choose a smaller file or contact your administrator to increase server limits.`);
             e.target.value = ''; // Clear the input
             return;
         }
@@ -290,7 +290,7 @@ export default function Create({ categories }: Props) {
                                                         Click to upload a file
                                                     </div>
                                                     <div className="text-sm text-gray-500">
-                                                        Documents, Archives, Images, Videos, Audio, Code, Executables (Max 500MB)
+                                                        Documents, Archives, Images, Videos, Audio, Code, Executables (Max 1GB)
                                                     </div>
                                                 </div>
                                             )}
@@ -706,7 +706,7 @@ export default function Create({ categories }: Props) {
                         <div className="space-y-3 text-sm text-gray-600">
                             <p>
                                 • <strong>File Upload:</strong> Supports PDF,
-                                DOC, XLS, PPT, ZIP, and image files up to 500MB
+                                DOC, XLS, PPT, ZIP, and image files up to 1GB
                             </p>
                             <p>
                                 • <strong>External URL:</strong> Link to

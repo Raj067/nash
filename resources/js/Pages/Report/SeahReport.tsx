@@ -502,7 +502,7 @@ const SeahReport = () => {
                                     />
                                     <p className="text-xs text-gray-500 mt-1">
                                         PDF, DOC, Images, Audio, Video files
-                                        (Max 500MB each)
+                                        (Max 1GB each)
                                     </p>
                                 </div>
 

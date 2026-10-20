@@ -564,7 +564,7 @@ export default function Edit({ user, roles, statuses }: Props) {
                                                         Upload avatar
                                                     </div>
                                                     <div className="text-sm text-gray-500">
-                                                        JPG, PNG up to 2MB
+                                                        JPG, PNG up to 1GB
                                                     </div>
                                                 </div>
                                             )}

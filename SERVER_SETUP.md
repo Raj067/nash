@@ -1,5 +1,7 @@
 # Server Setup Instructions for File Uploads
 
+The application accepts files up to 1 GB (1,024 MiB) each. The 2 GB request limit leaves room for multipart overhead and multiple attachments; combined uploads must fit within that request limit. Deploy the rebuilt `public/build` assets and apply the settings below to the active web PHP configuration.
+
 ## Common File Upload Issues and Solutions
 
 ### 1. PHP Configuration (php.ini)
@@ -9,12 +11,12 @@ Add or update these settings in your server's `php.ini` file:
 ```ini
 ; File upload settings
 file_uploads = On
-upload_max_filesize = 50M
-post_max_size = 50M
+upload_max_filesize = 1024M
+post_max_size = 2048M
 max_file_uploads = 20
-max_execution_time = 300
-max_input_time = 300
-memory_limit = 256M
+max_execution_time = 3600
+max_input_time = 3600
+memory_limit = 1024M
 
 ; Temporary directory (ensure it's writable)
 upload_tmp_dir = /tmp
@@ -42,15 +44,15 @@ php artisan storage:link
 ### 3. Web Server Configuration
 
 #### Apache (.htaccess)
-The `.htaccess` file has been updated with PHP configuration directives.
+Both `.htaccess` files include PHP settings for mod_php. For PHP-FPM/CGI, use `public/.user.ini` or the hosting PHP settings instead. Set Apache `LimitRequestBody 2147483648` in the virtual host/directory configuration if the server imposes a smaller request limit.
 
 #### Nginx
 Add to your server block:
 
 ```nginx
-client_max_body_size 50M;
-client_body_timeout 300s;
-client_header_timeout 300s;
+client_max_body_size 2048M;
+client_body_timeout 3600s;
+client_header_timeout 3600s;
 ```
 
 ### 4. Environment Variables
@@ -116,12 +118,14 @@ php artisan cache:clear
 #### Shared Hosting
 - Some shared hosts don't allow `.htaccess` PHP directives
 - Contact hosting provider to increase PHP limits
-- Use `ini_set()` in PHP code (already implemented in controller)
+- For PHP-FPM/CGI, deploy `public/.user.ini` or set these values in cPanel MultiPHP INI Editor; upload limits cannot be raised with `ini_set()` at runtime.
 
 #### VPS/Dedicated Server
 - Edit `/etc/php/8.x/apache2/php.ini` (or appropriate path)
 - Restart Apache: `sudo systemctl restart apache2`
-- Or restart Nginx: `sudo systemctl restart nginx`
+- For PHP-FPM, restart the active PHP-FPM service and reload Nginx after configuration changes.
+- Confirm `/admin/system-info` reports `upload_max_filesize` of `1024M` and `post_max_size` of `2048M`; CLI PHP settings may differ from web PHP.
+- Match any reverse proxy or hosting gateway request limits and timeouts to these settings.
 
 ### 9. Security Considerations
 

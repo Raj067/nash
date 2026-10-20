@@ -425,7 +425,7 @@ export default function ProfileIndex({ user, mustVerifyEmail, status }: Props) {
                                                     Upload new picture
                                                 </div>
                                                 <div className="text-sm text-gray-500">
-                                                    JPG, PNG up to 2MB
+                                                    JPG, PNG up to 1GB
                                                 </div>
                                             </div>
                                         </label>

@@ -583,7 +583,7 @@ export default function Create({ categories }: Props) {
                                                         Upload featured image
                                                     </div>
                                                     <div className="text-sm text-gray-500">
-                                                        JPG, PNG, GIF up to 5MB
+                                                        JPG, PNG, GIF up to 1GB
                                                     </div>
                                                 </div>
                                             )}

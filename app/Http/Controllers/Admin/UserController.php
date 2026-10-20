@@ -105,7 +105,7 @@ class UserController extends Controller
             'role' => 'required|string|in:' . implode(',', array_keys(User::getRoles())),
             'status' => 'required|string|in:' . implode(',', array_keys(User::getStatuses())),
             'phone' => 'nullable|string|max:20',
-            'avatar' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // 2MB
+            'avatar' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:1048576', // 1GB
         ]);
 
         // Handle avatar upload
@@ -167,7 +167,7 @@ class UserController extends Controller
             'role' => 'required|string|in:' . implode(',', array_keys(User::getRoles())),
             'status' => 'required|string|in:' . implode(',', array_keys(User::getStatuses())),
             'phone' => 'nullable|string|max:20',
-            'avatar' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // 2MB
+            'avatar' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:1048576', // 1GB
         ]);
 
         // Handle avatar upload
