@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Document;
 use Inertia\Inertia;
 use App\Services\SeoService;
+use App\Services\PublicFileResponse;
 
 class DocumentController extends Controller
 {
@@ -129,9 +130,10 @@ class DocumentController extends Controller
             }
             
             // Return file download with proper headers
-            return response()->file($filePath, [
-                'Content-Disposition' => 'inline; filename="' . basename($document->file_path) . '"',
-            ]);
+            return app(PublicFileResponse::class)->make(
+                $filePath,
+                '/storage/'.ltrim($document->file_path, '/')
+            );
         }
     }
 

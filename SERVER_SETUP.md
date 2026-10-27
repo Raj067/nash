@@ -43,6 +43,73 @@ php artisan storage:link
 
 ### 3. Web Server Configuration
 
+#### LiteSpeed homepage HTTP 500: asset preload headers
+
+On 23 October 2026, the homepage returned LiteSpeed's HTTP 500 page while
+Laravel could render the full homepage successfully through its HTTP kernel in
+CLI. The normal homepage emitted a 5,165-byte `Link` header containing Vite
+asset preload hints. Its Inertia JSON response worked, as did replaying the
+same rendered HTML without Laravel's response headers. A temporary standalone
+PHP probe reproduced HTTP 500 with a large `Link` header and HTTP 200 with a
+smaller one, isolating the failure to the hosting response-header allowance.
+The exact server-configured limit was not accessible to the hosting user.
+
+`bootstrap/app.php` now uses
+`AddLinkHeadersForPreloadedAssets::using(10)` to bound these optional hints.
+Vite's HTML asset tags remain available for normal browser loading. This change
+was also applied to the live server, reducing its Link header line to 889 bytes.
+The homepage, About page, and Databases page returned HTTP 200, and the homepage
+rendered successfully in Chrome. No document records or uploaded files were
+changed. Temporary diagnostic endpoints were removed.
+
+The original server bootstrap file was backed up outside the document root at
+`/tmp/nacp-bootstrap-app-20261023.*` (a unique mktemp filename). Keep the middleware limit when
+redeploying this project. No frontend rebuild is required for this PHP change.
+
+#### DirectAdmin / LiteSpeed (nacp.go.tz)
+
+On 22 October 2026, the live `/admin/system-info` endpoint confirmed
+`upload_max_filesize=1024M`, `post_max_size=2048M`, and writable temporary and
+storage directories. The domain's LiteSpeed error log recorded:
+
+```text
+Request body size: 564829362 is too big!
+```
+
+This rejects the approximately 539 MiB request before PHP or Laravel handles it.
+Increasing the application's validation limit or PHP settings again will not fix
+this web-server rejection. The exact configured LiteSpeed cap was not visible in
+the hosting user's DirectAdmin controls.
+
+The hosting administrator must set the effective LiteSpeed request-body limit
+for `nacp.go.tz` to `2048M`, matching PHP's request limit. In LiteSpeed WebAdmin,
+the setting is **Server Configuration > Tuning > Request/Response > Max Request
+Body Size (bytes)** (`2147483648` bytes). Prefer a domain-specific configuration
+where supported; LiteSpeed also documents this virtual-host directive:
+
+```apache
+<IfModule LiteSpeed>
+    MaxReqBodySize 2048M
+</IfModule>
+```
+
+Apply this in the server's persistent virtual-host configuration, rather than
+adding it to the project's `.htaccess`. Validate the configuration, perform a
+graceful LiteSpeed restart, and retry the original upload to verify the fix.
+The server change and a successful retry have not yet been verified.
+
+Hosting support request:
+
+> Please raise the effective LiteSpeed Max Request Body Size for nacp.go.tz on
+> vda7100.is.cc to 2048M and apply the change with a graceful restart. PHP already
+> reports upload_max_filesize=1024M and post_max_size=2048M. The domain error log
+> rejects our upload with "Request body size: 564829362 is too big!". Please
+> check both the server-level cap and any virtual-host override, and preserve
+> the change across DirectAdmin configuration rebuilds.
+
+References: [LiteSpeed request-body tuning](https://www.litespeedtech.com/docs/webserver/config/tuning#maxReqBodySize)
+and [virtual-host MaxReqBodySize](https://docs.litespeedtech.com/lsws/configuration/#maxreqbodysize).
+
 #### Apache (.htaccess)
 Both `.htaccess` files include PHP settings for mod_php. For PHP-FPM/CGI, use `public/.user.ini` or the hosting PHP settings instead. Set Apache `LimitRequestBody 2147483648` in the virtual host/directory configuration if the server imposes a smaller request limit.
 

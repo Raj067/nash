@@ -14,7 +14,8 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->web(append: [
             \App\Http\Middleware\HandleInertiaRequests::class,
-            \Illuminate\Http\Middleware\AddLinkHeadersForPreloadedAssets::class,
+            // Keep optional preload hints within shared hosting response-header limits.
+            \Illuminate\Http\Middleware\AddLinkHeadersForPreloadedAssets::using(10),
             \App\Http\Middleware\SeoMiddleware::class,
         ]);
 

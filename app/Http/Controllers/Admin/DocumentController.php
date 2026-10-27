@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Storage;
+use App\Services\PublicFileResponse;
 
 class DocumentController extends Controller
 {
@@ -477,27 +478,27 @@ class DocumentController extends Controller
 
             if (file_exists($publicPath)) {
                 $document->increment('download_count');
-                return response()->file($publicPath, [
-                    'Content-Disposition' => 'inline; filename="' . basename($publicPath) . '"',
-                ]);
+                return app(PublicFileResponse::class)->make($publicPath, $filePath);
             }
         }
 
         // Check if it's an uploaded file in storage
         if (Storage::disk('public')->exists($filePath)) {
             $document->increment('download_count');
-            return response()->file(Storage::disk('public')->path($filePath), [
-                'Content-Disposition' => 'inline; filename="' . basename($filePath) . '"',
-            ]);
+            return app(PublicFileResponse::class)->make(
+                Storage::disk('public')->path($filePath),
+                '/storage/'.ltrim($filePath, '/')
+            );
         }
 
         // Try without leading slash for storage files
         $cleanPath = ltrim($filePath, '/');
         if (Storage::disk('public')->exists($cleanPath)) {
             $document->increment('download_count');
-            return response()->file(Storage::disk('public')->path($cleanPath), [
-                'Content-Disposition' => 'inline; filename="' . basename($cleanPath) . '"',
-            ]);
+            return app(PublicFileResponse::class)->make(
+                Storage::disk('public')->path($cleanPath),
+                '/storage/'.$cleanPath
+            );
         }
 
         return redirect()->back()->with('error', 'File not found on server. Path: ' . $filePath);
